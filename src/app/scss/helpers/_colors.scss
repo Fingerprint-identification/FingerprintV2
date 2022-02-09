@@ -1,36 +1,20 @@
-/* 
-    Delete or Discrad => $s-light-gray
-    Save, Add , icons , a:hover , active => $p-pink
-    main (a), header, th, td => $s-black
-    sub (a) => $s-dark-gray
-*/
-
-// Border color
-$border-color: #eff0f1;
-
-// background for input, tables and body
-$secondary-background: #f8f8f9;
-
-$p-cyan: #13c9ca;
-$p-yellow:  #ffbc58;
-$p-pink: #ff8084;
-$s-light-gray: #a5a5a5;
-$s-light2-gray: #f8f8f9;
-$s-dark-gray: #898989;
-$s-main-black: #000;
-$s-black: #313131;
-$s-white: #fff;
-$g-success-color: #81ba00 ;
+$main-color: rgb(52 49 138);
+$main-color-light: rgb(92 91 153);
+$main-color-brightness: rgb(115 128 242);
+$gray-color: rgb(143 143 143);
+$gray-color-light: rgb(112, 112, 112);
+$gray-color-brightness: rgba(243, 243, 243, 0.56);
+$shadow-color: rgba(143, 143, 143, 0.28);
+$black: black;
+$white: white;
 $custom-theme-colors: (
-  "p-cyan": $p-cyan,
-  "p-yellow": $p-yellow,
-  "p-pink": $p-pink,
-  "s-light-gray": $s-light-gray,
-  "s-light2-gray": $s-light2-gray,
-  "s-dark-gray": $s-dark-gray,
-  "s-black": $s-black,
-  "s-white": $s-white,
-  "secondary-background": $secondary-background,
-  "g-success-color": $g-success-color,
+  "b-blue": $main-color,
+  "b-light-blue": $main-color-light,
+  "b-brightness-blue": $main-color-brightness,
+  "s-gray": $gray-color,
+  "s-light-gray": $gray-color-light,
+  "s-brigthness-gray": $gray-color-brightness,
+  "s-dark-gray": $shadow-color,
+  "s-black": $black,
+  "s-white": $white,
 );
-
