@@ -9,8 +9,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './Components/home/home.component';
 import { DeviceComponent } from './Components/device/device.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 
 
 @NgModule({
@@ -18,8 +16,6 @@ import { FooterComponent } from '../../components/footer/footer.component';
     HomeComponent,
     DeviceComponent,
     HomePageComponent,
-    NavbarComponent,
-    FooterComponent
   ],
   imports: [
     CommonModule,

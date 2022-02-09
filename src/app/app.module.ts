@@ -32,10 +32,16 @@ import { ManagerGuard } from './core/guard/manager.guard';
 import { UserGuard } from './core/guard/user.guard';
 import { TokenIntercepterService } from './core/intercepters/token.service';
 
+/*  components import */
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

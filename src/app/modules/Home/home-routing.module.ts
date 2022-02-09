@@ -12,27 +12,16 @@ import { HomePageComponent } from './Pages/home-page/home-page.component';
 
 const routes: Routes = [
   {
-    path: 'Home-page',
-    component: HomePageComponent,
-    children: [
-      {
-        path: 'Device',
-        component: DeviceComponent
-      },
-      {
-        path: 'Public',
-        component: HomeComponent
-      },
-      {
-        path: '**',
-        redirectTo: 'Home-page'
-      },
-    ]
-
+    path: 'Public',
+    component: HomeComponent,
+  },
+  {
+    path: 'Device',
+    component: DeviceComponent
   },
   {
     path: '',
-    redirectTo: 'Home-page',
+    redirectTo: 'Public',
     pathMatch: 'full'
   },
   {

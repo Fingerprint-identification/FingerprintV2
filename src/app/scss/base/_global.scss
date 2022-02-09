@@ -1,3 +1,31 @@
+/* import colors and mixins*/
+@use "~../../../../scss/helpers/colors" as *;
+@use "~../../../../scss/helpers/mixins" as *;
+
+@include fonts;
+
 * {
   box-sizing: border-box;
+}
+body {
+  // font-family: "SFUI" !important;
+  font-family: "SFUI" !important;
+  height: 2000px;
+}
+a {
+  text-decoration: none !important;
+}
+.btn {
+  background-color: $main-color-light !important;
+  color: $white;
+  width: 11.563rem;
+  height: 3.25rem;
+  border-radius: 2.625rem !important;
+  border: none !important;
+}
+.section-padding{
+  padding: 0px 10rem;
+}
+.section-margin{
+  margin-top: 3.25rem !important;
 }
