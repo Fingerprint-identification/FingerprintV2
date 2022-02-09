@@ -1,5 +1,3 @@
-
-
 <!-- Banner section -->
 <section class="banner section-margin" [ngClass]="banner_margin_bottom ? 'banner-margin-bottom' : ''" >
     <div class="container-fluid">
@@ -10,7 +8,7 @@
                     <h1 class="banner-left-text-h1">
                         Finding a person Now is Easy
                     </h1>
-                    <p class="banner-left-text-p">
+                    <p class="banner-left-text-p text-s-gray">
                         Fingerprint Authentication is a service that use fingerprint as a unique ID for you. With
                         service
                         you can find a person in short time or help you in emergency situations.
@@ -18,13 +16,13 @@
                     <!-- left half contains banner search box -->
                     <div class="banner-left-text-form">
                         <img src="../../../assets/icons/Icon material-location-searching.svg" alt="">
-                        <div class="search-box-div">
+                        <div class="search-box-div bg-s-white">
                             <input type="search" class="form-control" placeholder="Ismailia, second area"
                                 aria-label="Search" />
                             <ul class="search-result-ul" *ngIf="devices.length != 0">
                                 <li class="search-result-item-li" *ngFor="let device of devices">
-                                    <p class="search-result-item-li-address-p">{{ device.address }} </p>
-                                    <p class="search-result-item-li-street-p"> {{ device.streat }} </p>
+                                    <p class="search-result-item-li-address-p text-s-black">{{ device.address }} </p>
+                                    <p class="search-result-item-li-street-p text-s-gray"> {{ device.streat }} </p>
                                 </li>
                             </ul>
                         </div>
@@ -46,7 +44,7 @@
         <!-- Title row -->
         <div class="row">
             <div class="col-12">
-                <div class="services-title-div">
+                <div class="services-title-div text-b-light-blue">
                     <h1 class="services-title-div-h1">
                         Service Steps
                     </h1>
@@ -61,7 +59,7 @@
                         <div class="step-in-right-direction-img">
                             <img src="../../../assets/steps/Hidden-bro.svg" alt="">
                         </div>
-                        <div class="step-in-right-direction-p">
+                        <div class="step-in-right-direction-p text-s-black">
                             <p>
                                 First, <span> go </span> to the nearest office in your city then <span> fill in </span> your data and fingerprint. You
                                 can

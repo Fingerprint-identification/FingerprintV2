@@ -1,0 +1,51 @@
+/*
+  ==========================================================================
+                    Footer
+  =========================================================================
+*/
+/* import colors and mixins*/
+@use "~../../../../scss/helpers/colors" as *;
+@use "~../../../../scss/helpers/mixins" as *;
+
+footer {
+  padding: 6.25rem 12.1875rem;
+  margin-top: 20rem;
+  font-family: "BalooBhaijaan2Regular";
+  font-size: 1.6rem;
+  ul {
+    list-style: none;
+    float: right;
+  }
+  li {
+    &:not(:first-child) {
+      margin-top: 1.75rem;
+    }
+    a {
+      color: $white;
+    }
+  }
+  .form-inside-footer {
+    text-align: right;
+    input {
+      width: 80%;
+      background-color: transparent;
+      color: $gray-color-brightness;
+      font-size: 1.5rem;
+      border: none;
+      border-bottom: 2px solid $gray-color-light;
+      outline: none;
+    }
+    .submit-btn-inside-footer {
+      width: 80%;
+      border-radius: 0 !important;
+      background-color: $white !important;
+      // color: var(--main-color);
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+  }
+  .copyright {
+    position: relative;
+    top: 7rem;
+  }
+}
