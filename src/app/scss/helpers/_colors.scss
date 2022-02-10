@@ -1,6 +1,7 @@
 $main-color: rgb(52 49 138);
 $main-color-light: rgb(92 91 153);
 $main-color-brightness: rgb(115 128 242);
+$nav-dropdown: #F3F3F3;
 $gray-color: rgb(143 143 143);
 $gray-color-light: rgb(112, 112, 112);
 $gray-color-brightness: rgba(243, 243, 243, 0.56);
@@ -16,6 +17,7 @@ $custom-theme-colors: (
   "s-light-gray": $gray-color-light,
   "s-brigthness-gray": $gray-color-brightness,
   "s-dark-gray": $shadow-color,
+  "s-nav-dropdown": $nav-dropdown,
   "s-black": $black,
   "s-white": $white,
 );

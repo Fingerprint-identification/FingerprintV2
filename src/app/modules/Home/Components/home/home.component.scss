@@ -21,36 +21,36 @@
 */
 
 .banner {
-  margin-left: 10rem;
+  margin-left: 11rem;
   .banner-left-text {
     text-align: left;
     margin-top: 5rem;
     .banner-left-text-h1 {
-      font-size: 3.6875rem;
+      font-size: 59px;
       font-family: "SFUIRegular";
       font-weight: 500;
       line-height: 4.6875rem;
-      width: 28.5625rem;
-      height: 9.0625rem;
+      width: 457px;
+      height: 145px;
     }
     .banner-left-text-p {
-      width: 44.75rem;
-      height: 14.25rem;
+      width: 716px;
+      height: 228px;
       margin-top: 1.4375rem;
-      font-size: 2.1875rem;
+      font-size: 35px;
       line-height: 2.625rem;
       letter-spacing: -0.052rem;
       font-family: "BalooBhaijaan2Regular";
     }
     .banner-left-text-form {
-      width: 45.6rem;
+      width: 784px;
       img {
         position: absolute;
-        top: 42.7rem;
-        left: 12rem;
+        top: 50.7rem;
+        left: 13rem;
       }
       input {
-        width: 45.6rem;
+        width: 100%;
         height: 4.6rem;
         color: var(--black);
         border-radius: 1rem;
@@ -67,15 +67,13 @@
         }
       }
       .search-box-div {
-        // background: $white;
-        width: 45.6rem;
         border: 1px solid $main-color-light;
-        border-radius: 1rem;
         box-shadow: 0 0 1.6rem $shadow-color;
         margin-bottom: 5.3125rem;
-
+        width: 784px;
+        border-radius: 23px;
         .search-result-ul {
-          width: 45.6rem;
+          width: 100%;
           background: transparent;
           position: relative;
           list-style: none;
@@ -83,7 +81,7 @@
 
           .search-result-item-li {
             margin-bottom: 0.375rem;
-            width: 42.5rem;
+            width: 100%;
             padding-top: 0.8125rem;
             &:not(:last-child) {
               border-bottom: 1px solid $main-color-light;
@@ -103,10 +101,16 @@
       }
     }
   }
+  .banner-right-img {
+    width: 785.19px;
+    height: 544.07px;
+  }
   .banner-right-img img {
-    transform: perspective(1000px) rotateX(0deg) rotateY(-16deg) rotateZ(1deg);
-    width: 48.75625rem;
-    height: 36.83125rem;
+    //   transform: perspective(1200px) rotateX(0deg) rotateY(-16deg) rotateZ(1deg);
+    //  max-width: 100%;
+    transform: perspective(900px) rotateX(0deg) rotateY(-10deg) rotateZ(-0deg);
+    max-width: 100%;
+    margin-top: -34px;
   }
 }
 
@@ -117,21 +121,22 @@
 */
 .Service-Steps-section {
   .services-title-div {
-    width: 22.8125rem;
-    height: 4.375rem;
+    width: 100%;
     margin-bottom: 2rem;
     font-size: 3.6875rem;
     font-family: "SFUIRegular";
+    .services-title-div-h1 {
+      font-size: 59px;
+    }
   }
   span {
     color: var(--main-color);
   }
   .step-in-right-direction,
   .step-in-left-direction {
-    border: 3px solid $main-color-brightness;
-    box-shadow: 0 0 1.6rem var(--shadow-color);
-    border-left-width: 3px;
-    width: 77rem;
+    border: 5px solid $main-color-brightness;
+    box-shadow: 0 0 1.6rem $shadow-color;
+    width: 1777px;
     min-height: 24.4375rem;
     display: flex;
 
@@ -140,6 +145,7 @@
       position: relative;
       img {
         max-width: 100%;
+        max-height: 100%;
         position: absolute;
       }
     }
@@ -147,8 +153,8 @@
     .step-in-left-direction-p {
       display: inline-block;
       font-family: "BalooBhaijaan2Regular";
-      width: 77rem;
-      font-size: 2.625rem;
+      width: 1158px;
+      font-size: 42px;
       position: relative;
       p {
         line-height: 4.5625rem;
@@ -156,56 +162,36 @@
     }
   }
   .step-in-right-direction {
-    width: 107.063rem;
     border-bottom-right-radius: 4.375rem;
     border-top-right-radius: 4.375rem;
     margin-left: -1rem;
     border-left: none;
     padding-right: 0.813rem;
-    padding-left: 4.5rem !important;
     .step-in-right-direction-img {
-      width: 17.8625rem;
+      width: 312px !important;
       display: inline-block;
-      height: 12.075rem;
+      height: 262.45px !important;
       img {
         top: -1rem;
       }
     }
-    &.first-step .step-in-right-direction-img {
-      width: 17.8625rem !important;
-      display: inline-block;
-      height: 12.075rem !important;
-    }
-    &.third-step .step-in-right-direction-img {
-      width: 19.5rem !important;
-      display: inline-block;
-      height: 16.4rem !important;
-    }
   }
+
   .step-in-left-direction {
-    width: 107.375rem;
     border-bottom-left-radius: 4.375rem;
     border-top-left-radius: 4.375rem;
     border-right: none;
-    padding-left: 3rem;
-    margin-left: 6.7rem;
+    margin-left: 2.7rem;
     .step-in-left-direction-img {
-      width: 24.2375rem;
+      width: 387.78px;
       display: inline-block;
-      height: 19.75625rem;
-      img {
-        top: -4rem;
-      }
-    }
-    &.second-step .step-in-left-direction-img {
-      width: 24.2375rem !important;
-      display: inline-block;
-      height: 19.75625rem !important;
+      height: 316.11px;
     }
   }
   .step-collection-div {
     min-height: 14.5625rem;
     display: flex;
     align-items: center;
+    padding: 0px 50px 0 150px;
   }
 }
