@@ -21,13 +21,13 @@
 */
 
 .banner {
-  margin-left: 11rem;
+  //margin-left: 8rem;
   @media (max-width: 1399.98px) {
-    margin-left: 94px;
+    //margin-left: 94px;
   }
   .banner-left-text {
     text-align: left;
-    margin-top: 18px;
+    margin-left: 8rem;
     @media (max-width: 991.98px) {
       margin-top: 72px;
     }
@@ -82,7 +82,6 @@
       @media (max-width: 575.98px) {
         width: 716px;
         height: 228px;
-
         font-size: 35px;
       }
 
@@ -95,14 +94,14 @@
       }
       // Medium devices (tablets, less than 992px)
       @media (min-width: 767.98px) and (max-width: 991.98px) {
-        width: 545px;
+        max-width: 566px;
         height: 228px;
         font-size: 26px;
       }
 
       // Large devices (desktops, less than 1200px)
       @media (min-width: 991.98px) and (max-width: 1199.98px) {
-        width: 566px;
+        max-width: 100%;
         height: 228px;
         font-size: 27px;
       }
@@ -120,7 +119,7 @@
       img {
         position: absolute;
         left: 21px;
-top: 21px;
+        top: 21px;
       }
       input {
         width: 100%;
@@ -147,7 +146,7 @@ top: 21px;
         border-radius: 23px;
 
         // X-Large devices (large desktops, less than 1400px)
-        @media  (max-width: 1399.98px) {
+        @media (max-width: 1399.98px) {
           width: 100%;
         }
         .search-result-ul {
@@ -180,40 +179,48 @@ top: 21px;
     }
   }
   .banner-right-img {
-    width: 785.19px;
-    height: 544.07px;
+    width: 92%;
+    //height: 544.07px;
+
     // X-Small devices (portrait phones, less than 576px)
     @media (max-width: 575.98px) {
-      width: 785.19px;
+      //width: 785.19px;
     }
 
     // Small devices (landscape phones, less than 768px)
     @media (min-width: 575.98px) and (max-width: 767.98px) {
-      width: 785.19px;
+      //width: 785.19px;
     }
     // Medium devices (tablets, less than 992px)
     @media (min-width: 767.98px) and (max-width: 991.98px) {
-      width: 785.19px;
+      float: unset;
+      width: 577.07px;
+      margin: auto;
     }
 
     // Large devices (desktops, less than 1200px)
     @media (min-width: 991.98px) and (max-width: 1199.98px) {
-      width: 785.19px;
+     // width: 785.19px;
     }
 
     // X-Large devices (large desktops, less than 1400px)
     @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-      width: 487.19px;
-      margin-top: 0px;
-      margin-left: 131px;
+      //width: 487.19px;
+     // margin-top: 0px;
+      //margin-left: 0;
+
+    }
+    @media (min-width: 1399.98px) {
+      float: right;
     }
   }
   .banner-right-img img {
     //   transform: perspective(1200px) rotateX(0deg) rotateY(-16deg) rotateZ(1deg);
     //  max-width: 100%;
-    transform: perspective(900px) rotateX(0deg) rotateY(-10deg) rotateZ(-0deg);
+    // transform: perspective(900px) rotateX(0deg) rotateY(-10deg) rotateZ(-0deg);
+    transform: perspective(1600px) rotateX(0deg) rotateY(-20deg) rotateZ(0deg);
     max-width: 100%;
-    margin-top: -34px;
+    margin-top: -85px;
   }
 }
 

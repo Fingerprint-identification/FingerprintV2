@@ -15,7 +15,7 @@
 @include fonts;
 
 .navbar {
-  padding: 83px 0 0 97.3333px;
+  padding: 78px 0 0 41.333px;
   position: relative;
   // X-Large devices (large desktops, less than 1400px)
   @media (max-width: 1399.98px) {
@@ -165,9 +165,9 @@
   }
   .btn.nav-login-button {
     width: 313px;
-    padding: 15px;
+    padding: 20px;
     font-size: 30px;
-    margin-right: 10px !important;
+    margin-right: 50px !important;
     font-family: "SFUI";
     box-shadow: 0 0 1.6rem $shadow-color;
     // X-Small devices (portrait phones, less than 576px)
