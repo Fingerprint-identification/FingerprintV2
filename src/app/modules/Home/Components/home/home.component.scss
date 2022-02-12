@@ -25,16 +25,21 @@
   @media (max-width: 1399.98px) {
     //margin-left: 94px;
   }
+  @media (max-width: 991.98px) {
+    &.section-margin {
+      margin-top: 56px !important;
+    }
+  }
   .banner-left-text {
     text-align: left;
     margin-left: 8rem;
     @media (max-width: 991.98px) {
-      margin-top: 72px;
+      margin-left: 90px;
+      //margin-top: 72px;
     }
     .banner-left-text-h1 {
       font-size: 59px;
       width: 457px;
-      height: 145px;
       font-family: "SFUIRegular";
       font-weight: 500;
       line-height: 4.6875rem;
@@ -42,20 +47,18 @@
       // X-Small devices (portrait phones, less than 576px)
       @media (max-width: 575.98px) {
         width: 267px;
-        height: 145px;
-        font-size: 36px;
+        font-size: 37px;
+        line-height: 3.688rem;
       }
 
       // Small devices (landscape phones, less than 768px)
       @media (min-width: 575.98px) and (max-width: 767.98px) {
         width: 304px;
-        height: 145px;
         font-size: 40px;
       }
       // Medium devices (tablets, less than 992px)
       @media (min-width: 767.98px) and (max-width: 991.98px) {
         width: 405px;
-        height: 145px;
         font-size: 44px;
       }
 
@@ -72,7 +75,6 @@
     }
     .banner-left-text-p {
       width: 716px;
-      height: 228px;
       margin-top: 1.4375rem;
       font-size: 35px;
       line-height: 2.625rem;
@@ -81,22 +83,19 @@
 
       // X-Small devices (portrait phones, less than 576px)
       @media (max-width: 575.98px) {
-        width: 716px;
-        height: 228px;
-        font-size: 35px;
+        width: 432px;
+        font-size: 22px;
       }
 
       // Small devices (landscape phones, less than 768px)
       @media (min-width: 575.98px) and (max-width: 767.98px) {
-        width: 716px;
-        height: 228px;
+        width: 478px;
         margin-top: 23px;
-        font-size: 35px;
+        font-size: 22px;
       }
       // Medium devices (tablets, less than 992px)
       @media (min-width: 767.98px) and (max-width: 991.98px) {
         max-width: 566px;
-        height: 228px;
         font-size: 26px;
       }
 
@@ -203,15 +202,14 @@
 
     // Large devices (desktops, less than 1200px)
     @media (min-width: 991.98px) and (max-width: 1199.98px) {
-     // width: 785.19px;
+      // width: 785.19px;
     }
 
     // X-Large devices (large desktops, less than 1400px)
     @media (min-width: 1199.98px) and (max-width: 1399.98px) {
       //width: 487.19px;
-     // margin-top: 0px;
+      // margin-top: 0px;
       //margin-left: 0;
-
     }
     // XX-Large devices (more than 1400px)
     @media (min-width: 1399.98px) {
@@ -227,7 +225,7 @@
     max-width: 100%;
     margin-top: -85px;
     position: relative;
-z-index: -20;
+    z-index: -20;
   }
 }
 
