@@ -6,18 +6,18 @@
 */
   @font-face {
     font-family: "SFUI";
-    src: local("SFUI"),
-      url("../../../assets/fonts/San/SFUIText/SFUIText-Light.otf") format("opentype");
+    src:
+      url("/assets/fonts/San/SFUIText/SFUIText-Light.otf") format("opentype");
   }
   @font-face {
     font-family: "SFUIRegular";
-    src: local("SFUIRegular"),
-      url("../../../assets/fonts/San/SFUIDisplay/SFUIDisplay-Regular.otf")
+    src:
+      url("/assets/fonts/San/SFUIDisplay/SFUIDisplay-Regular.otf")
         format("opentype");
   }
   @font-face {
     font-family: "BalooBhaijaan2Regular";
-    src: local("BalooBhaijaan2Regular"),
-      url("../../../assets/fonts/San/Baloo/BalooBhaijaan2-VariableFont_wght.ttf");
+    src:
+      url("/assets/fonts/San/Baloo/BalooBhaijaan2-VariableFont_wght.ttf");
   }
 }
