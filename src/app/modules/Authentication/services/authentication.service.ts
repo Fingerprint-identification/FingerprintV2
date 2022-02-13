@@ -2,8 +2,9 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, map, Observable, tap } from "rxjs";
-import { User } from "../../../core/models/user";
 import { environment } from "src/environments/environment";
+import { User } from "../../../core/models/user";
+
 
 @Injectable({
   providedIn: "root",
