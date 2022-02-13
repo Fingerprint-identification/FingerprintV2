@@ -365,6 +365,7 @@
   =========================================================================
 */
 .Service-Steps-section {
+  position: relative;
   .services-title-div {
     width: 100%;
     margin-bottom: 2rem;
@@ -385,6 +386,7 @@
     width: 1658px;
     min-height: 20.438rem;
     display: flex;
+    background-color: $white !important;
     .step-in-left-direction-img,
     .step-in-right-direction-img {
       position: relative;
@@ -438,6 +440,30 @@
     display: flex;
     align-items: center;
     padding: 0px 0 0 116px;
+  }
+
+  .Ellipse {
+    position: absolute;
+    right: -200px;
+    top: 185px;
+    width: 610px;
+    height: 448px;
+    transform: rotate(48deg);
+    z-index: -999;
+  }
+  .Repeat6 {
+    position: absolute;
+    top: 479px;
+    width: 252px;
+    height: 309px;
+    left: 0;
+    z-index: -999;
+  }
+  .Repeat5 {
+    position: absolute;
+    right: 153px;
+    bottom: -211px;
+    z-index: -999;
   }
 }
 
