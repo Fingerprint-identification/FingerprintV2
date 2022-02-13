@@ -7,10 +7,13 @@
 * {
   box-sizing: border-box;
 }
+html{
+  overflow-x: hidden;
+}
 body {
   // font-family: "SFUI" !important;
   font-family: "SFUI" !important;
-  overflow-x: hidden;
+
 }
 a {
   text-decoration: none !important;
