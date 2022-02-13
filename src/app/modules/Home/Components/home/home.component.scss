@@ -45,6 +45,11 @@
       max-width: 100% !important;
       .now-is-easy-span {
         font-size: 39px;
+        // XX-Small devices (portrait phones, less than 576px)
+      @media (max-width: 375.98px) {
+        font-size: 18px !important;
+        line-height: 2rem !important;
+      }
         // Medium devices (tablets, less than 992px)
         @media (min-width: 767.98px) and (max-width: 991.98px) {
           font-size: 18px;
@@ -58,7 +63,7 @@
       // XX-Small devices (portrait phones, less than 576px)
       @media (max-width: 375.98px) {
         font-size: 20px !important;
-        line-height: 1rem !important;
+        line-height: 2rem !important;
       }
 
       // X-Small devices (portrait phones, less than 576px)
