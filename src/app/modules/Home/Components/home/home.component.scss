@@ -29,7 +29,7 @@
   .banner-left-text {
     text-align: left;
     margin-left: 98px;
-    text-align: justify;
+
     width: 70%;
     @media (min-width: 767.98px) and (max-width: 991.98px) {
       margin-left: 90px;
@@ -99,6 +99,7 @@
     }
     .banner-left-text-p {
       max-width: 100% !important;
+      text-align: justify;
       width: 615px;
       margin-top: 1.4375rem;
       font-size: 26px;
