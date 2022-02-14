@@ -16,6 +16,9 @@ footer {
   @media (max-width: 575.98px) {
     font-size: 15.6px;
   }
+  @media (max-width:375px) {
+    font-size: 12.6px;
+  }
 
   // Small devices (landscape phones, less than 768px)
   @media (min-width: 575.98px) and (max-width: 767.98px) {
@@ -88,6 +91,9 @@ footer {
       @media (max-width: 575.98px) {
         font-size: 15.6px;
       }
+      @media (max-width:375px) {
+        font-size: 12.6px;
+      }
 
       // Large devices (desktops, less than 1200px)
       @media (min-width: 991.98px) and (max-width: 1199.98px) {
@@ -120,6 +126,9 @@ footer {
       // X-Small devices (portrait phones, less than 576px)
       @media (max-width: 575.98px) {
         font-size: 15.6px;
+      }
+      @media (max-width:375px) {
+        font-size: 12.6px;
       }
       // Large devices (desktops, less than 1200px)
       @media (min-width: 991.98px) and (max-width: 1199.98px) {
