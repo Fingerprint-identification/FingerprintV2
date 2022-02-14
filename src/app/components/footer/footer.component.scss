@@ -8,7 +8,7 @@
 @use "~../../../../scss/helpers/mixins" as *;
 
 footer {
-  padding: 100px 43.2px;
+  padding: 100px 43.2px 15px 43.2px;
   margin-top: 216px;
   font-family: "BalooBhaijaan2Regular";
   font-size: 26.6px;
@@ -154,6 +154,6 @@ footer {
   }
   .copyright {
     position: relative;
-    top: 7rem;
+    top: 2rem;
   }
 }
