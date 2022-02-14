@@ -27,245 +27,78 @@
 */
 
 .banner {
+  /* banner properities */
   @media (max-width: 991.98px) {
     &.section-margin {
       margin-top: 56px !important;
     }
   }
   .banner-left-text {
-    text-align: left;
-    margin-left: 98px;
+    /* banner left part that contains search and heading */
     max-width: 607.25px !important;
     width: 70%;
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      margin-left: 90px;
-    }
-    @media (max-width: 767.98px) {
-      margin: 0 10% 10% 10% !important;
-    }
+    /* margin left for all section */
+    @include margin-content-left;
     .banner-left-text-h1 {
-      font-size: 59px;
-      width: 457px;
-      font-family: "SFUIRegular";
-      font-weight: 500;
-      line-height: 4.6875rem;
-      max-width: 100% !important;
-      .now-is-easy-span {
-        font-size: 39px;
-        // XX-Small devices (portrait phones, less than 576px)
-        @media (max-width: 375.98px) {
-          font-size: 18px !important;
-          line-height: 2rem !important;
-        }
-        // Medium devices (tablets, less than 992px)
-        @media (min-width: 767.98px) and (max-width: 991.98px) {
-          font-size: 18px;
-        }
-        @media (max-width: 767.98px) {
-          width: 267px;
-          font-size: 32px;
-        }
-      }
-      // XX-Small devices (portrait phones, less than 576px)
-      @media (max-width: 375.98px) {
-        font-size: 20px !important;
-        line-height: 2rem !important;
-      }
-
-      // X-Small devices (portrait phones, less than 576px)
-      @media (max-width: 575.98px) {
-        width: 267px;
-        font-size: 35px;
-        line-height: 2.688rem;
-      }
-
-      // Small devices (landscape phones, less than 768px)
-      @media (min-width: 575.98px) and (max-width: 767.98px) {
-        width: 100%;
-        font-size: 40px;
-        line-height: 2.9rem;
-      }
-      // Medium devices (tablets, less than 992px)
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
-        width: 208px;
-        font-size: 25px;
-        line-height: 2rem !important;
-      }
-
-      // Large devices (desktops, less than 1200px)
-      @media (min-width: 991.98px) and (max-width: 1199.98px) {
-        font-size: 44px;
-        max-width: 100%;
-      }
-
-      // X-Large devices (large desktops, less than 1400px)
-      @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-        font-size: 53px;
-      }
+      /* heading of the left part banner */
+      /* Heading properities */
+      @include Heading-size;
     }
     .banner-left-text-p {
-      max-width: 100% !important;
-      // text-align: justify;
-      width: 615px;
+      /* paragraph of the left part banner */
+      max-width: 615px;
       margin-top: 1.4375rem;
-      font-size: 26px;
-      line-height: 2.625rem;
-      letter-spacing: -0.052rem;
-      font-family: "BalooBhaijaan2Regular";
-
-      // XX-Small devices (portrait phones, less than 576px)
-      @media (max-width: 375.98px) {
-        font-size: 14px !important;
-        line-height: 1.625rem;
-      }
-      // X-Small devices (portrait phones, less than 576px)
-      @media (max-width: 575.98px) {
-        width: 100%;
-        font-size: 16px;
-        line-height: 1.625rem;
-      }
-
-      // Small devices (landscape phones, less than 768px)
-      @media (min-width: 575.98px) and (max-width: 767.98px) {
-        width: 478px;
-        margin-top: 23px;
-        font-size: 22px;
-        line-height: 1.3;
-      }
-      // Medium devices (tablets, less than 992px)
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
-        width: 100%;
-        font-size: 17px;
-        line-height: 1.5rem;
-      }
-
-      // Large devices (desktops, less than 1200px)
-      @media (min-width: 991.98px) and (max-width: 1199.98px) {
-        max-width: 100%;
-        height: 228px;
-        font-size: 20px;
-      }
-
-      // X-Large devices (large desktops, less than 1400px)
-      @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-        width: 100%;
-        height: 202px;
-        font-size: 24px;
-      }
+      /* Paragraph properities */
+      @include Paragraph-size;
     }
     .banner-left-text-form {
+      /* form search of the left part banner */
       position: relative;
       img {
+        /* img icon in form search of the left part banner */
         position: absolute;
-        left: 21px;
-        top: 21px;
-        width: 25px;
-        height: 25px;
-
-        // XX-Small devices (portrait phones, less than 576px)
-        @media (max-width: 375.98px) {
-          top: 13px !important;
-          width: 19px !important;
-          height: 19px !important;
-        }
-
-        @media (min-width: 767.8px) and (max-width: 991.98px) {
-          left: 21px;
-          top: 14px;
-        }
-        // Small devices (landscape phones, less than 768px)
-        @media (max-width: 767.98px) {
-          width: 21px;
-          height: 21px;
-          left: 26px;
-          top: 16px;
-        }
-        // Large devices (desktops, less than 1200px)
-        @media (min-width: 991.98px) and (max-width: 1199.98px) {
-          width: 24px;
-          height: 24px;
-          left: 26px;
-          top: 16px;
-        }
+        left: 24px;
+        top: 19px;
+        width: 30px;
+        height: 30px;
+        /* search icon properities */
+        @include search-icon-responsive;
       }
-      input {
-        width: 100%;
-        height: 64.6px;
-        color: $black;
-        border-radius: 1rem;
-        padding-left: 4rem;
-        font-size: 34px;
-        border: 1px solid $main-color-light;
-        box-shadow: 0 0 1.6rem $shadow-color;
-        border-top-color: transparent;
-        // XX-Small devices (portrait phones, less than 576px)
-        @media (max-width: 375.98px) {
-          font-size: 14px !important;
-          height: 40px !important;
-          padding-left: 3.1rem !important;
-        }
 
-        // Small devices (landscape phones, less than 768px)
-        @media (max-width: 767.98px) {
-          font-size: 20px;
-          height: 55px;
-        }
-        @media (min-width: 767.8px) and (max-width: 991.98px) {
-          height: 49.6px !important;
-          padding-left: 3rem;
-        }
-        // Large devices (desktops, less than 1200px)
-        @media (min-width: 991.98px) and (max-width: 1199.98px) {
-          height: 55px;
-          font-size: 21px;
-        }
-        &::placeholder {
-          font-size: 28px;
-          line-height: 3rem;
-          letter-spacing: -0.05125rem;
-          color: $gray-color;
-          text-align: left;
-
-          // XX-Small devices (portrait phones, less than 576px)
-          @media (max-width: 375.98px) {
-            font-size: 14px !important;
-          }
-
-          // Small devices (landscape phones, less than 768px)
-          @media (min-width: 767.98px) and (max-width: 991.98px) {
-            font-size: 19px;
-          }
-          // Small devices (landscape phones, less than 768px)
-          @media (max-width: 767.98px) {
-            font-size: 20px;
-          }
-          // Large devices (desktops, less than 1200px)
-          @media (min-width: 991.98px) and (max-width: 1199.98px) {
-            font-size: 26px;
-          }
-        }
-      }
       .search-box-div {
+        /* Div that contains search list of the left part banner */
         border: 2px solid $main-color-light;
         box-shadow: 0 0 1.6rem $shadow-color;
         margin-bottom: 5.3125rem;
         border-radius: 20px;
-        max-width: 100% !important;
-
-        // X-Large devices (large desktops, less than 1400px)
-        @media (max-width: 1399.98px) {
+        width: 100%;
+        input {
+          /* input icon in form search of the left part banner */
           width: 100%;
-        }
-        // Small devices (landscape phones, less than 768px)
-        @media (max-width: 767.98px) {
-          width: 478px;
-        }
-        // Medium devices (tablets, less than 992px)
-        @media (min-width: 767.98px) and (max-width: 991.98px) {
-          width: 100%;
-        }
+          height: 63.6px;
+          color: $black;
+          border-radius: 1rem;
+          padding-left: 4rem;
+          font-size: 34px;
+          border: 1px solid $main-color-light;
+          box-shadow: 0 0 1.6rem $shadow-color;
+          border-top-color: transparent;
+          /* input properities */
+          @include search-input-field;
 
+          &::placeholder {
+            /* input placeholder icon in form search of the left part banner */
+            font-size: 28px;
+            line-height: 3rem;
+            letter-spacing: -0.05125rem;
+            color: $gray-color;
+            text-align: left;
+            /* placeholder properities */
+            @include search-input-placeholder;
+          }
+        }
         .search-result-ul {
+          /* Ul in form search of the left part banner */
           width: 100%;
           background: transparent;
           position: relative;
@@ -273,8 +106,7 @@
           padding-left: 1rem;
 
           .search-result-item-li {
-            margin-bottom: 0.375rem;
-            line-height: 20px;
+            /* li in ul in form search of the left part banner */            //line-height: 20px;
             width: 100%;
             padding-top: 0.8125rem;
             &:not(:last-child) {
@@ -283,51 +115,18 @@
             .search-result-item-li-address-p {
               font-family: "SFUIRegular";
               font-size: 24px;
-
-              // XX-Small devices (portrait phones, less than 576px)
-              @media (max-width: 375.98px) {
-                font-size: 13px !important;
-              }
-              // Small devices (landscape phones, less than 768px)
-              @media (max-width: 991.98px) {
-                font-size: 20px;
-              }
-              // Large devices (desktops, less than 1200px)
-              @media (min-width: 991.98px) and (max-width: 1199.98px) {
-                font-size: 24px;
-              }
+              margin: 0;
+               /* Address paragraph properities */
+              @include search-address-p;
             }
             .search-result-item-li-street-p {
               font-family: "BalooBhaijaan2Regular";
               font-size: 20px;
-
-              // XX-Small devices (portrait phones, less than 576px)
-              @media (max-width: 375.98px) {
-                font-size: 13px !important;
-              }
-
-              // Small devices (landscape phones, less than 768px)
-              @media (max-width: 991.98px) {
-                font-size: 17px;
-              }
-              // Large devices (desktops, less than 1200px)
-              @media (min-width: 991.98px) and (max-width: 1199.98px) {
-                font-size: 19px;
-              }
+               /* Street paragraph properities */
+              @include search-street-p ;
             }
 
-            // XX-Small devices (portrait phones, less than 576px)
-            @media (max-width: 375.98px) {
-              line-height: 9px !important;
-            }
-            // Small devices (landscape phones, less than 768px)
-            @media (max-width: 991.98px) {
-              line-height: 13px;
-            }
-            // Large devices (desktops, less than 1200px)
-            @media (min-width: 991.98px) and (max-width: 1199.98px) {
-              line-height: 18px;
-            }
+
           }
         }
       }
@@ -383,18 +182,10 @@
       margin-bottom: 9rem;
     }
     .services-title-div-h1 {
-      font-size: 59px;
-      padding: 0px 99px !important;
-
-      @media (max-width: 575.98px) {
-        padding: 0px 54px !important;
-        font-size: 32px;
-      }
-       // XX-Small devices (portrait phones, less than 576px)
-       @media (max-width: 375.98px) {
-        padding: 0px 54px !important;
-        font-size: 30px;
-      }
+      // font-size: 59px;
+      //padding: 0px 99px !important;
+      @include margin-content-left;
+      @include Heading-size;
     }
   }
   span {
@@ -412,6 +203,7 @@
     @media (max-width: 767.98px) {
       border-bottom-right-radius: 2.375rem;
       border-top-right-radius: 2.375rem;
+      padding-right: 49px !important;
     }
     // Medium devices (tablets, less than 992px)
     @media (min-width: 767.98px) and (max-width: 991.98px) {
@@ -428,9 +220,9 @@
       }
       //Small devices (landscape phones, less than 768px)
       @media (max-width: 767.98px) {
-        top: -92px;
+        top: -74px;
         position: absolute;
-        left: -24px;
+        left: -64px;
       }
     }
   }
@@ -454,7 +246,7 @@
     }
     .step-collection-div {
       @media (max-width: 767.98px) {
-        padding: 0px 47px 0 47px !important;
+        padding: 0px 47px 0 0 !important;
       }
       .step-in-left-direction-img {
         width: 387.78px;
@@ -467,7 +259,7 @@
         // Small devices (landscape phones, less than 768px)
         @media (max-width: 767.98px) {
           right: -71px;
-          top: -108px;
+          top: -82px;
           position: absolute;
           //left: -24px;
         }
@@ -491,7 +283,8 @@
     // Small devices (landscape phones, less than 768px)
     @media (max-width: 767.98px) {
       width: 88%;
-      min-height: 10.5625rem !important;
+      // min-height: 10.5625rem !important;
+      min-height: 12.563rem !important;
     }
     // Medium devices (tablets, less than 992px)
     @media (min-width: 767.98px) and (max-width: 991.98px) {
@@ -508,15 +301,13 @@
     .step-in-right-direction-img {
       position: relative;
 
-
       // Small devices (landscape phones, less than 768px)
       @media (max-width: 767.98px) {
-        height: 148px !important;
-        top: -110px;
+        height: 118px !important;
         position: absolute;
       }
-       // XX-Small devices (portrait phones, less than 576px)
-       @media (max-width: 375.98px) {
+      // XX-Small devices (portrait phones, less than 576px)
+      @media (max-width: 375.98px) {
         height: 89px !important;
         top: -63px !important;
       }
@@ -544,62 +335,23 @@
     }
     .step-in-right-direction-p,
     .step-in-left-direction-p {
-      // text-align: justify;
       display: inline-block;
-      font-family: "BalooBhaijaan2Regular";
-      max-width: 77.1%;
-      font-size: 32px;
       position: relative;
-
-      // XX-Small devices (portrait phones, less than 576px)
-      @media (max-width: 375.98px) {
-        font-size: 12px;
-      }
-      // Small devices (landscape phones, less than 768px)
-      @media (max-width: 767.98px) {
-        font-size: 14px;
-        max-width: 100% !important;
-      }
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
-        font-size: 18px;
-      }
-      @media (min-width: 991.98px) and (max-width: 1199.98px) {
-        font-size: 22px;
-      }
-      @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-        font-size: 22px;
-      }
+      @include Paragraph-size;
       p {
-        line-height: 3.563rem;
         margin: 0;
-        // XX-Small devices (portrait phones, less than 576px)
-        @media (max-width: 375.98px) {
-          line-height: 1rem !important;
-        }
-        // Small devices (landscape phones, less than 768px)
-        @media (max-width: 767.98px) {
-          line-height: 1.2rem;
-        }
-        @media (min-width: 767.98px) and (max-width: 991.98px) {
-          line-height: 1.6rem;
-        }
-        @media (min-width: 991.98px) and (max-width: 1199.98px) {
-          line-height: 2.6rem;
-        }
-        @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-          line-height: 2.3rem;
-        }
       }
     }
     .step-collection-div {
       // min-height: 14.5625rem;
       display: flex;
       align-items: center;
-      padding: 0px 0 0 116px;
+      // padding: 0px 0 0 116px;
+      @include margin-content-left;
       // Small devices (landscape phones, less than 768px)
       @media (max-width: 767.98px) {
-        padding: 0px 0 0 47px;
         position: relative;
+        margin: 0 0 -9px 9% !important;
       }
     }
   }
@@ -665,4 +417,3 @@
     }
   }
 }
-

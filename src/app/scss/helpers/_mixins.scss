@@ -6,18 +6,187 @@
 */
   @font-face {
     font-family: "SFUI";
-    src:
-      url("/assets/fonts/San/SFUIText/SFUIText-Light.otf") format("opentype");
+    src: url("/assets/fonts/San/SFUIText/SFUIText-Light.otf") format("opentype");
   }
   @font-face {
     font-family: "SFUIRegular";
-    src:
-      url("/assets/fonts/San/SFUIDisplay/SFUIDisplay-Regular.otf")
-        format("opentype");
+    src: url("/assets/fonts/San/SFUIDisplay/SFUIDisplay-Regular.otf")
+      format("opentype");
   }
   @font-face {
     font-family: "BalooBhaijaan2Regular";
-    src:
-      url("/assets/fonts/San/Baloo/BalooBhaijaan2-VariableFont_wght.ttf");
+    src: url("/assets/fonts/San/Baloo/BalooBhaijaan2-VariableFont_wght.ttf");
+  }
+}
+
+@mixin Heading-size {
+  font-size: 59px;
+  font-weight: 500;
+  font-family: "SFUIRegular";
+  // XXX-Small devices (portrait phones, less than 385px)
+  @media (max-width: 385px) {
+    font-size: 24px !important;
+  }
+  // X-Small devices (portrait phones, between 385px and 576px)
+  @media (min-width: 385px) and (max-width: 575.98px) {
+    font-size: 35px;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 575.98px) and (max-width: 767.98px) {
+    font-size: 40px;
+  }
+  // Medium devices (tablets, less than 992px)
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    font-size: 33px;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    font-size: 44px;
+  }
+
+  // X-Large devices (large desktops, less than 1400px)
+  @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+    font-size: 53px;
+  }
+}
+@mixin Paragraph-size {
+  font-family: "BalooBhaijaan2Regular";
+  font-size: 30px;
+
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (max-width: 380px) {
+    font-size: 14px;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 380px) and (max-width: 575.98px) {
+    font-size: 15px;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 575.98px) and (max-width: 991.98px) {
+    font-size: 18px;
+  }
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    font-size: 22px;
+  }
+  @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+    font-size: 26px;
+  }
+}
+@mixin margin-content-left {
+  margin-left: 98px;
+  @media (max-width: 767.98px) {
+    margin: 0 10% -40px 10%;
+  }
+}
+
+@mixin search-icon-responsive {
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (max-width: 380px) {
+    width: 20px;
+    height: 20px;
+    left: 20px;
+    top: 12px;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 381px) and (max-width: 767.98px) {
+    width: 20px;
+    height: 20px;
+    left: 30px;
+    top: 19px;
+  }
+  @media (min-width: 767.8px) and (max-width: 991.98px) {
+    left: 22px;
+    top: 16px;
+    width: 20px;
+    height: 20px;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    width: 25px;
+    height: 25px;
+    left: 27px;
+    top: 17px;
+  }
+}
+@mixin search-input-field {
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (max-width: 380px) {
+    font-size: 14px !important;
+    height: 40px !important;
+    padding-left: 3.1rem !important;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 380px) and (max-width: 767.98px) {
+    font-size: 20px;
+    height: 55px;
+  }
+  @media (min-width: 767.8px) and (max-width: 991.98px) {
+    height: 49.6px !important;
+    font-size: 21px;
+    padding-left: 3rem;
+  }
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    height: 55px;
+    font-size: 21px;
+  }
+}
+
+@mixin search-input-placeholder {
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (max-width: 575.99px) {
+    font-size: 17px !important;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 575.98px) and (max-width: 767.98px) {
+    font-size: 18px;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    font-size: 19px;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    font-size: 26px;
+  }
+}
+
+@mixin search-address-p {
+  @media (max-width: 575.98px) {
+    font-size: 17px !important;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 575.98px) and (max-width: 991.98px) {
+    font-size: 20px;
+  }
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    font-size: 24px;
+  }
+}
+
+@mixin search-street-p {
+
+  @media (max-width: 381px) {
+    font-size: 12px !important;
+  }
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (min-width: 380px) and  (max-width: 575.98px) {
+    font-size: 13px !important;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 575.98px) and (max-width: 991.98px) {
+    font-size: 17px;
+  }
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    font-size: 19px;
   }
 }
