@@ -7,11 +7,20 @@
 * {
   box-sizing: border-box;
 }
-
+html{
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+}
 body {
   // font-family: "SFUI" !important;
   font-family: "SFUI" !important;
   overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 a {
   text-decoration: none !important;
