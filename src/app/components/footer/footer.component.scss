@@ -8,40 +8,139 @@
 @use "~../../../../scss/helpers/mixins" as *;
 
 footer {
-  padding: 6.25rem 12.1875rem;
-  margin-top: 20rem;
+  padding: 100px 43.2px;
+  margin-top: 216px;
   font-family: "BalooBhaijaan2Regular";
-  font-size: 1.6rem;
+  font-size: 26.6px;
+  // X-Small devices (portrait phones, less than 576px)
+  @media (max-width: 575.98px) {
+    font-size: 15.6px;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 575.98px) and (max-width: 767.98px) {
+    font-size: 18.6px;
+  }
+  // Medium devices (tablets, less than 992px)
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    font-size: 19.6px;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    font-size: 20.6px;
+  }
+
+  // X-Large devices (large desktops, less than 1400px)
+  @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+    font-size: 21.6px;
+  }
+
   ul {
     list-style: none;
-    float: right;
+
+    // Medium devices (tablets, less than 992px)
+    @media (max-width: 991.98px) {
+      margin-top: 60px;
+    }
+    &:first-child {
+      display: grid;
+      justify-content: center;
+    }
+    margin-top: 12px;
   }
   li {
     &:not(:first-child) {
       margin-top: 1.75rem;
+      // Medium devices (tablets, less than 992px)
+      @media (max-width: 767.98px) {
+        margin-top: 0px;
+      }
     }
     a {
       color: $white;
     }
   }
   .form-inside-footer {
-    text-align: right;
+    text-align: center;
     input {
-      width: 80%;
+      width: 297.15px;
+      padding: 5px 0 5px 0;
       background-color: transparent;
       color: $gray-color-brightness;
-      font-size: 1.5rem;
+      font-size: 24px;
       border: none;
-      border-bottom: 2px solid $gray-color-light;
+      border-bottom: 2px solid $gray-color-brightness;
       outline: none;
+      // Medium devices (tablets, less than 992px)
+      @media (max-width: 991.98px) {
+        width: 80%;
+        padding: 0 30px;
+        border: none !important;
+        border-radius: 11px !important;
+        color: $white;
+      }
+      // Large devices (desktops, less than 1200px)
+      @media (max-width: 767.98px) {
+        font-size: 21px;
+      }
+      // X-Small devices (portrait phones, less than 576px)
+      @media (max-width: 575.98px) {
+        font-size: 15.6px;
+      }
+
+      // Large devices (desktops, less than 1200px)
+      @media (min-width: 991.98px) and (max-width: 1199.98px) {
+        font-size: 20px;
+        width: 237.15px;
+      }
     }
     .submit-btn-inside-footer {
-      width: 80%;
-      border-radius: 0 !important;
+      width: 297.15px;
+      border-radius: 0;
       background-color: $white !important;
-      // color: var(--main-color);
-      font-size: 1.5rem;
+      color: $main-color;
       margin-top: 1.5rem;
+      border: none;
+      outline: none;
+      padding: 5px 0 5px 0;
+      font-size: 29px;
+      // Medium devices (tablets, less than 992px)
+      @media (max-width: 991.98px) {
+        width: 20%;
+        border: none !important;
+        margin-top: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      // Large devices (desktops, less than 1200px)
+      @media (max-width: 767.98px) {
+        font-size: 21px;
+      }
+      // X-Small devices (portrait phones, less than 576px)
+      @media (max-width: 575.98px) {
+        font-size: 15.6px;
+      }
+      // Large devices (desktops, less than 1200px)
+      @media (min-width: 991.98px) and (max-width: 1199.98px) {
+        font-size: 20px;
+        width: 237.15px;
+      }
+    }
+    // Medium devices (tablets, less than 992px)
+    @media (max-width: 991.98px) {
+      .div-contain-form-data {
+        width: 100%;
+        // Medium devices (tablets, less than 992px)
+        @media (max-width: 991.98px) {
+          border: 2px solid $white;
+          border-radius: 11px;
+        }
+      }
+    }
+    // Medium devices (tablets, less than 992px)
+    @media (min-width: 767.98px) and (max-width: 991.98px) {
+      padding: 0 47px;
     }
   }
   .copyright {
