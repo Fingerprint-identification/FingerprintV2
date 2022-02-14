@@ -11,7 +11,7 @@ footer {
   padding: 100px 43.2px 15px 43.2px;
   margin-top: 216px;
   font-family: "BalooBhaijaan2Regular";
-  font-size: 26.6px;
+  font-size: 21.6px;
   // X-Small devices (portrait phones, less than 576px)
   @media (max-width: 575.98px) {
     font-size: 15.6px;
@@ -34,10 +34,6 @@ footer {
     font-size: 20.6px;
   }
 
-  // X-Large devices (large desktops, less than 1400px)
-  @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-    font-size: 21.6px;
-  }
 
   ul {
     list-style: none;
