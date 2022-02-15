@@ -15,8 +15,14 @@
 @include fonts;
 
 .navbar {
-  padding: 33px 0 0 41.333px;
+  padding: 40px 95px;
   position: relative;
+  @media (max-width: 1399px) {
+    padding: 40px 35px;
+  }
+  @media (max-width: 575px) {
+    padding: 40px 13px;
+  }
   @media (max-width: 991.98px) {
     #navbarSupportedContent {
       position: absolute;
@@ -28,8 +34,6 @@
         background: transparent !important;
         box-shadow: none;
         color: $main-color;
-        padding: 0 !important;
-        width: 114px;
       }
     }
   }
@@ -37,16 +41,18 @@
   .navbar-brand-img {
     img {
       position: relative;
-      width: 67.43px;
-      width: 67.43px;
+      width: 75.43px;
+      width: 75.43px;
       display: inline-block;
-
       // X-Small devices (portrait phones, less than 576px)
       @media (max-width: 575.98px) {
         width: 42.6px;
         height: 42.6px;
       }
-
+      @media (max-width: 380px) {
+        width: 29.6px;
+        height: 29.6px;
+      }
       // Small devices (landscape phones, less than 768px)
       @media (min-width: 575.98px) and (max-width: 767.98px) {
         width: 46.6px;
@@ -74,20 +80,17 @@
   }
   .navbar-brand {
     .brand-text {
-      font-size: 39px;
-      // line-height: 2.375rem;
+      font-size: 42px;
       letter-spacing: -0.07375rem;
-      // width: 567px;
-      // height: 59px;
       display: inline-block;
       position: relative;
-      // top: 12px;
-
       // X-Small devices (portrait phones, less than 576px)
       @media (max-width: 575.98px) {
-        font-size: 15.4px;
+        font-size: 20px;
       }
-
+      @media (max-width: 380px) {
+        font-size: 15px;
+      }
       // Small devices (landscape phones, less than 768px)
       @media (min-width: 575.98px) and (max-width: 767.98px) {
         font-size: 26.4px;
@@ -160,22 +163,24 @@
     }
   }
   .btn.nav-login-button {
-    width: 175px;
-    padding: 13px;
     font-size: 21px;
-    margin-right: 50px !important;
     font-family: "SFUI";
     box-shadow: 0 0 1.6rem $shadow-color;
+    margin: 0;
+    width: 221px;
+    padding: 16px;
     // X-Small devices (portrait phones, less than 576px)
     @media (max-width: 575.98px) {
-      font-size: 22px;
+      width: 119px;
+      font-size: 20px;
       font-weight: bold;
-      margin-top: 23px !important;
+      margin-top: 11px !important;
     }
 
     // Small devices (landscape phones, less than 768px)
     @media (min-width: 575.98px) and (max-width: 767.98px) {
       font-size: 25px;
+      width: 119px;
       font-weight: bold;
       margin-top: 23px !important;
     }
@@ -184,6 +189,7 @@
     @media (min-width: 767.98px) and (max-width: 991.98px) {
       font-size: 25px;
       font-weight: bold;
+      width: 119px;
       margin-top: 23px !important;
     }
 
@@ -191,14 +197,12 @@
     @media (min-width: 991.98px) and (max-width: 1199.98px) {
       width: 187.8px;
       font-size: 18px;
-      margin-right: 28px !important;
     }
 
     // X-Large devices (large desktops, less than 1400px)
     @media (min-width: 1199.98px) and (max-width: 1399.98px) {
       width: 202.4px;
       font-size: 22px;
-      margin-right: 25px !important;
     }
   }
   .navbar-toggler {

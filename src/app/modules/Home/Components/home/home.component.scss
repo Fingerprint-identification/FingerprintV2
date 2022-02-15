@@ -29,9 +29,9 @@
     }
   }
   .banner-left-text {
-    /* banner left part that contains search and heading */
-    max-width: 607.25px !important;
-    width: 70%;
+    /* banner left part that contains   and heading */
+    max-width: 607.25px;
+
     /* margin left for all section */
     @include margin-content-left;
     .banner-left-text-h1 {
@@ -104,6 +104,9 @@
             /* li in ul in form search of the left part banner */
             width: 100%;
             padding-top: 0.8125rem;
+            @media (max-width: 380px) {
+              padding-top: 0;
+            }
             &:not(:last-child) {
               border-bottom: 1px solid $main-color-light;
             }
@@ -129,8 +132,7 @@
   }
   .banner-right-img {
     /* Div that containes the banner image in right part banner */
-    width: 462.35px;
-    margin: auto;
+    max-width: 805.8px;
     /* right banner div properities */
     @include right-banner-div;
   }
@@ -189,15 +191,24 @@
       @include collection-div;
       .step-in-right-direction-img {
         /* image div of Steps in right direction Properities */
-        width: 312px !important;
+        width: 344.1px;
         display: inline-block;
-        height: 262.45px !important;
+        //height: 262.45px !important;
         /* image of Steps in right direction Properities */
         @include img-direction-properities(right);
         /* image of Steps in right direction Properities */
         img {
-          width: 100%;
+          width: 344.1px;
           height: 100%;
+          @media (max-width: 767.98px) {
+            width: 250px;
+          }
+          @media (min-width: 767.98px) and (max-width: 991.98px) {
+            width: 190px;
+          }
+          @media (min-width: 991.98px) and (max-width: 1399.98px) {
+            width: 292.1px;
+          }
         }
       }
       .step-in-right-direction-p {
@@ -208,6 +219,19 @@
           margin: 0;
         }
       }
+
+      @media (min-width: 767.98px) and (max-width: 991.98px) {
+        margin-right: 0;
+        width: 100%;
+      }
+      // Large devices (desktops, less than 1200px)
+      @media (min-width: 991.98px) and (max-width: 1399.98px) {
+        width: 90%;
+        margin-left: 76px;
+      }
+    }
+    @media (min-width: 991.98px) and (max-width: 1399.98px) {
+      padding-right: 0;
     }
   }
 
@@ -220,6 +244,8 @@
     /* border of Steps in right direction Properities */
     @include border-properities(left);
     .step-collection-div {
+      margin-left: 85px;
+      margin-right: 74px;
       @include collection-div;
       /* div that contains the content of the step in left direction Properities */
       @media (max-width: 767.98px) {
@@ -227,15 +253,21 @@
       }
       .step-in-left-direction-img {
         /* image of Steps in left direction Properities */
-        width: 387.78px;
+        width: 344.1px;
         display: inline-block;
         height: 316.11px;
         /* image div of Steps in left direction Properities */
         @include img-direction-properities(left);
         /* image of Steps in left direction Properities */
         img {
-          width: 100%;
+          width: 344.1px;
           height: 100%;
+          @media (max-width: 767.98px) {
+            width: 250px;
+          }
+          @media (min-width: 767.98px) and (max-width: 991.98px) {
+            width: 264.1px !important;
+          }
         }
       }
       .step-in-left-direction-p {
@@ -245,6 +277,15 @@
         p {
           margin: 0;
         }
+      }
+      @media (min-width: 767.98px) and (max-width: 991.98px) {
+        margin-left: 19px;
+      }
+      // Large devices (desktops, less than 1200px)
+      @media (min-width: 991.98px) and (max-width: 1399.98px) {
+        margin-left: 73px;
+        margin-right: 0;
+        width: 100%;
       }
     }
   }
