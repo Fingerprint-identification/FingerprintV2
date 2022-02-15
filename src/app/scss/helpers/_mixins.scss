@@ -1,3 +1,5 @@
+@use "~../../../../scss/helpers/colors" as *;
+
 @mixin fonts {
   /*
   ==========================================================================
@@ -19,6 +21,11 @@
   }
 }
 
+/* =======================================
+
+  Global style to heading and paragraph
+
+==========================================*/
 @mixin Heading-size {
   font-size: 59px;
   font-weight: 500;
@@ -80,6 +87,12 @@
     margin: 0 10% -40px 10%;
   }
 }
+
+/*
+  ==========================================================================
+                     Style for left banner part
+  =========================================================================
+*/
 
 @mixin search-icon-responsive {
   // XX-Small devices (portrait phones, less than 576px)
@@ -172,12 +185,11 @@
 }
 
 @mixin search-street-p {
-
   @media (max-width: 381px) {
     font-size: 12px !important;
   }
   // XX-Small devices (portrait phones, less than 576px)
-  @media (min-width: 380px) and  (max-width: 575.98px) {
+  @media (min-width: 380px) and (max-width: 575.98px) {
     font-size: 13px !important;
   }
 
@@ -188,5 +200,167 @@
   // Large devices (desktops, less than 1200px)
   @media (min-width: 991.98px) and (max-width: 1199.98px) {
     font-size: 19px;
+  }
+}
+
+/*
+  ==========================================================================
+                     Style for right banner part
+  =========================================================================
+*/
+
+@mixin right-banner-div {
+  // X-Small devices (portrait phones, less than 576px)
+  @media (max-width: 575.98px) {
+    width: 89%;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 575.98px) and (max-width: 767.98px) {
+    width: 435.12px;
+  }
+  // Medium devices (tablets, less than 992px)
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    width: 100%;
+    margin-top: 0 !important;
+  }
+  // XX-Large devices (more than 1400px)
+  @media (min-width: 1399.98px) {
+    width: 716.8px;
+  }
+}
+
+/*
+  ==========================================================================
+                     Style for Services
+  =========================================================================
+*/
+
+@mixin service-margin-top {
+  @media (max-width: 767.98px) {
+    margin-top: 115px !important;
+  }
+  @media (max-width: 575.98px) {
+    margin-top: 109px !important;
+  }
+}
+
+@mixin border-properities($dir) {
+  border-bottom-#{$dir}-radius: 4.375rem;
+  border-top-#{$dir}-radius: 4.375rem;
+  @if (#{$dir} == "right") {
+    border-left: none !important;
+  } @else {
+    border-right: none !important;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+    border-bottom-#{$dir}-radius: 2.375rem;
+    @debug (border-bottom-#{$dir}-radius: 2.375rem);
+    border-top-#{$dir}-radius: 2.375rem;
+    @if (#{$dir} == "right") {
+      padding-right: 49px !important;
+    }
+  }
+  // Medium devices (tablets, less than 992px)
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    border-bottom-#{$dir}-radius: 3.375rem;
+    border-top-#{$dir}-radius: 3.375rem;
+  }
+}
+
+@mixin img-direction-properities($dir) {
+  position: relative;
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (max-width: 375.98px) {
+    height: 89px !important;
+    top: -63px !important;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 375.98px) and (max-width: 767.98px) {
+    height: 118px !important;
+    position: absolute;
+  }
+  // Medium devices (tablets, less than 992px)
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    width: 334px !important;
+    display: inline-block;
+    height: 200.45px !important;
+  }
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    width: 312px !important;
+    height: 250.45px !important;
+  }
+  @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+    min-height: 17.438rem !important;
+    width: 312px !important;
+    display: inline-block;
+    height: 262.45px !important;
+  }
+
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (max-width: 375.98px) {
+    @if (#{$dir} == "right") {
+      left: -60px;
+    } @else {
+      right: -108px;
+    }
+  }
+  //Small devices (landscape phones, less than 768px)
+  @media (min-width: 375.98px) and (max-width: 767.98px) {
+    @if (#{$dir} == "right") {
+      top: -74px;
+      position: absolute;
+      left: -64px;
+    } @else {
+      right: -71px;
+      top: -82px;
+      position: absolute;
+    }
+  }
+}
+@mixin step-direction-div {
+  border: 5px solid $main-color-brightness;
+  box-shadow: 0 0 1.6rem $shadow-color;
+  width: 91.3%;
+  max-width: 1658px;
+  min-height: 20.438rem;
+  display: flex;
+  background-color: $white !important;
+  // XX-Small devices (portrait phones, less than 576px)
+  @media (max-width: 375.98px) {
+    width: 100%;
+  }
+  // Small devices (landscape phones, less than 768px)
+  @media (min-width: 375.98px) and (max-width: 767.98px) {
+    width: 88%;
+    min-height: 12.563rem !important;
+  }
+  // Medium devices (tablets, less than 992px)
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    min-height: 13.5625rem !important;
+  }
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    min-height: 15.438rem !important;
+  }
+  @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+    min-height: 17.438rem !important;
+  }
+}
+
+@mixin p-direction-properities {
+  display: inline-block;
+  position: relative;
+  @include Paragraph-size;
+}
+@mixin collection-div {
+  display: flex;
+  align-items: center;
+  @include margin-content-left;
+  // Small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+    position: relative;
+    margin: 0 0 -9px 9% !important;
   }
 }

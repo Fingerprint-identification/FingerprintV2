@@ -9,12 +9,7 @@
 
 .service-margin-top {
   margin-top: 5.875rem !important;
-  @media (max-width: 767.98px) {
-    margin-top: 115px !important;
-  }
-  @media (max-width: 575.98px) {
-    margin-top: 109px !important;
-  }
+  @include service-margin-top;
 }
 .banner-margin-bottom {
   margin-bottom: 21.25rem !important;
@@ -106,56 +101,41 @@
           padding-left: 1rem;
 
           .search-result-item-li {
-            /* li in ul in form search of the left part banner */            //line-height: 20px;
+            /* li in ul in form search of the left part banner */
             width: 100%;
             padding-top: 0.8125rem;
             &:not(:last-child) {
               border-bottom: 1px solid $main-color-light;
             }
             .search-result-item-li-address-p {
+              /* li address p in search result of the left part banner */
               font-family: "SFUIRegular";
               font-size: 24px;
               margin: 0;
-               /* Address paragraph properities */
+              /* Address paragraph properities */
               @include search-address-p;
             }
             .search-result-item-li-street-p {
+              /* li street p in search result of the left part banner */
               font-family: "BalooBhaijaan2Regular";
               font-size: 20px;
-               /* Street paragraph properities */
-              @include search-street-p ;
+              /* Street paragraph properities */
+              @include search-street-p;
             }
-
-
           }
         }
       }
     }
   }
   .banner-right-img {
+    /* Div that containes the banner image in right part banner */
     width: 462.35px;
     margin: auto;
-    // X-Small devices (portrait phones, less than 576px)
-    @media (max-width: 575.98px) {
-      width: 89%;
-    }
-
-    // Small devices (landscape phones, less than 768px)
-    @media (min-width: 575.98px) and (max-width: 767.98px) {
-      width: 435.12px;
-    }
-    // Medium devices (tablets, less than 992px)
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      width: 100%;
-      margin-top: 0 !important;
-    }
-    // XX-Large devices (more than 1400px)
-    @media (min-width: 1399.98px) {
-      //float: right;
-      width: 716.8px;
-    }
+    /* right banner div properities */
+    @include right-banner-div;
   }
   .banner-right-img img {
+    /* image properities */
     transform: perspective(1600px) rotateX(0deg) rotateY(-20deg) rotateZ(0deg);
     max-width: 100%;
     margin-top: -55px;
@@ -169,22 +149,26 @@
                      Services Steps
   =========================================================================
 */
+
+/* Service consist of two parts divs in right direction and left direction */
 .Service-Steps-section {
+  /* Service Properities */
   position: relative;
   overflow: hidden;
+  /* Heading div that contains the title */
   .services-title-div {
+    /* Heading div Properities */
     width: 100%;
     margin-bottom: 2rem;
     font-size: 3.6875rem;
     font-family: "SFUIRegular";
-
     // Small devices (landscape phones, less than 768px)
     @media (max-width: 767.98px) {
       margin-bottom: 9rem;
     }
+    /* Heading title h1 */
     .services-title-div-h1 {
-      // font-size: 59px;
-      //padding: 0px 99px !important;
+      /* Heading title h1  Properities*/
       @include margin-content-left;
       @include Heading-size;
     }
@@ -194,165 +178,73 @@
   }
 
   .step-in-right-direction {
-    border-bottom-right-radius: 4.375rem;
-    border-top-right-radius: 4.375rem;
+    /* Steps in right direction Properities */
     margin-left: -1rem;
-    border-left: none !important;
     padding-right: 69px;
-
-    // Small devices (landscape phones, less than 768px)
-    @media (max-width: 767.98px) {
-      border-bottom-right-radius: 2.375rem;
-      border-top-right-radius: 2.375rem;
-      padding-right: 49px !important;
-    }
-    // Medium devices (tablets, less than 992px)
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      border-bottom-right-radius: 3.375rem;
-      border-top-right-radius: 3.375rem;
-    }
-    .step-in-right-direction-img {
-      width: 312px !important;
-      display: inline-block;
-      height: 262.45px !important;
-      // XX-Small devices (portrait phones, less than 576px)
-      @media (max-width: 375.98px) {
-        left: -60px !important;
+    /* step in right direction properities */
+    @include step-direction-div;
+    /* border of Steps in right direction Properities */
+    @include border-properities(right);
+    .step-collection-div {
+      @include collection-div;
+      .step-in-right-direction-img {
+        /* image div of Steps in right direction Properities */
+        width: 312px !important;
+        display: inline-block;
+        height: 262.45px !important;
+        /* image of Steps in right direction Properities */
+        @include img-direction-properities(right);
+        /* image of Steps in right direction Properities */
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
-      //Small devices (landscape phones, less than 768px)
-      @media (max-width: 767.98px) {
-        top: -74px;
-        position: absolute;
-        left: -64px;
+      .step-in-right-direction-p {
+        /* paragraph div of Steps in right direction Properities */
+        @include p-direction-properities;
+        /* paragraph of Steps in right direction Properities */
+        p {
+          margin: 0;
+        }
       }
     }
   }
 
   .step-in-left-direction {
-    border-bottom-left-radius: 4.375rem;
-    border-top-left-radius: 4.375rem;
-    border-right: none !important;
+    /* Steps in left direction Properities */
     float: right;
     margin: -12px;
-
-    // Small devices (landscape phones, less than 768px)
-    @media (max-width: 767.98px) {
-      border-bottom-left-radius: 2.375rem;
-      border-top-left-radius: 2.375rem;
-    }
-    // Medium devices (tablets, less than 992px)
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      border-bottom-left-radius: 3.375rem;
-      border-top-left-radius: 3.375rem;
-    }
+    /* step in left direction properities */
+    @include step-direction-div;
+    /* border of Steps in right direction Properities */
+    @include border-properities(left);
     .step-collection-div {
+      @include collection-div;
+      /* div that contains the content of the step in left direction Properities */
       @media (max-width: 767.98px) {
         padding: 0px 47px 0 0 !important;
       }
       .step-in-left-direction-img {
+        /* image of Steps in left direction Properities */
         width: 387.78px;
         display: inline-block;
         height: 316.11px;
-        // XX-Small devices (portrait phones, less than 576px)
-        @media (max-width: 375.98px) {
-          right: -108px;
-        }
-        // Small devices (landscape phones, less than 768px)
-        @media (max-width: 767.98px) {
-          right: -71px;
-          top: -82px;
-          position: absolute;
-          //left: -24px;
+        /* image div of Steps in left direction Properities */
+        @include img-direction-properities(left);
+        /* image of Steps in left direction Properities */
+        img {
+          width: 100%;
+          height: 100%;
         }
       }
-    }
-  }
-
-  .step-in-right-direction,
-  .step-in-left-direction {
-    border: 5px solid $main-color-brightness;
-    box-shadow: 0 0 1.6rem $shadow-color;
-    width: 91.3%;
-    max-width: 1658px;
-    min-height: 20.438rem;
-    display: flex;
-    background-color: $white !important;
-    // XX-Small devices (portrait phones, less than 576px)
-    @media (max-width: 375.98px) {
-      width: 100% !important;
-    }
-    // Small devices (landscape phones, less than 768px)
-    @media (max-width: 767.98px) {
-      width: 88%;
-      // min-height: 10.5625rem !important;
-      min-height: 12.563rem !important;
-    }
-    // Medium devices (tablets, less than 992px)
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      min-height: 13.5625rem !important;
-    }
-    // Large devices (desktops, less than 1200px)
-    @media (min-width: 991.98px) and (max-width: 1199.98px) {
-      min-height: 15.438rem !important;
-    }
-    @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-      min-height: 17.438rem !important;
-    }
-    .step-in-left-direction-img,
-    .step-in-right-direction-img {
-      position: relative;
-
-      // Small devices (landscape phones, less than 768px)
-      @media (max-width: 767.98px) {
-        height: 118px !important;
-        position: absolute;
-      }
-      // XX-Small devices (portrait phones, less than 576px)
-      @media (max-width: 375.98px) {
-        height: 89px !important;
-        top: -63px !important;
-      }
-      // Medium devices (tablets, less than 992px)
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
-        width: 334px !important;
-        display: inline-block;
-        height: 200.45px !important;
-      }
-      @media (min-width: 991.98px) and (max-width: 1199.98px) {
-        width: 312px !important;
-        height: 250.45px !important;
-      }
-      @media (min-width: 1199.98px) and (max-width: 1399.98px) {
-        min-height: 17.438rem !important;
-        width: 312px !important;
-        display: inline-block;
-        height: 262.45px !important;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        // position: absolute;
-      }
-    }
-    .step-in-right-direction-p,
-    .step-in-left-direction-p {
-      display: inline-block;
-      position: relative;
-      @include Paragraph-size;
-      p {
-        margin: 0;
-      }
-    }
-    .step-collection-div {
-      // min-height: 14.5625rem;
-      display: flex;
-      align-items: center;
-      // padding: 0px 0 0 116px;
-      @include margin-content-left;
-      // Small devices (landscape phones, less than 768px)
-      @media (max-width: 767.98px) {
-        position: relative;
-        margin: 0 0 -9px 9% !important;
+      .step-in-left-direction-p {
+        /* paragraph div of Steps in left direction Properities */
+        @include p-direction-properities;
+        /* paragraph of Steps in left direction Properities */
+        p {
+          margin: 0;
+        }
       }
     }
   }
@@ -390,9 +282,6 @@
     height: 309px;
     z-index: -999;
     left: -48px;
-    // XX-Small devices (portrait phones, less than 576px)
-    @media (max-width: 375.98px) {
-    }
     @media (max-width: 767.98px) {
       top: 418px;
     }
