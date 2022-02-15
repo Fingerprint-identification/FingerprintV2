@@ -364,3 +364,38 @@
     margin: 0 0 -9px 9% !important;
   }
 }
+
+@mixin overflow-images($name) {
+  z-index: -999;
+  position: absolute;
+  @media (max-width: 767.98px) {
+    @if (#{$name} == "Ellipse") {
+      top: 300px;
+      width: 576px;
+      height: 408px;
+    } @else if(#{$name} == "Repeat6") {
+      top: 418px;
+    } @else {
+      right: -123px;
+    }
+  }
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    @if (#{$name} == "Ellipse") {
+      width: 523px;
+      height: 398px;
+    } @else if(#{$name} == "Repeat6") {
+      top: 383px;
+    } @else {
+      right: 68px;
+      bottom: -209px;
+    }
+  }
+  @if (#{$name}== "Ellipse") {
+    // XX-Small devices (portrait phones, less than 576px)
+    @media (max-width: 375.98px) {
+      top: 271px;
+      width: 300px !important;
+      height: 300px !important;
+    }
+  }
+}

@@ -250,60 +250,29 @@
   }
 
   .Ellipse {
-    position: absolute;
+    /* first overflow image in services */
     right: -200px;
     top: 185px;
     width: 610px;
     height: 448px;
     transform: rotate(48deg);
-    z-index: -999;
-
-    // XX-Small devices (portrait phones, less than 576px)
-    @media (max-width: 375.98px) {
-      top: 271px;
-      width: 300px !important;
-      height: 300px !important;
-    }
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      width: 523px;
-      height: 398px;
-    }
-    // Small devices (landscape phones, less than 768px)
-    @media (max-width: 767.98px) {
-      top: 300px;
-      width: 576px;
-      height: 408px;
-    }
+    /* overflow image properities */
+    @include overflow-images(Ellipse);
   }
   .Repeat6 {
-    position: absolute;
+    /* second overflow image in services */
     top: 479px;
     width: 252px;
     height: 309px;
-    z-index: -999;
     left: -48px;
-    @media (max-width: 767.98px) {
-      top: 418px;
-    }
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      top: 383px;
-    }
+    /* overflow image properities */
+    @include overflow-images(Repeat6);
   }
   .Repeat5 {
-    position: absolute;
+    /* thirs overflow image in services */
     right: 153px;
     bottom: -211px;
-    z-index: -999;
-    // XX-Small devices (portrait phones, less than 576px)
-    @media (max-width: 375.98px) {
-    }
-    @media (max-width: 767.98px) {
-      right: -123px;
-    }
-
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
-      right: 68px;
-      bottom: -209px;
-    }
+    /* overflow image properities */
+    @include overflow-images(Repeat5);
   }
 }
