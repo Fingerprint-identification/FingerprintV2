@@ -112,7 +112,10 @@
     }
   }
   .navbar-nav {
-    @media (max-width: 991.98px) {
+    @media (max-width: 380px) {
+      padding: 5px 0 ;
+    }
+    @media (min-width: 380px) and (max-width: 991.98px) {
       padding: 43px 0;
     }
     @media (min-width: 991.98px) {
@@ -128,7 +131,14 @@
       color: $black !important;
 
       // X-Small devices (portrait phones, less than 576px)
-      @media (max-width: 575.98px) {
+      @media (max-width: 380px) {
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 10px !important;
+      }
+
+      // X-Small devices (portrait phones, less than 576px)
+      @media (min-width: 381px)  and (max-width: 575.98px) {
         font-size: 22px;
         font-weight: bold;
         margin-top: 23px !important;
@@ -169,8 +179,15 @@
     margin: 0;
     width: 221px;
     padding: 16px;
+    @media (max-width: 380px) {
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 10px !important;
+      width: 93px;
+    }
+
     // X-Small devices (portrait phones, less than 576px)
-    @media (max-width: 575.98px) {
+    @media (min-width: 381px) and(max-width: 575.98px) {
       width: 119px;
       font-size: 20px;
       font-weight: bold;
