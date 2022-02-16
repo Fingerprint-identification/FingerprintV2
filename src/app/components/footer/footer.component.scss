@@ -19,11 +19,12 @@ footer {
   ul {
     list-style: none;
     margin-top: 12px;
+    padding-left: 0;
     // Medium devices (tablets, less than 992px)
     @media (min-width: 767.98px) and (max-width: 991.98px) {
       margin-top: 60px;
     }
-    &:first-child {
+    @media (max-width: 991.98px) {
       display: grid;
       justify-content: center;
     }
@@ -44,7 +45,7 @@ footer {
     text-align: center;
     input {
       /* input properities of the left search form div */
-      width: 297.15px;
+      width: 100%;
       padding: 5px 0 5px 0;
       background-color: transparent;
       color: $gray-color-brightness;
@@ -57,7 +58,7 @@ footer {
     }
     .submit-btn-inside-footer {
       /* btn in the footer */
-      width: 297.15px;
+      width: 100%;
       border-radius: 0;
       background-color: $white !important;
       color: $main-color;
