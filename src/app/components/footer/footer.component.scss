@@ -20,15 +20,12 @@ footer {
     list-style: none;
     margin-top: 12px;
     padding-left: 0;
-     /*
+    /*
       Here md = 767, lg = 991
     */
     @include custem-screen(md, lg) {
       margin-top: 60px;
     }
-    // @media (min-width: 767.98px) and (max-width: 991.98px) {
-    //   margin-top: 60px;
-    // }
     /*
     Here xxs = 0, lg = 991
   */
