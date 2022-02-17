@@ -92,8 +92,8 @@ footer {
       }
     }
     /*
-        Here sm = 575, lg = 991
-      */
+      Here sm = 575, lg = 991
+    */
     @include custem-screen(sm, lg) {
       padding: 0 47px;
     }
