@@ -21,11 +21,25 @@
   }
 }
 
+$screens:(
+  "xxs": 0,
+  "xs": 380px,
+  "sm": 575.98px,
+  "md": 767.98px,
+  "lg": 991.98px,
+  "xlg": 1199.98px,
+  "xxlg": 1399px
+);
 /* =======================================
-
        Media query
-
 ==========================================*/
+
+@mixin custem-screen($firstScreen, $secondScreen){
+  @media (min-width: map-get($screens, $firstScreen)) and (max-width: map-get($screens, $secondScreen)) {
+    @content;
+  }
+}
+
 
 @mixin screen($point) {
   @if $point == xxs {
@@ -62,9 +76,7 @@
 }
 
 /* =======================================
-
        Breakpoints
-
 ==========================================*/
 @mixin BreakPoint($point) {
   @if $point == xxs {
@@ -135,9 +147,7 @@
 }
 
 /* =======================================
-
   Global style to Pargraph
-
 ==========================================*/
 
 @mixin Paragraph-size {
@@ -150,10 +160,12 @@
   @include screen(xs) {
     font-size: 15px;
   }
-  @include screen(sm) {
-    font-size: 20px;
-  }
-  @include screen(md) {
+  /*
+    Here sm = 575, lg = 991
+    sm = from 575 to 767
+    md = from 767 to 991
+  */
+  @include custem-screen(sm, lg){
     font-size: 20px;
   }
   @include screen(lg) {
@@ -164,11 +176,9 @@
   }
 }
 
-/* =======================================
-
+/* ===============================
   Global Margin left content
-
-==========================================*/
+=================================*/
 
 @mixin margin-content-left {
   margin-left: 168px;
@@ -177,29 +187,39 @@
     margin-left: 25px;
     margin-right: 25px;
   }
-  @include screen(sm) {
+  /*
+    Here sm = 575, lg = 991
+    sm = from 575 to 767
+    md = from 767 to 991
+  */
+
+  @include custem-screen(sm, lg){
     margin-left: 82px;
     margin-right: 82px;
   }
-  @include screen(md) {
-    margin-left: 82px;
-    margin-right: 82px;
+
+  /*
+    Here md = 767, xxlg = 1399
+    md = from 767 to 991
+    lg = from 991 to 1199
+    xlg = from 1199 to 1399
+  */
+
+  @include custem-screen(md, xxlg){
     width: 82%;
   }
   @include screen(lg) {
     margin-left: 86px;
-    width: 82%;
   }
   @include screen(xlg) {
     margin-left: 91px;
-    width: 82%;
   }
 }
 
 /*
-  ==========================================================================
-                     Style for left banner part
-  =========================================================================
+  ==============================================
+            Style for left banner part
+  ==============================================
 */
 
 @mixin search-icon-responsive {
@@ -215,13 +235,12 @@
     left: 30px;
     top: 19px;
   }
-  @include screen(sm) {
-    left: 22px;
-    top: 16px;
-    width: 20px;
-    height: 20px;
-  }
-  @include screen(md) {
+  /*
+    Here sm = 575, lg = 991
+    sm = from 575 to 767
+    md = from 767 to 991
+  */
+  @include custem-screen(sm, lg){
     left: 22px;
     top: 16px;
     width: 20px;
@@ -236,9 +255,7 @@
 }
 
 /* =======================================
-
    input that belong to the search form
-
 ==========================================*/
 
 @mixin search-input-field {
@@ -247,14 +264,17 @@
     height: 40px !important;
     padding-left: 3.1rem !important;
   }
-  @include screen(xs) {
+
+  /*
+    Here xs = 380, md = 767
+    xs = from 380 to 575
+    sm = from 575 to 767
+  */
+  @include custem-screen(xs, md){
     font-size: 20px;
     height: 55px;
   }
-  @include screen(sm) {
-    font-size: 20px;
-    height: 55px;
-  }
+
   @include screen(md) {
     height: 49.6px !important;
     font-size: 21px;
@@ -303,10 +323,12 @@
   @include screen(xs) {
     font-size: 17px !important;
   }
-  @include screen(sm) {
-    font-size: 20px;
-  }
-  @include screen(md) {
+   /*
+    Here sm = 575, lg = 991
+    sm = from 575 to 767
+    md = from 767 to 991
+  */
+  @include custem-screen(sm, lg){
     font-size: 20px;
   }
   @include screen(lg) {
@@ -328,10 +350,12 @@
   @include screen(xs) {
     font-size: 13px !important;
   }
-  @include screen(sm) {
-    font-size: 17px;
-  }
-  @include screen(md) {
+  /*
+    Here sm = 575, lg = 991
+    sm = from 575 to 767
+    md = from 767 to 991
+  */
+  @include custem-screen(sm, lg){
     font-size: 17px;
   }
   @include screen(lg) {
@@ -355,17 +379,26 @@
     width: 435.12px;
     margin: auto;
   }
+  /*
+    Here md = 767, xxlg = 1399
+    md = from 767 to 991
+    lg = from 991 to 1199
+    xl = from 1199 to 1399
+  */
+  @include custem-screen(md, xxlg){
+    width: 100%;
+  }
+
   @include screen(md) {
     margin-top: 0px;
-    width: 100%;
   }
-  @include screen(lg) {
+  /*
+    Here lg = 991, xxlg = 1399
+    lg = from 991 to 1199
+    xlg = from 1199 to 1399
+  */
+  @include custem-screen(lg, xxlg){
     margin-top: -30px;
-    width: 100%;
-  }
-  @include screen(xlg) {
-    margin-top: -30px;
-    width: 100%;
   }
 }
 
@@ -395,7 +428,6 @@
 
   @include BreakPoint(sm){
     border-bottom-#{$dir}-radius: 2.375rem;
-    @debug (border-bottom-#{$dir}-radius: 2.375rem);
     border-top-#{$dir}-radius: 2.375rem;
     @if (#{$dir} == "right") {
       padding-right: 49px !important;
@@ -426,21 +458,13 @@
       right: -108px;
     }
   }
-  @include screen(xs) {
-    height: 118px !important;
-    width: 250px;
-    position: absolute;
-    @if (#{$dir} == "right") {
-      top: -74px;
-      position: absolute;
-      left: -64px;
-    } @else {
-      right: -71px;
-      top: -82px;
-      position: absolute;
-    }
-  }
-  @include screen(sm) {
+
+  /*
+    Here xs = 380, md = 767
+    xs = from 380 to 575
+    sm = from 575 to 767
+  */
+  @include custem-screen(xs, md){
     height: 118px !important;
     width: 250px;
     position: absolute;
@@ -491,11 +515,12 @@
     width: 100%;
     min-height: 9.438rem;
   }
-  @include screen(xs) {
-    width: 88%;
-    min-height: 12.563rem !important;
-  }
-  @include screen(sm) {
+  /*
+    Here xs = 380, md = 767
+    xs = from 380 to 575
+    sm = from 575 to 767
+  */
+  @include custem-screen(xs, md){
     width: 88%;
     min-height: 12.563rem !important;
   }
