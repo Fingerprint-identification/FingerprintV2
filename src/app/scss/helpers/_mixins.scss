@@ -640,9 +640,9 @@ $screens:(
   @include screen(sm) {
     font-size: 21px;
   }
-  @include screen(md) {
-    font-size: 19.6px;
-  }
+  // @include screen(md) {
+  //   font-size: 19.6px;
+  // }
   @include BreakPoint(md){
     width: 80%;
     padding: 0 30px;
@@ -673,19 +673,18 @@ $screens:(
   @include screen(sm) {
     font-size: 21px;
   }
-  @include screen(md) {
-    font-size: 19.6px;
+  // @include screen(md) {
+  //   font-size: 25px;
+  // }
+  @include screen(lg) {
+    font-size: 20px ;
+    width: 237.15px;
   }
-
   @include BreakPoint(md){
     width: 20% !important;
     border: none !important;
     margin-top: 0;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-  }
-  @include screen(lg) {
-    font-size: 20px;
-    width: 237.15px;
   }
 }
