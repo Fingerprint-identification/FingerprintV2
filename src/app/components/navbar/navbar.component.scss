@@ -8,22 +8,22 @@
 @use "~../../../../scss/helpers/colors" as *;
 @use "~../../../../scss/helpers/mixins" as *;
 /*
-  ==========================================================================
+  ==================================
                      Navbar
-  =========================================================================
+  ==================================
 */
 @include fonts;
 
 .navbar {
   padding: 40px 95px;
   position: relative;
-  @media (max-width: 1399px) {
+  @include custem-screen(sm, xxlg) {
     padding: 40px 35px;
   }
-  @media (max-width: 575px) {
+  @include BreakPoint(xs) {
     padding: 40px 13px;
   }
-  @media (max-width: 991.98px) {
+  @include BreakPoint(md) {
     #navbarSupportedContent {
       position: absolute;
       top: 82px;
@@ -37,42 +37,35 @@
       }
     }
   }
-
   .navbar-brand-img {
     img {
       position: relative;
       width: 75.43px;
       width: 75.43px;
       display: inline-block;
-      // X-Small devices (portrait phones, less than 576px)
-      @media (max-width: 575.98px) {
-        width: 42.6px;
-        height: 42.6px;
-      }
-      @media (max-width: 380px) {
+
+      @include BreakPoint(xxs) {
         width: 29.6px;
         height: 29.6px;
       }
-      // Small devices (landscape phones, less than 768px)
-      @media (min-width: 575.98px) and (max-width: 767.98px) {
+
+      @include custem-screen(xs, sm) {
+        width: 42.6px;
+        height: 42.6px;
+      }
+      @include custem-screen(sm, md) {
         width: 46.6px;
         height: 46.6px;
       }
-
-      // Medium devices (tablets, less than 992px)
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
+      @include custem-screen(md, lg) {
         width: 50.6px;
         height: 50.6px;
       }
-
-      // Large devices (desktops, less than 1200px)
-      @media (min-width: 991.98px) and (max-width: 1199.98px) {
+      @include custem-screen(lg, xlg) {
         width: 54.6px;
         height: 54.6px;
       }
-
-      // X-Large devices (large desktops, less than 1400px)
-      @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+      @include custem-screen(xlg, xxlg) {
         width: 58.6px;
         height: 58.6px;
       }
@@ -84,36 +77,30 @@
       letter-spacing: -0.07375rem;
       display: inline-block;
       position: relative;
-      // X-Small devices (portrait phones, less than 576px)
-      @media (max-width: 575.98px) {
-        font-size: 20px;
-      }
-      @media (max-width: 380px) {
+
+      @include BreakPoint(xxs) {
         font-size: 15px;
       }
-      // Small devices (landscape phones, less than 768px)
-      @media (min-width: 575.98px) and (max-width: 767.98px) {
+      @include custem-screen(xs, sm) {
+        font-size: 20px;
+      }
+      @include custem-screen(sm, md) {
         font-size: 26.4px;
       }
-      // Medium devices (tablets, less than 992px)
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
+      @include custem-screen(md, lg) {
         font-size: 28.4px;
       }
-
-      // Large devices (desktops, less than 1200px)
-      @media (min-width: 991.98px) and (max-width: 1199.98px) {
+      @include custem-screen(lg, xlg) {
         font-size: 30.4px;
       }
-
-      // X-Large devices (large desktops, less than 1400px)
-      @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+      @include custem-screen(xlg, xxlg) {
         font-size: 35.4px;
       }
     }
   }
   .navbar-nav {
     @media (max-width: 380px) {
-      padding: 5px 0 ;
+      padding: 5px 0;
     }
     @media (min-width: 380px) and (max-width: 991.98px) {
       padding: 43px 0;
@@ -130,42 +117,32 @@
       text-align: left;
       color: $black !important;
 
-      // X-Small devices (portrait phones, less than 576px)
-      @media (max-width: 380px) {
+      @include BreakPoint(xxs) {
         font-size: 15px;
         font-weight: bold;
         margin-top: 10px !important;
       }
-
-      // X-Small devices (portrait phones, less than 576px)
-      @media (min-width: 381px)  and (max-width: 575.98px) {
+      @include custem-screen(xs, sm) {
         font-size: 22px;
         font-weight: bold;
         margin-top: 23px !important;
       }
-
-      // Small devices (landscape phones, less than 768px)
-      @media (min-width: 575.98px) and (max-width: 767.98px) {
+      @include custem-screen(sm, md) {
         font-size: 25px;
         font-weight: bold;
         margin-top: 23px !important;
       }
-      // Medium devices (tablets, less than 992px)
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
+      @include custem-screen(md, lg) {
         font-size: 25px;
         font-weight: bold;
         margin-top: 23px !important;
       }
-
-      // Large devices (desktops, less than 1200px)
-      @media (min-width: 991.98px) and (max-width: 1199.98px) {
+      @include custem-screen(lg, xlg) {
         font-size: 18px;
         padding-right: 19.2px;
         padding-left: 5.2px;
       }
-
-      // X-Large devices (large desktops, less than 1400px)
-      @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+      @include custem-screen(xlg, xxlg) {
         font-size: 21px;
         padding-right: 25.6px;
         padding-left: 5.2px;
@@ -179,45 +156,36 @@
     margin: 0;
     width: 221px;
     padding: 16px;
-    @media (max-width: 380px) {
+
+    @include BreakPoint(xxs) {
       font-size: 15px;
       font-weight: bold;
       margin-top: 10px !important;
       width: 93px;
     }
-
-    // X-Small devices (portrait phones, less than 576px)
-    @media (min-width: 381px) and(max-width: 575.98px) {
+    @include custem-screen(xs, sm) {
       width: 119px;
       font-size: 20px;
       font-weight: bold;
       margin-top: 11px !important;
     }
-
-    // Small devices (landscape phones, less than 768px)
-    @media (min-width: 575.98px) and (max-width: 767.98px) {
+    @include custem-screen(sm, md) {
       font-size: 25px;
       width: 119px;
       font-weight: bold;
       margin-top: 23px !important;
     }
-
-    // Medium devices (tablets, less than 992px)
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
+    @include custem-screen(md, lg) {
       font-size: 25px;
       font-weight: bold;
       width: 119px;
       margin-top: 23px !important;
     }
-
-    // Large devices (desktops, less than 1200px)
-    @media (min-width: 991.98px) and (max-width: 1199.98px) {
+    @include custem-screen(lg, xlg) {
       width: 187.8px;
       font-size: 18px;
     }
-
-    // X-Large devices (large desktops, less than 1400px)
-    @media (min-width: 1199.98px) and (max-width: 1399.98px) {
+    @include custem-screen(xlg, xxlg) {
       width: 202.4px;
       font-size: 22px;
     }
