@@ -16,7 +16,7 @@
 }
 
 /*
-  =================================================================================================================================================================
+  ============================================================================================================================================================
                                                                         Homepage content
                                     Banner                                                                          Service Steps
 
@@ -24,41 +24,109 @@
 
     Left banner text      Left banner text form       banner right image                         image          paragraph             image          paragraph
 
-  ==================================================================================================================================================================
+  ==============================================================================================================================================================
 */
 
-
-
 /*
-  ==========================================================================
-                     Style for banner
-  =========================================================================
+  ==============================================================================================================================================================
+
+                                                                          Style for banner
+
+  ==============================================================================================================================================================
 */
 
 .banner {
   /* banner properities */
-  @media (max-width: 991.98px) {
+  @include BreakPoint(md) {
     &.section-margin {
       margin-top: 56px !important;
     }
   }
+
+  /*
+  ==============================================================================================================================================================
+
+                                                                          Style for left banner
+
+  ==============================================================================================================================================================
+*/
   .banner-left-text {
-    /* banner left part that contains   and heading */
+    /* banner left part that contains paragraph and heading */
     max-width: 607.25px;
 
     /* margin left for all section */
-    @include margin-content-left;
+    margin-left: 168px;
+
+    @include BreakPoint(xs) {
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+    @include custem-screen(sm, lg) {
+      margin-left: 82px;
+      margin-right: 82px;
+    }
+    @include custem-screen(md, xxlg) {
+      width: 82%;
+    }
+    @include screen(lg) {
+      margin-left: 86px;
+    }
+    @include screen(xlg) {
+      margin-left: 91px;
+    }
     .banner-left-text-h1 {
       /* heading of the left part banner */
       /* Heading properities */
-      @include Heading-size;
+      font-size: 59px;
+      font-weight: 500;
+      font-family: "SFUIRegular";
+
+      @include screen(xxs) {
+        font-size: 18px !important;
+      }
+      @include screen(xs) {
+        font-size: 31px;
+      }
+
+      @include screen(sm) {
+        font-size: 40px;
+      }
+
+      @include screen(md) {
+        font-size: 33px;
+      }
+
+      @include screen(lg) {
+        font-size: 44px;
+      }
+
+      @include screen(xlg) {
+        font-size: 53px;
+      }
     }
     .banner-left-text-p {
       /* paragraph of the left part banner */
       max-width: 615px;
       margin-top: 1.4375rem;
       /* Paragraph properities */
-      @include Paragraph-size;
+      font-family: "BalooBhaijaan2Regular";
+      font-size: 33px;
+
+      @include screen(xxs) {
+        font-size: 10px !important;
+      }
+      @include screen(xs) {
+        font-size: 15px;
+      }
+      @include custem-screen(sm, lg) {
+        font-size: 20px;
+      }
+      @include screen(lg) {
+        font-size: 22px;
+      }
+      @include screen(xlg) {
+        font-size: 29px;
+      }
     }
     .banner-left-text-form {
       /* form search of the left part banner */
@@ -71,9 +139,31 @@
         width: 30px;
         height: 30px;
         /* search icon properities */
-        @include search-icon-responsive;
+        @include screen(xxs) {
+          width: 15px;
+          height: 15px;
+          left: 23px;
+          top: 14px;
+        }
+        @include screen(xs) {
+          width: 20px;
+          height: 20px;
+          left: 30px;
+          top: 19px;
+        }
+        @include custem-screen(sm, lg) {
+          left: 22px;
+          top: 16px;
+          width: 20px;
+          height: 20px;
+        }
+        @include screen(lg) {
+          width: 25px;
+          height: 25px;
+          left: 27px;
+          top: 17px;
+        }
       }
-
       .search-box-div {
         /* Div that contains search list of the left part banner */
         border: 2px solid $main-color-light;
@@ -93,7 +183,24 @@
           box-shadow: 0 0 1.6rem $shadow-color;
           border-top-color: transparent;
           /* input properities */
-          @include search-input-field;
+          @include custem-screen(xs, md) {
+            font-size: 20px;
+            height: 55px;
+          }
+          @include screen(xxs) {
+            font-size: 14px !important;
+            height: 40px !important;
+            padding-left: 3.1rem !important;
+          }
+          @include screen(md) {
+            height: 49.6px !important;
+            font-size: 21px;
+            padding-left: 3rem;
+          }
+          @include screen(lg) {
+            height: 55px;
+            font-size: 21px;
+          }
 
           &::placeholder {
             /* input placeholder icon in form search of the left part banner */
@@ -103,7 +210,21 @@
             color: $gray-color;
             text-align: left;
             /* placeholder properities */
-            @include search-input-placeholder;
+            @include screen(xxs) {
+              font-size: 12px !important;
+            }
+            @include screen(xs) {
+              font-size: 17px !important;
+            }
+            @include screen(sm) {
+              font-size: 18px;
+            }
+            @include screen(md) {
+              font-size: 19px;
+            }
+            @include screen(lg) {
+              font-size: 26px;
+            }
           }
         }
         .search-result-ul {
@@ -118,7 +239,7 @@
             /* li in ul in form search of the left part banner */
             width: 100%;
             padding-top: 0.8125rem;
-            @media (max-width: 380px) {
+            @include BreakPoint(xxs) {
               padding-top: 13px;
             }
             &:not(:last-child) {
@@ -130,25 +251,74 @@
               font-size: 24px;
               margin: 0;
               /* Address paragraph properities */
-              @include search-address-p;
+              @include screen(xxs) {
+                font-size: 13px !important;
+              }
+              @include screen(xs) {
+                font-size: 17px !important;
+              }
+              @include custem-screen(sm, lg) {
+                font-size: 20px;
+              }
+              @include screen(lg) {
+                font-size: 24px;
+              }
             }
             .search-result-item-li-street-p {
               /* li street p in search result of the left part banner */
               font-family: "BalooBhaijaan2Regular";
               font-size: 20px;
               /* Street paragraph properities */
-              @include search-street-p;
+              @include screen(xxs) {
+                font-size: 11px !important;
+                margin-bottom: 0;
+              }
+              @include screen(xs) {
+                font-size: 13px !important;
+              }
+              @include custem-screen(sm, lg) {
+                font-size: 17px;
+              }
+              @include screen(lg) {
+                font-size: 19px;
+              }
             }
           }
         }
       }
     }
   }
+
+  /*
+  ==============================================================================================================================================================
+
+                                                                          Style for Right banner
+
+  ==============================================================================================================================================================
+*/
   .banner-right-img {
     /* Div that containes the banner image in right part banner */
     max-width: 805.8px;
     /* right banner div properities */
-    @include right-banner-div;
+    @include BreakPoint(xs) {
+      width: 66%;
+      margin: auto;
+    }
+    @include screen(sm) {
+      margin-top: -30px;
+      width: 435.12px;
+      margin: auto;
+    }
+    @include custem-screen(md, xxlg) {
+      width: 100%;
+    }
+
+    @include screen(md) {
+      margin-top: 0px;
+    }
+    @include custem-screen(lg, xxlg) {
+      margin-top: -30px;
+    }
   }
   .banner-right-img img {
     /* image properities */
@@ -161,9 +331,11 @@
 }
 
 /*
-  ==========================================================================
-                     Services Steps
-  =========================================================================
+  ==============================================================================================================================================================
+
+                                                                          Style for Services Steps
+
+  ==============================================================================================================================================================
 */
 
 /* Service consist of two parts divs in right direction and left direction */
@@ -178,100 +350,345 @@
     margin-bottom: 2rem;
     font-size: 3.6875rem;
     font-family: "SFUIRegular";
-    // Small devices (landscape phones, less than 768px)
-    @media (max-width: 767.98px) {
+    @include BreakPoint(sm) {
       margin-bottom: 4rem;
     }
     /* Heading title h1 */
     .services-title-div-h1 {
       /* Heading title h1  Properities*/
-      @include margin-content-left;
-      @include Heading-size;
+      margin-left: 168px;
+      font-size: 59px;
+      font-weight: 500;
+      font-family: "SFUIRegular";
+
+      @include BreakPoint(xs) {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+      @include custem-screen(sm, lg) {
+        margin-left: 82px;
+        margin-right: 82px;
+      }
+      @include custem-screen(md, xxlg) {
+        width: 82%;
+      }
+      @include screen(xxs) {
+        font-size: 18px !important;
+      }
+      @include screen(xs) {
+        font-size: 31px;
+      }
+      @include screen(sm) {
+        font-size: 40px;
+      }
+      @include screen(md) {
+        font-size: 33px;
+      }
+      @include screen(lg) {
+        font-size: 44px;
+        margin-left: 86px;
+      }
+      @include screen(xlg) {
+        font-size: 53px;
+        margin-left: 91px;
+      }
     }
   }
   span {
     color: $main-color;
   }
+  /*
+  ==============================================================================================================================================================
+
+                                                                          Style for Services right Steps
+
+  ==============================================================================================================================================================
+*/
 
   .step-in-right-direction {
-    /* Steps in right direction Properities */
     margin-left: -1rem;
     padding-right: 69px;
+    border: 5px solid $main-color-brightness;
+    box-shadow: 0 0 1.6rem $shadow-color;
+    max-width: 1748px;
+    min-height: 20.438rem;
+    display: flex;
+    background-color: $white !important;
+    border-bottom-right-radius: 4.375rem;
+    border-top-right-radius: 4.375rem;
+    border-left: none !important;
     /* step in right direction properities */
-    @include step-direction-div;
-    /* border of Steps in right direction Properities */
-    @include border-properities(right);
+    @include BreakPoint(sm) {
+      border-bottom-right-radius: 2.375rem;
+      border-top-right-radius: 2.375rem;
+      padding-right: 49px !important;
+    }
+    @include custem-screen(xs, md) {
+      width: 88%;
+      min-height: 12.563rem !important;
+    }
+    @include custem-screen(lg, xxlg) {
+      padding-right: 0;
+    }
+    @include screen(xxs) {
+      width: 100%;
+      min-height: 9.438rem;
+    }
+    @include screen(md) {
+      border-bottom-right-radius: 3.375rem;
+      border-top-right-radius: 3.375rem;
+      width: 95%;
+      min-height: 13.5625rem !important;
+
+    }
+    @include screen(lg) {
+      min-height: 15.438rem !important;
+      border-bottom-right-radius: 3.375rem;
+      border-top-right-radius: 3.375rem;
+      width: 95%;
+    }
+    @include screen(xlg) {
+      min-height: 17.438rem !important;
+      width: 99%;
+    }
+
     .step-collection-div {
-      @include collection-div;
+      display: flex;
+      align-items: center;
+      margin-left: 168px;
+
+      @include BreakPoint(xs) {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+      @include BreakPoint(sm) {
+        position: relative;
+        margin: 0 0 -9px 9% !important;
+      }
+      @include custem-screen(sm, lg) {
+        margin-left: 82px;
+        margin-right: 82px;
+      }
+      @include custem-screen(md, xxlg) {
+        width: 82%;
+      }
+      @include screen(lg) {
+        margin-left: 86px;
+      }
+      @include screen(xlg) {
+        margin-left: 91px;
+      }
       .step-in-right-direction-img {
         /* image div of Steps in right direction Properities */
         width: 344.1px;
         display: inline-block;
-        //height: 262.45px !important;
-        /* image of Steps in right direction Properities */
-        @include img-direction-properities(right);
+        position: relative;
+        @include custem-screen(xs, md) {
+          height: 118px !important;
+          width: 250px;
+          position: absolute;
+          top: -74px;
+          position: absolute;
+          left: -64px;
+        }
+        @include screen(xxs) {
+          height: 89px !important;
+          top: -63px !important;
+          width: 250px;
+          position: absolute;
+          left: -60px;
+        }
+        @include screen(md) {
+          width: 190px !important;
+          display: inline-block;
+          height: 200.45px !important;
+        }
+        @include screen(lg) {
+          width: 292.1px !important;
+        }
+        @include screen(xlg) {
+          min-height: 17.438rem !important;
+          display: inline-block;
+          width: 292.1px !important;
+        }
         /* image of Steps in right direction Properities */
         img {
           width: 344.1px;
           height: 100%;
-          @media (max-width: 767.98px) {
+          @include BreakPoint(sm) {
             width: 250px;
           }
-          @media (min-width: 767.98px) and (max-width: 991.98px) {
+          @include custem-screen(md, lg) {
             width: 190px;
           }
-          @media (min-width: 991.98px) and (max-width: 1399.98px) {
+          @include custem-screen(lg, xxlg) {
             width: 292.1px;
           }
         }
       }
       .step-in-right-direction-p {
         /* paragraph div of Steps in right direction Properities */
-        @include p-direction-properities;
+        display: inline-block;
+        position: relative;
+        font-family: "BalooBhaijaan2Regular";
+        font-size: 33px;
+
+        @include custem-screen(sm, lg) {
+          font-size: 20px;
+        }
+        @include screen(lg) {
+          font-size: 22px;
+        }
+        @include screen(xlg) {
+          font-size: 29px;
+        }
+        @include screen(xxs) {
+          font-size: 10px !important;
+        }
+        @include screen(xs) {
+          font-size: 15px;
+        }
         /* paragraph of Steps in right direction Properities */
         p {
           margin: 0;
         }
       }
-
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
+      @include custem-screen(md, lg) {
         margin-right: 0;
         width: 100%;
       }
-      // Large devices (desktops, less than 1200px)
-      @media (min-width: 991.98px) and (max-width: 1399.98px) {
+      @include custem-screen(lg, xxlg) {
         width: 90%;
         margin-left: 76px;
       }
     }
-    @media (min-width: 991.98px) and (max-width: 1399.98px) {
-      padding-right: 0;
-    }
   }
+  /*
+  ==============================================================================================================================================================
 
+                                                                          Style for Services left Steps
+
+  ==============================================================================================================================================================
+*/
   .step-in-left-direction {
-    /* Steps in left direction Properities */
     float: right;
     margin: -12px;
-    /* step in left direction properities */
-    @include step-direction-div;
+    border: 5px solid $main-color-brightness;
+    box-shadow: 0 0 1.6rem $shadow-color;
+    max-width: 1748px;
+    min-height: 20.438rem;
+    display: flex;
+    background-color: $white !important;
     /* border of Steps in right direction Properities */
-    @include border-properities(left);
+
+    border-bottom-left-radius: 4.375rem;
+    border-top-left-radius: 4.375rem;
+    border-right: none !important;
+
+    @include BreakPoint(sm) {
+      border-bottom-left-radius: 2.375rem;
+      border-top-left-radius: 2.375rem;
+    }
+
+    @include custem-screen(xs, md) {
+      width: 88%;
+      min-height: 12.563rem !important;
+    }
+    @include screen(xxs) {
+      width: 100%;
+      min-height: 9.438rem;
+    }
+    @include screen(md) {
+      min-height: 13.5625rem !important;
+      width: 95%;
+      border-bottom-left-radius: 3.375rem;
+      border-top-left-radius: 3.375rem;
+    }
+    @include screen(lg) {
+      min-height: 15.438rem !important;
+      width: 95%;
+      border-bottom-left-radius: 3.375rem;
+      border-top-left-radius: 3.375rem;
+    }
+    @include screen(xlg) {
+      min-height: 17.438rem !important;
+      width: 99%;
+    }
     .step-collection-div {
       margin-left: 85px;
       margin-right: 74px;
-      @include collection-div;
-      /* div that contains the content of the step in left direction Properities */
-      @media (max-width: 767.98px) {
+      display: flex;
+      align-items: center;
+      margin-left: 168px;
+
+      @include BreakPoint(xs) {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+      @include BreakPoint(sm) {
+        position: relative;
+        margin: 0 0 -9px 9% !important;
+      }
+      @include BreakPoint(md) {
         padding: 0px 47px 0 0 !important;
+      }
+      @include custem-screen(sm, lg) {
+        margin-left: 82px;
+        margin-right: 82px;
+      }
+     /* @include custem-screen(md, lg) {
+        margin-left: 19px;
+      }*/
+      @include custem-screen(md, xxlg) {
+        width: 82%;
+      }
+      @include custem-screen(lg, xxlg) {
+        margin-left: 73px;
+        margin-right: 0;
+        width: 100%;
+      }
+      @include screen(lg) {
+        margin-left: 86px;
+      }
+      @include screen(xlg) {
+        margin-left: 91px;
       }
       .step-in-left-direction-img {
         /* image of Steps in left direction Properities */
         width: 344.1px;
         display: inline-block;
         height: 316.11px;
-        /* image div of Steps in left direction Properities */
-        @include img-direction-properities(left);
+        position: relative;
+
+        @include custem-screen(xs, md) {
+          height: 118px !important;
+          width: 250px;
+          position: absolute;
+          right: -71px;
+          top: -82px;
+          position: absolute;
+        }
+        @include screen(xxs) {
+          height: 89px !important;
+          top: -63px !important;
+          width: 250px;
+          position: absolute;
+          right: -108px;
+        }
+        @include screen(md) {
+          width: 190px !important;
+          display: inline-block;
+          height: 200.45px !important;
+        }
+        @include screen(lg) {
+          width: 292.1px !important;
+          height: 200.45px !important;
+        }
+        @include screen(xlg) {
+          min-height: 17.438rem !important;
+          display: inline-block;
+          width: 344.1px !important;
+        }
         /* image of Steps in left direction Properities */
         img {
           width: 344.1px;
@@ -282,24 +699,41 @@
           @media (min-width: 767.98px) and (max-width: 991.98px) {
             width: 264.1px !important;
           }
+          // @include BreakPoint(md) {
+          //   width: 189px;
+          // }
+          // @include custem-screen(md, lg) {
+          //   width: 264.1px !important;
+          // }
         }
       }
       .step-in-left-direction-p {
         /* paragraph div of Steps in left direction Properities */
-        @include p-direction-properities;
+        display: inline-block;
+        position: relative;
+        font-family: "BalooBhaijaan2Regular";
+        font-size: 33px;
+
+        @include custem-screen(sm, lg) {
+          font-size: 20px;
+        }
+        @include screen(xxs) {
+          font-size: 10px !important;
+        }
+        @include screen(xs) {
+          font-size: 15px;
+        }
+
+        @include screen(lg) {
+          font-size: 22px;
+        }
+        @include screen(xlg) {
+          font-size: 29px;
+        }
         /* paragraph of Steps in left direction Properities */
         p {
           margin: 0;
         }
-      }
-      @media (min-width: 767.98px) and (max-width: 991.98px) {
-        margin-left: 19px;
-      }
-      // Large devices (desktops, less than 1200px)
-      @media (min-width: 991.98px) and (max-width: 1399.98px) {
-        margin-left: 73px;
-        margin-right: 0;
-        width: 100%;
       }
     }
   }
@@ -312,7 +746,23 @@
     height: 448px;
     transform: rotate(48deg);
     /* overflow image properities */
-    @include overflow-images(Ellipse);
+    z-index: -999;
+    position: absolute;
+
+    @include BreakPoint(sm) {
+      top: 300px;
+      width: 576px;
+      height: 408px;
+    }
+    @include screen(md) {
+      width: 523px;
+      height: 398px;
+    }
+    @include screen(xxs) {
+      top: 271px;
+      width: 300px !important;
+      height: 300px !important;
+    }
   }
   .Repeat6 {
     /* second overflow image in services */
@@ -321,13 +771,30 @@
     height: 309px;
     left: -48px;
     /* overflow image properities */
-    @include overflow-images(Repeat6);
+    z-index: -999;
+    position: absolute;
+
+    @include BreakPoint(sm) {
+      top: 418px;
+    }
+    @include screen(md) {
+      top: 383px;
+    }
   }
   .Repeat5 {
     /* thirs overflow image in services */
     right: 153px;
     bottom: -211px;
     /* overflow image properities */
-    @include overflow-images(Repeat5);
+    z-index: -999;
+    position: absolute;
+
+    @include BreakPoint(sm) {
+      right: -123px;
+    }
+    @include screen(md) {
+      right: 68px;
+      bottom: -209px;
+    }
   }
 }
