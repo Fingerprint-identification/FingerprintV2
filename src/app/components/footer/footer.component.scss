@@ -97,9 +97,6 @@ footer {
     @include custem-screen(sm, lg) {
       padding: 0 47px;
     }
-    // @media (min-width: 575.98px) and (max-width: 991.98px) {
-    //   padding: 0 47px;
-    // }
   }
   .copyright {
     position: relative;
