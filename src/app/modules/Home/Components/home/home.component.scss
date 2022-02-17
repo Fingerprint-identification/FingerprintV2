@@ -9,7 +9,12 @@
 
 .service-margin-top {
   margin-top: 5.875rem !important;
-  @include service-margin-top;
+  @include BreakPoint(xs) {
+    margin-top: 109px !important;
+  }
+  @include screen(sm) {
+    margin-top: 115px !important;
+  }
 }
 .banner-margin-bottom {
   margin-bottom: 21.25rem !important;
@@ -439,7 +444,6 @@
       border-top-right-radius: 3.375rem;
       width: 95%;
       min-height: 13.5625rem !important;
-
     }
     @include screen(lg) {
       min-height: 15.438rem !important;
@@ -636,7 +640,7 @@
         margin-left: 82px;
         margin-right: 82px;
       }
-     /* @include custem-screen(md, lg) {
+      /* @include custem-screen(md, lg) {
         margin-left: 19px;
       }*/
       @include custem-screen(md, xxlg) {
