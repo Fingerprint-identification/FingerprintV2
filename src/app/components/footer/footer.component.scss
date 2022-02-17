@@ -20,22 +20,30 @@ footer {
     list-style: none;
     margin-top: 12px;
     padding-left: 0;
-    // Medium devices (tablets, less than 992px)
-    @media (min-width: 767.98px) and (max-width: 991.98px) {
+     /*
+      Here md = 767, lg = 991
+    */
+    @include custem-screen(md, lg) {
       margin-top: 60px;
     }
-    @media (max-width: 991.98px) {
+    // @media (min-width: 767.98px) and (max-width: 991.98px) {
+    //   margin-top: 60px;
+    // }
+    /*
+    Here xxs = 0, lg = 991
+  */
+    @include custem-screen(xxs, lg) {
       display: grid;
       justify-content: center;
     }
   }
   li {
-    &:not(:first-child) {
-      margin-top: 1.45rem;
-      // Medium devices (tablets, less than 992px)
-      @media (max-width: 767.98px) {
-        margin-top: 0px;
-      }
+    margin-top: 1.45rem;
+    /*
+      Here xxs = 0, md = 767
+    */
+    @include custem-screen(xxs, md) {
+      margin-top: 0px;
     }
     a {
       color: $white;
@@ -70,24 +78,31 @@ footer {
       /* btn in the footer properities */
       @include footer-form-btn;
     }
-    // Medium devices (tablets, less than 992px)
-    @media (max-width: 991.98px) {
-      .div-contain-form-data {
+    .div-contain-form-data {
+      /*
+        Here xxs = 0, lg = 991
+      */
+      @include custem-screen(xxs, lg) {
         width: 100%;
-        // Medium devices (tablets, less than 992px)
-        @media (max-width: 991.98px) {
-          border: 2px solid $white;
-          border-radius: 11px;
-        }
-        @media (max-width: 767.98px) {
-          margin-bottom: 20px;
-        }
+        border: 2px solid $white;
+        border-radius: 11px;
+      }
+      /*
+        Here xxs = 0, md = 767
+      */
+      @include custem-screen(xxs, md) {
+        margin-bottom: 20px;
       }
     }
-    // Medium devices (tablets, less than 992px)
-    @media (min-width: 575.98px) and (max-width: 991.98px) {
+    /*
+        Here sm = 575, lg = 991
+      */
+    @include custem-screen(sm, lg) {
       padding: 0 47px;
     }
+    // @media (min-width: 575.98px) and (max-width: 991.98px) {
+    //   padding: 0 47px;
+    // }
   }
   .copyright {
     position: relative;
