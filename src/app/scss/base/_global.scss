@@ -8,7 +8,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   // font-family: "SFUI" !important;
   font-family: "SFUI" !important;
@@ -25,9 +24,21 @@ a {
   border: none !important;
 }
 
-.section-padding{
+.section-padding {
   padding: 0px 10rem;
 }
-.section-margin{
-   margin-top: 128px !important;
+.section-margin {
+  margin-top: 128px !important;
+}
+.service-margin-top {
+  margin-top: 5.875rem !important;
+  @include BreakPoint(xs) {
+    margin-top: 109px !important;
+  }
+  @include screen(sm) {
+    margin-top: 115px !important;
+  }
+}
+.banner-margin-bottom {
+  margin-bottom: 21.25rem !important;
 }

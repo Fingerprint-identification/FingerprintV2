@@ -3,22 +3,10 @@
                   Global specific style in general home
   =========================================================================
 */
+
 /* import colors and mixins*/
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
-
-.service-margin-top {
-  margin-top: 5.875rem !important;
-  @include BreakPoint(xs) {
-    margin-top: 109px !important;
-  }
-  @include screen(sm) {
-    margin-top: 115px !important;
-  }
-}
-.banner-margin-bottom {
-  margin-bottom: 21.25rem !important;
-}
 
 /*
   ============================================================================================================================================================
@@ -27,8 +15,11 @@
 
                   Left banner                        Right banner                                   Right Direction steps             Left direction step
 
-    Left banner text      Left banner text form       banner right image                         image          paragraph             image          paragraph
+               Left banner text                   banner right image                             image          paragraph             image          paragraph
 
+            H1      Form         p
+
+                Search-box-div
   ==============================================================================================================================================================
 */
 
@@ -56,12 +47,10 @@
   ==============================================================================================================================================================
 */
   .banner-left-text {
-    /* banner left part that contains paragraph and heading */
     max-width: 607.25px;
-
-    /* margin left for all section */
     margin-left: 168px;
 
+    /*================== Media query for banner-left-text ===================*/
     @include BreakPoint(xs) {
       margin-left: 25px;
       margin-right: 25px;
@@ -79,13 +68,14 @@
     @include screen(xlg) {
       margin-left: 91px;
     }
+    /*======================================================================*/
+
     .banner-left-text-h1 {
-      /* heading of the left part banner */
-      /* Heading properities */
       font-size: 59px;
       font-weight: 500;
-      font-family: "SFUIRegular";
+      font-family: map-get($fonts, headingFont);
 
+      /*================== Media query for banner-left-text -> banner-left-text-h1 ===================*/
       @include screen(xxs) {
         font-size: 18px !important;
       }
@@ -108,23 +98,25 @@
       @include screen(xlg) {
         font-size: 53px;
       }
+      /*===================================================================================================*/
     }
+
     .banner-left-text-p {
-      /* paragraph of the left part banner */
       max-width: 615px;
       margin-top: 1.4375rem;
-      /* Paragraph properities */
-      font-family: "BalooBhaijaan2Regular";
+      font-family: map-get($fonts, paragraphFont);
       font-size: 33px;
 
+      /*================== Media query for banner-left-text -> banner-left-text-p ===================*/
+
+      @include custem-screen(sm, lg) {
+        font-size: 20px;
+      }
       @include screen(xxs) {
         font-size: 10px !important;
       }
       @include screen(xs) {
         font-size: 15px;
-      }
-      @include custem-screen(sm, lg) {
-        font-size: 20px;
       }
       @include screen(lg) {
         font-size: 22px;
@@ -132,18 +124,24 @@
       @include screen(xlg) {
         font-size: 29px;
       }
+      /*===================================================================================================*/
     }
+
     .banner-left-text-form {
-      /* form search of the left part banner */
       position: relative;
       img {
-        /* img icon in form search of the left part banner */
         position: absolute;
         left: 24px;
         top: 19px;
         width: 30px;
         height: 30px;
-        /* search icon properities */
+        /*================== Media query for banner-left-text -> banner-left-text-form -> img ===================*/
+        @include custem-screen(sm, lg) {
+          left: 22px;
+          top: 16px;
+          width: 20px;
+          height: 20px;
+        }
         @include screen(xxs) {
           width: 15px;
           height: 15px;
@@ -156,28 +154,22 @@
           left: 30px;
           top: 19px;
         }
-        @include custem-screen(sm, lg) {
-          left: 22px;
-          top: 16px;
-          width: 20px;
-          height: 20px;
-        }
         @include screen(lg) {
           width: 25px;
           height: 25px;
           left: 27px;
           top: 17px;
         }
+        /*===================================================================================================*/
       }
+
       .search-box-div {
-        /* Div that contains search list of the left part banner */
         border: 2px solid $main-color-light;
         box-shadow: 0 0 1.6rem $shadow-color;
         margin-bottom: 5.3125rem;
         border-radius: 20px;
         width: 100%;
         input {
-          /* input icon in form search of the left part banner */
           width: 100%;
           height: 63.6px;
           color: $black;
@@ -187,7 +179,7 @@
           border: 1px solid $main-color-light;
           box-shadow: 0 0 1.6rem $shadow-color;
           border-top-color: transparent;
-          /* input properities */
+          /*================== Media query for banner-left-text -> banner-left-text-form -> search-box-div  -> input ===================*/
           @include custem-screen(xs, md) {
             font-size: 20px;
             height: 55px;
@@ -206,15 +198,16 @@
             height: 55px;
             font-size: 21px;
           }
+          /*===================================================================================================*/
 
           &::placeholder {
-            /* input placeholder icon in form search of the left part banner */
             font-size: 28px;
             line-height: 3rem;
             letter-spacing: -0.05125rem;
             color: $gray-color;
             text-align: left;
-            /* placeholder properities */
+
+            /*================== Media query for banner-left-text -> banner-left-text-form -> search-box-div  -> input -> placeholder ===================*/
             @include screen(xxs) {
               font-size: 12px !important;
             }
@@ -230,10 +223,10 @@
             @include screen(lg) {
               font-size: 26px;
             }
+            /*===================================================================================================*/
           }
         }
         .search-result-ul {
-          /* Ul in form search of the left part banner */
           width: 100%;
           background: transparent;
           position: relative;
@@ -241,7 +234,6 @@
           padding-left: 1rem;
 
           .search-result-item-li {
-            /* li in ul in form search of the left part banner */
             width: 100%;
             padding-top: 0.8125rem;
             @include BreakPoint(xxs) {
@@ -251,29 +243,38 @@
               border-bottom: 1px solid $main-color-light;
             }
             .search-result-item-li-address-p {
-              /* li address p in search result of the left part banner */
-              font-family: "SFUIRegular";
+              font-family: map-get($fonts, headingFont);
               font-size: 24px;
               margin: 0;
-              /* Address paragraph properities */
+              /*============================================================================================================================
+                Media query for banner-left-text -> banner-left-text-form -> search-box-div  -> search-result-ul ->
+                                  search-result-item-li -> search-result-item-li-address-p
+              ==============================================================================================================================*/
+              @include custem-screen(sm, lg) {
+                font-size: 20px;
+              }
               @include screen(xxs) {
                 font-size: 13px !important;
               }
               @include screen(xs) {
                 font-size: 17px !important;
               }
-              @include custem-screen(sm, lg) {
-                font-size: 20px;
-              }
               @include screen(lg) {
                 font-size: 24px;
               }
+              /*===================================================================================================*/
             }
+
             .search-result-item-li-street-p {
-              /* li street p in search result of the left part banner */
-              font-family: "BalooBhaijaan2Regular";
+              font-family: map-get($fonts, paragraphFont);
               font-size: 20px;
-              /* Street paragraph properities */
+              /*============================================================================================================================
+                Media query for banner-left-text -> banner-left-text-form -> search-box-div  -> search-result-ul ->
+                                  search-result-item-li -> search-result-item-li-street-p
+              ==============================================================================================================================*/
+              @include custem-screen(sm, lg) {
+                font-size: 17px;
+              }
               @include screen(xxs) {
                 font-size: 11px !important;
                 margin-bottom: 0;
@@ -281,12 +282,10 @@
               @include screen(xs) {
                 font-size: 13px !important;
               }
-              @include custem-screen(sm, lg) {
-                font-size: 17px;
-              }
               @include screen(lg) {
                 font-size: 19px;
               }
+              /*===================================================================================================*/
             }
           }
         }
@@ -302,9 +301,8 @@
   ==============================================================================================================================================================
 */
   .banner-right-img {
-    /* Div that containes the banner image in right part banner */
     max-width: 805.8px;
-    /* right banner div properities */
+    /*================== Media query for banner-right-text ===================*/
     @include BreakPoint(xs) {
       width: 66%;
       margin: auto;
@@ -324,14 +322,15 @@
     @include custem-screen(lg, xxlg) {
       margin-top: -30px;
     }
-  }
-  .banner-right-img img {
-    /* image properities */
-    transform: perspective(1600px) rotateX(0deg) rotateY(-20deg) rotateZ(0deg);
-    max-width: 100%;
-    margin-top: -55px;
-    position: relative;
-    z-index: -20;
+    /*==========================================================================*/
+    img {
+      /* image properities */
+      transform: perspective(1600px) rotateX(0deg) rotateY(-20deg) rotateZ(0deg);
+      max-width: 100%;
+      margin-top: -55px;
+      position: relative;
+      z-index: -20;
+    }
   }
 }
 
@@ -354,7 +353,7 @@
     width: 100%;
     margin-bottom: 2rem;
     font-size: 3.6875rem;
-    font-family: "SFUIRegular";
+    font-family: map-get($fonts, headingFont);
     @include BreakPoint(sm) {
       margin-bottom: 4rem;
     }
@@ -364,7 +363,7 @@
       margin-left: 168px;
       font-size: 59px;
       font-weight: 500;
-      font-family: "SFUIRegular";
+      font-family: map-get($fonts, headingFont);
 
       @include BreakPoint(xs) {
         margin-left: 25px;
@@ -534,7 +533,7 @@
         /* paragraph div of Steps in right direction Properities */
         display: inline-block;
         position: relative;
-        font-family: "BalooBhaijaan2Regular";
+        font-family: map-get($fonts, paragraphFont);
         font-size: 33px;
 
         @include custem-screen(sm, lg) {
@@ -715,7 +714,7 @@
         /* paragraph div of Steps in left direction Properities */
         display: inline-block;
         position: relative;
-        font-family: "BalooBhaijaan2Regular";
+        font-family: map-get($fonts, paragraphFont);
         font-size: 33px;
 
         @include custem-screen(sm, lg) {
