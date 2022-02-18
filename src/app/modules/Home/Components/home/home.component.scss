@@ -13,7 +13,7 @@
                                                                         Homepage content
                                     Banner                                                                          Service Steps
 
-                  Left banner                        Right banner                                   Right Direction steps             Left direction step
+                  Left banner                        Right banner                                   Right Direction steps             Left direction step         title div
 
                Left banner text                   banner right image                             image          paragraph             image          paragraph
 
@@ -341,30 +341,27 @@
 
   ==============================================================================================================================================================
 */
-
-/* Service consist of two parts divs in right direction and left direction */
 .Service-Steps-section {
-  /* Service Properities */
   position: relative;
   overflow: hidden;
-  /* Heading div that contains the title */
   .services-title-div {
-    /* Heading div Properities */
     width: 100%;
     margin-bottom: 2rem;
     font-size: 3.6875rem;
     font-family: map-get($fonts, headingFont);
+    /*================== Media query for Service-Steps-section -> services-title-div ===================*/
     @include BreakPoint(sm) {
       margin-bottom: 4rem;
     }
-    /* Heading title h1 */
+    /*====================================================================================================*/
+
     .services-title-div-h1 {
-      /* Heading title h1  Properities*/
       margin-left: 168px;
       font-size: 59px;
       font-weight: 500;
       font-family: map-get($fonts, headingFont);
 
+      /*================== Media query for Service-Steps-section -> services-title-div -> services-title-div-h1 ===================*/
       @include BreakPoint(xs) {
         margin-left: 25px;
         margin-right: 25px;
@@ -396,6 +393,7 @@
         font-size: 53px;
         margin-left: 91px;
       }
+      /*=========================================================================================================================*/
     }
   }
   span {
@@ -421,7 +419,7 @@
     border-bottom-right-radius: 4.375rem;
     border-top-right-radius: 4.375rem;
     border-left: none !important;
-    /* step in right direction properities */
+    /*================== Media query for Service-Steps-section -> step-in-right-direction ===================*/
     @include BreakPoint(sm) {
       border-bottom-right-radius: 2.375rem;
       border-top-right-radius: 2.375rem;
@@ -454,26 +452,32 @@
       min-height: 17.438rem !important;
       width: 99%;
     }
+    /*=========================================================================================================*/
 
     .step-collection-div {
       display: flex;
       align-items: center;
       margin-left: 168px;
-
-      @include BreakPoint(xs) {
-        margin-left: 25px;
-        margin-right: 25px;
-      }
+      /*================== Media query for Service-Steps-section -> step-in-right-direction -> step-collection-div ===================*/
       @include BreakPoint(sm) {
         position: relative;
         margin: 0 0 -9px 9% !important;
       }
-      @include custem-screen(sm, lg) {
+      @include custem-screen(sm, md) {
         margin-left: 82px;
         margin-right: 82px;
       }
       @include custem-screen(md, xxlg) {
         width: 82%;
+      }
+      @include custem-screen(md, lg) {
+        margin-right: 0;
+        margin-left: 82px;
+        width: 100%;
+      }
+      @include custem-screen(lg, xxlg) {
+        width: 90%;
+        margin-left: 76px;
       }
       @include screen(lg) {
         margin-left: 86px;
@@ -481,43 +485,44 @@
       @include screen(xlg) {
         margin-left: 91px;
       }
+      /*=============================================================================================================================*/
       .step-in-right-direction-img {
-        /* image div of Steps in right direction Properities */
         width: 344.1px;
         display: inline-block;
         position: relative;
+        /*================== Media query for Service-Steps-section -> step-in-right-direction -> step-collection-div -> step-in-right-direction-img  ===================*/
         @include custem-screen(xs, md) {
-          height: 118px !important;
+          height: 118px ;
           width: 250px;
           position: absolute;
           top: -74px;
-          position: absolute;
           left: -64px;
         }
         @include screen(xxs) {
-          height: 89px !important;
-          top: -63px !important;
+          height: 89px ;
+          top: -63px ;
           width: 250px;
           position: absolute;
           left: -60px;
         }
         @include screen(md) {
-          width: 190px !important;
+          width: 190px ;
           display: inline-block;
-          height: 200.45px !important;
+          height: 200.45px ;
         }
         @include screen(lg) {
-          width: 292.1px !important;
+          width: 292.1px ;
         }
         @include screen(xlg) {
-          min-height: 17.438rem !important;
+          min-height: 17.438rem ;
           display: inline-block;
-          width: 292.1px !important;
+          width: 292.1px ;
         }
-        /* image of Steps in right direction Properities */
+        /*=============================================================================================================================================================*/
         img {
           width: 344.1px;
           height: 100%;
+          /*================== Media query for Service-Steps-section -> step-in-right-direction -> step-collection-div -> step-in-right-direction-img -> img ===================*/
           @include BreakPoint(sm) {
             width: 250px;
           }
@@ -527,15 +532,16 @@
           @include custem-screen(lg, xxlg) {
             width: 292.1px;
           }
+          /*=============================================================================================================================================================*/
         }
       }
       .step-in-right-direction-p {
-        /* paragraph div of Steps in right direction Properities */
         display: inline-block;
         position: relative;
         font-family: map-get($fonts, paragraphFont);
         font-size: 33px;
 
+        /*================== Media query for Service-Steps-section -> step-in-right-direction -> step-collection-div -> step-in-right-direction-p  ===================*/
         @include custem-screen(sm, lg) {
           font-size: 20px;
         }
@@ -551,18 +557,10 @@
         @include screen(xs) {
           font-size: 15px;
         }
-        /* paragraph of Steps in right direction Properities */
+        /*============================================================================================================================================================*/
         p {
           margin: 0;
         }
-      }
-      @include custem-screen(md, lg) {
-        margin-right: 0;
-        width: 100%;
-      }
-      @include custem-screen(lg, xxlg) {
-        width: 90%;
-        margin-left: 76px;
       }
     }
   }
@@ -588,11 +586,11 @@
     border-top-left-radius: 4.375rem;
     border-right: none !important;
 
+     /*================== Media query for Service-Steps-section -> step-in-left-direction ===================*/
     @include BreakPoint(sm) {
       border-bottom-left-radius: 2.375rem;
       border-top-left-radius: 2.375rem;
     }
-
     @include custem-screen(xs, md) {
       width: 88%;
       min-height: 12.563rem !important;
@@ -617,6 +615,8 @@
       min-height: 17.438rem !important;
       width: 99%;
     }
+    /*============================================================================================================*/
+
     .step-collection-div {
       margin-left: 85px;
       margin-right: 74px;
@@ -624,10 +624,8 @@
       align-items: center;
       margin-left: 168px;
 
-      @include BreakPoint(xs) {
-        margin-left: 25px;
-        margin-right: 25px;
-      }
+      /*================== Media query for Service-Steps-section -> step-in-left-direction -> step-collection-div ===================*/
+
       @include BreakPoint(sm) {
         position: relative;
         margin: 0 0 -9px 9% !important;
@@ -639,14 +637,10 @@
         margin-left: 82px;
         margin-right: 82px;
       }
-      /* @include custem-screen(md, lg) {
-        margin-left: 19px;
-      }*/
       @include custem-screen(md, xxlg) {
         width: 82%;
       }
       @include custem-screen(lg, xxlg) {
-        margin-left: 73px;
         margin-right: 0;
         width: 100%;
       }
@@ -656,13 +650,14 @@
       @include screen(xlg) {
         margin-left: 91px;
       }
+
+      /*===========================================================================================================================================*/
       .step-in-left-direction-img {
-        /* image of Steps in left direction Properities */
         width: 344.1px;
         display: inline-block;
         height: 316.11px;
         position: relative;
-
+        /*================== Media query for Service-Steps-section -> step-in-left-direction -> step-collection-div -> step-in-left-direction-img ===================*/
         @include custem-screen(xs, md) {
           height: 118px !important;
           width: 250px;
@@ -692,31 +687,27 @@
           display: inline-block;
           width: 344.1px !important;
         }
-        /* image of Steps in left direction Properities */
+        /*===========================================================================================================================================*/
         img {
           width: 344.1px;
           height: 100%;
-          @media (max-width: 767.98px) {
+          /*================== Media query for Service-Steps-section -> step-in-left-direction -> step-collection-div -> step-in-left-direction-img -> img ===================*/
+          @include BreakPoint(md) {
             width: 189px;
           }
-          @media (min-width: 767.98px) and (max-width: 991.98px) {
+          @include custem-screen(md, lg) {
             width: 264.1px !important;
           }
-          // @include BreakPoint(md) {
-          //   width: 189px;
-          // }
-          // @include custem-screen(md, lg) {
-          //   width: 264.1px !important;
-          // }
         }
       }
+
       .step-in-left-direction-p {
-        /* paragraph div of Steps in left direction Properities */
         display: inline-block;
         position: relative;
         font-family: map-get($fonts, paragraphFont);
         font-size: 33px;
 
+        /*================== Media query for Service-Steps-section -> step-in-left-direction -> step-collection-div -> step-in-left-direction-p ===================*/
         @include custem-screen(sm, lg) {
           font-size: 20px;
         }
@@ -733,7 +724,7 @@
         @include screen(xlg) {
           font-size: 29px;
         }
-        /* paragraph of Steps in left direction Properities */
+        /*===========================================================================================================================================================*/
         p {
           margin: 0;
         }
@@ -742,16 +733,14 @@
   }
 
   .Ellipse {
-    /* first overflow image in services */
     right: -200px;
     top: 185px;
     width: 610px;
     height: 448px;
     transform: rotate(48deg);
-    /* overflow image properities */
     z-index: -999;
     position: absolute;
-
+    /*================== Media query for Service-Steps-section -> Ellipse ===================*/
     @include BreakPoint(sm) {
       top: 300px;
       width: 576px;
@@ -766,32 +755,32 @@
       width: 300px !important;
       height: 300px !important;
     }
+    /*=======================================================================================*/
   }
+
   .Repeat6 {
-    /* second overflow image in services */
     top: 479px;
     width: 252px;
     height: 309px;
     left: -48px;
-    /* overflow image properities */
     z-index: -999;
     position: absolute;
 
+    /*================== Media query for Service-Steps-section -> Repeat6 ===================*/
     @include BreakPoint(sm) {
       top: 418px;
     }
     @include screen(md) {
       top: 383px;
     }
+    /*=======================================================================================*/
   }
   .Repeat5 {
-    /* thirs overflow image in services */
     right: 153px;
     bottom: -211px;
-    /* overflow image properities */
     z-index: -999;
     position: absolute;
-
+    /*================== Media query for Service-Steps-section -> Repeat6 ===================*/
     @include BreakPoint(sm) {
       right: -123px;
     }
@@ -799,5 +788,6 @@
       right: 68px;
       bottom: -209px;
     }
+    /*=======================================================================================*/
   }
 }
