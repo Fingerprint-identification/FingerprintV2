@@ -1,0 +1,101 @@
+/*
+  ==========================================================================
+                    Login
+  =========================================================================
+*/
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+@use "../../Global-style/global-style" as *;
+
+/*==============================================================================
+              Login form
+===============================================================================*/
+.login-form {
+  .login-content {
+    border-radius: 36px;
+    box-shadow: 3px 4px 54px $black-1;
+    position: relative;
+    min-height: 884px;
+    max-width: 1533.33px;
+    /*===========================Media query for login-form -> login-content ============================*/
+    @include screen(xlg) {
+      min-height: 684px;
+    }
+    /*====================================================================================================*/
+    .login-background {
+      width: 65%;
+      float: right;
+      position: relative;
+      /*=========================== Media query for login-form -> login-content -> login-background ============================*/
+      @include screen(xlg) {
+      }
+      /*====================================================================================================*/
+      .title {
+        position: absolute;
+        right: 31%;
+        top: 27%;
+        letter-spacing: 24.76px;
+        color: $white;
+        font-family: map-get($fonts, paragraphFont);
+        p {
+          font-size: 63px;
+        }
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .login-img {
+      margin: auto;
+      width: 545.28px;
+      /*=========================== Media query for login-form -> login-content -> login-img ============================*/
+      @include custem-screen(lg, xxlg) {
+        width: 400.28px;
+      }
+      /*====================================================================================================*/
+      img {
+        width: 100%;
+      }
+    }
+    .main-login-form {
+      width: 80%;
+      margin-top: 50px;
+      margin: 50px auto 0 auto;
+      input {
+        height: 69px;
+        border-radius: 17px;
+        font-size: 26px;
+        padding: 0 26px;
+        background-color: $nav-dropdown;
+        &::placeholder {
+          color: $gray-color;
+        }
+      }
+      .password {
+        position: relative;
+        .reset {
+          float: right;
+          font-size: 25px;
+          color: $black;
+        }
+        .password-icon {
+          position: absolute;
+          width: 39.33px;
+          height: 31.46px;
+          top: 19px;
+          right: 21px;
+        }
+      }
+
+      .btn {
+        width: 100%;
+        height: 69px;
+        border-radius: 17px !important;
+        font-size: 30px;
+        background: transparent linear-gradient(99deg, #7380f2 0%, #5c5b99 100%)
+          0% 0% no-repeat padding-box;
+      }
+    }
+  }
+}

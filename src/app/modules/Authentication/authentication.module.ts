@@ -13,6 +13,8 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthCardComponent } from './components/auth-card/auth-card.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ResetPhoneComponent } from './components/reset-phone/reset-phone.component';
+import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { RegisterComponent } from './pages/register/register.component';
     AuthCardComponent,
     LoginComponent,
     RegisterComponent,
+    ResetPhoneComponent,
+    ResetPinComponent,
 
   ],
   imports: [
