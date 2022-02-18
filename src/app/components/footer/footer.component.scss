@@ -8,48 +8,63 @@
 @use "~../../../../scss/helpers/mixins" as *;
 
 footer {
-  /* footer properities */
   padding: 100px 43.2px 15px 43.2px;
   margin-top: 216px;
   font-family: "BalooBhaijaan2Regular";
   font-size: 21.6px;
-  /* footer responsive properities */
-  @include footer-properities;
+  /*============================================ Media query for footer ======================================== */
+  @include screen(xxs) {
+    font-size: 12.6px;
+  }
+  @include screen(xs) {
+    font-size: 15.6px;
+  }
+  @include screen(sm) {
+    font-size: 16.6px;
+  }
+  @include screen(md) {
+    font-size: 19.6px;
+  }
+  @include screen(lg) {
+    font-size: 20.6px;
+  }
+  /*==============================================================================================================*/
 
   ul {
     list-style: none;
     margin-top: 12px;
     padding-left: 0;
-    /*
-      Here md = 767, lg = 991
-    */
+
+    /*============================================ Media query for footer -> ul ======================================== */
     @include custem-screen(md, lg) {
       margin-top: 60px;
     }
-    /*
-    Here xxs = 0, lg = 991
-  */
     @include custem-screen(xxs, lg) {
       display: grid;
       justify-content: center;
     }
-  }
-  li {
-    margin-top: 1.45rem;
-    /*
-      Here xxs = 0, md = 767
-    */
-    @include custem-screen(xxs, md) {
-      margin-top: 0px;
-    }
-    a {
-      color: $white;
+    /*==============================================================================================================*/
+
+    li {
+      margin-top: 1.45rem;
+      /*============================================ Media query for footer -> ul -> li ======================================== */
+      @include custem-screen(xxs, md) {
+        margin-top: 0px;
+      }
+      /*=========================================================================================================================*/
+      a {
+        color: $white;
+      }
     }
   }
   .form-inside-footer {
     text-align: center;
+    /*============================================ Media query for footer -> form-inside-footer  ======================================== */
+    @include custem-screen(sm, lg) {
+      padding: 0 47px;
+    }
+    /*===================================================================================================================================*/
     input {
-      /* input properities of the left search form div */
       width: 100%;
       padding: 5px 0 5px 0;
       background-color: transparent;
@@ -58,44 +73,73 @@ footer {
       border: none;
       border-bottom: 2px solid $gray-color-brightness;
       outline: none;
-      /* input properities */
-      @include input-form-properities;
-    }
-    .submit-btn-inside-footer {
-      /* btn in the footer */
-      width: 100%;
-      border-radius: 0;
-      background-color: $white !important;
-      color: $main-color;
-      margin-top: 1.5rem;
-      border: none;
-      outline: none;
-      padding: 5px 0 5px 0;
-      font-size: 29px;
-      /* btn in the footer properities */
-      @include footer-form-btn;
+      /*============================================ Media query for footer -> form-inside-footer -> input ======================================== */
+      @include BreakPoint(md) {
+        width: 80%;
+        padding: 0 30px;
+        border: none !important;
+        border-radius: 11px !important;
+        color: $white;
+      }
+      @include screen(xxs) {
+        font-size: 12.6px;
+      }
+      @include screen(xs) {
+        font-size: 15.6px;
+      }
+      @include screen(sm) {
+        font-size: 21px;
+      }
+      @include screen(lg) {
+        font-size: 20px;
+        width: 237.15px;
+      }
+      /*=========================================================================================================================*/
     }
     .div-contain-form-data {
-      /*
-        Here xxs = 0, lg = 991
-      */
+      /*============================================ Media query for footer -> form-inside-footer -> div-contain-form-data ======================================== */
       @include custem-screen(xxs, lg) {
         width: 100%;
         border: 2px solid $white;
         border-radius: 11px;
       }
-      /*
-        Here xxs = 0, md = 767
-      */
       @include custem-screen(xxs, md) {
         margin-bottom: 20px;
       }
-    }
-    /*
-      Here sm = 575, lg = 991
-    */
-    @include custem-screen(sm, lg) {
-      padding: 0 47px;
+      /*=========================================================================================================================*/
+      .submit-btn-inside-footer {
+        width: 100%;
+        border-radius: 0;
+        background-color: $white !important;
+        color: $main-color;
+        margin-top: 1.5rem;
+        border: none;
+        outline: none;
+        padding: 5px 0 5px 0;
+        font-size: 29px;
+        /*============================================ Media query for footer -> form-inside-footer -> div-contain-form-data -> submit-btn-inside-footer ======================================== */
+        @include BreakPoint(md) {
+          width: 20% !important;
+          border: none !important;
+          margin-top: 0;
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+        @include screen(xxs) {
+          font-size: 12.6px;
+        }
+        @include screen(xs) {
+          font-size: 15.6px;
+        }
+        @include screen(sm) {
+          font-size: 21px;
+        }
+        @include screen(lg) {
+          font-size: 20px;
+          width: 237.15px;
+        }
+        /*==============================================================================================================================================================*/
+      }
     }
   }
   .copyright {
