@@ -16,19 +16,19 @@
     width: 545.28px;
     /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
     @include screen(xxs) {
-      width: 180px;
+      width: 140px;
     }
     @include screen(xs) {
-      width: 250px;
+      width: 200px;
     }
     @include screen(sm) {
       width: 300.03px;
     }
-    @include custem-screen(md, xlg) {
+    @include custem-screen(md, xxlg) {
       width: 380.28px;
     }
     @include screen(xlg) {
-      width: 400.28px;
+      // width: 300.28px;
     }
     /*====================================================================================================*/
     .login-password-image-img {
@@ -37,14 +37,22 @@
   }
   .main-login-password-form {
     width: 80%;
-    margin-top: 50px;
     margin: 50px auto 0 auto;
+    @include custem-screen(xxs, lg) {
+      width: 70%;
+    }
     .input-parent-div {
       @include screen(xxs) {
-        margin-bottom: 15px !important;
+        margin-bottom: 10px !important;
       }
       @include screen(xs) {
-        margin-bottom: 20px !important;
+        margin-bottom: 15px !important;
+      }
+      @include screen(sm) {
+        margin-bottom: 16px !important;
+      }
+      @include screen(md) {
+        margin-bottom: 18px !important;
       }
       input {
         height: 69px;
@@ -57,21 +65,26 @@
 
         /*=========================== Media query for login-password-section -> login-password-content -> main-login-password-form -> input ============================*/
         @include screen(xxs) {
+          height: 35px;
+          font-size: 12px;
+          border-radius: 9px;
+        }
+        @include screen(xs) {
           height: 40px;
           font-size: 14px;
           border-radius: 12px;
         }
-        @include screen(xs) {
-          height: 50px;
-          font-size: 16px;
-        }
         @include custem-screen(md, xlg) {
           height: 60px;
-          font-size: 20px;
+          font-size: 19px;
         }
         @include screen(sm) {
-          height: 50px;
-          font-size: 18px;
+          height: 45px;
+          font-size: 16px;
+        }
+        @include screen(xlg) {
+          height: 60px;
+          font-size: 16px;
         }
         /*================================================================================================================*/
 
@@ -79,26 +92,46 @@
           color: $gray-color;
           /*=========================== Media query for login-password-section -> login-password-content -> main-login-password-form -> input -> placeholder ============================*/
           @include screen(xxs) {
-            height: 40px;
             font-size: 14px;
           }
           @include screen(xs) {
-            font-size: 16px;
+            font-size: 14px;
           }
           @include screen(sm) {
-            font-size: 18px;
+            font-size: 15px;
           }
           @include screen(md) {
-            font-size: 20px;
+            font-size: 18px;
           }
           @include screen(lg) {
+            font-size: 19px;
+          }
+          @include screen(xlg) {
             font-size: 20px;
           }
           /*================================================================================================================*/
         }
+        &#exampleInputPassword1 {
+          @include screen(xs) {
+            margin-bottom: 10px !important;
+          }
+        }
       }
       &.password {
         position: relative;
+
+        /*=========================== Media query for login-password-section -> login-password-content -> main-login-password-form -> password   ============================*/
+        // @include screen(xxs) {
+        // }
+        // @include screen(sm) {
+        // }
+        // @include custem-screen(md, xlg) {
+        // }
+        // @include screen(md) {
+        // }
+        // @include screen(lg) {
+        // }
+        /*================================================================================================================*/
         .reset {
           float: right;
           font-size: 25px;
@@ -108,17 +141,13 @@
             font-size: 14px;
           }
           @include screen(xs) {
-            font-size: 16px;
+            font-size: 14px;
           }
           @include screen(sm) {
-            font-size: 18px;
+            font-size: 16px;
           }
           @include custem-screen(md, xlg) {
-            font-size: 20px;
-          }
-          @include screen(md) {
-          }
-          @include screen(lg) {
+            font-size: 19px;
           }
           /*================================================================================================================*/
         }
@@ -139,7 +168,7 @@
             width: 20.33px;
             height: 20.46px;
             right: 19px;
-            top: 17px;
+            top: 11px;
           }
           @include screen(md) {
             width: 25.33px;
@@ -151,6 +180,11 @@
             height: 31.46px;
             top: 13px;
             right: 21px;
+          }
+          @include screen(xlg) {
+            width: 30.33px;
+            height: 31.46px;
+            top: 14px;
           }
           /*================================================================================================================*/
         }
@@ -170,7 +204,7 @@
         border-radius: 12px;
       }
       @include screen(xs) {
-        height: 50px;
+        height: 45px;
         font-size: 16px;
       }
       @include screen(sm) {
@@ -178,10 +212,14 @@
         height: 50px;
       }
       @include screen(md) {
-        font-size: 25px;
+        font-size: 22px;
         height: 59px;
       }
       @include screen(lg) {
+        height: 60px;
+        font-size: 20px;
+      }
+      @include screen(xlg) {
         height: 60px;
         font-size: 20px;
       }
