@@ -2,8 +2,23 @@
 @use "~../../../../../scss/helpers/mixins" as *;
 
 [class$="-password-section"] {
-  margin-top: 71px;
+  margin-top: 130px;
   // margin-bottom: 50px;
+  @include screen(xxs){
+    margin-top: 170px;
+  }
+  @include screen(xs){
+    margin-top: 130px;
+  }
+  @include screen(md){
+    margin-top: 130px;
+  }
+  @include screen(lg){
+    margin-top: 100px;
+  }
+  @include screen(xlg){
+    margin-top: 100px;
+  }
 }
 
 [class$="-password-content"] {
@@ -14,6 +29,9 @@
   padding: 0px 0 66px 0;
   max-width: 1533.33px;
   /*===========================Media query for login-password-section -> login-password-content ============================*/
+  @include screen(md){
+    padding: 0px 0 44px 0;
+  }
   // @include screen(xxs) {
   //   height: 489px;
   // }
@@ -35,9 +53,12 @@
   /*====================================================================================================*/
 }
 [class$="-password-background"] {
-  width: 65%;
+  width: 59%;
   float: right;
   position: relative;
+  @include screen(md){
+    width: 57%;
+  }
 }
 [class$="-password-title"] {
   position: absolute;
