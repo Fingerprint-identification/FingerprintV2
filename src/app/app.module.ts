@@ -13,6 +13,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 /* App routing */
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 /* App component */
 import { AppComponent } from './app.component';
 
@@ -31,22 +33,16 @@ import { FormGuardGuard } from './core/guard/form-guard.guard';
 import { ManagerGuard } from './core/guard/manager.guard';
 import { UserGuard } from './core/guard/user.guard';
 import { TokenIntercepterService } from './core/intercepters/token.service';
-
-/*  components import */
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [AuthGuard, FormGuardGuard , AdminGuard, ManagerGuard, UserGuard
   ,{

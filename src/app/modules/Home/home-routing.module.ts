@@ -12,22 +12,24 @@ import { HomePageComponent } from './Pages/home-page/home-page.component';
 
 const routes: Routes = [
   {
-    path: 'Public',
-    component: HomeComponent,
-  },
-  {
-    path: 'Device',
-    component: DeviceComponent
-  },
-  {
     path: '',
-    redirectTo: 'Public',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  },
+    component: HomePageComponent,
+    children:[
+      {
+        path: 'Public',
+        component: HomeComponent,
+      },
+      {
+        path: 'Device',
+        component: DeviceComponent
+      },
+      {
+        path: '',
+        redirectTo: 'Public',
+        pathMatch: 'full'
+      }
+    ]
+  }
 ];
 
 @NgModule({
