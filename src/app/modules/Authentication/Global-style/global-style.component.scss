@@ -1,0 +1,103 @@
+@use "~../../../../../scss/helpers/colors" as *;
+@use "~../../../../../scss/helpers/mixins" as *;
+
+[class$="-password-section"] {
+  margin-top: 50px;
+}
+
+[class$="-password-content"] {
+  border-radius: 36px;
+  box-shadow: 3px 4px 54px $black-1;
+  position: relative;
+  height: 884px;
+  max-width: 1533.33px;
+  /*===========================Media query for login-password-section -> login-password-content ============================*/
+  @include screen(xxs) {
+    height: 489px;
+  }
+  @include screen(xs) {
+    height: 607px;
+  }
+  @include screen(sm) {
+    height: 715px;
+  }
+  @include screen(md) {
+    height: 807px;
+  }
+  @include screen(lg) {
+    height: 641px;
+  }
+  @include screen(xlg) {
+    height: 670px;
+  }
+  /*====================================================================================================*/
+}
+[class$="-password-background"] {
+  width: 65%;
+  float: right;
+  position: relative;
+}
+[class$="-password-title"] {
+  position: absolute;
+  right: 31%;
+  top: 27%;
+  letter-spacing: 24.76px;
+  color: $white;
+  font-family: map-get($fonts, paragraphFont);
+  /*===========================Media query for login-password-section -> login-password-content -> login-password-background -> login-password-title ============================*/
+  @include screen(xxs) {
+    letter-spacing: 2.86px;
+    right: 23%;
+    top: 11%;
+  }
+  @include screen(xs) {
+    letter-spacing: 5.86px;
+    right: 23%;
+    top: 19%;
+  }
+  @include screen(sm) {
+    right: 27%;
+    top: 22%;
+    letter-spacing: 10.86px;
+  }
+  @include screen(md) {
+    right: 23%;
+    top: 18%;
+    letter-spacing: 12.58px;
+  }
+  @include screen(lg) {
+    right: 26%;
+    top: 17%;
+  }
+  @include screen(xlg) {
+    right: 26%;
+    top: 24%;
+  }
+}
+/*=====================================================================================================*/
+[class$="-password-title-p"] {
+  font-size: 63px;
+  /*===========================Media query for login-password-section -> login-password-content -> login-password-background -> login-password-title -> p ============================*/
+  @include screen(xxs) {
+    font-size: 16px;
+  }
+  @include screen(xs) {
+    font-size: 18px;
+  }
+  @include screen(sm) {
+    font-size: 25px;
+  }
+  @include screen(md) {
+    font-size: 32px;
+  }
+  @include screen(lg) {
+    font-size: 40px;
+  }
+  @include screen(xlg) {
+    font-size: 53px;
+  }
+  /*================================================================================================================*/
+}
+[class$="-password-background-img"]{
+  width: 100%;
+}

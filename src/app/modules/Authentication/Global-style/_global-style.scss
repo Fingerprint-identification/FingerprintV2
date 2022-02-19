@@ -1,8 +1,0 @@
-@use "~../../../../../scss/helpers/colors" as *;
-
-@mixin Global-box-shadow {
-  box-shadow: 3px 4px 54px $black-1;
-}
-@mixin Global-border-radius {
-  border-radius: 36px;
-}
