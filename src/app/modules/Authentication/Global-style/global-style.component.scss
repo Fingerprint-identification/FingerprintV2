@@ -5,28 +5,15 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  // @include screen(xxs){
-  //   margin-top: 170px;
-  // }
-  // @include screen(xs){
-  //   margin-top: 130px;
-  // }
-  // @include screen(md){
-  //   margin-top: 130px;
-  // }
-  // @include screen(lg){
-  //   margin-top: 100px;
-  // }
-  // @include screen(xlg){
-  //   margin-top: 100px;
-  // }
+  @include BreakPoint(sm){
+    min-height: 90vh !important;
+  }
 }
 
 [class$="-password-content"] {
   border-radius: 36px;
   box-shadow: 3px 4px 54px $black-1;
   position: relative;
-  // height: 800px;
   padding: 0px 0 150px 0;
   max-width: 1533.33px;
   /*===========================Media query for login-password-section -> login-password-content ============================*/
@@ -36,22 +23,6 @@
   @include BreakPoint(sm) {
     padding: 0px 0 44px 0;
   }
-  // @include screen(xxs) {
-  //   height: 489px;
-  // }
-  // @include screen(xs) {
-  //   height: 607px;
-  // }
-
-  // @include screen(md) {
-  //   height: 807px;
-  // }
-  // @include screen(lg) {
-  //   height: 641px;
-  // }
-  // @include screen(xlg) {
-  //   height: 670px;
-  // }
   /*====================================================================================================*/
 }
 [class$="-password-background"] {
@@ -126,4 +97,28 @@
 [class$="-password-background-img"] {
   width: 100%;
   border-top-right-radius: 36px;
+}
+[class$="-password-image-div"]{
+  margin: auto;
+  width: 545.28px;
+  /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
+  @include screen(xxs) {
+    width: 140px;
+  }
+  @include screen(xs) {
+    width: 200px;
+  }
+  @include screen(sm) {
+    width: 300.03px;
+  }
+  @include screen(md) {
+    width: 318px;
+  }
+  @include custem-screen(lg, xxlg) {
+    width: 380.28px;
+  }
+  /*====================================================================================================*/
+}
+[class$="-password-image-img"]{
+  width: 100%;
 }

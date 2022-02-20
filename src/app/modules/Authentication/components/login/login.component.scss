@@ -11,30 +11,30 @@
               Login form
 ===============================================================================*/
 .login-password-section {
-  .login-password-image-div {
-    margin: auto;
-    width: 545.28px;
-    /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
-    @include screen(xxs) {
-      width: 140px;
-    }
-    @include screen(xs) {
-      width: 200px;
-    }
-    @include screen(sm) {
-      width: 300.03px;
-    }
-    @include screen(md) {
-      width: 318px;
-    }
-    @include custem-screen(lg, xxlg) {
-      width: 380.28px;
-    }
-    /*====================================================================================================*/
-    .login-password-image-img {
-      width: 100%;
-    }
-  }
+  // .login-password-image-div {
+  //   margin: auto;
+  //   width: 545.28px;
+  //   /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
+  //   @include screen(xxs) {
+  //     width: 140px;
+  //   }
+  //   @include screen(xs) {
+  //     width: 200px;
+  //   }
+  //   @include screen(sm) {
+  //     width: 300.03px;
+  //   }
+  //   @include screen(md) {
+  //     width: 318px;
+  //   }
+  //   @include custem-screen(lg, xxlg) {
+  //     width: 380.28px;
+  //   }
+  //   /*====================================================================================================*/
+  //   .login-password-image-img {
+  //     width: 100%;
+  //   }
+  // }
   .main-login-password-form {
     width: 70%;
     margin: 0px auto 0 auto;
