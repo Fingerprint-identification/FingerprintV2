@@ -1,0 +1,141 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+.reset-password-section {
+  .reset-password-content {
+    padding: 0px 0 150px 0;
+    /*=========================== Media query for login-password-section -> login-password-content ============================*/
+    @include BreakPoint(xs) {
+      padding: 0px 0 44px 0 !important;
+    }
+    @include BreakPoint(md) {
+      border-radius: 15px;
+    }
+    @include custem-screen(sm, lg) {
+      padding: 0px 0 70px 0 !important;
+    }
+    /*==========================================================================================================================*/
+    .reset-password-background {
+      .reset-password-title {
+        right: 8%;
+        top: 27%;
+        letter-spacing: 17.44px;
+        @include screen(xxs) {
+          letter-spacing: 1.86px;
+          right: 16%;
+          top: 18%;
+        }
+        @include screen(xs) {
+          letter-spacing: 1.86px;
+          right: 12%;
+          top: 17%;
+        }
+        @include screen(sm) {
+          right: 20%;
+          top: 19%;
+          letter-spacing: 4.58px;
+        }
+        @include screen(md) {
+          right: 11%;
+          top: 26%;
+          letter-spacing: 5.58px;
+        }
+        @include screen(lg) {
+          right: 14%;
+          top: 29%;
+          letter-spacing: 10.44px;
+        }
+        @include screen(xlg) {
+          right: 8%;
+          top: 25%;
+          letter-spacing: 13.58px;
+        }
+        .reset-password-title-p {
+          font-size: 47px;
+          /*===========================Media query for login-password-section -> login-password-content -> login-password-background -> login-password-title -> p ============================*/
+          @include screen(xxs) {
+            font-size: 12px;
+          }
+          @include screen(xs) {
+            font-size: 17px;
+          }
+          @include screen(sm) {
+            font-size: 21px;
+          }
+          @include screen(md) {
+            font-size: 29px;
+          }
+          @include screen(lg) {
+            font-size: 30px;
+          }
+          @include screen(xlg) {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    .reset-password-image-div {
+      width: 358.09px;
+      /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
+      @include screen(xxs) {
+        width: 149px;
+      }
+      @include screen(xs) {
+        width: 171.66px;
+      }
+      @include screen(sm) {
+        width: 244.66px;
+      }
+      @include screen(md) {
+        width: 266.58px;
+      }
+      @include screen(lg) {
+        width: 280.28px;
+      }
+      @include screen(xlg) {
+        width: 282.28px;
+      }
+    }
+    .reset-password-form {
+      width: 70%;
+      margin: 0px auto 0 auto;
+      /*=========================== Media query for login-password-section -> login-password-content -> login-password-form ============================*/
+      @include screen(xxs) {
+        width: 90%;
+        margin: 30px auto 0 auto;
+      }
+      @include custem-screen(xs, md) {
+        width: 80%;
+        margin: 30px auto 0 auto;
+      }
+      @include screen(md) {
+        width: 70%;
+        margin: 23px auto 0 auto;
+      }
+      label {
+        font-size: 28px;
+        font-family: map-get($fonts, headingFont);
+        color: $black;
+        text-transform: capitalize;
+        margin: 0 0 17px 17px;
+        // font-weight: bold;
+        @include screen(lg) {
+          font-size: 20px;
+        }
+        @include screen(sm) {
+          font-size: 23px;
+        }
+        @include screen(xs) {
+          font-size: 20px;
+        }
+        @include screen(xxs) {
+          font-size: 16px;
+        }
+        @include screen(xlg) {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
