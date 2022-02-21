@@ -34,7 +34,6 @@
     margin-top: 12px;
     padding-left: 0;
 
-    /*============================================ Media query for footer -> ul ======================================== */
     @include custem-screen(md, lg) {
       margin-top: 60px;
     }
@@ -42,15 +41,13 @@
       display: grid;
       justify-content: center;
     }
-    /*==============================================================================================================*/
 
     li {
       margin-top: 1.45rem;
-      /*============================================ Media query for footer -> ul -> li ======================================== */
+
       @include custem-screen(xxs, md) {
         margin-top: 0px;
       }
-      /*=========================================================================================================================*/
       a {
         color: $white;
       }
@@ -58,12 +55,10 @@
   }
   &__form-inside-footer {
     text-align: center;
-    /*============================================ Media query for footer -> form-inside-footer  ======================================== */
+
     @include custem-screen(sm, lg) {
       padding: 0 47px;
     }
-    /*===================================================================================================================================*/
-
     &__data-container-div {
 
       @include custem-screen(xxs, lg) {
@@ -84,7 +79,7 @@
         border: none ;
         border-bottom: 2px solid $gray-color-brightness;
         outline: none;
-        /*============================================ Media query for footer -> form-inside-footer -> input ======================================== */
+
         @include BreakPoint(md) {
           width: 80%;
           padding: 0 30px;
@@ -105,7 +100,6 @@
           font-size: 20px;
           width: 237.15px;
         }
-        /*=========================================================================================================================*/
       }
       &__button {
         width: 100%;
