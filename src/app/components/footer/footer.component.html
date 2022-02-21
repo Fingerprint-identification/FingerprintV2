@@ -1,8 +1,8 @@
-<footer class="bg-b-blue text-s-white">
+<footer class="Footer bg-b-blue text-s-white">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3 col-md-4 col-6 ">
-        <ul>
+        <ul class="Footer__ul">
           <li>
             <a href="#">Home</a>
           </li>
@@ -15,7 +15,7 @@
         </ul>
       </div>
       <div class="col-lg-3 col-md-4 col-6 ">
-        <ul>
+        <ul class="Footer__ul">
           <li>
             <a href="#">Terms of use</a>
           </li>
@@ -25,7 +25,7 @@
         </ul>
       </div>
       <div class="col-lg-3 col-md-4 col-6">
-        <ul>
+        <ul class="Footer__ul">
           <li>
             <a href="#">+20-064-2532523</a>
           </li>
@@ -35,16 +35,17 @@
         </ul>
       </div>
       <div class="col-lg-3 col-12 order-lg-last order-first">
-        <form class="form-inside-footer">
-          <div class="div-contain-form-data">
-            <input type="text" placeholder="ervice@office.eg">
-            <button class="btn btn-primary bg-s-white" type="submit" class="submit-btn-inside-footer" (click)="toLogin()">Sign in</button>
+        <form class="Footer__form-inside-footer">
+          <div class="Footer__form-inside-footer__data-container-div">
+            <input class="Footer__form-inside-footer__data-container-div__input" type="text" placeholder="ervice@office.eg">
+            <button class="Footer__form-inside-footer__data-container-div__button bg-s-white" type="submit"
+              (click)="toLogin()">Sign in</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <div class="copyright text-center">
+  <div class="Footer__copyright text-center">
     <p>
       ©Fingerprint Authentication 2021 - 2022 All rights reserved
     </p>

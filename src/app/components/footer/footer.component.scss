@@ -7,12 +7,12 @@
 @use "~../../../../scss/helpers/colors" as *;
 @use "~../../../../scss/helpers/mixins" as *;
 
-footer {
+.Footer {
   padding: 100px 43.2px 15px 43.2px;
   margin-top: 216px;
   font-family: "BalooBhaijaan2Regular";
   font-size: 21.6px;
-  /*============================================ Media query for footer ======================================== */
+
   @include screen(xxs) {
     font-size: 12.6px;
   }
@@ -28,9 +28,8 @@ footer {
   @include screen(lg) {
     font-size: 20.6px;
   }
-  /*==============================================================================================================*/
 
-  ul {
+  &__ul {
     list-style: none;
     margin-top: 12px;
     padding-left: 0;
@@ -57,47 +56,16 @@ footer {
       }
     }
   }
-  .form-inside-footer {
+  &__form-inside-footer {
     text-align: center;
     /*============================================ Media query for footer -> form-inside-footer  ======================================== */
     @include custem-screen(sm, lg) {
       padding: 0 47px;
     }
     /*===================================================================================================================================*/
-    input {
-      width: 100%;
-      padding: 5px 0 5px 0;
-      background-color: transparent;
-      color: $gray-color-brightness;
-      font-size: 24px;
-      border: none;
-      border-bottom: 2px solid $gray-color-brightness;
-      outline: none;
-      /*============================================ Media query for footer -> form-inside-footer -> input ======================================== */
-      @include BreakPoint(md) {
-        width: 80%;
-        padding: 0 30px;
-        border: none !important;
-        border-radius: 11px !important;
-        color: $white;
-      }
-      @include screen(xxs) {
-        font-size: 12.6px;
-      }
-      @include screen(xs) {
-        font-size: 15.6px;
-      }
-      @include screen(sm) {
-        font-size: 21px;
-      }
-      @include screen(lg) {
-        font-size: 20px;
-        width: 237.15px;
-      }
-      /*=========================================================================================================================*/
-    }
-    .div-contain-form-data {
-      /*============================================ Media query for footer -> form-inside-footer -> div-contain-form-data ======================================== */
+
+    &__data-container-div {
+
       @include custem-screen(xxs, lg) {
         width: 100%;
         border: 2px solid $white;
@@ -106,10 +74,42 @@ footer {
       @include custem-screen(xxs, md) {
         margin-bottom: 20px;
       }
-      /*=========================================================================================================================*/
-      .submit-btn-inside-footer {
+
+      &__input {
         width: 100%;
-        border-radius: 0;
+        padding: 5px 0 5px 0 ;
+        background-color: transparent;
+        color: $gray-color-brightness;
+        font-size: 24px;
+        border: none ;
+        border-bottom: 2px solid $gray-color-brightness;
+        outline: none;
+        /*============================================ Media query for footer -> form-inside-footer -> input ======================================== */
+        @include BreakPoint(md) {
+          width: 80%;
+          padding: 0 30px;
+          border: none !important;
+          border-radius: 11px !important;
+          color: $white;
+        }
+        @include screen(xxs) {
+          font-size: 12.6px;
+        }
+        @include screen(xs) {
+          font-size: 15.6px;
+        }
+        @include screen(sm) {
+          font-size: 21px;
+        }
+        @include screen(lg) {
+          font-size: 20px;
+          width: 237.15px;
+        }
+        /*=========================================================================================================================*/
+      }
+      &__button {
+        width: 100%;
+        border-radius: 0 ;
         background-color: $white !important;
         color: $main-color;
         margin-top: 1.5rem;
@@ -117,7 +117,7 @@ footer {
         outline: none;
         padding: 5px 0 5px 0;
         font-size: 29px;
-        /*============================================ Media query for footer -> form-inside-footer -> div-contain-form-data -> submit-btn-inside-footer ======================================== */
+
         @include BreakPoint(md) {
           width: 20% !important;
           border: none !important;
@@ -138,11 +138,11 @@ footer {
           font-size: 20px;
           width: 237.15px;
         }
-        /*==============================================================================================================================================================*/
       }
+
     }
   }
-  .copyright {
+  &__copyright {
     position: relative;
     top: 2rem;
   }
