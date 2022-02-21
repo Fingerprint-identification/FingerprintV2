@@ -2,10 +2,10 @@
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
 
-.reset-password-section {
-  .reset-password-content {
-    .reset-password-background {
-      .reset-password-title {
+.reset-password {
+  &__content {
+    &__background {
+      &__title {
         right: 8%;
         top: 27%;
         letter-spacing: 17.44px;
@@ -39,7 +39,7 @@
           top: 25%;
           letter-spacing: 13.58px;
         }
-        .reset-password-title-p {
+        &__p {
           font-size: 47px;
           /*===========================Media query for login-password-section -> login-password-content -> login-password-background -> login-password-title -> p ============================*/
           @include screen(xxs) {
@@ -63,7 +63,7 @@
         }
       }
     }
-    .reset-password-image-div {
+    &__image-div {
       width: 358.09px;
       /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
       @include screen(xxs) {
@@ -85,7 +85,7 @@
         width: 282.28px;
       }
     }
-    .reset-password-form {
+    &__form {
       width: 70%;
       margin: 0px auto 0 auto;
       /*=========================== Media query for login-password-section -> login-password-content -> login-password-form ============================*/

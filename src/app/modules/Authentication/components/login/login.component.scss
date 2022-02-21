@@ -10,14 +10,14 @@
 /*==============================================================================
               Login form
 ===============================================================================*/
-.login-password-section {
-  .login-password-content {
-    .login-password-background {
-      .login-password-title {
+.login-password {
+  &__content {
+    &__background {
+      &__title {
         right: 31%;
         top: 27%;
         letter-spacing: 24.76px;
-        /*============= Media query for login-password-section -> login-password-content -> login-password-background -> login-password-title  =======*/
+
         @include screen(xxs) {
           letter-spacing: 2.86px;
           right: 23%;
@@ -46,10 +46,10 @@
           right: 26%;
           top: 24%;
         }
-        /*=====================================================================================================================================================*/
-        .login-password-title-p {
+
+        &__p {
           font-size: 63px;
-          /*======= Media query for login-password-section -> login-password-content -> login-password-background -> login-password-title -> login-password-title-p ==*/
+
           @include screen(xxs) {
             font-size: 16px;
           }
@@ -68,13 +68,12 @@
           @include screen(xlg) {
             font-size: 53px;
           }
-          /*=====================================================================================================================================================*/
         }
       }
     }
-    .login-password-image-div {
+    &__image-div {
       width: 545.28px;
-      /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
+
       @include screen(xxs) {
         width: 190px;
       }
@@ -91,10 +90,10 @@
         width: 380.28px;
       }
     }
-    .login-password-form {
+    &__form {
       width: 70%;
       margin: 0px auto 0 auto;
-      /*=========================== Media query for login-password-section -> login-password-content -> login-password-form ============================*/
+
       @include screen(xxs) {
         width: 90%;
         margin: 30px auto 0 auto;
@@ -103,14 +102,14 @@
         width: 80%;
         margin: 30px auto 0 auto;
       }
-      @include screen(md){
+      @include screen(md) {
         width: 70%;
         margin: 23px auto 0 auto;
       }
-      /*==========================================================================================================================*/
-      .input-parent-div {
+
+      &__input-div {
         margin-bottom: 45px !important;
-        /*===================== Media query for login-password-section -> login-password-content -> login-password-form -> input-parent-div==========*/
+
         @include screen(xxs) {
           margin-bottom: 10px !important;
         }
@@ -120,20 +119,18 @@
         @include screen(sm) {
           margin-bottom: 16px !important;
         }
-        @include custem-screen(md, xxlg){
+        @include custem-screen(md, xxlg) {
           margin-bottom: 18px !important;
         }
-         /*==========================================================================================================================*/
-        input {
-          &#exampleInputPassword1 {
+
+        &__password {
+          position: relative;
+          &__input {
             @include screen(xs) {
               margin-bottom: 10px !important;
             }
           }
-        }
-        &.password {
-          position: relative;
-          .reset {
+          &__reset {
             float: right;
             font-size: 20px;
             color: $black;
@@ -155,7 +152,7 @@
             }
             /*================================================================================================================*/
           }
-          .password-icon {
+          &__password-icon {
             position: absolute;
             width: 31.33px;
             height: 31.46px;
