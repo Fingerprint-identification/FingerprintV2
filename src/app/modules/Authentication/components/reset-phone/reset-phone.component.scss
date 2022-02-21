@@ -41,7 +41,7 @@
         }
         &__p {
           font-size: 47px;
-          /*===========================Media query for login-password-section -> login-password-content -> login-password-background -> login-password-title -> p ============================*/
+
           @include screen(xxs) {
             font-size: 12px;
           }
@@ -65,7 +65,7 @@
     }
     &__image-div {
       width: 358.09px;
-      /*=========================== Media query for login-password-section -> login-password-content -> login-password-image-div ============================*/
+
       @include screen(xxs) {
         width: 149px;
       }
@@ -88,7 +88,7 @@
     &__form {
       width: 70%;
       margin: 0px auto 0 auto;
-      /*=========================== Media query for login-password-section -> login-password-content -> login-password-form ============================*/
+
       @include screen(xxs) {
         width: 90%;
         margin: 30px auto 0 auto;
@@ -107,7 +107,6 @@
         color: $black;
         text-transform: capitalize;
         margin: 0 0 17px 17px;
-        // font-weight: bold;
         @include screen(lg) {
           font-size: 20px;
         }
