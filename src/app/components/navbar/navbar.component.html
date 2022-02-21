@@ -1,20 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-light justify-content-flex-start flex-row ">
   <!-- // Logo in navbar -->
-  <a class="navbar-brand-img" href="#">
-    <img src="../../assets/logo/Fingerprint_.png" alt="" />
+  <a class="navbar__brand-link" href="#">
+    <img src="../../assets/logo/Fingerprint_.png" alt="" class="navbar__brand-link__img" />
   </a>
   <!-- // logo text  -->
-  <a class="navbar-brand me-auto" href="#">
-    <a href="" class="brand-text ms-2 text-b-blue">Fingerprint Authentication</a>
+  <a class="navbar__brand-link me-auto" href="#">
+    <a href="" class="navbar__brand-link__a ms-2 text-b-blue">Fingerprint Authentication</a>
   </a>
   <!-- // Toggle -->
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+  <button class="navbar__toggler navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="bi bi-three-dots-vertical text-b-blue"></span>
+    <span class="bi bi-three-dots-vertical navbar__toggler__span text-b-blue"></span>
   </button>
   <!-- links -->
-  <div class="collapse navbar-collapse ms-auto flex-grow-0" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto">
+  <div class="collapse navbar-collapse ms-auto flex-grow-0 navbar__collapse " id="navbarSupportedContent">
+    <ul class="navbar__collapse__nav navbar-nav me-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">FAQ</a>
       </li>
@@ -26,18 +26,9 @@
       </li>
       <li class="nav-item" [hidden]="false">
         <!-- // button to login -->
-        <a routerLink="/Login" class="btn btn-primary nav-login-button ml-2 ">Log in</a>
+        <a routerLink="/Login" class="btn btn-primary navbar__collapse__nav__login-button ml-2 ">Log in</a>
       </li>
     </ul>
 
   </div>
-
-  <!-- <div id="navbarSupportedContent">
-    <ul>
-      <li>hatem</li>
-      <li>bassem</li>
-      <li>elsaadany</li>
-    </ul>
-  </div> -->
-
 </nav>
