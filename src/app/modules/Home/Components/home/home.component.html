@@ -1,114 +1,124 @@
 <!-- Banner section -->
-<section class="banner section-margin" [ngClass]="banner_margin_bottom ? 'banner-margin-bottom' : ''" >
-    <div class="container-fluid">
-        <div class="row">
-            <!-- left half contains banner text -->
-            <div class="col-md-6  order-last order-md-first ">
-                <div class="banner-left-text">
-                    <h1 class="banner-left-text-h1 text-s-black">
-                        Finding a person <span class="now-is-easy-span text-b-light-blue"> <br> Now is Easy</span>
-                    </h1>
-                    <p class="banner-left-text-p text-s-gray">
-                        Fingerprint Authentication is a service that use fingerprint as a unique ID for you. With
-                        service
-                        you can find a person in short time or help you in emergency situations.
-                    </p>
-                    <!-- left half contains banner search box -->
-                    <div class="banner-left-text-form">
-                        <img src="../../../assets/icons/Icon material-location-searching.svg" alt="">
-                        <div class="search-box-div bg-s-white">
-                            <input type="search" class="form-control" placeholder="Ismailia, second area"
-                                aria-label="Search" />
-                            <ul class="search-result-ul" *ngIf="devices.length != 0">
-                                <li class="search-result-item-li" *ngFor="let device of devices">
-                                    <p class="search-result-item-li-address-p text-s-black">{{ device.address }} </p>
-                                    <p class="search-result-item-li-street-p text-s-gray"> {{ device.streat }} </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<section class="banner section-margin" [ngClass]="banner_margin_bottom ? 'banner-margin-bottom' : ''">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- left half contains banner text -->
+      <div class="col-md-6  order-last order-md-first ">
+        <div class="banner__left-part">
+          <h1 class="banner__left-part__h1 text-s-black">
+            Finding a person <span class="now-is-easy-span text-b-light-blue"> <br> Now is Easy</span>
+          </h1>
+          <p class="banner__left-part__p text-s-gray">
+            Fingerprint Authentication is a service that use fingerprint as a unique ID for you. With
+            service
+            you can find a person in short time or help you in emergency situations.
+          </p>
+          <!-- left half contains banner search box -->
+          <div class="banner__left-part__form">
+            <img src="../../../assets/icons/Icon material-location-searching.svg" alt=""
+              class="banner__left-part__form__img">
+            <div class="banner__left-part__form__search-box-div bg-s-white">
+              <input type="search" class="form-control banner__left-part__form__search-box-div__input"
+                placeholder="Ismailia, second area" aria-label="Search" />
+              <ul class="banner__left-part__form__search-box-div__ul" *ngIf="devices.length != 0">
+                <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let device of devices">
+                  <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black">{{ device.address}}
+                  </p>
+                  <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ device.streat }}
+                  </p>
+                </li>
+              </ul>
             </div>
-            <div class="col-md-6 order-first order-md-last">
-                <div class="banner-right-img">
-                    <img src="../../../assets/banner/security-animate.svg" alt="">
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-md-6 order-first order-md-last">
+        <div class="banner__right-part">
+          <img src="../../../assets/banner/security-animate.svg" alt="" class="banner__right-part__img">
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Services steps section  -->
-<section class="Service-Steps-section">
-    <div class="container-fluid">
-        <!-- Title row -->
-        <div class="row">
-            <div class="col-12">
-                <div class="services-title-div text-b-light-blue">
-                    <h1 class="services-title-div-h1  text-b-light-blue">
-                        Service Steps
-                    </h1>
-                </div>
-            </div>
+<section class="services">
+  <div class="container-fluid">
+    <!-- Title row -->
+    <div class="row">
+      <div class="col-12">
+        <div class="services__title-div text-b-light-blue">
+          <h1 class="services__title-div__h1  text-b-light-blue">
+            Service Steps
+          </h1>
         </div>
-        <!-- First step -->
-        <div class="row">
-            <div class="col-12">
-                <div class="step-in-right-direction first-step">
-                    <div class="step-collection-div">
-                        <div class="step-in-right-direction-img">
-                            <img src="../../../assets/steps/Hidden-bro.svg" alt="">
-                        </div>
-                        <div class="step-in-right-direction-p text-s-black">
-                            <p>
-                                First, <span> go </span> to the nearest office in your city then <span> fill in </span> your data and fingerprint. You
-                                can
-                                search for offices in the search bar above. <span> Don't worry</span>  your data will be secure and not
-                                shared.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="step-in-left-direction second-step service-margin-top">
-                    <div class="step-collection-div">
-                        <div class="step-in-left-direction-p">
-                            <p>
-                                <span>Download</span>  the App to edit your data (Actually, you can edit on
-                                your phone and address only), search about someone or search for official offices.
-                            </p>
-                        </div>
-                        <div class="step-in-left-direction-img">
-                            <img src="../../../assets/steps/Firmware-rafiki.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="step-in-right-direction third-step service-margin-top">
-                    <div class="step-collection-div">
-                        <div class="step-in-right-direction-img">
-                            <img src="../../../assets/steps/Done-rafiki.svg" alt="">
-                        </div>
-                        <div class="step-in-right-direction-p">
-                            <p>
-                               <span>Congratulations, you are ready!</span>  You finished all steps you need to use our service. for
-                                more
-                                information visit the <span>documentation</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <img src="../../../../../assets/icons/Ellipse 14.png" alt="" class="Ellipse d-none d-md-block">
-    <img src="../../../../../assets/icons/Repeat Grid 5.png" alt="" class="Repeat5 d-none d-md-block">
-    <img src="../../../../../assets/icons/Repeat Grid 6.png" alt="" class="Repeat6 d-none d-md-block">
+    <!-- First step -->
+    <div class="row">
+      <div class="col-12">
+        <div class="services__step-in-right-direction first-step">
+          <div class="services__step-in-right-direction__data-container-div">
+            <div class="services__step-in-right-direction__data-container-div__img-div">
+              <img src="../../../assets/steps/Hidden-bro.svg" alt=""
+                class="services__step-in-right-direction__data-container-div__img-div__img">
+            </div>
+            <div class="services__step-in-right-direction__data-container-div__p-div text-s-black">
+              <p class="services__step-in-right-direction__data-container-div__p-div__p">
+                First, <span> go </span> to the nearest office in your city then <span> fill in </span> your data and
+                fingerprint. You
+                can
+                search for offices in the search bar above. <span> Don't worry</span> your data will be secure and not
+                shared.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="services__step-in-left-direction second-step service-margin-top">
+          <div class="services__step-in-left-direction__data-container-div">
+            <div class="services__step-in-left-direction__data-container-div__p-div">
+              <p class="services__step-in-left-direction__data-container-div__p-div__p">
+                <span>Download</span> the App to edit your data (Actually, you can edit on
+                your phone and address only), search about someone or search for official offices.
+              </p>
+            </div>
+            <div class="services__step-in-left-direction__data-container-div__img-div">
+              <img src="../../../assets/steps/Firmware-rafiki.svg" alt=""
+                class="services__step-in-left-direction__data-container-div__img-div__img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="services__step-in-right-direction third-step service-margin-top">
+          <div class="services__step-in-right-direction__data-container-div">
+            <div class="services__step-in-right-direction__data-container-div__img-div">
+              <img src="../../../assets/steps/Done-rafiki.svg" alt=""
+                class="services__step-in-right-direction__data-container-div__img-div__img">
+            </div>
+            <div class="services__step-in-right-direction__data-container-div__p-div">
+              <p class="services__step-in-right-direction__data-container-div__p-div__p">
+                <span>Congratulations, you are ready!</span> You finished all steps you need to use our service. for
+                more
+                information visit the <span>documentation</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="../../../../../assets/icons/Ellipse 14.png" alt=""
+    class="services__overflow-imgs__Ellipse d-none d-md-block">
+  <img src="../../../../../assets/icons/Repeat Grid 5.png" alt=""
+    class="services__overflow-imgs__Repeat5 d-none d-md-block">
+  <img src="../../../../../assets/icons/Repeat Grid 6.png" alt=""
+    class="services__overflow-imgs__Repeat6 d-none d-md-block">
 </section>

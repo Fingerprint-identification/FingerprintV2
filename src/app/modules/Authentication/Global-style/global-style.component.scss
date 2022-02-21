@@ -14,6 +14,18 @@
   box-shadow: 3px 4px 54px $black-1;
   position: relative;
   max-width: 1533.33px;
+  padding: 0px 0 150px 0 !important;
+  /*=========================== Media query for login-password-section -> login-password-content ============================*/
+  @include BreakPoint(xs) {
+    padding: 0px 0 44px 0 !important;
+  }
+  @include BreakPoint(md) {
+    border-radius: 15px;
+  }
+  @include custem-screen(sm, lg){
+    padding: 0px 0 70px 0 !important;
+  }
+  /*==========================================================================================================================*/
 }
 [class$="-password-background"] {
   width: 70%;

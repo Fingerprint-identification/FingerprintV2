@@ -4,18 +4,6 @@
 
 .reset-password-section {
   .reset-password-content {
-    padding: 0px 0 150px 0;
-    /*=========================== Media query for login-password-section -> login-password-content ============================*/
-    @include BreakPoint(xs) {
-      padding: 0px 0 44px 0 !important;
-    }
-    @include BreakPoint(md) {
-      border-radius: 15px;
-    }
-    @include custem-screen(sm, lg) {
-      padding: 0px 0 70px 0 !important;
-    }
-    /*==========================================================================================================================*/
     .reset-password-background {
       .reset-password-title {
         right: 8%;

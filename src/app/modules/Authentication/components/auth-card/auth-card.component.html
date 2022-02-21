@@ -1,17 +1,25 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <p>
-    <label for="Email">Email </label>
-    <input type="text" id="Email" name="email" formControlName="email" email>
-  </p>
-
-  <p>
-    <label for="password">Password </label>
-    <input type="password" id="password" name="password" formControlName="password">
-  </p>
-
-  <p>
-    <button type="submit" [disabled]="loginForm.invalid">Submit</button>
-  </p>
-
-  <button type="button" (click)="logout()"> logout </button>
-</form>
+<!-- <section class="{{ClassName}}-password-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-10 offset-1">
+        <div class="{{ClassName}}-password-content">
+          <div class="row">
+            <div class="col-12">
+              <ng-content select=".{{ClassName}}-password-background"></ng-content>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="{{ClassName}}-password-image-div">
+                <img class="{{ClassName}}-password-image-img" [src]="ImgUrl" alt="">
+              </div>
+            </div>
+            <div class="col-lg-6">
+             <ng-content select="form"></ng-content>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
