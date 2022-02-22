@@ -67,16 +67,16 @@
       width: 358.09px;
 
       @include screen(xxs) {
-        width: 149px;
+        width: 106px;
       }
       @include screen(xs) {
-        width: 171.66px;
+        width: 136.66px;
       }
       @include screen(sm) {
-        width: 244.66px;
+        width: 147.66px;
       }
       @include screen(md) {
-        width: 266.58px;
+        width: 201.58px;
       }
       @include screen(lg) {
         width: 280.28px;
@@ -126,8 +126,8 @@
             padding-left: 0;
           }
           @include screen(md) {
-            font-size: 25px;
-            padding-left: 8%;
+            font-size: 21px;
+            padding-left: 11%;
           }
           @include screen(lg) {
             font-size: 18px;
@@ -173,11 +173,12 @@
           }
         }
         input {
+
           width: 322px;
-          margin: 54px auto 27px auto;
+          margin:45px auto 20px auto;
           height: 80px;
           font-size: 46px;
-          padding: 0 94px;
+          // padding: 0 94px;
           border: 2px solid $main-color-light;
           border-radius: 24px;
           background-color: $white;
@@ -188,7 +189,6 @@
             margin: 20px auto 12px auto;
             height: 40px;
             font-size: 21px;
-            padding: 0 45px;
             border-radius: 12px;
           }
           @include screen(xs) {
@@ -196,38 +196,35 @@
             margin: 20px auto 12px auto;
             height: 45px;
             font-size: 23px;
-            padding: 0 45px;
             border-radius: 12px;
           }
           @include screen(sm) {
             width: 231px;
             height: 60px;
             font-size: 33px;
-            padding: 0 59px;
             border-radius: 19px;
             margin: 30px auto 27px auto;
           }
           @include screen(md) {
-            width: 294px;
-            height: 60px;
-            font-size: 34px;
-            padding: 0 69px;
-            margin: 28px auto 27px auto;
+            width: 275px;
+            height: 50px;
+            font-size: 30px;
+            margin: 18px auto 27px auto;
+            border-radius: 17px;
           }
           @include screen(lg) {
             width: 192px;
-            margin: 29px auto 27px auto;
-            height: 54px;
+            margin: 27px auto 20px auto;
+            height: 50px;
             font-size: 26px;
-            padding: 0 60px;
             border-radius: 19px;
           }
           @include screen(xlg) {
-            width: 240px;
-            margin: 42px auto 27px auto;
-            height: 60px;
+            width: 230px;
+            margin: 20px auto 20px auto;
+            height: 55px;
             font-size: 35px;
-            padding: 0px 70px;
+            border-radius: 17px;
           }
           &::placeholder {
             font-weight: bold;
