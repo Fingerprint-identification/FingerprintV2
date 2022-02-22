@@ -3,12 +3,16 @@
 @mixin fonts {
   /*
   ==========================================================================
-                          import local fonts
+                          import local fonts SFUIText-Medium.otf
   =========================================================================
 */
   @font-face {
     font-family: "SFUI";
     src: url("/assets/fonts/San/SFUIText/SFUIText-Light.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "SFUIText-Medium";
+    src: url("/assets/fonts/San/SFUIText/SFUIText-Medium.otf") format("opentype");
   }
   @font-face {
     font-family: "SFUIRegular";
@@ -33,7 +37,8 @@ $screens:(
 $fonts:(
   headingFont: "SFUIRegular",
   paragraphFont: "BalooBhaijaan2Regular",
-  labelFont: "SFUI"
+  labelFont: "SFUI",
+  Medium: "SFUIText-Medium"
 );
 
 /* =======================================

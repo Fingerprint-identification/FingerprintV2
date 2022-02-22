@@ -1,0 +1,255 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+.pin-password {
+  &__content {
+    &__background {
+      &__title {
+        right: 8%;
+        top: 27%;
+        letter-spacing: 17.44px;
+        @include screen(xxs) {
+          letter-spacing: 1.86px;
+          right: 16%;
+          top: 18%;
+        }
+        @include screen(xs) {
+          letter-spacing: 1.86px;
+          right: 12%;
+          top: 17%;
+        }
+        @include screen(sm) {
+          right: 20%;
+          top: 19%;
+          letter-spacing: 4.58px;
+        }
+        @include screen(md) {
+          right: 11%;
+          top: 26%;
+          letter-spacing: 5.58px;
+        }
+        @include screen(lg) {
+          right: 14%;
+          top: 29%;
+          letter-spacing: 10.44px;
+        }
+        @include screen(xlg) {
+          right: 8%;
+          top: 25%;
+          letter-spacing: 13.58px;
+        }
+        &__p {
+          font-size: 47px;
+
+          @include screen(xxs) {
+            font-size: 12px;
+          }
+          @include screen(xs) {
+            font-size: 17px;
+          }
+          @include screen(sm) {
+            font-size: 21px;
+          }
+          @include screen(md) {
+            font-size: 23px;
+          }
+          @include screen(lg) {
+            font-size: 30px;
+          }
+          @include screen(xlg) {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    &__image-div {
+      width: 358.09px;
+
+      @include screen(xxs) {
+        width: 149px;
+      }
+      @include screen(xs) {
+        width: 171.66px;
+      }
+      @include screen(sm) {
+        width: 244.66px;
+      }
+      @include screen(md) {
+        width: 266.58px;
+      }
+      @include screen(lg) {
+        width: 280.28px;
+      }
+      @include screen(xlg) {
+        width: 282.28px;
+      }
+    }
+    &__form {
+      width: 70%;
+      margin: 0px auto 0 auto;
+
+      @include screen(xxs) {
+        width: 90%;
+        margin: 30px auto 0 auto;
+      }
+      @include custem-screen(xs, md) {
+        width: 80%;
+        margin: 30px auto 0 auto;
+      }
+      @include screen(md) {
+        width: 70%;
+        margin: 23px auto 0 auto;
+      }
+      @include screen(lg) {
+        width: 80%;
+      }
+      &__input-div {
+        &__p {
+          font-size: 23px;
+          font-family: map-get($fonts, headingFont);
+          padding-left: 21px;
+
+          @include screen(xxs) {
+            font-size: 12px;
+            margin-left: 10%;
+            padding-left: 0;
+          }
+          @include screen(xs) {
+            font-size: 13px;
+            margin-left: 10%;
+            padding-left: 0;
+          }
+          @include screen(sm) {
+            font-size: 21px;
+            margin-left: 8%;
+            padding-left: 0;
+          }
+          @include screen(md) {
+            font-size: 25px;
+            padding-left: 8%;
+          }
+          @include screen(lg) {
+            font-size: 18px;
+          }
+          @include screen(xlg) {
+            font-size: 19px;
+          }
+          span {
+            font-family: map-get($fonts, Medium);
+          }
+
+          a {
+            font-family: map-get($fonts, labelFont);
+            color: $main-color;
+          }
+        }
+        &__p-recieve {
+          text-align: center;
+          font-size: 22px;
+          letter-spacing: -0.53px;
+          color: #8f8f8f;
+          font-family: "SFUIText-Medium";
+
+          @include BreakPoint(xs) {
+            margin-bottom: 0;
+            font-size: 11px;
+          }
+          @include screen(sm) {
+            font-size: 14px;
+          }
+          @include screen(md) {
+            font-size: 18px;
+          }
+          @include screen(lg) {
+            font-size: 13px;
+          }
+          @include screen(xlg) {
+            padding: 0px 26px;
+            font-size: 17px;
+          }
+          a {
+            color: $main-color;
+          }
+        }
+        input {
+          width: 322px;
+          margin: 54px auto 27px auto;
+          height: 80px;
+          font-size: 46px;
+          padding: 0 94px;
+          border: 2px solid $main-color-light;
+          border-radius: 24px;
+          background-color: $white;
+          text-align: center;
+
+          @include screen(xxs) {
+            width: 150px;
+            margin: 20px auto 12px auto;
+            height: 40px;
+            font-size: 21px;
+            padding: 0 45px;
+            border-radius: 12px;
+          }
+          @include screen(xs) {
+            width: 206px;
+            margin: 20px auto 12px auto;
+            height: 45px;
+            font-size: 23px;
+            padding: 0 45px;
+            border-radius: 12px;
+          }
+          @include screen(sm) {
+            width: 231px;
+            height: 60px;
+            font-size: 33px;
+            padding: 0 59px;
+            border-radius: 19px;
+            margin: 30px auto 27px auto;
+          }
+          @include screen(md) {
+            width: 294px;
+            height: 60px;
+            font-size: 34px;
+            padding: 0 69px;
+            margin: 28px auto 27px auto;
+          }
+          @include screen(lg) {
+            width: 192px;
+            margin: 29px auto 27px auto;
+            height: 54px;
+            font-size: 26px;
+            padding: 0 60px;
+            border-radius: 19px;
+          }
+          @include screen(xlg) {
+            width: 240px;
+            margin: 42px auto 27px auto;
+            height: 60px;
+            font-size: 35px;
+            padding: 0px 70px;
+          }
+          &::placeholder {
+            font-weight: bold;
+
+            @include BreakPoint(xs) {
+              font-size: 23px;
+            }
+            @include screen(sm) {
+              font-size: 33px;
+            }
+            @include screen(md) {
+              font-size: 34px;
+            }
+            @include screen(lg) {
+              font-size: 26px;
+            }
+            @include screen(xlg) {
+              font-size: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
