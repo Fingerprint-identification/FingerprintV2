@@ -16,6 +16,7 @@ import { ResetPhoneComponent } from './components/reset-phone/reset-phone.compon
 import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
 import { LoginPageComponent } from './pages/login-page/login-page/login-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { ConfirmPasswordComponent } from './components/confirm-password/confirm-password.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LoginComponent } from './components/login/login.component';
     ResetPhoneComponent,
     ResetPinComponent,
     LoginPageComponent,
-    LoginComponent
+    LoginComponent,
+    ConfirmPasswordComponent
   ],
   imports: [
     CommonModule,

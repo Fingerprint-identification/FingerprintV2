@@ -5,6 +5,7 @@ import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
 import { LoginPageComponent } from './pages/login-page/login-page/login-page.component';
+import { ConfirmPasswordComponent } from './components/confirm-password/confirm-password.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,12 @@ const routes: Routes = [
       {
         path: 'reset-password-pin',
         component: ResetPinComponent,
-      },{
+      },
+      {
+        path: 'confirm-password',
+        component: ConfirmPasswordComponent
+      },
+      {
         path: '',
        redirectTo: 'login-password',
        pathMatch: 'full'
