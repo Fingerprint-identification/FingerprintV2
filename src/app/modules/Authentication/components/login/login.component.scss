@@ -106,7 +106,7 @@
         width: 70%;
         margin: 23px auto 0 auto;
       }
-
+    /* Input properities was taken from global*/
       &__input-div {
         margin-bottom: 45px !important;
 
@@ -125,6 +125,7 @@
 
         &__password {
           position: relative;
+          /* This is the input of password and it's propreties was taken from global except this properity down*/
           &__input {
             @include screen(xs) {
               margin-bottom: 10px !important;
