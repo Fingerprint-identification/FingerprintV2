@@ -334,9 +334,6 @@
       }
     }
   }
-  &__span {
-    color: $main-color;
-  }
   &__step-in-right-direction {
     max-width: 1748px;
     min-height: 20.438rem;
@@ -481,6 +478,9 @@
         }
         &__p {
           margin: 0;
+          span {
+            color: $main-color;
+          }
         }
       }
     }
