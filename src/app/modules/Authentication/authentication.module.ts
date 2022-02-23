@@ -11,7 +11,6 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 /*  components imports */
 import { AuthCardComponent } from './components/auth-card/auth-card.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { ResetPhoneComponent } from './components/reset-phone/reset-phone.component';
 import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
 import { LoginPageComponent } from './pages/login-page/login-page/login-page.component';
@@ -22,7 +21,6 @@ import { ConfirmPasswordComponent } from './components/confirm-password/confirm-
 @NgModule({
   declarations: [
     AuthCardComponent,
-    RegisterComponent,
     ResetPhoneComponent,
     ResetPinComponent,
     LoginPageComponent,
