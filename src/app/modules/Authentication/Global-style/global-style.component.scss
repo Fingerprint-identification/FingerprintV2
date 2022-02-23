@@ -14,7 +14,7 @@
   box-shadow: 3px 4px 54px $black-1;
   position: relative;
   max-width: 1533.33px;
-  padding: 0px 0 150px 0 !important;
+  padding: 0px 0 150px 0;
 
   @include BreakPoint(xs) {
     padding: 0px 0 44px 0 !important;
