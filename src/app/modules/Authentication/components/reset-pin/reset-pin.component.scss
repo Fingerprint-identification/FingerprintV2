@@ -135,11 +135,11 @@
           @include screen(xlg) {
             font-size: 19px;
           }
-          span {
+          &__span {
             font-family: map-get($fonts, Medium);
           }
 
-          a {
+          &__a {
             font-family: map-get($fonts, labelFont);
             color: $main-color;
           }
@@ -168,7 +168,7 @@
             padding: 0px 26px;
             font-size: 17px;
           }
-          a {
+          &__a {
             color: $main-color;
           }
         }

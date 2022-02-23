@@ -25,18 +25,18 @@
               <form class="pin-password__content__form">
                 <div class="ID mb-5 pin-password__content__form__input-div">
                   <p class="pin-password__content__form__input-div__p">
-                    Enter the verification code we just sent you on <span class="me-1">01122334455</span>  <a href="#">change</a>
+                    Enter the verification code we just sent you on <span class="me-1 pin-password__content__form__input-div__p__span">01122334455</span>  <a href="#" class="pin-password__content__form__input-div__p__a">change</a>
                   </p>
                   <input class="form-control" id="yourNumber" type="text" placeholder="Default input"
                     aria-label="default input example" placeholder="0000" maxlength="4">
                     <p class="pin-password__content__form__input-div__p-recieve">
                       if you didn't receive a code!
-                      <a href="#" class="ms-2">
+                      <a href="#" class="ms-2 pin-password__content__form__input-div__p-recieve__a">
                         Resend
                       </a>
                     </p>
                 </div>
-                <button type="submit" class="btn btn-primary pin-password__content__form__button">Confirm</button>
+                <button type="submit" class="btn btn-primary pin-password__content__form__button" (click)="ConfirmPage()">Confirm</button>
               </form>
             </div>
           </div>

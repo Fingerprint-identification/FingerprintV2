@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-pin',
@@ -9,8 +10,11 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class ResetPinComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
   ngOnInit(): void {
 
+  }
+  ConfirmPage(): void{
+    this.router.navigate(['Login/confirm-password']);
   }
 }
