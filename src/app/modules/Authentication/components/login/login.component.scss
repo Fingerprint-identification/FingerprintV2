@@ -106,7 +106,7 @@
         width: 70%;
         margin: 23px auto 0 auto;
       }
-    /* Input properities was taken from global*/
+      /* Input properities was taken from global*/
       &__input-div {
         margin-bottom: 45px !important;
 
@@ -154,45 +154,35 @@
           }
           &__password-icon {
             position: absolute;
-            width: 31.33px;
-            height: 31.46px;
-            top: 26px;
-            right: 21px;
+            width: 58.33px;
+            height: 78.46px;
+            padding-right: 20px;
+            top: 0px;
+            right: 0;
 
+            @include BreakPoint(xlg) {
+              padding-right: 20px !important;
+              top: 0px !important;
+              right: 0 !important;
+              width: 44.33px !important;
+            }
             @include screen(xxs) {
-              width: 15.33px;
-              height: 15.46px;
-              right: 10px;
-              top: 11px;
+              height: 38.46px;
             }
             @include screen(xs) {
-              width: 17.33px;
-              height: 14.46px;
-              right: 10px;
-              top: 18px;
+              height: 50.46px;
             }
             @include screen(sm) {
-              width: 20.33px;
-              height: 20.46px;
-              right: 19px;
-              top: 14px;
+              height: 50.46px;
             }
             @include screen(md) {
-              width: 25.33px;
-              height: 25.46px;
-              right: 19px;
-              top: 17px;
+              height: 58.46px;
             }
             @include screen(lg) {
-              width: 30.33px;
-              height: 31.46px;
-              top: 13px;
-              right: 21px;
+              height: 58.46px;
             }
             @include screen(xlg) {
-              width: 30.33px;
-              height: 31.46px;
-              top: 14px;
+              height: 58.46px;
             }
           }
         }
