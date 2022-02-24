@@ -242,6 +242,28 @@
               }
             }
           }
+          &__li-NoMatches {
+            &__p {
+              color: $black;
+              text-align: center;
+              font-family: map-get($fonts, headingFont);
+              font-size: 24px;
+              margin: 10px 0 0 0;
+
+              @include custem-screen(sm, lg) {
+                font-size: 20px;
+              }
+              @include screen(xxs) {
+                font-size: 13px !important;
+              }
+              @include screen(xs) {
+                font-size: 17px !important;
+              }
+              @include screen(lg) {
+                font-size: 24px;
+              }
+            }
+          }
         }
       }
     }
@@ -307,7 +329,7 @@
         margin: 0 25px;
       }
       @include custem-screen(sm, lg) {
-        margin: 0 82px
+        margin: 0 82px;
       }
       @include custem-screen(md, xxlg) {
         width: 82%;
@@ -412,7 +434,7 @@
         width: 344.1px;
         display: inline-block;
         position: relative;
-        @include BreakPoint(sm){
+        @include BreakPoint(sm) {
           position: absolute;
         }
         @include custem-screen(xs, md) {
@@ -569,7 +591,7 @@
         height: 316.11px;
         position: relative;
 
-        @include BreakPoint(sm){
+        @include BreakPoint(sm) {
           position: absolute;
         }
         @include custem-screen(xs, md) {

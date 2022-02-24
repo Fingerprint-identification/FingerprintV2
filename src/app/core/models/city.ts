@@ -1,4 +1,4 @@
-export interface Device{
+export interface city{
    address : string;
    street : string;
 }

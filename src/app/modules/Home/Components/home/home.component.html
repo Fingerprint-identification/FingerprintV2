@@ -18,15 +18,15 @@
             <img src="../../../assets/icons/Icon material-location-searching.svg" alt=""
               class="banner__left-part__form__img">
             <div class="banner__left-part__form__search-box-div bg-s-white">
-              <input type="search" class="form-control banner__left-part__form__search-box-div__input"
-                placeholder="Ismailia, second area" aria-label="Search" />
-              <ul class="banner__left-part__form__search-box-div__ul" *ngIf="devices.length != 0">
-                <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let device of devices; trackBy: trackByFn">
-                  <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black">{{ device.address}}
-                  </p>
-                  <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ device.street }}
-                  </p>
-                </li>
+              <input type="search" name="Search" class="form-control banner__left-part__form__search-box-div__input"
+                placeholder="Ismailia, second area" aria-label="Search" [(ngModel)]="SearchCity"/>
+              <ul class="banner__left-part__form__search-box-div__ul" *ngIf="SearchCity">
+                  <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let device of devices | FilterCities:SearchCity | slice : 0 : 3; trackBy: trackByFn;" >
+                    <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black">{{ device?.address }}
+                    </p>
+                    <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ device?.street }}
+                    </p>
+                  </li>
               </ul>
             </div>
           </div>

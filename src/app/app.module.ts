@@ -30,9 +30,9 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { AdminGuard } from './core/guard/admin.guard';
 import { FormGuardGuard } from './core/guard/form-guard.guard';
-import { ManagerGuard } from './core/guard/manager.guard';
 import { UserGuard } from './core/guard/user.guard';
 import { TokenIntercepterService } from './core/intercepters/token.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,7 @@ import { TokenIntercepterService } from './core/intercepters/token.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [AuthGuard, FormGuardGuard , AdminGuard, ManagerGuard, UserGuard
+  providers: [AuthGuard, FormGuardGuard , AdminGuard, UserGuard
   ,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenIntercepterService,
