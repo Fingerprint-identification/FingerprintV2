@@ -198,6 +198,7 @@
           &__li {
             width: 100%;
             padding-top: 0.8125rem;
+            word-break: break-word;
             @include BreakPoint(xxs) {
               padding-top: 13px;
             }
