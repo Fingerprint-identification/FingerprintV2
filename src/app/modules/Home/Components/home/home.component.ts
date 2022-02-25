@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   searchTerm = new Subject<string>();
   baseUrl = 'https://api.cdnjs.com/libraries';
   queryUrl = '?search=';
-  searchResult !: Array<{name: string, latest: string}>;
+  searchResult : Array<{name: string, latest: string}> = [];
 
   constructor(private http: HttpClient) {
   }
