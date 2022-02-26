@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { debounceTime, distinctUntilChanged, filter, Subject } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, filter, Subject, Subscription } from 'rxjs';
 import { FilterPipe } from 'src/app/core/custom-pipe/filter.pipe';
 import { city } from 'src/app/core/models/city';
 import { SearchService } from 'src/app/shared/services/search.service';
@@ -11,46 +10,53 @@ import { SearchService } from 'src/app/shared/services/search.service';
   styleUrls: ['./home.component.scss'],
   providers: [FilterPipe]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   banner_margin_bottom: boolean = false;
   loading !: boolean;
-  errors: any = [];
-  searchTerm = new Subject<string>();
-  searchResult: Array<{ name: string, latest: string }> = [];
+  CitiesFetchedResult: Array<{ name: string, latest: string }> = [];
+  EnteredDataFromUserToFilter = new Subject<string>();
+  subscription !: Subscription;
 
-  constructor(private http: HttpClient, private searchServices: SearchService) {
+  constructor(private SearchServices: SearchService) {
   }
 
   ngOnInit(): void {
-    this.searchTerm.pipe(
+    this.CheckMargin();
+    this.EnteredDataFromUserToFilter.pipe(
       debounceTime(50),
       distinctUntilChanged(),
-      filter(term => term.length > 0),
-    ).subscribe(searchterm => {
+      filter(city => city.length > 0),
+    ).subscribe(FilteredCity => {
       this.loading = true;
-      this.searchServices._searchEntries(searchterm).subscribe(
-        {
-          next: (response: any) => {
-            this.loading = false;
-            this.searchResult = response.results;
-          }, error: (error: any) => {
-            this.errors = error;
-            this.loading = false;
-          }
-        });
-      /* margin when no devices selected */
-      if (this.searchResult.length == 0)
-        this.banner_margin_bottom = true
-    })
-  }
-  onInput(e: any) {
-    if(e.target.value == '')
-      this.searchResult = [];
-    this.searchTerm.next(e.target.value);
+      this.subscription = this.SearchServices.SearchAboutCityInApi(FilteredCity).subscribe({
+        next: (cities: any) => {
+          this.loading = false;
+          this.CitiesFetchedResult = cities.results;
+        },
+        error: () => {
+          this.loading = false;
+        }
+      });
+    });
   }
 
-  trackByFn(index: number, device: city) {
+  TakeDataUserEntered(City: Event): void{
+    if ((City.target as HTMLInputElement).value == '')
+      this.CitiesFetchedResult = [];
+    this.EnteredDataFromUserToFilter.next((City.target as HTMLInputElement).value);
+  }
+
+  CheckMargin(): void{
+    if(this.CitiesFetchedResult.length == 0)
+      this.banner_margin_bottom = false;
+    else
+      this.banner_margin_bottom = true;
+  }
+
+  trackByFn(index: number, result: any){
     return index;
   }
-
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }
