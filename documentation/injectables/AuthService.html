@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Auth services injectable</p>
+
+            </p>
 
 
 
@@ -77,10 +84,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/shared/services/auth.service.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/shared/services/auth.service.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constractor</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -92,12 +105,20 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-
+/**
+ * Auth services injectable
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+/**
+ * Auth searvices class
+ */
 export class AuthService {
 
+  /**
+   * Constractor
+   */
   constructor() {
     /*
     Saving user data in localstorage when

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+/**
+* Footer component
+*/
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -8,13 +10,23 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
 
+  /**
+  * Constructor
+  * @param router
+  */
   constructor(
     private router:Router
   ) { }
 
+  /**
+   * ngOnInit
+   */
   ngOnInit(): void {
   }
-  toLogin(){
+  /**
+   * Login method that navigate to Login page
+   */
+  ToLogin(): void{
     this.router.navigate(['/Login'])
   }
 

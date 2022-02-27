@@ -64,10 +64,17 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/modules/Authentication/pages/login-page/login-page/login-page.component.ts</code>
+    <code>src/app/modules/Authentication/pages/login-page/login-page.component.ts</code>
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Login page component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -160,10 +167,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/modules/Authentication/pages/login-page/login-page/login-page.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/modules/Authentication/pages/login-page/login-page.component.ts:10</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -197,14 +210,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/modules/Authentication/pages/login-page/login-page/login-page.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/modules/Authentication/pages/login-page/login-page.component.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>ngOnInit</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -221,7 +236,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
+/**
+ * Login page component
+ */
 @Component({
   selector: &#x27;app-login-page&#x27;,
   templateUrl: &#x27;./login-page.component.html&#x27;,
@@ -229,8 +246,14 @@
 })
 export class LoginPageComponent implements OnInit {
 
+  /**
+   * Constructor
+   */
   constructor() { }
 
+  /**
+   * ngOnInit
+   */
   ngOnInit(): void {
   }
 
@@ -276,7 +299,7 @@ export class LoginPageComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><router-outlet></router-outlet></div>'
-    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthCardComponent', 'selector': 'app-auth-card'},{'name': 'ConfirmPasswordComponent', 'selector': 'app-confirm-password'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CreateUserComponent', 'selector': 'app-create-user'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeviceComponent', 'selector': 'app-device'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'LatestOrdersComponent', 'selector': 'app-latest-orders'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PermissionComponent', 'selector': 'app-permission'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ResetPhoneComponent', 'selector': 'app-reset-phone'},{'name': 'ResetPinComponent', 'selector': 'app-reset-pin'},{'name': 'SalesStatusComponent', 'selector': 'app-sales-status'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UsersListComponent', 'selector': 'app-users-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmPasswordComponent', 'selector': 'app-confirm-password'},{'name': 'DeviceComponent', 'selector': 'app-device'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ResetPhoneComponent', 'selector': 'app-reset-phone'},{'name': 'ResetPinComponent', 'selector': 'app-reset-pin'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginPageComponent'};
 </script>

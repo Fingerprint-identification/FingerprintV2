@@ -1,5 +1,6 @@
 /* Modules from core */
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -18,21 +19,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* App component */
 import { AppComponent } from './app.component';
 
-/* Angular material */
-// import { MatPaginatorModule } from '@angular/material/paginator';
-// import { MatSortModule } from '@angular/material/sort';
-// import { MatButtonModule } from '@angular/material/button';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatDialogModule } from '@angular/material/dialog';
-
-/* Guard imports */
 import { AuthGuard } from './core/guard/auth.guard';
+
 import { AdminGuard } from './core/guard/admin.guard';
+
 import { FormGuardGuard } from './core/guard/form-guard.guard';
+
 import { UserGuard } from './core/guard/user.guard';
+
 import { TokenIntercepterService } from './core/intercepters/token.service';
 
+/**
+ * App module
+ */
 @NgModule({
   declarations: [
     AppComponent,

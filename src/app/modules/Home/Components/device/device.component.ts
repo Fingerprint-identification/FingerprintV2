@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Device component
+ */
 @Component({
   selector: 'app-device',
   templateUrl: './device.component.html',
@@ -7,8 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceComponent implements OnInit {
 
+  /**
+   * Constructor
+   */
   constructor() { }
 
+  /**
+   * ngOnInit
+   */
   ngOnInit(): void {
   }
 

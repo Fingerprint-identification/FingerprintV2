@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Reset pin password component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -163,12 +170,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/modules/Authentication/components/reset-pin/reset-pin.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/modules/Authentication/components/reset-pin/reset-pin.component.ts:16</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constractor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -230,14 +239,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/modules/Authentication/components/reset-pin/reset-pin.component.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/modules/Authentication/components/reset-pin/reset-pin.component.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>ConfirmPage is method to navigate user to confirm password</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -267,14 +278,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/modules/Authentication/components/reset-pin/reset-pin.component.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/modules/Authentication/components/reset-pin/reset-pin.component.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>ngOnInit</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -291,8 +304,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
 import {Router } from &#x27;@angular/router&#x27;;
 
+/**
+ * Reset pin password component
+ */
 @Component({
   selector: &#x27;app-reset-pin&#x27;,
   templateUrl: &#x27;./reset-pin.component.html&#x27;,
@@ -302,10 +319,20 @@ import {Router } from &#x27;@angular/router&#x27;;
   ],
 })
 export class ResetPinComponent implements OnInit {
+  /**
+   * Constractor
+   * @param router
+   */
   constructor(private router: Router) {}
+  /**
+   * ngOnInit
+   */
   ngOnInit(): void {
 
   }
+  /**
+   * ConfirmPage is method to navigate user to confirm password
+   */
   ConfirmPage(): void{
     this.router.navigate([&#x27;Login/confirm-password&#x27;]);
   }
@@ -796,7 +823,7 @@ input {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><section class="pin-password">  <div class="container-fluid">    <div class="row">      <div class="col-10 offset-1">        <div class="pin-password__content">          <div class="row">            <div class="col-12">              <div class="pin-password__content__background">                <div class="pin-password__content__background__title">                  <p class="pin-password__content__background__title__p">Reset Password</p>                </div>                <img class="pin-password__content__background__img"                  src="../../../../../assets/Login/Path on login (2).svg" alt="">              </div>            </div>          </div>          <div class="row">            <div class="col-lg-6">              <div class="pin-password__content__image-div">                <img class="pin-password__content__image-div__img"                  src="../../../../../assets/Login/Forgot password-pana.svg" alt="">              </div>            </div>            <div class="col-lg-6">              <form class="pin-password__content__form">                <div class="ID mb-5 pin-password__content__form__input-div">                  <p class="pin-password__content__form__input-div__p">                    Enter the verification code we just sent you on <span class="me-1 pin-password__content__form__input-div__p__span">01122334455</span>  <a href="#" class="pin-password__content__form__input-div__p__a">change</a>                  </p>                  <input class="form-control" id="yourNumber" type="text" placeholder="Default input"                    aria-label="default input example" placeholder="0000" maxlength="4">                    <p class="pin-password__content__form__input-div__p-recieve">                      if you didn\'t receive a code!                      <a href="#" class="ms-2 pin-password__content__form__input-div__p-recieve__a">                        Resend                      </a>                    </p>                </div>                <button type="submit" class="btn btn-primary pin-password__content__form__button" (click)="ConfirmPage()">Confirm</button>              </form>            </div>          </div>        </div>      </div>    </div>  </div></section></div>'
-    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthCardComponent', 'selector': 'app-auth-card'},{'name': 'ConfirmPasswordComponent', 'selector': 'app-confirm-password'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CreateUserComponent', 'selector': 'app-create-user'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeviceComponent', 'selector': 'app-device'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'LatestOrdersComponent', 'selector': 'app-latest-orders'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PermissionComponent', 'selector': 'app-permission'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ResetPhoneComponent', 'selector': 'app-reset-phone'},{'name': 'ResetPinComponent', 'selector': 'app-reset-pin'},{'name': 'SalesStatusComponent', 'selector': 'app-sales-status'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UsersListComponent', 'selector': 'app-users-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmPasswordComponent', 'selector': 'app-confirm-password'},{'name': 'DeviceComponent', 'selector': 'app-device'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ResetPhoneComponent', 'selector': 'app-reset-phone'},{'name': 'ResetPinComponent', 'selector': 'app-reset-pin'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ResetPinComponent'};
 </script>

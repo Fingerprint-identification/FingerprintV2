@@ -64,6 +64,13 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>route injectable</p>
+
+                </p>
 
 
 
@@ -122,14 +129,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">src/app/core/guard/form-guard.guard.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/core/guard/form-guard.guard.ts:15</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>make route deactive</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -214,11 +223,17 @@
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from &#x27;@angular/router&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-
+/**
+ * route injectable
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class FormGuardGuard implements CanDeactivate&lt;unknown&gt; {
+
+  /**
+  * make route deactive
+  */
   canDeactivate(
     component: unknown,
     currentRoute: ActivatedRouteSnapshot,
@@ -226,7 +241,7 @@ export class FormGuardGuard implements CanDeactivate&lt;unknown&gt; {
     nextState?: RouterStateSnapshot): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
     return true;
   }
-  
+
 }
 </code></pre>
         </div>

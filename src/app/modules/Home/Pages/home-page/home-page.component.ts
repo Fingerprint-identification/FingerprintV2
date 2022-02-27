@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+/**
+ * Main home page component
+ */
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -8,10 +9,14 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private router: Router){}
-
+  /**
+  * Constractor
+  */
+  constructor() { }
+  /**
+  * ngOnInit
+  */
   ngOnInit(): void {
-
   }
 
 }

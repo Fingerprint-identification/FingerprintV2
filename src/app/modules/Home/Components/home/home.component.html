@@ -1,5 +1,5 @@
 <!-- Banner section -->
-<section class="banner section-margin" [ngClass]="banner_margin_bottom == true ? 'banner-margin-bottom' : ''">
+<section class="banner section-margin" [ngClass]="BannerMarginBottom == true ? 'BannerMarginBottom' : ''">
 
   <div class="container-fluid">
 
@@ -35,7 +35,7 @@
               <!-- <small *ngIf="loading"> loading...</small> -->
               <ul class="banner__left-part__form__search-box-div__ul" *ngIf="CitiesFetchedResult.length > 0">
 
-                <ng-container *ngIf="!loading">
+                <ng-container *ngIf="!Loading">
 
                   <li class="banner__left-part__form__search-box-div__ul__li"
                     *ngFor="let result of CitiesFetchedResult | slice:0:3; trackBy:trackByFn">
@@ -50,7 +50,7 @@
 
                 </ng-container>
 
-                <ng-container *ngIf="loading">
+                <ng-container *ngIf="Loading">
 
                   <li class="banner__left-part__form__search-box-div__ul__li">
 

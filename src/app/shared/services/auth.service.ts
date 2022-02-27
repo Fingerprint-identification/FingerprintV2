@@ -1,10 +1,18 @@
 import { Injectable } from '@angular/core';
-
+/**
+ * Auth services injectable
+ */
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Auth searvices class
+ */
 export class AuthService {
 
+  /**
+   * Constractor
+   */
   constructor() {
     /*
     Saving user data in localstorage when

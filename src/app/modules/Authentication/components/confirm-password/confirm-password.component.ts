@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * Confirm password component
+ */
 @Component({
   selector: 'app-confirm-password',
   templateUrl: './confirm-password.component.html',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmPasswordComponent implements OnInit {
 
-  constructor() { }
-
+ /**
+  * Constractor
+  */
+ constructor() { }
+  /**
+   * ngOnInit
+   */
   ngOnInit(): void {
+
   }
 
 }

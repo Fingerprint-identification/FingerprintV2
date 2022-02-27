@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
+
 import { ResetPhoneComponent } from './components/reset-phone/reset-phone.component';
+
 import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
+
 import { LoginComponent } from './components/login/login.component';
+
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
-import { LoginPageComponent } from './pages/login-page/login-page/login-page.component';
+
 import { ConfirmPasswordComponent } from './components/confirm-password/confirm-password.component';
 
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+
+/** Auth router  */
 const routes: Routes = [
   {
     path: '',

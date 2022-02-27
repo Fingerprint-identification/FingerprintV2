@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * Login component
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,8 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  /**
+   * Constractor
+   */
   constructor() { }
 
+  /**
+   * ngOnInit
+   */
   ngOnInit(): void {
+
   }
 }

@@ -73,15 +73,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { CreateUserComponent } from &#x27;./pages/create-user/create-user.component&#x27;;
-import { SettingsComponent } from &#x27;./pages/settings/settings.component&#x27;;
-import { UsersListComponent } from &#x27;./pages/users-list/users-list.component&#x27;;
 
+import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
+
+/**
+ * Routes for user
+ */
 const routes: Routes &#x3D; [
-  { path: &#x27;create&#x27;, component: CreateUserComponent },
-  { path: &#x27;list&#x27;, component: UsersListComponent },
-  { path: &#x27;settings&#x27;, component: SettingsComponent },
+
 ];
 
 @NgModule({

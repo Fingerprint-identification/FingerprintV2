@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Footer component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -138,7 +145,7 @@
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
-                                <a href="#toLogin" >toLogin</a>
+                                <a href="#ToLogin" >ToLogin</a>
                             </li>
                         </ul>
                     </td>
@@ -163,12 +170,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/footer/footer.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/footer/footer.component.ts:11</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -230,14 +239,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/components/footer/footer.component.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/components/footer/footer.component.ts:24</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>ngOnInit</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -251,30 +262,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="toLogin"></a>
+                    <a name="ToLogin"></a>
                     <span class="name">
-                        <span ><b>toLogin</b></span>
-                        <a href="#toLogin"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>ToLogin</b></span>
+                        <a href="#ToLogin"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>toLogin()</code>
+<code>ToLogin()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/components/footer/footer.component.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/components/footer/footer.component.ts:29</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Login method that navigate to Login page</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -292,7 +305,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-
+/**
+* Footer component
+*/
 @Component({
   selector: &#x27;app-footer&#x27;,
   templateUrl: &#x27;./footer.component.html&#x27;,
@@ -300,13 +315,23 @@ import { Router } from &#x27;@angular/router&#x27;;
 })
 export class FooterComponent implements OnInit {
 
+  /**
+  * Constructor
+  * @param router
+  */
   constructor(
     private router:Router
   ) { }
 
+  /**
+   * ngOnInit
+   */
   ngOnInit(): void {
   }
-  toLogin(){
+  /**
+   * Login method that navigate to Login page
+   */
+  ToLogin(): void{
     this.router.navigate([&#x27;/Login&#x27;])
   }
 
@@ -356,7 +381,7 @@ export class FooterComponent implements OnInit {
           &lt;div class&#x3D;&quot;Footer__form-inside-footer__data-container-div&quot;&gt;
             &lt;input class&#x3D;&quot;Footer__form-inside-footer__data-container-div__input&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;ervice@office.eg&quot;&gt;
             &lt;button class&#x3D;&quot;Footer__form-inside-footer__data-container-div__button bg-s-white&quot; type&#x3D;&quot;submit&quot;
-              (click)&#x3D;&quot;toLogin()&quot;&gt;Sign in&lt;/button&gt;
+              (click)&#x3D;&quot;ToLogin()&quot;&gt;Sign in&lt;/button&gt;
           &lt;/div&gt;
         &lt;/form&gt;
       &lt;/div&gt;
@@ -546,8 +571,8 @@ export class FooterComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><footer class="Footer bg-b-blue text-s-white">  <div class="container-fluid">    <div class="row">      <div class="col-lg-3 col-md-4 col-6 ">        <ul class="Footer__ul">          <li>            <a href="#">Home</a>          </li>          <li>            <a href="#">FAQ</a>          </li>          <li>            <a href="#">Documentation</a>          </li>        </ul>      </div>      <div class="col-lg-3 col-md-4 col-6 ">        <ul class="Footer__ul">          <li>            <a href="#">Terms of use</a>          </li>          <li>            <a href="#">Privacy policy </a>          </li>        </ul>      </div>      <div class="col-lg-3 col-md-4 col-6">        <ul class="Footer__ul">          <li>            <a href="#">+20-064-2532523</a>          </li>          <li>            <a href="#">service@office.eg </a>          </li>        </ul>      </div>      <div class="col-lg-3 col-12 order-lg-last order-first">        <form class="Footer__form-inside-footer">          <div class="Footer__form-inside-footer__data-container-div">            <input class="Footer__form-inside-footer__data-container-div__input" type="text" placeholder="ervice@office.eg">            <button class="Footer__form-inside-footer__data-container-div__button bg-s-white" type="submit"              (click)="toLogin()">Sign in</button>          </div>        </form>      </div>    </div>  </div>  <div class="Footer__copyright text-center">    <p>      ©Fingerprint Authentication 2021 - 2022 All rights reserved    </p>  </div></footer></div>'
-    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthCardComponent', 'selector': 'app-auth-card'},{'name': 'ConfirmPasswordComponent', 'selector': 'app-confirm-password'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CreateUserComponent', 'selector': 'app-create-user'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeviceComponent', 'selector': 'app-device'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'LatestOrdersComponent', 'selector': 'app-latest-orders'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PermissionComponent', 'selector': 'app-permission'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ResetPhoneComponent', 'selector': 'app-reset-phone'},{'name': 'ResetPinComponent', 'selector': 'app-reset-pin'},{'name': 'SalesStatusComponent', 'selector': 'app-sales-status'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UsersListComponent', 'selector': 'app-users-list'}];
+        var COMPONENT_TEMPLATE = '<div><footer class="Footer bg-b-blue text-s-white">  <div class="container-fluid">    <div class="row">      <div class="col-lg-3 col-md-4 col-6 ">        <ul class="Footer__ul">          <li>            <a href="#">Home</a>          </li>          <li>            <a href="#">FAQ</a>          </li>          <li>            <a href="#">Documentation</a>          </li>        </ul>      </div>      <div class="col-lg-3 col-md-4 col-6 ">        <ul class="Footer__ul">          <li>            <a href="#">Terms of use</a>          </li>          <li>            <a href="#">Privacy policy </a>          </li>        </ul>      </div>      <div class="col-lg-3 col-md-4 col-6">        <ul class="Footer__ul">          <li>            <a href="#">+20-064-2532523</a>          </li>          <li>            <a href="#">service@office.eg </a>          </li>        </ul>      </div>      <div class="col-lg-3 col-12 order-lg-last order-first">        <form class="Footer__form-inside-footer">          <div class="Footer__form-inside-footer__data-container-div">            <input class="Footer__form-inside-footer__data-container-div__input" type="text" placeholder="ervice@office.eg">            <button class="Footer__form-inside-footer__data-container-div__button bg-s-white" type="submit"              (click)="ToLogin()">Sign in</button>          </div>        </form>      </div>    </div>  </div>  <div class="Footer__copyright text-center">    <p>      ©Fingerprint Authentication 2021 - 2022 All rights reserved    </p>  </div></footer></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmPasswordComponent', 'selector': 'app-confirm-password'},{'name': 'DeviceComponent', 'selector': 'app-device'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ResetPhoneComponent', 'selector': 'app-reset-phone'},{'name': 'ResetPinComponent', 'selector': 'app-reset-pin'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
 </script>

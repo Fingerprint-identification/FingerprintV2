@@ -65,10 +65,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/models/checkDirty.interface.ts</code>
+            <code>src/app/core/interface/checkDirty.interface.ts</code>
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Dirty Interface to check form</p>
+
+            </p>
 
 
         <section>
@@ -84,9 +91,9 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#isFormClean" 
+                                    <a href="#IsFormClean" 
 >
-                                        isFormClean
+                                        IsFormClean
                                     </a>
                                 </li>
                             </ul>
@@ -105,30 +112,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isFormClean"></a>
+                    <a name="IsFormClean"></a>
                     <span class="name">
-                        <span ><b>isFormClean</b></span>
-                        <a href="#isFormClean"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>IsFormClean</b></span>
+                        <a href="#IsFormClean"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>isFormClean()</code>
+<code>IsFormClean()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2"
-                            class="link-to-prism">src/app/core/models/checkDirty.interface.ts:2</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">src/app/core/interface/checkDirty.interface.ts:8</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Method that return true if the form not dirty</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
@@ -145,8 +154,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Dirty{
-    isFormClean(): boolean;
-}</code></pre>
+  /**
+   * Method that return true if the form not dirty
+   */
+    IsFormClean(): boolean;
+}
+</code></pre>
     </div>
 </div>
 

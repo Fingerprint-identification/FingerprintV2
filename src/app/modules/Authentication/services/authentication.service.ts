@@ -1,28 +1,39 @@
 import { HttpClient } from "@angular/common/http";
+
 import { Injectable } from "@angular/core";
+
 import { Router } from "@angular/router";
+
 import { BehaviorSubject, map, Observable, tap } from "rxjs";
+
+import { User } from "src/app/core/models/user";
+
 import { environment } from "src/environments/environment";
-import { User } from "../../../core/models/user";
 
-
+/**
+ * Auth services injectable
+ */
 @Injectable({
   providedIn: "root",
 })
 export class AuthenticationService {
-  private userSubject!: BehaviorSubject<User>;
+  /**
+   * Local BehaviorSubject
+   */
+  /*
+  private UserSubject!: BehaviorSubject<User>;
   public user!: Observable<User>;
   isLoggedIn = false;
 
   constructor(private router: Router, private http: HttpClient) {
-    this.userSubject = new BehaviorSubject<User>(
+    this.UserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem("user") || "{}")
     );
-    this.user = this.userSubject.asObservable();
+    this.user = this.UserSubject.asObservable();
   }
 
   public get userValue(): User {
-    return this.userSubject.value;
+    return this.UserSubject.value;
   }
 
   login(username: string, password: string) {
@@ -37,7 +48,7 @@ export class AuthenticationService {
             localStorage.setItem("token", user.token);
             this.isLoggedIn = true;
           }
-          this.userSubject.next(user);
+          this.UserSubject.next(user);
           return user;
         })
     );
@@ -50,10 +61,10 @@ export class AuthenticationService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('token');
-    this.userSubject.next(null!);
+    this.UserSubject.next(null!);
     this.isLoggedIn = false;
     this.router.navigate(['/login']);
-  }
+  }*/
 
 }
 
