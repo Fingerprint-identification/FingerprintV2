@@ -2,13 +2,15 @@ import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 
-import { debounceTime, distinctUntilChanged, filter, map, Observable, Subject } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, filter, map, Observable, of, Subject, switchMap, throwError } from 'rxjs';
+
 /**
 * Inject root
 */
 @Injectable({
   providedIn: 'root'
 })
+
 /**
 * Class for search services that geet cities from api
 */
@@ -29,9 +31,18 @@ export class SearchService {
   constructor(private http: HttpClient) {
   }
 
+  search(terms: Observable<string>): Observable<any>{
+    return terms.pipe(
+      debounceTime(400),
+      distinctUntilChanged(),
+      filter(city => city.length > 0),
+      switchMap((term: any) => this.SearchAboutCityInApi(term))
+    );
+  }
+
   /**
   *  search about city in api
-  * @param term
+  * @param City user entered
   * @returns Observable<any>
   */
   SearchAboutCityInApi(City: any): Observable<any>{

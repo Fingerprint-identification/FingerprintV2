@@ -30,27 +30,24 @@
 
               <input type="search" name="Search" class="form-control banner__left-part__form__search-box-div__input"
                 placeholder="Ismailia, second area" aria-label="Search"
-                (input)="TakeDataUserEntered($event)" />
+                (keyup)="EnteredDataFromUserToFilter$.next($any($event.target).value)" />
 
               <!-- <small *ngIf="loading"> loading...</small> -->
-              <ul class="banner__left-part__form__search-box-div__ul" *ngIf="CitiesFetchedResult.length > 0">
+              <ul class="banner__left-part__form__search-box-div__ul" *ngIf="CitiesFetchedResult.length > 0" >
 
-                <ng-container *ngIf="!Loading">
+                <ng-container>
+                    <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let res of CitiesFetchedResult | slice:0:3; trackBy:trackByFn">
+                      <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black">{{ res.name }}
+                      </p>
 
-                  <li class="banner__left-part__form__search-box-div__ul__li"
-                    *ngFor="let result of CitiesFetchedResult | slice:0:3; trackBy:trackByFn">
+                      <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ res.latest }}
+                      </p>
 
-                    <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black">{{ result.name }}
-                    </p>
-
-                    <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ result.latest }}
-                    </p>
-
-                  </li>
+                    </li>
 
                 </ng-container>
 
-                <ng-container *ngIf="Loading">
+                <ng-template #loading>
 
                   <li class="banner__left-part__form__search-box-div__ul__li">
 
@@ -60,7 +57,7 @@
 
                   </li>
 
-                </ng-container>
+                </ng-template>
 
               </ul>
 

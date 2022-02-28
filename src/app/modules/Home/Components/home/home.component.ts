@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
-import { debounceTime, distinctUntilChanged, filter, Subject, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, Observable, Subject, Subscription, switchMap, take, tap } from 'rxjs';
 
 import { SearchService } from 'src/app/shared/services/search.service';
 
@@ -28,56 +29,29 @@ export class HomeComponent implements OnInit, OnDestroy {
   /**
   * Local Subject of taken data from user to filter
   */
-  EnteredDataFromUserToFilter: Subject<string> = new Subject<string>();
-  /**
-  * Local reference of subscription to unsubscribe in distroy
-  */
-  Subscription !: Subscription;
+  EnteredDataFromUserToFilter$ = new Subject<string>();
   /**
   * Constructor
   * @param {SearchService} SearchServices connect with search service that get cities from api
   */
-  constructor(private SearchServices: SearchService) {}
+  constructor(private SearchServices: SearchService) { }
 
   /**
   * The "ngOnInit"
   */
   ngOnInit(): void {
+    // check margin
     this.CheckMargin();
-    this.EnteredDataFromUserToFilter.pipe(
-      debounceTime(50),
-      distinctUntilChanged(),
-      filter(city => city.length > 0),
-    ).subscribe(FilteredCity => {
-      this.Loading = true;
-      this.Subscription = this.SearchServices.SearchAboutCityInApi(FilteredCity).subscribe({
-        next: (cities: any): void => {
-          this.Loading = false;
-          this.CitiesFetchedResult = cities.results;
-        },
-        error: (): void => {
-          this.Loading = false;
-        }
-      });
+    this.SearchServices.search(this.EnteredDataFromUserToFilter$).subscribe((res: any)=>{
+      this.CitiesFetchedResult = res.results;
     });
-  }
-  /**
-  * Method for take the data user entered and send to
-  * filter method to filter it and subscribe result
-  * @param {City} City City User entered
-  */
-  TakeDataUserEntered(City: Event): void {
-    if ((City.target as HTMLInputElement).value == '')
-      this.CitiesFetchedResult = [];
-    this.EnteredDataFromUserToFilter.next((City.target as HTMLInputElement).value);
   }
 
   /**
   * method to check if the result of cities is empty
   * to make margin bottom zero
-  * @param {} CheckMargin City User entered
   */
-  CheckMargin(): void{
+  CheckMargin(): void {
     if (this.CitiesFetchedResult.length == 0)
       this.BannerMarginBottom = false;
     else
@@ -96,6 +70,5 @@ export class HomeComponent implements OnInit, OnDestroy {
   * The "ngOnDestroy"
   */
   ngOnDestroy(): void {
-    this.Subscription.unsubscribe();
   }
 }

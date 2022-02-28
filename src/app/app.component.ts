@@ -19,20 +19,17 @@ export class AppComponent implements OnInit, OnDestroy {
   * The "constructor"
   */
   constructor() {
-    throw new Error('Method not implemented.');
   }
 
   /**
   * The "constructor"
   */
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
   }
 
   /**
   * The "ngOnInit"
   */
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 }

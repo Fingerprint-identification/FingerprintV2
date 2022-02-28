@@ -29,6 +29,8 @@ import { UserGuard } from './core/guard/user.guard';
 
 import { TokenIntercepterService } from './core/intercepters/token.service';
 
+import { ErrorInterceptor } from './core/intercepters/error.interceptor';
+
 /**
  * App module
  */
@@ -43,13 +45,18 @@ import { TokenIntercepterService } from './core/intercepters/token.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [AuthGuard, FormGuardGuard , AdminGuard, UserGuard
-  ,{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenIntercepterService,
-    multi: true
-  }
-],
+  providers: [
+    AuthGuard, FormGuardGuard, AdminGuard, UserGuard
+    , {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenIntercepterService,
+      multi: true
+    } , {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
