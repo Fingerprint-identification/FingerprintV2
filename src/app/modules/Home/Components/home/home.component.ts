@@ -21,16 +21,25 @@ export interface city {
 })
 export class HomeComponent implements OnInit, OnDestroy {
   /**
-  * Local reference of Banner margin when user not entered any input
-  */
-  BannerMarginBottom: boolean = false;
-  /**
-  * Local reference of Result of the search
+  * Local reference of cities as Observable
   */
   cities$!: Observable<city[]>;
+
+  /**
+   * Local reference contains the cities comming from api
+   */
   Cities !: any[];
 
+  /**
+   * Local reference used for loading
+   */
   loading: boolean = false;
+
+  /**
+   *
+   * Local reference as Subject to store the input of the user
+   */
+   private searchTerms = new Subject<string>();
 
   /**
   * Constructor
@@ -38,19 +47,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   */
   constructor(private SearchServices: SearchService) { }
 
-  private searchTerms = new Subject<string>();
-
-  search(term: string) {
-    this.searchTerms.next(term);
+  /**
+   *
+   * @param EnterdCity that user entered
+   */
+  search(EnteredCity: string): void{
+    this.searchTerms.next(EnteredCity);
   }
 
   /**
   * The "ngOnInit"
   */
   ngOnInit(): void {
-    // check margin
-    this.CheckMargin();
-
     this.cities$ = this.searchTerms.pipe(
       tap((_) => (this.loading = true)),
       debounceTime(300),
@@ -61,16 +69,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.cities$.subscribe((value: any) => {
       this.Cities = value.results;
     });
-  }
-  /**
-  * method to check if the result of cities is empty
-  * to make margin bottom zero
-  */
-  CheckMargin(): void {
-    // if (this.Cities.length == 0)
-    //   this.BannerMarginBottom = false;
-    // else
-    //   this.BannerMarginBottom = true;
   }
 
   /**
