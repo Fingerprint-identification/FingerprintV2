@@ -223,6 +223,11 @@
             animation: three-dots-loader-animation 2s infinite ease-in-out;
             animation-delay: -0.16s;
             color: $main-color;
+
+            @include screen(xxs) {
+              width: 6px;
+              height: 6px;
+            }
             &::after,
             &::before {
               content: "";
@@ -232,6 +237,10 @@
               top: 0;
               animation: three-dots-loader-animation 2s infinite ease-in-out;
               border-radius: 50%;
+              @include screen(xxs) {
+                width: 6px;
+                height: 6px;
+              }
             }
             &::after {
               left: 16px;
@@ -240,6 +249,15 @@
               left: -16px;
               animation-delay: -0.32s;
             }
+          }
+          @include screen(xxs) {
+            top: 0;
+          }
+          @include custem-screen(xs, md) {
+            top: 5px;
+          }
+          @include custem-screen(md, xlg) {
+            top: 7px;
           }
         }
         &__ul {
