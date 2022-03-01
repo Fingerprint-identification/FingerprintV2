@@ -2,7 +2,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 
-import { catchError, debounceTime, distinctUntilChanged, filter, map, Observable, of, Subject, switchMap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, debounceTime, distinctUntilChanged, filter, map, Observable, of, Subject, switchMap, throwError } from 'rxjs';
+
+export interface city {
+  name: string;
+  latest: string;
+}
 
 /**
 * Inject root
@@ -15,6 +20,7 @@ import { catchError, debounceTime, distinctUntilChanged, filter, map, Observable
 * Class for search services that geet cities from api
 */
 export class SearchService {
+
   /**
   *  Local reference for url to get cities
   */
@@ -24,30 +30,28 @@ export class SearchService {
   */
   queryUrl = '?search=';
 
+  Loading = new BehaviorSubject<boolean>(false);
+
   /**
   * Constructor
   * @param http
   */
   constructor(private http: HttpClient) {
   }
-
-  search(terms: Observable<string>): Observable<any>{
-    return terms.pipe(
-      debounceTime(400),
-      distinctUntilChanged(),
-      filter(city => city.length > 0),
-      switchMap((term: any) => this.SearchAboutCityInApi(term))
-    );
+  searchCity(term: string): Observable<city[]>{
+    let url = `${this.baseUrl}${this.queryUrl}${term}`;
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<city[]>(url).pipe(
+      catchError(this.handleError<city[]>('Cities', []))
+    )
   }
-
-  /**
-  *  search about city in api
-  * @param City user entered
-  * @returns Observable<any>
-  */
-  SearchAboutCityInApi(City: any): Observable<any>{
-    return this.http.get(this.baseUrl + this.queryUrl + City);
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(`failed: ${error.message}`);
+      return of(result as T);
+    };
   }
-
 }
 

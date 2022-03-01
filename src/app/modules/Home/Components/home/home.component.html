@@ -27,38 +27,24 @@
               class="banner__left-part__form__img">
 
             <div class="banner__left-part__form__search-box-div bg-s-white">
-
               <input type="search" name="Search" class="form-control banner__left-part__form__search-box-div__input"
-                placeholder="Ismailia, second area" aria-label="Search"
-                (keyup)="EnteredDataFromUserToFilter$.next($any($event.target).value)" />
+                placeholder="Ismailia, second area" aria-label="Search" #searchBox (input)="search(searchBox.value)" />
+              <!-- Progres -->
+              <div class="banner__left-part__form__search-box-div__loader" *ngIf="!loading">
+                <div class="banner__left-part__form__search-box-div__loader__c-three-dots-loader"></div>
+              </div>
 
-              <!-- <small *ngIf="loading"> loading...</small> -->
-              <ul class="banner__left-part__form__search-box-div__ul" *ngIf="CitiesFetchedResult.length > 0" >
+              <ul class="banner__left-part__form__search-box-div__ul">
 
-                <ng-container>
-                    <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let res of CitiesFetchedResult | slice:0:3; trackBy:trackByFn">
-                      <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black">{{ res.name }}
-                      </p>
+                <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let term of Cities | slice:0:3">
 
-                      <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ res.latest }}
-                      </p>
+                  <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black"> {{ term.name }}
+                  </p>
 
-                    </li>
+                  <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ term.latest }}
+                  </p>
 
-                </ng-container>
-
-                <ng-template #loading>
-
-                  <li class="banner__left-part__form__search-box-div__ul__li">
-
-                    <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black">
-                      Loading...
-                    </p>
-
-                  </li>
-
-                </ng-template>
-
+                </li>
               </ul>
 
             </div>

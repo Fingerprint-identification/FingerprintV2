@@ -1,10 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
 
-import { debounceTime, distinctUntilChanged, filter, map, Observable, Subject, Subscription, switchMap, take, tap } from 'rxjs';
+import { BehaviorSubject, debounceTime, distinctUntilChanged, filter, finalize, map, Observable, startWith, Subject, Subscription, switchMap, take, tap } from 'rxjs';
 
 import { SearchService } from 'src/app/shared/services/search.service';
 
+export interface city {
+  name: string;
+  latest: string;
+}
 /**
 * The Home component
 */
@@ -12,6 +17,7 @@ import { SearchService } from 'src/app/shared/services/search.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  providers: [SearchService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   /**
@@ -19,22 +25,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   */
   BannerMarginBottom: boolean = false;
   /**
-  * Local reference of Loading while fetching data
-  */
-  Loading!: boolean;
-  /**
   * Local reference of Result of the search
   */
-  CitiesFetchedResult: Array<{ name: string, latest: string }> = [];
-  /**
-  * Local Subject of taken data from user to filter
-  */
-  EnteredDataFromUserToFilter$ = new Subject<string>();
+  cities$!: Observable<city[]>;
+  Cities !: any[];
+
+  loading: boolean = false;
+
   /**
   * Constructor
   * @param {SearchService} SearchServices connect with search service that get cities from api
   */
   constructor(private SearchServices: SearchService) { }
+
+  private searchTerms = new Subject<string>();
+
+  search(term: string) {
+    this.searchTerms.next(term);
+  }
 
   /**
   * The "ngOnInit"
@@ -42,20 +50,27 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // check margin
     this.CheckMargin();
-    this.SearchServices.search(this.EnteredDataFromUserToFilter$).subscribe((res: any)=>{
-      this.CitiesFetchedResult = res.results;
+
+    this.cities$ = this.searchTerms.pipe(
+      tap((_) => (this.loading = true)),
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((term: string) => this.SearchServices.searchCity(term)),
+      tap((_) => (this.loading = false))
+    );
+    this.cities$.subscribe((value: any) => {
+      this.Cities = value.results;
     });
   }
-
   /**
   * method to check if the result of cities is empty
   * to make margin bottom zero
   */
   CheckMargin(): void {
-    if (this.CitiesFetchedResult.length == 0)
-      this.BannerMarginBottom = false;
-    else
-      this.BannerMarginBottom = true;
+    // if (this.Cities.length == 0)
+    //   this.BannerMarginBottom = false;
+    // else
+    //   this.BannerMarginBottom = true;
   }
 
   /**
@@ -66,9 +81,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   trackByFn(index: number, result: any): number {
     return index;
   }
+
   /**
   * The "ngOnDestroy"
   */
   ngOnDestroy(): void {
   }
+
 }

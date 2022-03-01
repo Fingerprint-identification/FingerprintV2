@@ -16,6 +16,20 @@
   ==============================================================================================================================================================
 */
 
+/*
+  animation
+*/
+@keyframes three-dots-loader-animation {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 20px 0 -24px;
+  }
+  40% {
+    box-shadow: 0 20px 0 0;
+  }
+}
+
 .banner {
   @include BreakPoint(md) {
     &.section-margin {
@@ -98,8 +112,9 @@
       position: relative;
       &__img {
         position: absolute;
+        z-index: 99;
         left: 24px;
-        top: 19px;
+        top: 27px;
         width: 30px;
         height: 30px;
 
@@ -107,13 +122,13 @@
           width: 20px;
           height: 20px;
           left: 22px;
-          top: 16px;
+          top: 20px;
         }
         @include screen(xxs) {
           width: 15px;
           height: 15px;
           left: 23px;
-          top: 14px;
+          top: 18px;
         }
         @include screen(xs) {
           width: 20px;
@@ -125,43 +140,48 @@
           width: 25px;
           height: 25px;
           left: 27px;
-          top: 17px;
+          top: 18px;
         }
       }
 
       &__search-box-div {
         width: 100%;
         margin-bottom: 5.3125rem;
-        border: 2px solid $main-color-light;
+        border: 2px solid $main-color-brightness;
         border-radius: 20px;
         box-shadow: 0 0 1.6rem $shadow-color;
+        min-height: 50px;
         &__input {
           width: 100%;
-          height: 63.6px;
+          height: 100%;
           color: $black;
           font-size: 34px;
           padding-left: 4rem;
-          border: 1px solid $main-color-light;
-          border-top-color: transparent;
-          border-radius: 1rem;
-          box-shadow: 0 0 1.6rem $shadow-color;
-
+          padding-right: 5rem;
+          border: none;
+          border-radius: 2rem;
+          position: relative;
+          top: 7px;
+          &:focus {
+            outline: 0;
+            box-shadow: 0 0;
+          }
           @include custem-screen(xs, md) {
             font-size: 20px;
-            height: 55px;
+            // height: 55px;
           }
           @include screen(xxs) {
             font-size: 14px !important;
-            height: 40px !important;
+            // height: 40px !important;
             padding-left: 3.1rem !important;
           }
           @include screen(md) {
-            height: 49.6px !important;
+            // height: 49.6px !important;
             font-size: 21px;
             padding-left: 3rem;
           }
           @include screen(lg) {
-            height: 55px;
+            // height: 55px;
             font-size: 21px;
           }
           &::placeholder {
@@ -188,22 +208,56 @@
             }
           }
         }
+        &__loader {
+          position: absolute;
+          top: 16px;
+          right: 24px;
+          &__c-three-dots-loader {
+            position: relative;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0px 20px 16px;
+            animation-fill-mode: both;
+            animation: three-dots-loader-animation 2s infinite ease-in-out;
+            animation-delay: -0.16s;
+            color: $main-color;
+            &::after,
+            &::before {
+              content: "";
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              top: 0;
+              animation: three-dots-loader-animation 2s infinite ease-in-out;
+              border-radius: 50%;
+            }
+            &::after {
+              left: 16px;
+            }
+            &::before {
+              left: -16px;
+              animation-delay: -0.32s;
+            }
+          }
+        }
         &__ul {
           width: 100%;
           background: transparent;
           position: relative;
           list-style: none;
-          padding-left: 1rem;
-
+          padding: 0 2rem;
+          top: 20px;
           &__li {
             width: 100%;
-            padding-top: 0.8125rem;
             word-break: break-word;
             @include BreakPoint(xxs) {
               padding-top: 13px;
             }
-            &:not(:last-child) {
-              border-bottom: 1px solid $main-color-light;
+            border-top: 1px solid $main-color-light;
+            &:last-child {
+              padding-bottom: 20px;
             }
             &__address-p {
               font-family: map-get($fonts, headingFont);
