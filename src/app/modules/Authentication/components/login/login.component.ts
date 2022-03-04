@@ -42,13 +42,25 @@ export class LoginComponent implements OnInit {
   /**
   * Local reference to store roles
   */
-    Submitted: boolean = false;
+  Submitted: boolean = false;
   /**
    * Login form
    */
   LoginForm: FormGroup = new FormGroup({
-    ID: new FormControl('', [Validators.required, Validators.minLength(14), Validators.maxLength(14), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-    Password: new FormControl('', [Validators.required, Validators.minLength(5)])
+    ID: new FormControl('',
+      [
+        Validators.required,
+        Validators.minLength(14),
+        Validators.maxLength(14),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+      ]
+    ),
+    Password: new FormControl('',
+      [
+        Validators.required,
+        Validators.minLength(5)
+      ]
+    )
   });
 
   /**
@@ -70,20 +82,23 @@ export class LoginComponent implements OnInit {
    */
   OnSubmitLoggin() {
     this.Submitted = true;
-    this.AuthServices.Login(this.LoginForm.get('ID')?.value, this.LoginForm.get('Password')?.value).subscribe({
-      next: data => {
-        this.TokenStorage.SaveToken(data.accessToken);
-        this.TokenStorage.SaveUser(data);
-        this.IsLoggedIn = true;
-        this.IsLoggidFailed = false;
-        this.Roles = this.TokenStorage.GetUser().roles;
-        this.reloadPage();
-      },
-      error: err => {
-        this.MassegeError = err.error.message;
-        this.IsLoggidFailed = true;
-      }
-    })
+    this.AuthServices.Login(
+      this.LoginForm.get('ID')?.value,
+      this.LoginForm.get('Password')?.value)
+      .subscribe({
+        next: data => {
+          this.TokenStorage.SaveToken(data.accessToken);
+          this.TokenStorage.SaveUser(data);
+          this.IsLoggedIn = true;
+          this.IsLoggidFailed = false;
+          this.Roles = this.TokenStorage.GetUser().roles;
+          this.reloadPage();
+        },
+        error: err => {
+          this.MassegeError = err.error.message;
+          this.IsLoggidFailed = true;
+        }
+      })
   }
 
   /**
@@ -99,7 +114,7 @@ export class LoginComponent implements OnInit {
    * @param error
    * @returns
    */
-  LoginError(control: string, error: string): any{
+  LoginError(control: string, error: string): any {
     return this.LoginForm.controls[control].hasError(error);
   }
 }

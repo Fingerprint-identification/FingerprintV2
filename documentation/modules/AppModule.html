@@ -234,7 +234,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">/* Modules from core */
 import { NgModule } from &#x27;@angular/core&#x27;;
 
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { BrowserModule, Meta } from &#x27;@angular/platform-browser&#x27;;
 
 import { PreloadAllModules, RouterModule, Routes } from &#x27;@angular/router&#x27;;
 
@@ -264,6 +264,8 @@ import { TokenIntercepterService } from &#x27;./core/intercepters/token.service&
 
 import { ErrorInterceptor } from &#x27;./core/intercepters/error.interceptor&#x27;;
 
+
+
 /**
  * App module
  */
@@ -279,7 +281,7 @@ import { ErrorInterceptor } from &#x27;./core/intercepters/error.interceptor&#x2
     FormsModule
   ],
   providers: [
-    AuthGuard, FormGuardGuard, AdminGuard, UserGuard
+    AuthGuard, FormGuardGuard, AdminGuard, UserGuard, Meta
     , {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenIntercepterService,

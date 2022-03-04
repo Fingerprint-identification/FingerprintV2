@@ -27,7 +27,7 @@ import { FormGuardGuard } from './core/guard/form-guard.guard';
 
 import { UserGuard } from './core/guard/user.guard';
 
-import { TokenIntercepterService } from './core/intercepters/token.service';
+import { authInterceptorProviders, TokenIntercepterService } from './core/intercepters/token.service';
 
 import { ErrorInterceptor } from './core/intercepters/error.interceptor';
 
@@ -57,7 +57,8 @@ import { ErrorInterceptor } from './core/intercepters/error.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    }
+    },
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -97,6 +97,9 @@
                             <li>
                                 <a href="#canLoad" >canLoad</a>
                             </li>
+                            <li>
+                                <a href="#CheckInStorage" >CheckInStorage</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -109,6 +112,66 @@
     </table>
 </section>
 
+                <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, Token: <a href="../injectables/TokenStorageService.html" target="_self">TokenStorageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/guard/admin.guard.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>Token</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TokenStorageService.html" target="_self" >TokenStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
                 <section>
     
@@ -135,8 +198,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/core/guard/admin.guard.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/core/guard/admin.guard.ts:23</a></div>
                 </td>
             </tr>
 
@@ -218,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/core/guard/admin.guard.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/core/guard/admin.guard.ts:32</a></div>
                 </td>
             </tr>
 
@@ -301,8 +364,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/core/guard/admin.guard.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/core/guard/admin.guard.ts:40</a></div>
                 </td>
             </tr>
 
@@ -364,6 +427,43 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CheckInStorage"></a>
+                    <span class="name">
+                        <span ><b>CheckInStorage</b></span>
+                        <a href="#CheckInStorage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CheckInStorage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/core/guard/admin.guard.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable | Promise | boolean | UrlTree</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
         </div>
 
@@ -371,9 +471,10 @@
         <div class="tab-pane fade  tab-source-code" id="c-source">
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route, RouterStateSnapshot, UrlSegment, UrlTree } from &#x27;@angular/router&#x27;;
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from &#x27;@angular/router&#x27;;
 
 import { Observable } from &#x27;rxjs&#x27;;
+import { TokenStorageService } from &#x27;src/app/shared/services/token-storage.service&#x27;;
 /**
 * Admin guard provided root
 */
@@ -383,12 +484,17 @@ import { Observable } from &#x27;rxjs&#x27;;
 export class AdminGuard implements CanActivate, CanActivateChild, CanLoad {
 
   /**
+   *
+   * @param TokenStorage token to access tokern services
+   */
+  constructor(private router: Router, private Token: TokenStorageService) { }
+  /**
   * Decide if a route can be activated
   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
-    return true;
+    return this.CheckInStorage();
   }
 
   /**
@@ -397,7 +503,7 @@ export class AdminGuard implements CanActivate, CanActivateChild, CanLoad {
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
-    return true;
+    return this.CheckInStorage();
   }
   /**
   * Decide if a route can be Loaded
@@ -405,7 +511,16 @@ export class AdminGuard implements CanActivate, CanActivateChild, CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
-    return true;
+    return this.CheckInStorage();
+  }
+
+  CheckInStorage(): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
+    if (this.Token.GetUser() &amp;&amp; this.Token.GetUser().roles &#x3D;&#x3D; &#x27;Admin&#x27;)
+      return true;
+    else {
+      this.router.createUrlTree([&#x27;/Login&#x27;]);
+      return false;
+    }
   }
 }
 </code></pre>
