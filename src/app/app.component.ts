@@ -15,21 +15,20 @@ export class AppComponent implements OnInit, OnDestroy {
   */
   title: string = 'Fingerprint-v2';
 
-  /**
-  * The "constructor"
-  */
   constructor() {
-  }
-
-  /**
-  * The "constructor"
-  */
-  ngOnDestroy(): void {
   }
 
   /**
   * The "ngOnInit"
   */
   ngOnInit(): void {
+
   }
+
+  /**
+   * ngOnDestroy
+   */
+  ngOnDestroy(): void {
+  }
+
 }

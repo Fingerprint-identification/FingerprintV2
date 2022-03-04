@@ -59,13 +59,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link" >AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-e239ceaa1841952f02a3619ed016bd7ebbb63af5eb773a0bffa242d1868bc71e636b611bdf078e75dbca648aba1268e94c63a1c0d7823358fda2a36af5a74ec5"' : 'data-target="#xs-components-links-module-AppModule-e239ceaa1841952f02a3619ed016bd7ebbb63af5eb773a0bffa242d1868bc71e636b611bdf078e75dbca648aba1268e94c63a1c0d7823358fda2a36af5a74ec5"' }>
+                                            'data-target="#components-links-module-AppModule-1cfef41f947c9eca207dd30e70cc8e34437c6d3e6c6a936aeee01249d2a4730c61390bf0c5f24f0211126d8e74b777cbe2ee19a8ebb7bcc1a7508b1ce33d7b7b"' : 'data-target="#xs-components-links-module-AppModule-1cfef41f947c9eca207dd30e70cc8e34437c6d3e6c6a936aeee01249d2a4730c61390bf0c5f24f0211126d8e74b777cbe2ee19a8ebb7bcc1a7508b1ce33d7b7b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-e239ceaa1841952f02a3619ed016bd7ebbb63af5eb773a0bffa242d1868bc71e636b611bdf078e75dbca648aba1268e94c63a1c0d7823358fda2a36af5a74ec5"' :
-                                            'id="xs-components-links-module-AppModule-e239ceaa1841952f02a3619ed016bd7ebbb63af5eb773a0bffa242d1868bc71e636b611bdf078e75dbca648aba1268e94c63a1c0d7823358fda2a36af5a74ec5"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-1cfef41f947c9eca207dd30e70cc8e34437c6d3e6c6a936aeee01249d2a4730c61390bf0c5f24f0211126d8e74b777cbe2ee19a8ebb7bcc1a7508b1ce33d7b7b"' :
+                                            'id="xs-components-links-module-AppModule-1cfef41f947c9eca207dd30e70cc8e34437c6d3e6c6a936aeee01249d2a4730c61390bf0c5f24f0211126d8e74b777cbe2ee19a8ebb7bcc1a7508b1ce33d7b7b"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AppComponent</a>
                                             </li>
@@ -233,6 +233,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="interceptors-links"' : 'id="xs-interceptors-links"' }>
                             <li class="link">
+                                <a href="interceptors/ErrorInterceptor.html" data-type="entity-link" >ErrorInterceptor</a>
+                            </li>
+                            <li class="link">
                                 <a href="interceptors/TokenIntercepterService.html" data-type="entity-link" >TokenIntercepterService</a>
                             </li>
                         </ul>
@@ -269,6 +272,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/City.html" data-type="entity-link" >City</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/city.html" data-type="entity-link" >city</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/city-1.html" data-type="entity-link" >city</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Dirty.html" data-type="entity-link" >Dirty</a>

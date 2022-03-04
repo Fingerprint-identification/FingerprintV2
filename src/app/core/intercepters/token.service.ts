@@ -1,10 +1,15 @@
 import { Injectable, Injector } from '@angular/core';
 
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { AuthenticationService } from '../../modules/Authentication/services/authentication.service';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+
+/**
+ * Local referance for Token header key
+ */
+const TOKEN_HEADER_KEY = 'x-access-token';
 
 /**
  * Token Injectable
@@ -12,13 +17,13 @@ import { AuthenticationService } from '../../modules/Authentication/services/aut
 @Injectable({
   providedIn: 'root'
 })
-export class TokenIntercepterService implements HttpInterceptor{
+export class TokenIntercepterService implements HttpInterceptor {
 
   /**
    * Constractor
-   * @param injector
+   * @param TokenStorageService reference for token storage services page
    */
-  constructor(private injector: Injector) { }
+  constructor(private Token: TokenStorageService) { }
   /**
    * Intercepter
    */
@@ -26,15 +31,23 @@ export class TokenIntercepterService implements HttpInterceptor{
     /**
      * Local referance to inject auth services
      */
-    let AuthServices = this.injector.get(AuthenticationService)
+    let AuthReq = req;
+
     /**
-     * Local referance to clone request
+     * Local referance that Get token
      */
-    let TokenizedReq = req.clone({
-      setHeaders:{
-        // Authorization: `Bearer ${AuthServices.getToken()}`
-      }
-    })
-    return next.handle(TokenizedReq);
+    const Token = this.Token.GetToken();
+
+    if (Token != null) {
+      /**
+      * Local referance to clone request
+      */
+      AuthReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, Token) })
+    }
+    return next.handle(AuthReq);
   }
 }
+
+export const authInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: TokenIntercepterService, multi: true }
+];

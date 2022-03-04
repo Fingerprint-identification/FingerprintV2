@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/models/city.ts</code>
+            <code>src/app/shared/services/search.service.ts</code>
         </p>
 
 
@@ -84,15 +84,15 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#address" 
+                                        <a href="#latest" 
 >
-                                            address
+                                            latest
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#street" 
+                                        <a href="#name" 
 >
-                                            street
+                                            name
                                         </a>
                                 </li>
                             </ul>
@@ -110,9 +110,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="address"></a>
-                                        <span class="name "><b>address</b>
-                                            <a href="#address">
+                                        <a name="latest"></a>
+                                        <span class="name "><b>latest</b>
+                                            <a href="#latest">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -120,7 +120,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>address:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>latest:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -143,9 +143,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="street"></a>
-                                        <span class="name "><b>street</b>
-                                            <a href="#street">
+                                        <a name="name"></a>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -153,7 +153,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>street:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -177,10 +177,63 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface city{
-   address : string;
-   street : string;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+
+import { Injectable } from &#x27;@angular/core&#x27;;
+
+import { BehaviorSubject, catchError, debounceTime, distinctUntilChanged, filter, map, Observable, of, Subject, switchMap, throwError } from &#x27;rxjs&#x27;;
+
+export interface city {
+  name: string;
+  latest: string;
 }
+
+/**
+* Inject root
+*/
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+
+/**
+* Class for search services that geet cities from api
+*/
+export class SearchService {
+
+  /**
+  *  Local reference for url to get cities
+  */
+  baseUrl &#x3D; &#x27;https://api.cdnjs.com/libraries&#x27;;
+  /**
+  * Search query to put in url
+  */
+  queryUrl &#x3D; &#x27;?search&#x3D;&#x27;;
+
+  Loading &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
+
+  /**
+  * Constructor
+  * @param http
+  */
+  constructor(private http: HttpClient) {
+  }
+  searchCity(term: string): Observable&lt;city[]&gt;{
+    let url &#x3D; &#x60;${this.baseUrl}${this.queryUrl}${term}&#x60;;
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get&lt;city[]&gt;(url).pipe(
+      catchError(this.handleError&lt;city[]&gt;(&#x27;Cities&#x27;, []))
+    )
+  }
+  private handleError&lt;T&gt;(operation &#x3D; &#x27;operation&#x27;, result?: T) {
+    return (error: any): Observable&lt;T&gt; &#x3D;&gt; {
+      console.log(&#x60;failed: ${error.message}&#x60;);
+      return of(result as T);
+    };
+  }
+}
+
 </code></pre>
     </div>
 </div>

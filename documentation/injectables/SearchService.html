@@ -88,6 +88,9 @@
                                 <a href="#baseUrl" >baseUrl</a>
                             </li>
                             <li>
+                                <a href="#Loading" >Loading</a>
+                            </li>
+                            <li>
                                 <a href="#queryUrl" >queryUrl</a>
                             </li>
                         </ul>
@@ -103,7 +106,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#SearchAboutCityInApi" >SearchAboutCityInApi</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleError" >handleError</a>
+                            </li>
+                            <li>
+                                <a href="#searchCity" >searchCity</a>
                             </li>
                         </ul>
                     </td>
@@ -128,7 +135,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/services/search.service.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/shared/services/search.service.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -177,32 +184,127 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="SearchAboutCityInApi"></a>
+                    <a name="handleError"></a>
                     <span class="name">
-                        <span ><b>SearchAboutCityInApi</b></span>
-                        <a href="#SearchAboutCityInApi"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>handleError</b></span>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>SearchAboutCityInApi(City: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleError(operation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, result?: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/shared/services/search.service.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/shared/services/search.service.ts:50</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>operation</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;operation&#x27;</code>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>result</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>(error: any) &#x3D;&gt; Observable&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchCity"></a>
+                    <span class="name">
+                        <span ><b>searchCity</b></span>
+                        <a href="#searchCity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchCity(term: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p> search about city in api</p>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/shared/services/search.service.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -217,9 +319,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>City</td>
+                                    <td>term</td>
                                     <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -234,12 +336,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                        <b>Returns : </b>    <code>Observable&lt;city[]&gt;</code>
 
                     </div>
                     <div class="io-description">
-                        <p>Observable<any></p>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -275,7 +376,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/services/search.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/shared/services/search.service.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -285,6 +386,31 @@
 </div>
                 </td>
             </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Loading"></a>
+                    <span class="name">
+                        <span ><b>Loading</b></span>
+                        <a href="#Loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/shared/services/search.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
 
         </tbody>
     </table>
@@ -312,7 +438,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/services/search.service.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/shared/services/search.service.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -335,17 +461,25 @@
 
 import { Injectable } from &#x27;@angular/core&#x27;;
 
-import { debounceTime, distinctUntilChanged, filter, map, Observable, Subject } from &#x27;rxjs&#x27;;
+import { BehaviorSubject, catchError, debounceTime, distinctUntilChanged, filter, map, Observable, of, Subject, switchMap, throwError } from &#x27;rxjs&#x27;;
+
+export interface city {
+  name: string;
+  latest: string;
+}
+
 /**
 * Inject root
 */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
 /**
 * Class for search services that geet cities from api
 */
 export class SearchService {
+
   /**
   *  Local reference for url to get cities
   */
@@ -355,22 +489,29 @@ export class SearchService {
   */
   queryUrl &#x3D; &#x27;?search&#x3D;&#x27;;
 
+  Loading &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
+
   /**
   * Constructor
   * @param http
   */
   constructor(private http: HttpClient) {
   }
-
-  /**
-  *  search about city in api
-  * @param term
-  * @returns Observable&lt;any&gt;
-  */
-  SearchAboutCityInApi(City: any): Observable&lt;any&gt;{
-    return this.http.get(this.baseUrl + this.queryUrl + City);
+  searchCity(term: string): Observable&lt;city[]&gt;{
+    let url &#x3D; &#x60;${this.baseUrl}${this.queryUrl}${term}&#x60;;
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get&lt;city[]&gt;(url).pipe(
+      catchError(this.handleError&lt;city[]&gt;(&#x27;Cities&#x27;, []))
+    )
   }
-
+  private handleError&lt;T&gt;(operation &#x3D; &#x27;operation&#x27;, result?: T) {
+    return (error: any): Observable&lt;T&gt; &#x3D;&gt; {
+      console.log(&#x60;failed: ${error.message}&#x60;);
+      return of(result as T);
+    };
+  }
 }
 
 </code></pre>

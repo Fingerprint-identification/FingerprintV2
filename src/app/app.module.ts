@@ -1,7 +1,7 @@
 /* Modules from core */
 import { NgModule } from '@angular/core';
 
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -31,6 +31,8 @@ import { TokenIntercepterService } from './core/intercepters/token.service';
 
 import { ErrorInterceptor } from './core/intercepters/error.interceptor';
 
+
+
 /**
  * App module
  */
@@ -46,7 +48,7 @@ import { ErrorInterceptor } from './core/intercepters/error.interceptor';
     FormsModule
   ],
   providers: [
-    AuthGuard, FormGuardGuard, AdminGuard, UserGuard
+    AuthGuard, FormGuardGuard, AdminGuard, UserGuard, Meta
     , {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenIntercepterService,

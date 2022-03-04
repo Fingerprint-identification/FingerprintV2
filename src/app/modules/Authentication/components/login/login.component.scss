@@ -122,7 +122,27 @@
         @include custem-screen(md, xxlg) {
           margin-bottom: 18px !important;
         }
-
+        &__alert{
+          border-radius: 17px;
+          margin-top: 10px;
+          @include screen(xxs) {
+            font-size: 12px;
+            border-radius: 9px;
+          }
+          @include screen(xs) {
+            font-size: 14px;
+            border-radius: 12px;
+          }
+          @include screen(sm) {
+            font-size: 16px;
+          }
+          @include custem-screen(md, xlg) {
+            font-size: 19px;
+          }
+          @include screen(xlg) {
+            font-size: 16px;
+          }
+        }
         &__password {
           position: relative;
           /* This is the input of password and it's propreties was taken from global except this properity down*/
