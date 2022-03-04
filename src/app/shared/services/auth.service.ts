@@ -29,7 +29,7 @@ export class AuthService {
      * @param { ID } ID the id that user signin with it
      * @param { Password } Password that user signin with it
     */
-    Login(ID: number, Password: string): Observable<any>{
+    Login(ID: number, Password: string): Observable<any> {
         return this.Http.post(AUTH_API + 'signin', {
             ID,
             Password
@@ -51,4 +51,5 @@ export class AuthService {
     /*
         Logout
     */
+    
 }
