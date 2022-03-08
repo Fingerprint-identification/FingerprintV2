@@ -34,7 +34,7 @@
                 <div class="banner__left-part__form__search-box-div__loader__c-three-dots-loader"></div>
               </div>
 
-              <ul class="banner__left-part__form__search-box-div__ul">
+              <ul class="banner__left-part__form__search-box-div__ul" [hidden]="loading">
 
                 <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let term of Cities | slice:0:3">
 

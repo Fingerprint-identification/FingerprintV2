@@ -84,13 +84,13 @@ p, input, input::placeholder{
         @include custem-screen(sm, lg) {
           width: 20px;
           height: 20px;
-          left: 22px;
+          left: 30px;
           top: 20px;
         }
         @include screen(xxs) {
           width: 15px;
           height: 15px;
-          left: 23px;
+          left: 30px;
           top: 18px;
         }
         @include screen(xs) {
@@ -113,26 +113,37 @@ p, input, input::placeholder{
         border: 2px solid $main-color-brightness;
         border-radius: 20px;
         box-shadow: 0 0 1.6rem $shadow-color;
-        min-height: 50px;
+        min-height: 90px;
+        @include screen(xlg){
+          min-height: 80px;
+        }
+        @include screen(lg){
+          min-height: 70px;
+        }
+        @include custem-screen(xs, lg){
+          min-height: 63px;
+        }
+        @include screen(xxs){
+          min-height: 53px;
+        }
         &__input {
           width: 100%;
           height: 100%;
           color: $black;
           padding-left: 4rem;
-          padding-right: 5rem;
           border: none;
           border-radius: 2rem;
           position: relative;
           top: 9px;
+          @include screen(xlg){
+            top: 15px;
+          }
           &:focus {
             outline: 0;
             box-shadow: 0 0;
           }
           @include screen(xxs) {
             padding-left: 3.1rem !important;
-          }
-          @include screen(md) {
-            padding-left: 3rem;
           }
           &::placeholder {
             line-height: 3rem;
@@ -143,8 +154,9 @@ p, input, input::placeholder{
         }
         &__loader {
           position: absolute;
-          top: 16px;
-          right: 24px;
+          top: 100%;
+          right: 48%;
+          width: 15%;
           &__c-three-dots-loader {
             position: relative;
             display: inline-block;
@@ -183,15 +195,6 @@ p, input, input::placeholder{
               animation-delay: -0.32s;
             }
           }
-          @include screen(xxs) {
-            top: 0;
-          }
-          @include custem-screen(xs, md) {
-            top: 5px;
-          }
-          @include custem-screen(md, xlg) {
-            top: 7px;
-          }
         }
         &__ul {
           width: 100%;
@@ -213,6 +216,7 @@ p, input, input::placeholder{
             &__address-p {
               margin: 10px 0 0 0;
               font-weight: bold;
+              font-family: map-get($fonts, headingFont);
             }
           }
           &__li-NoMatches {
