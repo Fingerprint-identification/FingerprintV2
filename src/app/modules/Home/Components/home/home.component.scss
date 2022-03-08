@@ -1,21 +1,21 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+
 /*
   ==========================================================================
                   Global specific style in general home
   =========================================================================
 */
-
-/* import colors and mixins*/
-@use "~../../../../../../scss/helpers/colors" as *;
-@use "~../../../../../../scss/helpers/mixins" as *;
-
-/*
-  ==============================================================================================================================================================
-
-                                                                          Style for banner
-
-  ==============================================================================================================================================================
-*/
-
+h1{
+  font-size: 4vw;
+  font-weight: 500;
+  font-family: map-get($fonts, headingFont);
+  @include BreakPoint(sm){
+    font-size: 6vw;
+  }
+}
 /*
   animation
 */
@@ -29,6 +29,15 @@
     box-shadow: 0 20px 0 0;
   }
 }
+
+
+/*
+  ==============================================================================================================================================================
+
+                                                                          Style for banner
+
+  ==============================================================================================================================================================
+*/
 
 .banner {
   @include BreakPoint(md) {
@@ -57,32 +66,36 @@
     }
 
     &__h1 {
-      font-size: 59px;
-      font-weight: 500;
-      font-family: map-get($fonts, headingFont);
+      // font-size: 4vw;
+      // // font-size: 59px;
+      // font-weight: 500;
+      // font-family: map-get($fonts, headingFont);
 
-      @include screen(xxs) {
-        font-size: 18px !important;
-      }
-      @include screen(xs) {
-        font-size: 31px;
-      }
+      // @include BreakPoint(sm){
+      //   font-size: 6vw;
+      // }
+      // @include screen(xxs) {
+      //   font-size: 18px !important;
+      // }
+      // @include screen(xs) {
+      //   font-size: 31px;
+      // }
 
-      @include screen(sm) {
-        font-size: 40px;
-      }
+      // @include screen(sm) {
+      //   font-size: 40px;
+      // }
 
-      @include screen(md) {
-        font-size: 33px;
-      }
+      // @include screen(md) {
+      //   font-size: 33px;
+      // }
 
-      @include screen(lg) {
-        font-size: 44px;
-      }
+      // @include screen(lg) {
+      //   font-size: 44px;
+      // }
 
-      @include screen(xlg) {
-        font-size: 53px;
-      }
+      // @include screen(xlg) {
+      //   font-size: 53px;
+      // }
     }
 
     &__p {
@@ -394,10 +407,6 @@
     }
     &__h1 {
       margin-left: 168px;
-      font-size: 59px;
-      font-weight: 500;
-      font-family: map-get($fonts, headingFont);
-
       @include BreakPoint(xs) {
         margin: 0 25px;
       }
@@ -407,24 +416,10 @@
       @include custem-screen(md, xxlg) {
         width: 82%;
       }
-      @include screen(xxs) {
-        font-size: 18px !important;
-      }
-      @include screen(xs) {
-        font-size: 31px;
-      }
-      @include screen(sm) {
-        font-size: 40px;
-      }
-      @include screen(md) {
-        font-size: 33px;
-      }
       @include screen(lg) {
-        font-size: 44px;
         margin-left: 86px;
       }
       @include screen(xlg) {
-        font-size: 53px;
         margin-left: 91px;
       }
     }
