@@ -64,40 +64,6 @@ h1{
     @include screen(xlg) {
       margin-left: 91px;
     }
-
-    &__h1 {
-      // font-size: 4vw;
-      // // font-size: 59px;
-      // font-weight: 500;
-      // font-family: map-get($fonts, headingFont);
-
-      // @include BreakPoint(sm){
-      //   font-size: 6vw;
-      // }
-      // @include screen(xxs) {
-      //   font-size: 18px !important;
-      // }
-      // @include screen(xs) {
-      //   font-size: 31px;
-      // }
-
-      // @include screen(sm) {
-      //   font-size: 40px;
-      // }
-
-      // @include screen(md) {
-      //   font-size: 33px;
-      // }
-
-      // @include screen(lg) {
-      //   font-size: 44px;
-      // }
-
-      // @include screen(xlg) {
-      //   font-size: 53px;
-      // }
-    }
-
     &__p {
       max-width: 615px;
       margin-top: 1.4375rem;
