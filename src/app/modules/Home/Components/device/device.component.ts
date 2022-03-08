@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 /**
  * Device component
@@ -10,15 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceComponent implements OnInit {
 
+  /** */
+   product_id: string;
+
   /**
-   * Constructor
+   *
+   * @param actRoute to extract id from navbar
    */
-  constructor() { }
+   constructor(private actRoute: ActivatedRoute) {
+     this.product_id = this.actRoute.snapshot.params['id'];
+     console.log(this.product_id)
+   }
 
   /**
    * ngOnInit
    */
   ngOnInit(): void {
+
   }
 
 }

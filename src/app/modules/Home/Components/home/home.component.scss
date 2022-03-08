@@ -514,25 +514,6 @@ input::placeholder {
       &__p-div {
         display: inline-block;
         position: relative;
-        font-family: map-get($fonts, paragraphFont);
-        font-size: 33px;
-
-        @include custem-screen(sm, lg) {
-          font-size: 20px;
-        }
-        @include screen(xxs) {
-          font-size: 10px !important;
-        }
-        @include screen(xs) {
-          font-size: 15px;
-        }
-
-        @include screen(lg) {
-          font-size: 22px;
-        }
-        @include screen(xlg) {
-          font-size: 29px;
-        }
         &__p {
           margin: 0;
         }
