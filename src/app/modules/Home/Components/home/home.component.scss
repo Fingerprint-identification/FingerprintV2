@@ -15,7 +15,9 @@ h1 {
     font-size: 6vw;
   }
 }
-p, input, input::placeholder{
+p,
+input,
+input::placeholder {
   font-family: map-get($fonts, paragraphFont);
   font-size: 1.77vw;
   @include BreakPoint(sm) {
@@ -77,15 +79,20 @@ p, input, input::placeholder{
         position: absolute;
         z-index: 99;
         left: 24px;
-        top: 27px;
-        width: 30px;
-        height: 30px;
-
-        @include custem-screen(sm, lg) {
+        top: 28px;
+        width: 27px;
+        height: 27px;
+        @include screen(md) {
           width: 20px;
           height: 20px;
           left: 30px;
           top: 20px;
+        }
+        @include screen(sm) {
+          width: 20px;
+          height: 20px;
+          left: 30px;
+          top: 24px;
         }
         @include screen(xxs) {
           width: 15px;
@@ -94,16 +101,22 @@ p, input, input::placeholder{
           top: 18px;
         }
         @include screen(xs) {
-          width: 20px;
-          height: 20px;
+          width: 16px;
+          height: 16px;
           left: 30px;
-          top: 19px;
+          top: 18px;
         }
         @include screen(lg) {
           width: 25px;
           height: 25px;
           left: 27px;
           top: 18px;
+        }
+        @include screen(xlg) {
+          left: 24px;
+          top: 24px;
+          width: 25px;
+          height: 25px;
         }
       }
 
@@ -113,20 +126,34 @@ p, input, input::placeholder{
         border: 2px solid $main-color-brightness;
         border-radius: 20px;
         box-shadow: 0 0 1.6rem $shadow-color;
-        min-height: 90px;
-        @include screen(xlg){
-          min-height: 80px;
+        min-height: 88px;
+
+        @include screen(xlg) {
+          min-height: 75px;
         }
-        @include screen(lg){
+        @include screen(lg) {
+          min-height: 67px;
+        }
+        @include screen(md) {
+          min-height: 62px;
+        }
+        @include screen(sm) {
           min-height: 70px;
         }
-        @include custem-screen(xs, lg){
-          min-height: 63px;
+        @include screen(xs) {
+          min-height: 58px;
         }
-        @include screen(xxs){
-          min-height: 53px;
+        @include screen(xxs) {
+          min-height: 53.4px;
         }
         &__input {
+          &:-webkit-autofill,
+          &:-webkit-autofill:hover,
+          &:-webkit-autofill:focus,
+          &:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 90px white inset !important;
+          }
+
           width: 100%;
           height: 100%;
           color: $black;
@@ -135,8 +162,10 @@ p, input, input::placeholder{
           border-radius: 2rem;
           position: relative;
           top: 9px;
-          @include screen(xlg){
-            top: 15px;
+          background: transparent !important;
+          @include screen(xlg) {
+            top: 11px;
+            background: transparent !important;
           }
           &:focus {
             outline: 0;
