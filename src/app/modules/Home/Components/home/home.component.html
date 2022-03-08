@@ -23,36 +23,28 @@
           <!-- left half contains banner search box -->
           <div class="banner__left-part__form">
 
-            <img src="../../../assets/icons/Icon material-location-searching.svg" alt=""
-              class="banner__left-part__form__img">
-
-            <div class="banner__left-part__form__search-box-div bg-s-white">
-              <input type="search" name="Search" class="form-control banner__left-part__form__search-box-div__input"
+            <div class="banner__left-part__form__input-box">
+              <img src="../../../assets/icons/Icon material-location-searching.svg" alt=""
+                class="banner__left-part__form__input-box__img">
+              <input type="search" name="Search" class="form-control banner__left-part__form__input-box__input "
                 placeholder="Ismailia, second area" aria-label="Search" #searchBox (input)="search(searchBox.value)" />
-              <!-- Progres -->
-              <div class="banner__left-part__form__search-box-div__loader" *ngIf="loading">
-                <div class="banner__left-part__form__search-box-div__loader__c-three-dots-loader"></div>
-              </div>
-
-              <ul class="banner__left-part__form__search-box-div__ul" [hidden]="loading">
-
-                <li class="banner__left-part__form__search-box-div__ul__li" *ngFor="let term of Cities | slice:0:3">
-
-                  <p class="banner__left-part__form__search-box-div__ul__li__address-p text-s-black"> {{ term.name }}
-                  </p>
-
-                  <p class="banner__left-part__form__search-box-div__ul__li__street-p text-s-gray"> {{ term.latest }}
-                  </p>
-
-                </li>
-              </ul>
-
             </div>
 
+            <div class="banner__left-part__form__loader" *ngIf="loading">
+              <div class="banner__left-part__form__loader__c-three-dots-loader"></div>
+            </div>
+            <div class="banner__left-part__search-result">
+              <ul class="banner__left-part__form__ul" [hidden]="loading">
+                <li class="banner__left-part__form__ul__li" *ngFor="let term of Cities | slice:0:3">
+                  <p class="banner__left-part__form__ul__li__address-p text-s-black"> {{ term.name }}
+                  </p>
+                  <p class="banner__left-part__form__ul__li__street-p text-s-gray"> {{ term.latest }}
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
-
         </div>
-
       </div>
 
       <div class="col-md-6 order-first order-md-last">
