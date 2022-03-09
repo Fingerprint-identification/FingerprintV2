@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
+import { NgxSpinnerService } from "ngx-spinner";
+
 /**
  * The App component
  */
@@ -15,13 +17,21 @@ export class AppComponent implements OnInit, OnDestroy {
   */
   title: string = 'Fingerprint-v2';
 
-  constructor() {
+  /** */
+  constructor(private spinner: NgxSpinnerService) {
   }
 
   /**
   * The "ngOnInit"
   */
   ngOnInit(): void {
+    /** spinner starts on init */
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 3000);
 
   }
 

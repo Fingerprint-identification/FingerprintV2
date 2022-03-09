@@ -1,5 +1,5 @@
 /* Modules from core */
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { BrowserModule, Meta } from '@angular/platform-browser';
 
@@ -31,7 +31,9 @@ import { authInterceptorProviders, TokenIntercepterService } from './core/interc
 
 import { ErrorInterceptor } from './core/intercepters/error.interceptor';
 
+import { NgxSpinnerModule } from "ngx-spinner";
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /**
  * App module
@@ -45,7 +47,9 @@ import { ErrorInterceptor } from './core/intercepters/error.interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthGuard, FormGuardGuard, AdminGuard, UserGuard, Meta
@@ -60,6 +64,7 @@ import { ErrorInterceptor } from './core/intercepters/error.interceptor';
     },
     authInterceptorProviders
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
