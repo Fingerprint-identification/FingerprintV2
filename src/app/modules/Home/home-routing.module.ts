@@ -21,7 +21,7 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'Device/:id',
+        path: 'Device',
         component: DeviceComponent
       },
       {

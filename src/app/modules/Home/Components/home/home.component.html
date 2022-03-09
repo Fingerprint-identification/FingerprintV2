@@ -35,7 +35,7 @@
             </div>
             <div class="banner__left-part__search-result">
               <ul class="banner__left-part__form__ul" [hidden]="loading">
-                <li class="banner__left-part__form__ul__li" *ngFor="let term of Cities | slice:0:3; let i = index"  [routerLink]="['/Home/Device', i]">
+                <li class="banner__left-part__form__ul__li" *ngFor="let term of Cities | slice:0:3; let i = index"  [routerLink]="['/Home/Device']"  [queryParams] = "{CityAdderss: term.name , CityStreet: term.latest}">
                   <p class="banner__left-part__form__ul__li__address-p text-s-black"> {{ term.name }}
                   </p>
                   <p class="banner__left-part__form__ul__li__street-p text-s-gray"> {{ term.latest }}

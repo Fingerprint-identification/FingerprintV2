@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { Meta, Title } from '@angular/platform-browser';
 
 import { BehaviorSubject, debounceTime, distinctUntilChanged, filter, finalize, map, Observable, startWith, Subject, Subscription, switchMap, take, tap } from 'rxjs';
@@ -68,7 +70,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this.cities$.subscribe((value: any) => {
       this.Cities = value.results;
+      console.log(this.Cities);
     });
+
   }
 
   /**

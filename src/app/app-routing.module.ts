@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'Admin',
-    loadChildren: ()=> import('./modules/Administration//dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: ()=> import('./modules/Administration/dashboard.module').then((m) => m.DashboardModule)
   },
   {
     path: 'User',
