@@ -2,127 +2,44 @@
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
 
-.reset-password {
-  &__content {
-    &__background {
-      &__title {
-        right: 8%;
-        top: 27%;
-        letter-spacing: 17.44px;
-        @include screen(xxs) {
-          letter-spacing: 1.86px;
-          right: 16%;
-          top: 18%;
-        }
-        @include screen(xs) {
-          letter-spacing: 1.86px;
-          right: 12%;
-          top: 17%;
-        }
-        @include screen(sm) {
-          right: 20%;
-          top: 19%;
-          letter-spacing: 4.58px;
-        }
-        @include screen(md) {
-          right: 11%;
-          top: 26%;
-          letter-spacing: 5.58px;
-        }
-        @include screen(lg) {
-          right: 14%;
-          top: 29%;
-          letter-spacing: 10.44px;
-        }
-        @include screen(xlg) {
-          right: 8%;
-          top: 25%;
-          letter-spacing: 13.58px;
-        }
-        &__p {
-          font-size: 47px;
+.reset-password__content {
+  &__form {
+    width: 70%;
+    margin: 0px auto 0 auto;
 
-          @include screen(xxs) {
-            font-size: 12px;
-          }
-          @include screen(xs) {
-            font-size: 17px;
-          }
-          @include screen(sm) {
-            font-size: 21px;
-          }
-          @include screen(md) {
-            font-size: 23px;
-          }
-          @include screen(lg) {
-            font-size: 30px;
-          }
-          @include screen(xlg) {
-            font-size: 40px;
-          }
-        }
-      }
+    @include screen(xxs) {
+      width: 90%;
+      margin: 30px auto 0 auto;
     }
-    &__image-div {
-      width: 358.09px;
-
-      @include screen(xxs) {
-        width: 149px;
-      }
-      @include screen(xs) {
-        width: 177.66px;
+    @include custem-screen(xs, md) {
+      width: 80%;
+      margin: 30px auto 0 auto;
+    }
+    @include screen(md) {
+      width: 70%;
+      margin: 23px auto 0 auto;
+    }
+    /* Input properities was taken from global*/
+    label {
+      font-size: 28px;
+      font-family: map-get($fonts, headingFont);
+      color: $black;
+      text-transform: capitalize;
+      margin: 0 0 17px 17px;
+      @include screen(lg) {
+        font-size: 20px;
       }
       @include screen(sm) {
-        width: 244.66px;
+        font-size: 23px;
       }
-      @include screen(md) {
-        width: 266.58px;
+      @include screen(xs) {
+        font-size: 20px;
       }
-      @include screen(lg) {
-        width: 280.28px;
+      @include screen(xxs) {
+        font-size: 16px;
       }
       @include screen(xlg) {
-        width: 282.28px;
-      }
-    }
-    &__form {
-      width: 70%;
-      margin: 0px auto 0 auto;
-
-      @include screen(xxs) {
-        width: 90%;
-        margin: 30px auto 0 auto;
-      }
-      @include custem-screen(xs, md) {
-        width: 80%;
-        margin: 30px auto 0 auto;
-      }
-      @include screen(md) {
-        width: 70%;
-        margin: 23px auto 0 auto;
-      }
-      /* Input properities was taken from global*/
-      label {
-        font-size: 28px;
-        font-family: map-get($fonts, headingFont);
-        color: $black;
-        text-transform: capitalize;
-        margin: 0 0 17px 17px;
-        @include screen(lg) {
-          font-size: 20px;
-        }
-        @include screen(sm) {
-          font-size: 23px;
-        }
-        @include screen(xs) {
-          font-size: 20px;
-        }
-        @include screen(xxs) {
-          font-size: 16px;
-        }
-        @include screen(xlg) {
-          font-size: 25px;
-        }
+        font-size: 25px;
       }
     }
   }
