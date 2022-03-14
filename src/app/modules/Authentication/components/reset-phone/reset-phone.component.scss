@@ -15,7 +15,7 @@
   &__image-div {
     width: 400.09px;
     margin: auto;
-    @include screen(xlg) {
+    @include custem-screen(lg, xxlg) {
       width: 300.09px;
     }
     &__img {

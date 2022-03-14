@@ -5,7 +5,7 @@
   &__image-div {
     width: 545.28px;
     margin: auto;
-    @include screen(xlg) {
+    @include custem-screen(lg, xxlg) {
       width: 445.28px;
     }
     &__img {
@@ -29,7 +29,9 @@
     @include screen(xlg){
       padding-top: 0;
     }
-
+    @include screen(lg){
+      padding-top: 32px;
+    }
 
     @include screen(xxs) {
       width: 90%;
@@ -42,9 +44,6 @@
     @include screen(md) {
       width: 70%;
       margin: 23px auto 0 auto;
-    }
-    @include screen(lg) {
-      margin: 41px auto 0 auto;
     }
     /* Input properities was taken from global*/
     &__input-div {
