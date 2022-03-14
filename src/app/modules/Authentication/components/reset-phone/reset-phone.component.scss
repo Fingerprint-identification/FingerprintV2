@@ -18,6 +18,9 @@
     @include custem-screen(lg, xxlg) {
       width: 300.09px;
     }
+    @include screen(md){
+      width: 331.09px;
+    }
     &__img {
       width: 100%;
     }
@@ -35,7 +38,7 @@
       margin: 30px auto 0 auto;
     }
     @include screen(md) {
-      width: 70%;
+      width: 60%;
       margin: 23px auto 0 auto;
     }
     @include screen(lg){

@@ -18,6 +18,9 @@
     @include custem-screen(lg, xxlg) {
       width: 300.09px;
     }
+    @include screen(md){
+      width: 265.09px;
+    }
     &__img {
       width: 100%;
     }
@@ -36,7 +39,7 @@
       width: 80%;
     }
     @include screen(md) {
-      width: 70%;
+      width: 60%;
       margin: 23px auto 0 auto;
     }
     @include screen(lg) {
@@ -55,7 +58,7 @@
         }
         @include screen(md) {
           padding-left: 9%;
-          font-size: 3vw;
+          font-size: 2.2vw;
         }
         @include BreakPoint(sm) {
           padding-left: 1.6rem;

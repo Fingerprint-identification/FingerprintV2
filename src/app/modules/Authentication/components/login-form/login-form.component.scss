@@ -8,6 +8,9 @@
     @include custem-screen(lg, xxlg) {
       width: 445.28px;
     }
+    @include screen(md){
+      width: 345.28px;
+    }
     &__img {
       width: 100%;
     }
@@ -42,7 +45,7 @@
       margin: 30px auto 0 auto;
     }
     @include screen(md) {
-      width: 70%;
+      width: 60%;
       margin: 23px auto 0 auto;
     }
     /* Input properities was taken from global*/
@@ -95,12 +98,12 @@
             font-size: 23px;
           }
           @include screen(lg) {
-            font-size: 1.5vw;
+            font-size: 23px;
             margin-bottom: 35px;
           }
           @include screen(md) {
             margin-bottom: 61px;
-            font-size: 2vw;
+            font-size: 16px;
           }
           @include screen(sm) {
             margin-bottom: 20px;
