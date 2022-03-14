@@ -13,10 +13,10 @@
     letter-spacing: 2.44px;
   }
   &__image-div {
-    width: 19.53vw;
+    width: 400.09px;
     margin: auto;
-    @include BreakPoint(sm) {
-      width: 30vw;
+    @include screen(xlg) {
+      width: 300.09px;
     }
     &__img {
       width: 100%;
@@ -26,13 +26,14 @@
     width: 70%;
     margin: 0px auto 0 auto;
 
+    @include custem-screen(xxs, lg){
+      margin: 30px auto 0 auto;
+    }
     @include screen(xxs) {
       width: 90%;
-      margin: 30px auto 0 auto;
     }
     @include custem-screen(xs, md) {
       width: 80%;
-      margin: 30px auto 0 auto;
     }
     @include screen(md) {
       width: 70%;
@@ -40,11 +41,10 @@
     }
     @include screen(lg) {
       width: 80%;
-      // margin: 41px auto 20px auto;
     }
     &__input-div {
       &__p {
-        font-size: 1.5vw;
+        font-size: 31px;
         font-family: map-get($fonts, headingFont);
         padding-left: 21px;
         @include screen(xlg){
@@ -77,21 +77,19 @@
         letter-spacing: -0.53px;
         color: #8f8f8f;
         font-family: "SFUIText-Medium";
-        @include screen(xlg){
-          font-size: 1.4vw;
-        }
-        @include custem-screen(sm, lg) {
-          font-size: 2.5vw;
-        }
         @include BreakPoint(xs) {
           margin-bottom: 0;
           font-size: 3vw;
+        }
+        @include custem-screen(sm, lg) {
+          font-size: 2.5vw;
         }
         @include screen(lg){
           font-size: 1.7vw;
         }
         @include screen(xlg) {
           padding: 0px 26px;
+          font-size: 1.4vw;
         }
         &__a {
           color: $main-color;
@@ -101,8 +99,6 @@
       input {
         width: 322px;
         margin: 45px auto 20px auto;
-        height: 65px;
-        font-size: 2vw;
         border: 2px solid $main-color-light;
         border-radius: 24px;
         background-color: $white;
@@ -111,32 +107,26 @@
         @include BreakPoint(xs) {
           width: 163px;
           margin: 0 auto 10px auto;
-          height: 40px;
-          font-size: 5vw;
           border-radius: 12px;
         }
         @include screen(sm) {
           width: 163px;
-          height: 40px;
           border-radius: 12px;
           margin: 0 auto 10px auto;
         }
         @include screen(md) {
           width: 275px;
-          height: 50px;
           margin: 18px auto 27px auto;
           border-radius: 17px;
         }
         @include screen(lg) {
           width: 192px;
           margin: 51px auto 23px auto;
-          height: 50px;
           border-radius: 19px;
         }
         @include screen(xlg) {
           width: 230px;
           margin: 20px auto 20px auto;
-          height: 55px;
           border-radius: 17px;
         }
         &::placeholder {

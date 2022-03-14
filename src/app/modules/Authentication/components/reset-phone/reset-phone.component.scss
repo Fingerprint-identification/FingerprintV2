@@ -13,10 +13,10 @@
     letter-spacing: 2.44px;
   }
   &__image-div {
-    width: 19.55vw;
+    width: 400.09px;
     margin: auto;
-    @include BreakPoint(sm) {
-      width: 30vw;
+    @include screen(xlg) {
+      width: 300.09px;
     }
     &__img {
       width: 100%;
@@ -45,7 +45,6 @@
       margin: 32px auto 0 auto;
     }
     &__input-div {
-      margin-bottom: 6rem !important;
       @include screen(xxs){
         margin-bottom: 3rem !important;
       }
@@ -56,28 +55,20 @@
         margin-bottom: 4.38rem !important;
       }
       label {
-        font-size: 1.5vw;
         font-family: map-get($fonts, headingFont);
         color: $black;
         text-transform: capitalize;
-        margin: 0 0 17px 4px;
-        @include screen(xlg) {
-          font-size: 1.6vw;
-          margin: 0 0 33px 4px;
-        }
+        margin: 0 0 15px 4px;
+
         @include screen(lg){
           margin: 0 0 20px 12px;
-          font-size: 1.9vw;
         }
         @include screen(md){
-          font-size: 3vw;
           margin: 0 0 21px 4px;
         }
         @include BreakPoint(sm) {
-          font-size: 3vw;
         }
         @include BreakPoint(xs){
-          font-size: 4vw;
         }
       }
     }

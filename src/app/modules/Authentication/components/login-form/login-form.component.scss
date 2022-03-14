@@ -3,16 +3,15 @@
 
 .login-password__content {
   &__image-div {
-    width: 29.77vw;
+    width: 545.28px;
     margin: auto;
-    @include BreakPoint(sm) {
-      width: 43vw;
+    @include screen(xlg) {
+      width: 445.28px;
     }
     &__img {
       width: 100%;
     }
   }
-
   &__title {
     position: absolute;
     color: $white;
@@ -26,6 +25,11 @@
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;
+    padding-top: 28px;
+    @include screen(xlg){
+      padding-top: 0;
+    }
+
 
     @include screen(xxs) {
       width: 90%;
@@ -81,7 +85,7 @@
         }
         &__reset {
           float: right;
-          font-size: 1vw;
+          font-size: 25px;
           color: $black;
           margin-bottom: 43px;
           @include BreakPoint(md) {
@@ -89,6 +93,7 @@
           }
           @include screen(xlg) {
             margin-bottom: 30px;
+            font-size: 23px;
           }
           @include screen(lg) {
             font-size: 1.5vw;
@@ -102,32 +107,38 @@
             margin-bottom: 20px;
             font-size: 2.5vw;
           }
-          @include BreakPoint(xs){
+          @include BreakPoint(xs) {
             margin-bottom: 20px;
-            font-size: 3.5vw;
+            font-size: 4.5vw;
           }
         }
         &__password-icon {
           position: absolute;
-          width: 45.33px;
-          height: 65px;
+          width: 50.33px;
+          height: 78px;
           padding-right: 20px;
           top: 0;
           right: 0;
+          @include screen(xlg){
+            height: 68.46px;
+          }
+
+
           @include BreakPoint(xlg) {
             padding-right: 20px;
             top: 0px;
             right: 0;
             width: 44.33px;
+
           }
           @include custem-screen(xxs, sm) {
-            height: 38.46px;
-            width: 37.33px !important;
+            height: 48.46px;
+            width: 44.33px !important;
           }
           @include screen(sm) {
             height: 50.46px;
           }
-          @include custem-screen(md, xxlg) {
+          @include custem-screen(md, xlg) {
             height: 58.46px;
           }
         }
