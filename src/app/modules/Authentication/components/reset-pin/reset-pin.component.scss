@@ -13,8 +13,11 @@
     letter-spacing: 2.44px;
   }
   &__image-div {
-    width: 19vw;
+    width: 19.53vw;
     margin: auto;
+    @include BreakPoint(sm) {
+      width: 30vw;
+    }
     &__img {
       width: 100%;
     }
@@ -37,16 +40,28 @@
     }
     @include screen(lg) {
       width: 80%;
+      // margin: 41px auto 20px auto;
     }
     &__input-div {
       &__p {
         font-size: 1.5vw;
         font-family: map-get($fonts, headingFont);
         padding-left: 21px;
-
-        @include BreakPoint(md){
-          padding-left: 11%;
+        @include screen(xlg){
+          font-size: 1.6vw;
         }
+        @include screen(lg){
+          font-size: 1.8vw;
+        }
+        @include screen(md) {
+          padding-left: 9%;
+          font-size: 3vw;
+        }
+        @include BreakPoint(sm) {
+          padding-left: 1.6rem;
+          font-size: 3vw;
+        }
+
         &__span {
           font-family: map-get($fonts, Medium);
         }
@@ -62,9 +77,18 @@
         letter-spacing: -0.53px;
         color: #8f8f8f;
         font-family: "SFUIText-Medium";
-
+        @include screen(xlg){
+          font-size: 1.4vw;
+        }
+        @include custem-screen(sm, lg) {
+          font-size: 2.5vw;
+        }
         @include BreakPoint(xs) {
           margin-bottom: 0;
+          font-size: 3vw;
+        }
+        @include screen(lg){
+          font-size: 1.7vw;
         }
         @include screen(xlg) {
           padding: 0px 26px;
@@ -77,23 +101,18 @@
       input {
         width: 322px;
         margin: 45px auto 20px auto;
-        height: 80px;
-        font-size: 3vw;
+        height: 65px;
+        font-size: 2vw;
         border: 2px solid $main-color-light;
         border-radius: 24px;
         background-color: $white;
         text-align: center;
         padding: 0 !important;
-        @include screen(xxs) {
+        @include BreakPoint(xs) {
           width: 163px;
           margin: 0 auto 10px auto;
           height: 40px;
-          border-radius: 12px;
-        }
-        @include screen(xs) {
-          width: 163px;
-          margin: 0 auto 10px auto;
-          height: 40px;
+          font-size: 5vw;
           border-radius: 12px;
         }
         @include screen(sm) {
@@ -110,7 +129,7 @@
         }
         @include screen(lg) {
           width: 192px;
-          margin: 27px auto 20px auto;
+          margin: 51px auto 23px auto;
           height: 50px;
           border-radius: 19px;
         }
@@ -122,8 +141,12 @@
         }
         &::placeholder {
           font-weight: bold;
-          font-size: 3vw;
+          font-size: 2vw;
+          @include BreakPoint(xs) {
+            font-size: 5vw;
+          }
         }
+
       }
     }
   }

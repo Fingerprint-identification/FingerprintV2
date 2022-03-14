@@ -3,8 +3,11 @@
 
 .login-password__content {
   &__image-div {
-    width: 26vw;
+    width: 29.77vw;
     margin: auto;
+    @include BreakPoint(sm) {
+      width: 43vw;
+    }
     &__img {
       width: 100%;
     }
@@ -35,6 +38,9 @@
     @include screen(md) {
       width: 70%;
       margin: 23px auto 0 auto;
+    }
+    @include screen(lg) {
+      margin: 41px auto 0 auto;
     }
     /* Input properities was taken from global*/
     &__input-div {
@@ -79,16 +85,32 @@
           color: $black;
           margin-bottom: 43px;
           @include BreakPoint(md) {
+            font-size: 3vw;
+          }
+          @include screen(xlg) {
+            margin-bottom: 30px;
+          }
+          @include screen(lg) {
+            font-size: 1.5vw;
+            margin-bottom: 35px;
+          }
+          @include screen(md) {
+            margin-bottom: 61px;
             font-size: 2vw;
           }
-          @include BreakPoint(lg) {
-            margin-bottom: 35px;
+          @include screen(sm) {
+            margin-bottom: 20px;
+            font-size: 2.5vw;
+          }
+          @include BreakPoint(xs){
+            margin-bottom: 20px;
+            font-size: 3.5vw;
           }
         }
         &__password-icon {
           position: absolute;
-          width: 50.33px;
-          height: 78.46px;
+          width: 45.33px;
+          height: 65px;
           padding-right: 20px;
           top: 0;
           right: 0;
