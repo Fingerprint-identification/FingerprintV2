@@ -3,7 +3,6 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .pin-password__content {
-
   &__image-div {
     width: 400.09px;
     margin: auto;
@@ -65,7 +64,6 @@
           padding-left: 22px;
           font-size: 16px;
         }
-
         &__span {
           font-family: map-get($fonts, Medium);
         }
@@ -79,28 +77,27 @@
         text-align: center;
         font-size: 1.2vw;
         letter-spacing: -0.53px;
-        color: #8f8f8f;
-        font-family: "SFUIText-Medium";
-        @include BreakPoint(xs) {
-          margin-bottom: 0;
-          font-size: 3vw;
-        }
-        @include custem-screen(sm, lg) {
-          font-size: 2.5vw;
+        color: $gray-color;
+        font-family: map-get($fonts, Medium);
+        @include screen(xlg) {
+          padding: 0px 26px;
+          font-size: 1.4vw;
         }
         @include screen(lg) {
           font-size: 1.7vw;
         }
-        @include screen(xlg) {
-          padding: 0px 26px;
-          font-size: 1.4vw;
+        @include custem-screen(sm, lg) {
+          font-size: 2.5vw;
+        }
+        @include BreakPoint(xs) {
+          margin-bottom: 0;
+          font-size: 3vw;
         }
         &__a {
           color: $main-color;
         }
       }
-      /* Input properities Didn't taken from global*/
-      input {
+      &__input {
         width: 322px;
         margin: 45px auto 20px auto;
         border: 2px solid $main-color-light;
