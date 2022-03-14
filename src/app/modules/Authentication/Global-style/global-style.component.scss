@@ -64,7 +64,7 @@ label{
   font-size: 31px;
   font-family: map-get($fonts, headingFont);
   @include screen(xxs) {
-    font-size: 20px;
+    font-size: 15px;
   }
   @include screen(xs) {
     font-size: 20px;

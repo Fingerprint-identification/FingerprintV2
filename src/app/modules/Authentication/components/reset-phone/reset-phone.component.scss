@@ -54,7 +54,7 @@
       @include screen(sm){
         margin-bottom: 4.38rem !important;
       }
-      label {
+      &__label {
         color: $black;
         text-transform: capitalize;
         margin: 0 0 15px 4px;
@@ -63,10 +63,6 @@
         }
         @include screen(md){
           margin: 0 0 21px 4px;
-        }
-        @include BreakPoint(sm) {
-        }
-        @include BreakPoint(xs){
         }
       }
     }
