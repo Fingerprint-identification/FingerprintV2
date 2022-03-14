@@ -2,6 +2,24 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .login-password__content {
+  &__image-div {
+    width: 26vw;
+    margin: auto;
+    &__img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    color: $white;
+    font-family: map-get($fonts, paragraphFont);
+    right: 5vw;
+    top: 4vw;
+    font-size: 3vw;
+    letter-spacing: 2.44px;
+  }
+
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;
@@ -37,27 +55,19 @@
       &__alert {
         border-radius: 17px;
         margin-top: 10px;
+        font-size: 1vw;
+        @include BreakPoint(md) {
+          font-size: 2vw;
+        }
         @include screen(xxs) {
-          font-size: 12px;
           border-radius: 9px;
         }
         @include screen(xs) {
-          font-size: 14px;
           border-radius: 12px;
-        }
-        @include screen(sm) {
-          font-size: 16px;
-        }
-        @include custem-screen(md, xlg) {
-          font-size: 19px;
-        }
-        @include screen(xlg) {
-          font-size: 16px;
         }
       }
       &__password {
         position: relative;
-        /* This is the input of password and it's propreties was taken from global except this properity down*/
         &__input {
           @include screen(xs) {
             margin-bottom: 10px !important;
@@ -65,55 +75,37 @@
         }
         &__reset {
           float: right;
-          font-size: 20px;
+          font-size: 1vw;
           color: $black;
           margin-bottom: 43px;
-
-          @include screen(xxs) {
-            font-size: 14px;
-            margin-bottom: 27px;
+          @include BreakPoint(md) {
+            font-size: 2vw;
           }
-          @include screen(xs) {
-            font-size: 14px;
-            margin-bottom: 27px;
-          }
-          @include screen(sm) {
-            font-size: 16px;
-          }
-          @include custem-screen(md, xlg) {
-            font-size: 19px;
+          @include BreakPoint(lg) {
+            margin-bottom: 35px;
           }
         }
         &__password-icon {
           position: absolute;
-          width: 58.33px;
+          width: 50.33px;
           height: 78.46px;
           padding-right: 20px;
-          top: 0px;
+          top: 0;
           right: 0;
-
           @include BreakPoint(xlg) {
-            padding-right: 20px !important;
-            top: 0px !important;
-            right: 0 !important;
-            width: 44.33px !important;
+            padding-right: 20px;
+            top: 0px;
+            right: 0;
+            width: 44.33px;
           }
-          @include screen(xxs) {
+          @include custem-screen(xxs, sm) {
             height: 38.46px;
-          }
-          @include screen(xs) {
-            height: 50.46px;
+            width: 37.33px !important;
           }
           @include screen(sm) {
             height: 50.46px;
           }
-          @include screen(md) {
-            height: 58.46px;
-          }
-          @include screen(lg) {
-            height: 58.46px;
-          }
-          @include screen(xlg) {
+          @include custem-screen(md, xxlg) {
             height: 58.46px;
           }
         }

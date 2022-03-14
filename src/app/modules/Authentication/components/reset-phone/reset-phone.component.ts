@@ -33,6 +33,6 @@ export class ResetPhoneComponent implements OnInit {
    * Method that navigate user to rest his password pin
    */
   ToGeneratePinCode(){
-    this.router.navigate(['Login/reset-password-pin']);
+    this.router.navigate(['Login/pin-password']);
   }
 }

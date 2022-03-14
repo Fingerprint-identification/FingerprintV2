@@ -1,0 +1,129 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+.auth-password {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  @include BreakPoint(sm) {
+    min-height: 90vh !important;
+  }
+  &__content {
+    border-radius: 36px;
+    box-shadow: 3px 4px 54px $black-1;
+    position: relative;
+    max-width: 1533.33px;
+    padding: 0px 0 150px 0;
+
+    @include BreakPoint(xs) {
+      padding: 0px 0 44px 0 !important;
+    }
+    @include BreakPoint(md) {
+      border-radius: 15px;
+    }
+    @include custem-screen(sm, lg) {
+      padding: 0px 0 70px 0 !important;
+    }
+    &__background {
+      width: 70%;
+      float: right;
+      position: relative;
+      @include screen(md) {
+        width: 57%;
+      }
+      &__title {
+        position: absolute;
+        color: $white;
+        font-family: map-get($fonts, paragraphFont);
+        right: 8%;
+        top: 27%;
+        letter-spacing: 17.44px;
+        @include screen(xxs) {
+          letter-spacing: 1.86px;
+          right: 16%;
+          top: 18%;
+        }
+        @include screen(xs) {
+          letter-spacing: 1.86px;
+          right: 12%;
+          top: 17%;
+        }
+        @include screen(sm) {
+          right: 20%;
+          top: 19%;
+          letter-spacing: 4.58px;
+        }
+        @include screen(md) {
+          right: 11%;
+          top: 26%;
+          letter-spacing: 5.58px;
+        }
+        @include screen(lg) {
+          right: 14%;
+          top: 29%;
+          letter-spacing: 10.44px;
+        }
+        @include screen(xlg) {
+          right: 8%;
+          top: 25%;
+          letter-spacing: 13.58px;
+        }
+        &__p {
+          font-size: 47px;
+
+          @include screen(xxs) {
+            font-size: 12px;
+          }
+          @include screen(xs) {
+            font-size: 17px;
+          }
+          @include screen(sm) {
+            font-size: 21px;
+          }
+          @include screen(md) {
+            font-size: 23px;
+          }
+          @include screen(lg) {
+            font-size: 30px;
+          }
+          @include screen(xlg) {
+            font-size: 40px;
+          }
+        }
+      }
+      &__img {
+        width: 100%;
+        border-top-right-radius: 36px;
+        @include BreakPoint(md) {
+          border-top-right-radius: 15px;
+        }
+      }
+    }
+    // &__image-div {
+    //   width: 358.09px;
+    //   margin: auto;
+    //   @include screen(xxs) {
+    //     width: 106px;
+    //   }
+    //   @include screen(xs) {
+    //     width: 142.66px;
+    //   }
+    //   @include screen(sm) {
+    //     width: 147.66px;
+    //   }
+    //   @include screen(md) {
+    //     width: 201.58px;
+    //   }
+    //   @include screen(lg) {
+    //     width: 280.28px;
+    //   }
+    //   @include screen(xlg) {
+    //     width: 282.28px;
+    //   }
+    //   &__img{
+    //     width: 100%;
+    //   }
+    // }
+  }
+}

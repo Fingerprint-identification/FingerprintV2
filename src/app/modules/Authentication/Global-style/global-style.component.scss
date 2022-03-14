@@ -1,62 +1,12 @@
 @use "~../../../../../scss/helpers/colors" as *;
+
 @use "~../../../../../scss/helpers/mixins" as *;
 
-[class$="-password"] {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  @include BreakPoint(sm) {
-    min-height: 90vh !important;
-  }
-}
-[class$="__content"] {
-  border-radius: 36px;
-  box-shadow: 3px 4px 54px $black-1;
-  position: relative;
-  max-width: 1533.33px;
-  padding: 0px 0 150px 0;
-
-  @include BreakPoint(xs) {
-    padding: 0px 0 44px 0 !important;
-  }
-  @include BreakPoint(md) {
-    border-radius: 15px;
-  }
-  @include custem-screen(sm, lg) {
-    padding: 0px 0 70px 0 !important;
-  }
-}
-[class$="__content__background"] {
-  width: 70%;
-  float: right;
-  position: relative;
-  @include screen(md) {
-    width: 57%;
-  }
-}
-[class$="__content__background__title"] {
-  position: absolute;
-  color: $white;
-  font-family: map-get($fonts, paragraphFont);
-}
-[class$="__content__background__img"] {
-  width: 100%;
-  border-top-right-radius: 36px;
-  @include BreakPoint(md) {
-    border-top-right-radius: 15px;
-  }
-}
-[class$="__content__image-div"] {
-  margin: auto;
-}
-[class$="__content__image-div__img"] {
-  width: 100%;
-}
 input {
   height: 79px;
   border-radius: 17px;
   font-size: 20px;
-  padding: 0 54px 0 26px;
+  padding: 0 61px 0 26px;
   border: none;
   outline: none;
   background-color: $nav-dropdown;
@@ -68,14 +18,14 @@ input {
     line-height: 40px;
   }
   @include screen(xs) {
-    height: 50px;
+    height: 40px;
     line-height: 50px;
     font-size: 14px;
     border-radius: 12px;
   }
   @include screen(sm) {
     height: 50px;
-    line-height: 50px;
+    line-height: 40px;
     font-size: 16px;
   }
   @include custem-screen(md, xlg) {

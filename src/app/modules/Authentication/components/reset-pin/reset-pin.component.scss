@@ -3,6 +3,22 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .pin-password__content {
+  &__title {
+    position: absolute;
+    color: $white;
+    font-family: map-get($fonts, paragraphFont);
+    right: 5vw;
+    top: 4vw;
+    font-size: 3vw;
+    letter-spacing: 2.44px;
+  }
+  &__image-div {
+    width: 19vw;
+    margin: auto;
+    &__img {
+      width: 100%;
+    }
+  }
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;
@@ -24,34 +40,12 @@
     }
     &__input-div {
       &__p {
-        font-size: 23px;
+        font-size: 1.5vw;
         font-family: map-get($fonts, headingFont);
         padding-left: 21px;
 
-        @include screen(xxs) {
-          font-size: 12px;
-          margin-left: 10%;
-          padding-left: 0;
-        }
-        @include screen(xs) {
-          font-size: 13px;
-          margin-left: 10%;
-          padding-left: 0;
-        }
-        @include screen(sm) {
-          font-size: 21px;
-          margin-left: 8%;
-          padding-left: 0;
-        }
-        @include screen(md) {
-          font-size: 21px;
+        @include BreakPoint(md){
           padding-left: 11%;
-        }
-        @include screen(lg) {
-          font-size: 18px;
-        }
-        @include screen(xlg) {
-          font-size: 19px;
         }
         &__span {
           font-family: map-get($fonts, Medium);
@@ -64,27 +58,16 @@
       }
       &__p-recieve {
         text-align: center;
-        font-size: 22px;
+        font-size: 1.2vw;
         letter-spacing: -0.53px;
         color: #8f8f8f;
         font-family: "SFUIText-Medium";
 
         @include BreakPoint(xs) {
           margin-bottom: 0;
-          font-size: 11px;
-        }
-        @include screen(sm) {
-          font-size: 14px;
-        }
-        @include screen(md) {
-          font-size: 18px;
-        }
-        @include screen(lg) {
-          font-size: 13px;
         }
         @include screen(xlg) {
           padding: 0px 26px;
-          font-size: 17px;
         }
         &__a {
           color: $main-color;
@@ -95,37 +78,33 @@
         width: 322px;
         margin: 45px auto 20px auto;
         height: 80px;
-        font-size: 46px;
+        font-size: 3vw;
         border: 2px solid $main-color-light;
         border-radius: 24px;
         background-color: $white;
         text-align: center;
         padding: 0 !important;
         @include screen(xxs) {
-          width: 150px;
-          margin: 20px auto 12px auto;
+          width: 163px;
+          margin: 0 auto 10px auto;
           height: 40px;
-          font-size: 21px;
           border-radius: 12px;
         }
         @include screen(xs) {
-          width: 206px;
-          margin: 20px auto 12px auto;
-          height: 45px;
-          font-size: 23px;
+          width: 163px;
+          margin: 0 auto 10px auto;
+          height: 40px;
           border-radius: 12px;
         }
         @include screen(sm) {
-          width: 231px;
-          height: 60px;
-          font-size: 33px;
-          border-radius: 19px;
-          margin: 30px auto 27px auto;
+          width: 163px;
+          height: 40px;
+          border-radius: 12px;
+          margin: 0 auto 10px auto;
         }
         @include screen(md) {
           width: 275px;
           height: 50px;
-          font-size: 30px;
           margin: 18px auto 27px auto;
           border-radius: 17px;
         }
@@ -133,34 +112,17 @@
           width: 192px;
           margin: 27px auto 20px auto;
           height: 50px;
-          font-size: 26px;
           border-radius: 19px;
         }
         @include screen(xlg) {
           width: 230px;
           margin: 20px auto 20px auto;
           height: 55px;
-          font-size: 35px;
           border-radius: 17px;
         }
         &::placeholder {
           font-weight: bold;
-
-          @include BreakPoint(xs) {
-            font-size: 23px;
-          }
-          @include screen(sm) {
-            font-size: 33px;
-          }
-          @include screen(md) {
-            font-size: 34px;
-          }
-          @include screen(lg) {
-            font-size: 26px;
-          }
-          @include screen(xlg) {
-            font-size: 35px;
-          }
+          font-size: 3vw;
         }
       }
     }

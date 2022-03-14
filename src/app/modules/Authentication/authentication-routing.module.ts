@@ -6,7 +6,6 @@ import { ResetPhoneComponent } from './components/reset-phone/reset-phone.compon
 
 import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
 
-import { LoginComponent } from './components/login/login.component';
 
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
 
@@ -14,27 +13,45 @@ import { ConfirmPasswordComponent } from './components/confirm-password/confirm-
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
+import { LoginFormComponent } from './components/login-form/login-form.component';
+
 /** Auth router  */
 const routes: Routes = [
   {
     path: '',
     component: LoginPageComponent ,
+    data: {
+      title: 'Login'
+    }
+    ,
     children: [
       {
         path: 'login-password',
-        component: LoginComponent
+        component: LoginFormComponent,
+        data: {
+          title: 'Login password'
+        }
       },
       {
         path: 'reset-password',
         component: ResetPhoneComponent,
+        data: {
+          title: 'Reset password'
+        }
       },
       {
-        path: 'reset-password-pin',
+        path: 'pin-password',
         component: ResetPinComponent,
+        data: {
+          title: 'Pin password'
+        }
       },
       {
         path: 'confirm-password',
-        component: ConfirmPasswordComponent
+        component: ConfirmPasswordComponent,
+        data: {
+          title: 'Confirm password'
+        }
       },
       {
         path: '',

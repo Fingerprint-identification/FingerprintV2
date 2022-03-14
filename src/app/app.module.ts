@@ -1,7 +1,7 @@
 /* Modules from core */
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
-import { BrowserModule, Meta } from '@angular/platform-browser';
+import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -35,6 +35,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 /**
  * App module
  */
@@ -52,6 +53,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   providers: [
+    Title,
     AuthGuard, FormGuardGuard, AdminGuard, UserGuard, Meta
     , {
       provide: HTTP_INTERCEPTORS,

@@ -8,6 +8,16 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 
 import { ProfileComponent } from './components/profile/profile.component';
 
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+
+import { PersonalComponent } from './components/personal/personal.component';
+
+import { FamilyComponent } from './components/family/family.component';
+
+import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
+
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+
 /**
  * User Module
  */
@@ -15,6 +25,11 @@ import { ProfileComponent } from './components/profile/profile.component';
   declarations: [
     EditProfileComponent,
     ProfileComponent,
+    ProfilePageComponent,
+    PersonalComponent,
+    FamilyComponent,
+    // NavbarComponent,
+    // FooterComponent
   ],
   imports: [
     CommonModule,

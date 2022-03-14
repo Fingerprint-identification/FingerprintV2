@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { NgxSpinnerService } from "ngx-spinner";
+import { filter, map, mergeMap } from 'rxjs';
 
 /**
  * The App component
@@ -15,10 +18,11 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
   * Application main title
   */
-  title: string = 'Fingerprint-v2';
+  // title: string = 'Fingerprint-v2';
 
   /** */
-  constructor(private spinner: NgxSpinnerService) {
+  constructor(private spinner: NgxSpinnerService, private router: Router,
+    private activatedRoute: ActivatedRoute, private titleService: Title) {
   }
 
   /**
@@ -33,6 +37,25 @@ export class AppComponent implements OnInit, OnDestroy {
       this.spinner.hide();
     }, 3000);
 
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => {
+          let route = this.activatedRoute;
+          while (route.firstChild) route = route.firstChild;
+          return route;
+        }),
+        filter((route: any) => route.outlet === "primary"),
+        mergeMap((route: any) => route.data),
+        map((data: any) => {
+          if (data.title) {
+            return data.title;
+          } else {
+            return "Default App Title";
+          }
+        })
+      )
+      .subscribe(pathString => this.titleService.setTitle(pathString));
   }
 
   /**

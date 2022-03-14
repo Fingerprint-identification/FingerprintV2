@@ -16,19 +16,31 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 const routes: Routes = [
   {
     path: 'Login',
-    loadChildren: ()=> import('./modules/Authentication/authentication.module').then((m) => m.AuthenticationModule)
+    loadChildren: ()=> import('./modules/Authentication/authentication.module').then((m) => m.AuthenticationModule),
+    data: {
+      title: 'Login'
+    }
   },
   {
     path: 'Admin',
-    loadChildren: ()=> import('./modules/Administration/dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: ()=> import('./modules/Administration/dashboard.module').then((m) => m.DashboardModule),
+    data: {
+      title: 'Admin'
+    }
   },
   {
     path: 'User',
-    loadChildren: ()=> import('./modules/Users/users.module').then((m) => m.UsersModule)
+    loadChildren: ()=> import('./modules/Users/users.module').then((m) => m.UsersModule),
+    data: {
+      title: 'User'
+    }
   },
   {
     path: 'Home',
-    loadChildren: ()=> import('./modules/Home/home.module').then((m) => m.HomeModule)
+    loadChildren: ()=> import('./modules/Home/home.module').then((m) => m.HomeModule),
+    data: {
+      title: 'Home'
+    }
   },
   {
     path: '',

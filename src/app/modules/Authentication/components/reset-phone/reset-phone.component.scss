@@ -3,6 +3,22 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .reset-password__content {
+  &__title {
+    position: absolute;
+    color: $white;
+    font-family: map-get($fonts, paragraphFont);
+    right: 5vw;
+    top: 4vw;
+    font-size: 3vw;
+    letter-spacing: 2.44px;
+  }
+  &__image-div {
+    width: 19vw;
+    margin: auto;
+    &__img {
+      width: 100%;
+    }
+  }
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;
@@ -19,27 +35,14 @@
       width: 70%;
       margin: 23px auto 0 auto;
     }
-    /* Input properities was taken from global*/
     label {
-      font-size: 28px;
+      font-size: 2vw;
       font-family: map-get($fonts, headingFont);
       color: $black;
       text-transform: capitalize;
       margin: 0 0 17px 17px;
-      @include screen(lg) {
-        font-size: 20px;
-      }
-      @include screen(sm) {
-        font-size: 23px;
-      }
-      @include screen(xs) {
-        font-size: 20px;
-      }
-      @include screen(xxs) {
-        font-size: 16px;
-      }
-      @include screen(xlg) {
-        font-size: 25px;
+      @include BreakPoint(sm){
+        font-size: 3vw;
       }
     }
   }
