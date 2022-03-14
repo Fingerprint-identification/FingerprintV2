@@ -32,11 +32,11 @@
     @include screen(xxs) {
       margin: 30px auto 0 auto;
     }
-    @include custem-screen(xs, md) {
-      margin: 30px auto 0 auto;
-    }
     @include screen(md) {
       margin: 23px auto 0 auto;
+    }
+    @include custem-screen(xs, md) {
+      margin: 30px auto 0 auto;
     }
     @include screen(lg){
       margin: 29px auto 0 auto;
@@ -55,11 +55,9 @@
         margin-bottom: 4.38rem !important;
       }
       label {
-        font-family: map-get($fonts, headingFont);
         color: $black;
         text-transform: capitalize;
         margin: 0 0 15px 4px;
-
         @include screen(lg){
           margin: 0 0 20px 12px;
         }
