@@ -30,15 +30,12 @@
     margin: 0px auto 0 auto;
 
     @include screen(xxs) {
-      width: 90%;
       margin: 30px auto 0 auto;
     }
     @include custem-screen(xs, md) {
-      width: 80%;
       margin: 30px auto 0 auto;
     }
     @include screen(md) {
-      width: 60%;
       margin: 23px auto 0 auto;
     }
     @include screen(lg){
