@@ -8,34 +8,31 @@
     @include custem-screen(lg, xxlg) {
       width: 445.28px;
     }
-    @include screen(md){
+    @include screen(md) {
       width: 345.28px;
     }
-    @include screen(sm){
+    @include screen(sm) {
       width: 270.1px;
+    }
+    @include screen(xs) {
+      width: 299.1px;
+    }
+    @include screen(xxs) {
+      width: 299.1px;
     }
     &__img {
       width: 100%;
     }
-  }
-  &__title {
-    position: absolute;
-    color: $white;
-    font-family: map-get($fonts, paragraphFont);
-    right: 5vw;
-    top: 4vw;
-    font-size: 3vw;
-    letter-spacing: 2.44px;
   }
 
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;
     padding-top: 28px;
-    @include screen(xlg){
+    @include screen(xlg) {
       padding-top: 0;
     }
-    @include screen(lg){
+    @include screen(lg) {
       padding-top: 32px;
     }
 
@@ -124,17 +121,15 @@
           padding-right: 20px;
           top: 0;
           right: 0;
-          @include screen(xlg){
+          @include screen(xlg) {
             height: 68.46px;
           }
-
 
           @include BreakPoint(xlg) {
             padding-right: 20px;
             top: 0px;
             right: 0;
             width: 44.33px;
-
           }
           @include custem-screen(xxs, sm) {
             height: 48.46px;

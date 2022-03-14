@@ -3,15 +3,6 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .reset-password__content {
-  &__title {
-    position: absolute;
-    color: $white;
-    font-family: map-get($fonts, paragraphFont);
-    right: 5vw;
-    top: 4vw;
-    font-size: 3vw;
-    letter-spacing: 2.44px;
-  }
   &__image-div {
     width: 400.09px;
     margin: auto;
@@ -23,6 +14,12 @@
     }
     @include screen(sm){
       width: 214.95px;
+    }
+    @include screen(xs){
+      width: 241.66px;
+    }
+    @include screen(xxs){
+      width: 251.66px;
     }
     &__img {
       width: 100%;

@@ -3,15 +3,7 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .pin-password__content {
-  &__title {
-    position: absolute;
-    color: $white;
-    font-family: map-get($fonts, paragraphFont);
-    right: 5vw;
-    top: 4vw;
-    font-size: 3vw;
-    letter-spacing: 2.44px;
-  }
+
   &__image-div {
     width: 400.09px;
     margin: auto;
@@ -22,7 +14,13 @@
       width: 265.09px;
     }
     @include screen(sm) {
-      width: 214.95px;
+      width: 187.95px;
+    }
+    @include screen(xs) {
+      width: 232.66px;
+    }
+    @include screen(xxs) {
+      width: 230.66px;
     }
     &__img {
       width: 100%;
@@ -63,9 +61,17 @@
           padding-left: 9%;
           font-size: 2.2vw;
         }
-        @include BreakPoint(sm) {
-          padding-left: 1.4rem;
-          font-size: 2vw;
+        @include screen(sm) {
+          padding-left: 3rem;
+          font-size: 18px;
+        }
+        @include screen(xs) {
+          padding-left: 22px;
+          font-size: 16px;
+        }
+        @include screen(xxs) {
+          padding-left: 22px;
+          font-size: 16px;
         }
 
         &__span {
