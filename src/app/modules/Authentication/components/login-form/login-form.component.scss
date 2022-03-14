@@ -11,6 +11,9 @@
     @include screen(md){
       width: 345.28px;
     }
+    @include screen(sm){
+      width: 270.1px;
+    }
     &__img {
       width: 100%;
     }
@@ -107,7 +110,7 @@
           }
           @include screen(sm) {
             margin-bottom: 20px;
-            font-size: 2.5vw;
+            font-size: 14px;
           }
           @include BreakPoint(xs) {
             margin-bottom: 20px;

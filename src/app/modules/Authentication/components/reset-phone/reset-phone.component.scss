@@ -21,6 +21,9 @@
     @include screen(md){
       width: 331.09px;
     }
+    @include screen(sm){
+      width: 214.95px;
+    }
     &__img {
       width: 100%;
     }

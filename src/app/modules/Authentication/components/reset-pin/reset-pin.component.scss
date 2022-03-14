@@ -18,8 +18,11 @@
     @include custem-screen(lg, xxlg) {
       width: 300.09px;
     }
-    @include screen(md){
+    @include screen(md) {
       width: 265.09px;
+    }
+    @include screen(sm) {
+      width: 214.95px;
     }
     &__img {
       width: 100%;
@@ -29,7 +32,7 @@
     width: 70%;
     margin: 0px auto 0 auto;
 
-    @include custem-screen(xxs, lg){
+    @include custem-screen(xxs, lg) {
       margin: 30px auto 0 auto;
     }
     @include screen(xxs) {
@@ -50,10 +53,10 @@
         font-size: 31px;
         font-family: map-get($fonts, headingFont);
         padding-left: 21px;
-        @include screen(xlg){
+        @include screen(xlg) {
           font-size: 1.6vw;
         }
-        @include screen(lg){
+        @include screen(lg) {
           font-size: 1.8vw;
         }
         @include screen(md) {
@@ -61,8 +64,8 @@
           font-size: 2.2vw;
         }
         @include BreakPoint(sm) {
-          padding-left: 1.6rem;
-          font-size: 3vw;
+          padding-left: 1.4rem;
+          font-size: 2vw;
         }
 
         &__span {
@@ -87,7 +90,7 @@
         @include custem-screen(sm, lg) {
           font-size: 2.5vw;
         }
-        @include screen(lg){
+        @include screen(lg) {
           font-size: 1.7vw;
         }
         @include screen(xlg) {
@@ -115,7 +118,7 @@
         @include screen(sm) {
           width: 163px;
           border-radius: 12px;
-          margin: 0 auto 10px auto;
+          margin: 0 auto 20px auto;
         }
         @include screen(md) {
           width: 275px;
@@ -139,7 +142,6 @@
             font-size: 5vw;
           }
         }
-
       }
     }
   }
