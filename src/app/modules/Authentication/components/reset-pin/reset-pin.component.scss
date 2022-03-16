@@ -28,11 +28,18 @@
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;
+    @include screen(xxs) {
+      width: 90% !important;
+    }
+    @include custem-screen(xs, md) {
+      width: 80% !important;
+    }
     @include custem-screen(xxs, lg) {
       margin: 30px auto 0 auto;
     }
     @include screen(md) {
       margin: 23px auto 0 auto;
+      width: 60% !important;
     }
     @include screen(lg) {
       width: 80%;

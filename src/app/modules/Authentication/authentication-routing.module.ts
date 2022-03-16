@@ -25,9 +25,7 @@ const routes: Routes = [
     component: LoginPageComponent,
     data: {
       title: 'Login'
-    }
-    ,
-    children: [
+    },children: [
       {
         path: 'login-password',
         component: LoginFormComponent,
@@ -60,12 +58,12 @@ const routes: Routes = [
         path: '',
         redirectTo: 'login-password',
         pathMatch: 'full'
-      },
-      {
-        path: '**',
-        component: PageNotFoundComponent
       }
     ],
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   },
 ];
 

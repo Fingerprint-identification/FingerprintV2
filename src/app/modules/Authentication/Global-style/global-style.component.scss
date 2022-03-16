@@ -60,7 +60,7 @@ input {
     }
   }
 }
-label{
+label {
   font-size: 31px;
   font-family: map-get($fonts, headingFont);
   @include screen(xxs) {
@@ -116,7 +116,7 @@ label{
   }
 }
 
-[class$="__title"]{
+[class$="__title"] {
   position: absolute;
   color: $white;
   font-family: map-get($fonts, paragraphFont);
@@ -124,19 +124,20 @@ label{
   top: 3vw;
   font-size: 4vw;
   letter-spacing: 2.44px;
-  @include screen(md){
+  @include screen(md) {
     font-size: 3vw;
   }
 }
 
-[class$="__form"]{
+[class$="__form"] {
+  width: 70%;
   @include screen(xxs) {
-    width: 90%;
+    width: 90% !important;
   }
   @include custem-screen(xs, md) {
-    width: 80%;
+    width: 80% !important;
   }
   @include screen(md) {
-    width: 60%;
+    width: 60% !important;
   }
 }

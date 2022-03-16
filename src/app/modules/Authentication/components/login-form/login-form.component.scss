@@ -25,7 +25,6 @@
     width: 70%;
     margin: 0px auto 0 auto;
     padding-top: 28px;
-
     @include screen(xlg) {
       padding-top: 0;
     }
@@ -34,12 +33,15 @@
     }
     @include screen(md) {
       margin: 23px auto 0 auto;
+      width: 60% !important;
     }
     @include custem-screen(xs, md) {
       margin: 30px auto 0 auto;
+      width: 80% !important;
     }
     @include screen(xxs) {
       margin: 30px auto 0 auto;
+      width: 90% !important;
     }
     &__input-div {
       margin-bottom: 45px !important;
@@ -99,7 +101,7 @@
             font-size: 14px;
           }
           @include screen(xs){
-            font-size: 22.0167px;
+            font-size: 18.0167px;
           }
           @include screen(xxs) {
             font-size: 16.0167px;
