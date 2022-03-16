@@ -1,10 +1,11 @@
 import { Injectable, Injector } from '@angular/core';
 
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, catchError, filter, finalize, Observable, switchMap, take, throwError } from 'rxjs';
 
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 /**
  * Local referance for Token header key
@@ -19,30 +20,28 @@ const TOKEN_HEADER_KEY = 'x-access-token';
 })
 export class TokenIntercepterService implements HttpInterceptor {
 
-  /**
-   * Constractor
-   * @param TokenStorageService reference for token storage services page
-   */
-  constructor(private Token: TokenStorageService) { }
-  /**
-   * Intercepter
-   */
+  private refreshTokenInProgress: boolean = false;
+  private refreshTokenSubject = new BehaviorSubject(null);
+
+  constructor(private Token: TokenStorageService, private auth: AuthService) { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    /**
-     * Local referance to inject auth services
-     */
+
     let AuthReq = req;
 
-    /**
-     * Local referance that Get token
-     */
+    AuthReq = AuthReq.clone({
+      setHeaders: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
     const Token = this.Token.GetToken();
-
-    if (Token != null) {
-      /**
-      * Local referance to clone request
-      */
-      AuthReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, Token) })
+    if (Token) {
+      AuthReq = AuthReq.clone({
+        setHeaders: {
+          Authorization: `Bearer ${Token}`,
+        }
+      })
     }
     return next.handle(AuthReq);
   }

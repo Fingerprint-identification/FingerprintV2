@@ -14,12 +14,15 @@ import { ConfirmPasswordComponent } from './components/confirm-password/confirm-
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ApiServicesService } from 'src/app/shared/services/api-services.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 /** Auth router  */
 const routes: Routes = [
   {
     path: '',
-    component: LoginPageComponent ,
+    component: LoginPageComponent,
     data: {
       title: 'Login'
     }
@@ -55,8 +58,8 @@ const routes: Routes = [
       },
       {
         path: '',
-       redirectTo: 'login-password',
-       pathMatch: 'full'
+        redirectTo: 'login-password',
+        pathMatch: 'full'
       },
       {
         path: '**',
@@ -69,5 +72,10 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [
+    ApiServicesService,
+    AuthService,
+    TokenStorageService
+  ]
 })
-export class AuthenticationRoutingModule {}
+export class AuthenticationRoutingModule { }

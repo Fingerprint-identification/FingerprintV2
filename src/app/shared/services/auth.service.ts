@@ -1,55 +1,37 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from "@angular/common/http";
 
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
 
-/**
- * Local referance to carry api link
- */
-const AUTH_API = "http://localhost:8080/api/auth/";
+import { BehaviorSubject, Observable, of, tap } from "rxjs";
 
-/**
- * Auth services injectable
- */
+import { ApiServicesService } from "./api-services.service";
+
+import { TokenStorageService } from "./token-storage.service";
+
 @Injectable({
-    providedIn: 'root'
+    providedIn: "root",
 })
-/**
- * Auth searvices class
- */
 export class AuthService {
-    /**
-    * @param {Http} Http to access http services
-    */
-    constructor(private Http: HttpClient) {
+
+    constructor(
+        private TokenStorage: TokenStorageService,
+        private api: ApiServicesService
+    ) {
     }
 
-    /**
-     * Sign in with ID/password
-     * @param { ID } ID the id that user signin with it
-     * @param { Password } Password that user signin with it
-    */
-    Login(ID: number, Password: string): Observable<any> {
-        return this.Http.post(AUTH_API + 'signin', {
-            ID,
-            Password
-        });
+    Login(notional_id: number, password: number): Observable<any> {
+        return this.api.Login(notional_id, password).pipe(
+            tap((data: any) => {
+                this.TokenStorage.SaveToken(data.token);
+                this.TokenStorage.SaveUser(data.userData);
+            })
+        );
     }
 
-    /*
-        Returns true when user is looged in and email is verified
-    */
-
-    /*
-        Reset Forggot password
-    */
-
-    /*
-        Setting up user data when sign in with username/password,
-    */
-
-    /*
-        Logout
-    */
-    
+    isLoggedin(): boolean{
+        return (this.TokenStorage.GetToken()) ? true : false;
+    }
+    SignOut(): void {
+        window.sessionStorage.clear();
+    }
 }

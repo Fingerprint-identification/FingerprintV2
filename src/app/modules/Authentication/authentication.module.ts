@@ -12,13 +12,20 @@ import { ResetPhoneComponent } from './components/reset-phone/reset-phone.compon
 
 import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
 
-
 import { ConfirmPasswordComponent } from './components/confirm-password/confirm-password.component';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 import { LoginFormComponent } from './components/login-form/login-form.component';
+
 import { Title } from '@angular/platform-browser';
+
+import { LoggingInterceptor } from 'src/app/core/intercepters/logging.interceptor';
+
+import {HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { authInterceptorProviders } from 'src/app/core/intercepters/token.service';
+
 
 /**
  * Auth module
@@ -38,6 +45,12 @@ import { Title } from '@angular/platform-browser';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers:[Title]
+  providers:[Title,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptor,
+      multi: true
+    }
+  ]
 })
 export class AuthenticationModule { }

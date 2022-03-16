@@ -10,6 +10,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 /* component imports */
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+import { PermissionGuard } from './core/guard/permission.guard';
+import { AuthGuard } from './core/guard/auth.guard';
+
 
 /*  Routes */
 
@@ -17,22 +20,30 @@ const routes: Routes = [
   {
     path: 'Login',
     loadChildren: ()=> import('./modules/Authentication/authentication.module').then((m) => m.AuthenticationModule),
+    canActivate: [AuthGuard]
+    ,
     data: {
-      title: 'Login'
+      title: 'Login',
     }
   },
   {
     path: 'Admin',
     loadChildren: ()=> import('./modules/Administration/dashboard.module').then((m) => m.DashboardModule),
+    canActivate:[PermissionGuard],
+    canLoad: [PermissionGuard],
     data: {
-      title: 'Admin'
+      title: 'Admin',
+      role: 'admin'
     }
   },
   {
     path: 'User',
     loadChildren: ()=> import('./modules/Users/users.module').then((m) => m.UsersModule),
+    canActivate:[PermissionGuard],
+    canLoad: [PermissionGuard],
     data: {
-      title: 'User'
+      title: 'User',
+      role: 'user'
     }
   },
   {

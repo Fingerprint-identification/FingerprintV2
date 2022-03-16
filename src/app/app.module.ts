@@ -21,11 +21,7 @@ import { AppComponent } from './app.component';
 
 import { AuthGuard } from './core/guard/auth.guard';
 
-import { AdminGuard } from './core/guard/admin.guard';
-
 import { FormGuardGuard } from './core/guard/form-guard.guard';
-
-import { UserGuard } from './core/guard/user.guard';
 
 import { authInterceptorProviders, TokenIntercepterService } from './core/intercepters/token.service';
 
@@ -54,12 +50,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     Title,
-    AuthGuard, FormGuardGuard, AdminGuard, UserGuard, Meta
+    AuthGuard, FormGuardGuard, Meta
     , {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenIntercepterService,
       multi: true
-    } , {
+    }, {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
