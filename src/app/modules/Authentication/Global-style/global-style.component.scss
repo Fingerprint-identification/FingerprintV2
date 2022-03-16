@@ -128,16 +128,3 @@ label {
     font-size: 3vw;
   }
 }
-
-[class$="__form"] {
-  width: 70%;
-  @include screen(xxs) {
-    width: 90% !important;
-  }
-  @include custem-screen(xs, md) {
-    width: 80% !important;
-  }
-  @include screen(md) {
-    width: 60% !important;
-  }
-}
