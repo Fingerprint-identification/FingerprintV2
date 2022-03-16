@@ -7,6 +7,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserFamilyInfoComponent } from './components/user-family-info/user-family-info.component';
 import { ScanFingerprintComponent } from './components/scan-fingerprint/scan-fingerprint.component';
 import { DoneComponent } from './components/done/done.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 /**
  * Dashboard Module
  */
@@ -17,7 +19,9 @@ import { DoneComponent } from './components/done/done.component';
     UserInfoComponent,
         UserFamilyInfoComponent,
         ScanFingerprintComponent,
-        DoneComponent
+        DoneComponent,
+        SidebarComponent,
+        DashboardComponent
   ],
   imports: [
     CommonModule,

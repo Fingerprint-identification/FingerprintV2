@@ -20,13 +20,10 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 
 import { Title } from '@angular/platform-browser';
 
-import { LoggingInterceptor } from 'src/app/core/intercepters/logging.interceptor';
-
-import {HTTP_INTERCEPTORS } from '@angular/common/http';
-
-import { authInterceptorProviders } from 'src/app/core/intercepters/token.service';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenIntercepterService } from 'src/app/core/intercepters/token.service';
 
 /**
  * Auth module
@@ -47,12 +44,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ReactiveFormsModule,
     NgxSpinnerModule
   ],
-  providers:[Title,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoggingInterceptor,
-      multi: true
-    }
-  ]
+  providers: [Title]
 })
 export class AuthenticationModule { }

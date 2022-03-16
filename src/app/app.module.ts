@@ -21,7 +21,7 @@ import { AuthGuard } from './core/guard/auth.guard';
 
 import { FormGuardGuard } from './core/guard/form-guard.guard';
 
-import { authInterceptorProviders, TokenIntercepterService } from './core/intercepters/token.service';
+import { TokenIntercepterService } from './core/intercepters/token.service';
 
 import { ErrorInterceptor } from './core/intercepters/error.interceptor';
 
@@ -60,8 +60,7 @@ import { SharedComponentsModule } from './modules/shared-components/shared-compo
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    },
-    authInterceptorProviders
+    }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

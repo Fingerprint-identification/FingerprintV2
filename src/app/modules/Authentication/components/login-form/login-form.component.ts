@@ -47,7 +47,6 @@ export class LoginFormComponent implements OnInit {
       this.LoginForm.get('Password')?.value
     ).subscribe({
       next: (data) => {
-        console.log(data);
         if (data.role == 'admin')
           this.router.navigate(['/Admin']);
         else {

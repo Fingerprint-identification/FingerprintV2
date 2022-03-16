@@ -23,7 +23,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           message = `${error.error.message}`;
         } else {
           // handle server-side error
-          message = `${error.error.message}`;
+          message = `${error.message}`;
         }
         return throwError(() => new Error(message));
       })

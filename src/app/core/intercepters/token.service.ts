@@ -1,16 +1,12 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 
-import { BehaviorSubject, catchError, filter, finalize, Observable, switchMap, take, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
 
-/**
- * Local referance for Token header key
- */
-const TOKEN_HEADER_KEY = 'x-access-token';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 /**
  * Token Injectable
@@ -20,33 +16,22 @@ const TOKEN_HEADER_KEY = 'x-access-token';
 })
 export class TokenIntercepterService implements HttpInterceptor {
 
-  private refreshTokenInProgress: boolean = false;
-  private refreshTokenSubject = new BehaviorSubject(null);
+  constructor(private Token: TokenStorageService) { }
 
-  constructor(private Token: TokenStorageService, private auth: AuthService) { }
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-    let AuthReq = req;
-
-    AuthReq = AuthReq.clone({
-      setHeaders: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const Token = this.Token.GetToken();
-    if (Token) {
-      AuthReq = AuthReq.clone({
-        setHeaders: {
-          Authorization: `Bearer ${Token}`,
-        }
-      })
+    // check about token
+    if (this.Token.GetToken()) {
+      request = this.AddToken(request, this.Token.GetToken()!);
     }
-    return next.handle(AuthReq);
+    return next.handle(request);
+  }
+  // add token to header
+  private AddToken(request: HttpRequest<any>, token: string) {
+    return request.clone({
+      setHeaders: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
   }
 }
-
-export const authInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: TokenIntercepterService, multi: true }
-];
