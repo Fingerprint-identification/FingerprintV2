@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 
 import { BehaviorSubject, Observable, of, tap } from "rxjs";
 
@@ -15,7 +16,8 @@ export class AuthService {
 
     constructor(
         private TokenStorage: TokenStorageService,
-        private api: ApiServicesService
+        private api: ApiServicesService,
+        private router: Router
     ) {
     }
 
@@ -33,5 +35,6 @@ export class AuthService {
     }
     SignOut(): void {
         window.sessionStorage.clear();
+        this.router.navigate(['/Home']);
     }
 }

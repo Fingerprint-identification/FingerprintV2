@@ -19,7 +19,7 @@
           <input class="form-control" type="text" placeholder="Default input" aria-label="default input example"
             placeholder="Your ID" formControlName="ID">
           <div class="alert alert-danger login-password__content__form__input-div__alert" role="alert"
-            *ngIf="Submitted && LoginForm.get('ID')?.errors">
+            *ngIf="LoginForm.get('ID')?.errors">
             <div *ngIf="LoginError('ID', 'required')">ID Required</div>
             <div *ngIf="LoginError('ID', 'minlength')">Min length must be 14 Number</div>
             <div *ngIf="LoginError('ID', 'maxlength')">Max length must be 14 Number</div>
@@ -33,7 +33,7 @@
             id="exampleInputPassword1" placeholder="Password" #PasswordField formControlName="Password">
 
           <div class="alert alert-danger login-password__content__form__input-div__alert" role="alert"
-            *ngIf="Submitted && LoginForm.get('Password')?.errors">
+            *ngIf="LoginForm.get('Password')?.errors">
             <div *ngIf="LoginError('Password', 'required')">Password Required</div>
             <div *ngIf="LoginError('Password', 'minlength')">Min length must be 5 Number</div>
           </div>
@@ -43,7 +43,7 @@
           <a routerLink="/Login/reset-password" class="login-password__content__form__input-div__password__reset">Reset
             Password?</a>
         </div>
-        <button type="submit" class="btn btn-primary login-password__content__form__button">Log in</button>
+        <button type="submit" class="btn btn-primary login-password__content__form__button" [disabled]="LoginForm.invalid">Log in</button>
       </form>
     </div>
   </div>
