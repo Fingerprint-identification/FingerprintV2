@@ -16,9 +16,7 @@ import { DeviceComponent } from './Components/device/device.component';
 
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 
-import { FooterComponent } from 'src/app/components/footer/footer.component';
-
-import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
 
 /**
  * The header module
@@ -30,14 +28,13 @@ import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
     HomeComponent,
     DeviceComponent,
     HomePageComponent,
-    NavbarComponent,
-    FooterComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedComponentsModule
   ]
 })
 export class HomeModule { }

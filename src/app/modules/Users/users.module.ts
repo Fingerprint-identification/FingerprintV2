@@ -14,9 +14,8 @@ import { PersonalComponent } from './components/personal/personal.component';
 
 import { FamilyComponent } from './components/family/family.component';
 
-import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
 
-import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 /**
  * User Module
@@ -28,12 +27,11 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     ProfilePageComponent,
     PersonalComponent,
     FamilyComponent,
-    // NavbarComponent,
-    // FooterComponent
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    SharedComponentsModule
   ]
 })
 export class UsersModule { }

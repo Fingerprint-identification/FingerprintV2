@@ -3,8 +3,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
 /* For hashing in routes */
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -31,6 +29,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { SharedComponentsModule } from './modules/shared-components/shared-components.module';
+
 
 /**
  * App module
@@ -46,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedComponentsModule
   ],
   providers: [
     Title,

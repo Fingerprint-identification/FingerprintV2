@@ -1,16 +1,13 @@
-/* common modules */
 import { NgModule } from '@angular/core';
 
-/* Hashing strategy # imports*/
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-/* Routes modules imports */
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-/* component imports */
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 import { PermissionGuard } from './core/guard/permission.guard';
+
 import { AuthGuard } from './core/guard/auth.guard';
 
 
@@ -20,10 +17,10 @@ const routes: Routes = [
   {
     path: 'Login',
     loadChildren: ()=> import('./modules/Authentication/authentication.module').then((m) => m.AuthenticationModule),
-    canActivate: [AuthGuard]
-    ,
+    canActivate: [AuthGuard],
+    // canLoad: [AuthGuard],
     data: {
-      title: 'Login',
+      title: 'Login'
     }
   },
   {

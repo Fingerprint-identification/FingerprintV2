@@ -1,9 +1,8 @@
-import { HttpClient } from "@angular/common/http";
-
 import { Injectable } from "@angular/core";
+
 import { Router } from "@angular/router";
 
-import { BehaviorSubject, Observable, of, tap } from "rxjs";
+import { Observable, tap } from "rxjs";
 
 import { ApiServicesService } from "./api-services.service";
 
@@ -25,12 +24,12 @@ export class AuthService {
         return this.api.Login(notional_id, password).pipe(
             tap((data: any) => {
                 this.TokenStorage.SaveToken(data.token);
-                this.TokenStorage.SaveUser(data.userData);
+                this.TokenStorage.SaveUser(data.role)
             })
         );
     }
 
-    isLoggedin(): boolean{
+    isLoggedin(): boolean {
         return (this.TokenStorage.GetToken()) ? true : false;
     }
     SignOut(): void {

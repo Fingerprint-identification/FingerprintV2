@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { ApiServicesService } from 'src/app/shared/services/api-services.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-login-form',
@@ -13,10 +15,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   ],
 })
 export class LoginFormComponent implements OnInit {
-  IsLoggedIn: boolean = false;
-  IsLoggidFailed: boolean = false;
+  Loading: boolean = false;
   MassegeError: string = '';
-  Submitted: boolean = false;
 
   LoginForm: FormGroup = new FormGroup({
     ID: new FormControl('', [
@@ -33,24 +33,31 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private Auth: AuthService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService,
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   OnSubmitLoggin() {
-    this.Submitted = true;
+    this.spinner.show();
     this.Auth.Login(
       this.LoginForm.get('ID')?.value,
       this.LoginForm.get('Password')?.value
     ).subscribe({
       next: (data) => {
-        if (data.userData.role == 'admin') {
+        console.log(data);
+        if (data.role == 'admin')
           this.router.navigate(['/Admin']);
+        else {
+          this.router.navigate(['/User']);
         }
-        else this.router.navigate(['/User']);
+        this.spinner.hide();
       },
       error: (err) => {
+        this.spinner.hide();
+        this.MassegeError = err.message;
         this.router.navigate(['/Login']);
       },
     });

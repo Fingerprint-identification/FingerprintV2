@@ -25,7 +25,7 @@
         <a class="nav-link" href="#">Documentation</a>
       </li>
       <li class="nav-item">
-        <a routerLink="/Login" class="btn btn-primary navbar__collapse__nav__login-button ml-2 " *ngIf="!isLoggedIn">Log in</a>
+        <a [routerLink]="['/Login']" class="btn btn-primary navbar__collapse__nav__login-button ml-2 " *ngIf="!isLoggedIn">Log in</a>
         <a class="btn btn-primary navbar__collapse__nav__login-button ml-2 " *ngIf="isLoggedIn" (click)="Logout()">Sign Out</a>
       </li>
     </ul>

@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const AUTH_API = "https://6221f299666291106a1836f7.mockapi.io/api/auth/";
+// const AUTH_API = "https://6221f299666291106a1836f7.mockapi.io/api/auth/";
+
+const AUTH_API = "https://still-escarpment-38033.herokuapp.com/api/users/";
 
 @Injectable({
   providedIn: 'root'

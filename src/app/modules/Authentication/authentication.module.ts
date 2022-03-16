@@ -26,6 +26,7 @@ import {HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { authInterceptorProviders } from 'src/app/core/intercepters/token.service';
 
+import { NgxSpinnerModule } from "ngx-spinner";
 
 /**
  * Auth module
@@ -44,6 +45,7 @@ import { authInterceptorProviders } from 'src/app/core/intercepters/token.servic
     AuthenticationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers:[Title,
     {

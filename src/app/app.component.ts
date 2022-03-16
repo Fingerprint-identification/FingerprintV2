@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd, Event, NavigationStart } from '@angular/router';
 
 import { NgxSpinnerService } from "ngx-spinner";
 import { filter, map, mergeMap } from 'rxjs';
@@ -19,12 +19,10 @@ export class AppComponent implements OnInit, OnDestroy {
   * Application main title
   */
   // title: string = 'Fingerprint-v2';
-
   /** */
   constructor(private spinner: NgxSpinnerService, private router: Router,
     private activatedRoute: ActivatedRoute, private titleService: Title) {
   }
-
   /**
   * The "ngOnInit"
   */
@@ -33,9 +31,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.spinner.show();
 
     setTimeout(() => {
-      /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 3000);
+    }, 2000);
 
     this.router.events
       .pipe(
