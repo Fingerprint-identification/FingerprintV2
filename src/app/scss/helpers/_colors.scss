@@ -11,6 +11,7 @@ $black-1:#00000029;
 $white: white;
 $dashboard-admin: #2A3B60;
 $dashboard-admin-titles: #6C5DD3;
+$accept: #07C828;
 $custom-theme-colors: (
   "b-blue": $main-color,
   "b-light-blue": $main-color-light,
@@ -24,5 +25,6 @@ $custom-theme-colors: (
   "s-black-1": $black-1,
   "s-white": $white,
   "d-dashboard-admin": $dashboard-admin,
-  "d-dashboard-admin-titles": $dashboard-admin-titles
+  "d-dashboard-admin-titles": $dashboard-admin-titles,
+  "a-accept": $accept,
 );

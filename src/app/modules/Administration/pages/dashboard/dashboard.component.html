@@ -18,22 +18,22 @@
                 Admin tools
               </p>
               <ul class="dashboard__sidebar__content__list__ul">
-                <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['signup']"  routerLinkActive="active">
+                <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['signup']"
+                  routerLinkActive="active">
                   <i class="bi bi-person-check dashboard__sidebar__content__list__ul__li__i"></i>
-                  <a class="dashboard__sidebar__content__list__ul__li__a" >Sign Up for user</a>
-                  <!-- <app-highlight [page]="'signup'" style="display: contents;"></app-highlight> -->
+                  <a class="dashboard__sidebar__content__list__ul__li__a">Sign Up for user</a>
                 </li>
-                <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['checkFingerprint']" routerLinkActive="active">
-                  <i class="bi bi-ui-checks dashboard__sidebar__content__list__ul__li__i" ></i>
-                  <a class="dashboard__sidebar__content__list__ul__li__a" >Check
+                <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['checkFingerprint']"
+                  routerLinkActive="active">
+                  <i class="bi bi-ui-checks dashboard__sidebar__content__list__ul__li__i"></i>
+                  <a class="dashboard__sidebar__content__list__ul__li__a">Check
                     Fingerprint</a>
-                  <!-- <app-highlight [page]="'checkFingerprint'" style="display: contents;"></app-highlight> -->
                 </li>
-                <li class="dashboard__sidebar__content__list__ul__li"  [routerLink]="['searchUser']" routerLinkActive="active">
-                  <i class="bi bi-search dashboard__sidebar__content__list__ul__li__i" ></i>
+                <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['searchUser']"
+                  routerLinkActive="active">
+                  <i class="bi bi-search dashboard__sidebar__content__list__ul__li__i"></i>
                   <a class="dashboard__sidebar__content__list__ul__li__a">Search for
                     user</a>
-                  <!-- <app-highlight [page]="'searchUser'" style="display: contents;"></app-highlight> -->
                 </li>
               </ul>
             </div>
@@ -56,7 +56,56 @@
         </div>
       </div>
       <div class="col-lg-9 col-md-8 col-sm-8 col-8">
-        <router-outlet></router-outlet>
+        <div class="row">
+          <div class="col-12">
+            <div class="dashboard__navbar">
+              <h1 class="dashboard__navbar__title">
+                User Register
+              </h1>
+              <div class="dashboard__navbar__icons">
+                <i class="bi bi-bell dashboard__navbar__icons__i"></i>
+                <i class="bi bi-gear dashboard__navbar__icons__i"></i>
+                <div class="dashboard__navbar__icons__profile">
+                  <img src="../../../../../assets/profile/profile.jpeg" alt=""
+                    class="dashboard__navbar__icons__profile__img">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-11 background-dashboard"
+            style="border-radius: 12px;">
+            <div class="row">
+              <div class="col-8 offset-2">
+                <div class="dashboard__component-icons">
+                  <div class="dashboard__component-icons__div-icon">
+                    <i class="bi bi-fingerprint dashboard__component-icons__div-icon__i"></i>
+                  </div>
+                  <div class="dashboard__component-icons__div-icon">
+                    <i class="bi bi-journal-check dashboard__component-icons__div-icon__i"></i>
+                  </div>
+                  <div class="dashboard__component-icons__div-icon">
+                    <i class="bi bi-journal-check dashboard__component-icons__div-icon__i"></i>
+                  </div>
+                  <div class="dashboard__component-icons__div-icon">
+                    <i class="bi bi-check-lg dashboard__component-icons__div-icon__i"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <router-outlet></router-outlet>
+            <div class="row">
+              <div class="offset-2 col-8">
+                <div class="dashboard__buttons">
+                  <a href="#" class="dashboard__buttons__a dashboard__buttons__a-back">Back</a>
+                  <a href="#" class="dashboard__buttons__a dashboard__buttons__a-next ">Next</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
