@@ -1,0 +1,112 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+/*
+  Global variable
+*/
+.active {
+  box-shadow: 0px 0px 10px #6c5dd3;
+  background-color: #6c5dd3;
+  border-radius: 14px;
+}
+.custem-col-sidebar{
+  padding-right: 6rem;
+}
+
+.dashboard {
+  &__sidebar {
+    display: flex;
+    min-height: 937px;
+    row-gap: 240px;
+    flex-direction: row;
+    background: transparent
+      linear-gradient(150deg, $dashboard-admin 0%, $black 100%) 0% 0%;
+    background-color: $dashboard-admin;
+    flex-wrap: wrap;
+    padding: 40px 20px ;
+    &__content {
+      &__logo {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 80px;
+        &__imgDiv {
+          width: 30%;
+          &__img {
+            max-width: 100%;
+          }
+        }
+        &__h3 {
+          font-size: 1.4vw;
+          color: $dashboard-admin-titles;
+          font-family: map-get($fonts, labelFont);
+        }
+      }
+      &__list {
+        font-family: map-get($map: $fonts, $key: paragraphFont);
+        &__title {
+          font-size: 1.5vw;
+          color: $dashboard-admin-titles;
+          font-weight: 600;
+        }
+        &__ul {
+          list-style: none;
+          padding: 0px 31px 0 0;
+          color: $white;
+          padding-left: 0;
+          &__li {
+            display: flex;
+            flex-direction: row;
+            z-index: 99;
+            padding: 15px 0;
+            &__i {
+              font-size: 1.2vw;
+              margin: 0 17px 0 30px;
+            }
+            &__a {
+              margin: 0;
+              font-size: 1.2vw;
+              text-decoration: none;
+              cursor: pointer;
+              color: white;
+            }
+          }
+        }
+      }
+      &__logout {
+        display: flex;
+        align-items: center;
+        height: 75px;
+        width: 90%;
+        border: 1px solid $dashboard-admin;
+        background: transparent;
+        padding: 0 10px 0 20px;
+        border-radius: 10px;
+        &__profileImg {
+          width: 16%;
+          border-radius: 50%;
+          margin-right: 20px;
+          &__img {
+            max-width: 100%;
+            border-radius: 50%;
+          }
+        }
+        &__Ps {
+          &__p {
+            margin: 0 10px 0 0;
+            font-size: 0.7vw;
+            font-family: map-get($map: $fonts, $key: labelFont);
+            color: $dashboard-admin-titles;
+            font-weight: 700;
+          }
+        }
+        &__i {
+          color: $dashboard-admin-titles;
+          font-size: 0.7vw;
+        }
+      }
+    }
+  }
+}

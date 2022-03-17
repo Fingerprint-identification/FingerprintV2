@@ -9,23 +9,29 @@ import { ScanFingerprintComponent } from './components/scan-fingerprint/scan-fin
 import { DoneComponent } from './components/done/done.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SignupUserComponent } from './pages/signup-user/signup-user.component';
+import { CheckFingerprintComponent } from './pages/check-fingerprint/check-fingerprint.component';
+import { SearchForUserComponent } from './pages/search-for-user/search-for-user.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 /**
  * Dashboard Module
  */
 @NgModule({
   declarations: [
-
-  
     UserInfoComponent,
-        UserFamilyInfoComponent,
-        ScanFingerprintComponent,
-        DoneComponent,
-        SidebarComponent,
-        DashboardComponent
+    UserFamilyInfoComponent,
+    ScanFingerprintComponent,
+    DoneComponent,
+    SidebarComponent,
+    DashboardComponent,
+    SignupUserComponent,
+    CheckFingerprintComponent,
+    SearchForUserComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
   ]
 })
 export class DashboardModule { }

@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ]
 })
 export class SharedComponentsModule { }
