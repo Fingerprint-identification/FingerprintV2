@@ -64,17 +64,13 @@
   &__toggler {
     border: none !important;
     &__span {
-      font-size: 42px;
-      @media (max-width: 575.98px) {
-        font-size: 33px;
-      }
+      font-size: 3.4rem;
     }
     &:focus {
       box-shadow: none !important;
     }
   }
   &__collapse {
-
     @include BreakPoint(md) {
       position: absolute;
       top: 82px;
