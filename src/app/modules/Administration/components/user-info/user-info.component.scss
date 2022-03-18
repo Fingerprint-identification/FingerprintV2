@@ -1,0 +1,86 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+[class$="__title"] {
+  border: 1px solid $dashboard-admin-titles;
+  background: $dashboard-admin-titles;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 12px;
+}
+[class$="__p"] {
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 7px 0;
+}
+[class$="__label"] {
+  font-size: 1.2rem !important;
+  margin-bottom: 0;
+}
+[class$="__input"] {
+  background: transparent;
+  font-size: 1.2rem;
+  color: $white;
+  border: none;
+  border-bottom: 1px solid $gray-color-brightness;
+  border-radius: 0;
+  &::placeholder {
+    color: $white;
+    font-size: 1.1rem;
+  }
+  &:focus {
+    box-shadow: 0 0 0 !important;
+  }
+}
+.personal-info {
+  font-family: map-get($map: $fonts, $key: paragraphFont);
+  color: $white;
+  flex: content;
+  &__content {
+    padding: 0 40px;
+    &__generate-information {
+      &__form {
+        &__form-check-parent {
+          display: flex;
+          flex-direction: column;
+          &__checks {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 12rem;
+            &__check {
+              &__input-ratio {
+                margin-right: 0.5rem;
+                border: 3px solid $gray-color;
+                background-color: $dashboard-admin;
+                &:focus {
+                  box-shadow: 0 0 0 !important;
+                }
+              }
+              &__label-ratio {
+                font-size: 1.1rem;
+              }
+            }
+          }
+        }
+        &__nationality {
+          display: flex;
+          flex-direction: column;
+          &__inputs {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            &__input {
+              margin-right: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

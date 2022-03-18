@@ -77,10 +77,10 @@
           <div class="col-11 background-dashboard" style="border-radius: 12px;">
             <router-outlet></router-outlet>
             <div class="row">
-              <div class="offset-2 col-8">
+              <div class="offset-1 col-10">
                 <div class="dashboard__buttons">
-                  <a href="#" class="dashboard__buttons__a dashboard__buttons__a-back">Back</a>
-                  <a href="#" class="dashboard__buttons__a dashboard__buttons__a-next ">Next</a>
+                  <a class="dashboard__buttons__a dashboard__buttons__a-back" (click)="Back()" >Back </a>
+                  <a class="dashboard__buttons__a dashboard__buttons__a-next" (click)="Next()">Next</a>
                 </div>
               </div>
             </div>
