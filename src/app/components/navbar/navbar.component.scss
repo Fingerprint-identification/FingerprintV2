@@ -73,7 +73,7 @@
   &__collapse {
     @include BreakPoint(md) {
       position: absolute;
-      top: 82px;
+      top: 90px;
       right: 63px;
       background-color: $nav-dropdown;
       border-radius: 14.6667px;
@@ -82,92 +82,41 @@
       @media (max-width: 380px) {
         padding: 5px 0;
       }
-      @media (min-width: 380px) and (max-width: 991.98px) {
-        padding: 43px 0;
+      @include custem-screen(xs, xlg){
+        padding: 20px 0;
       }
       @media (min-width: 991.98px) {
         display: contents;
       }
       .nav-link {
-        font-size: 22px;
-        padding-right: 32px;
-        padding-left: 24px;
+        font-size: 1.2rem;
+        padding-right: 1rem;
+        padding-left: 2rem;
         line-height: 23px;
         letter-spacing: -0.72px;
         text-align: left;
         color: $black !important;
-
-        @include BreakPoint(xxs) {
-          font-size: 15px;
+        @include BreakPoint(md){
+          font-size: 1.8rem;
           font-weight: bold;
-          margin-top: 10px !important;
-        }
-        @include custem-screen(xs, sm) {
-          font-size: 22px;
-          font-weight: bold;
-          margin-top: 23px !important;
-        }
-        @include custem-screen(sm, lg) {
-          font-size: 25px;
-          font-weight: bold;
-          margin-top: 23px !important;
-        }
-        @include custem-screen(lg, xlg) {
-          font-size: 18px;
-          padding-right: 19.2px;
-          padding-left: 5.2px;
-        }
-        @include custem-screen(xlg, xxlg) {
-          font-size: 21px;
-          padding-right: 25.6px;
-          padding-left: 5.2px;
+          margin-top: 1rem;
+          padding-right: 2rem;
         }
       }
-
       &__login-button {
-        font-size: 21px;
+        font-size: 1.2rem;
         font-family: map-get($fonts, labelFont);
         box-shadow: 0 0 1.6rem $shadow-color;
         margin: 0;
-        width: 221px;
-        padding: 16px;
-
-        @include BreakPoint(xxs) {
-          font-size: 15px;
-          font-weight: bold;
-          margin-top: 10px !important;
-          width: 93px;
-        }
+        padding: 16px 63px;
         @include BreakPoint(md) {
           background: transparent !important;
           box-shadow: none;
           color: $main-color;
-        }
-        @include custem-screen(xs, sm) {
-          width: 119px;
-          font-size: 20px;
+          font-size: 1.8rem;
+          padding: 16px 23px;
+          margin-top: 1rem;
           font-weight: bold;
-          margin-top: 11px !important;
-        }
-        @include custem-screen(sm, md) {
-          font-size: 25px;
-          width: 119px;
-          font-weight: bold;
-          margin-top: 23px !important;
-        }
-        @include custem-screen(md, lg) {
-          font-size: 25px;
-          font-weight: bold;
-          width: 119px;
-          margin-top: 23px !important;
-        }
-        @include custem-screen(lg, xlg) {
-          width: 187.8px;
-          font-size: 18px;
-        }
-        @include custem-screen(xlg, xxlg) {
-          width: 202.4px;
-          font-size: 22px;
         }
       }
     }
