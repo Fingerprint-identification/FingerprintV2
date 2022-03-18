@@ -114,18 +114,21 @@
         font-family: map-get($fonts, labelFont);
         box-shadow: 0 0 1.6rem $shadow-color;
         margin: 0;
-        padding: 16px 63px;
+        padding: 16px 63px 16px 63px;
         @include BreakPoint(md) {
           background: transparent !important;
           box-shadow: none;
           color: $main-color;
           font-size: 1.8rem;
-          padding: 16px 23px;
+          padding: 6px 23px 16px 23px;
           margin-top: 1rem;
           font-weight: bold;
         }
         @include screen(xs){
           padding-left: 0rem;
+        }
+        @include screen(xxs){
+          padding: 6px 17px 16px 17px;
         }
       }
     }
