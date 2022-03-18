@@ -82,8 +82,11 @@
       @media (max-width: 380px) {
         padding: 5px 0;
       }
-      @include custem-screen(xs, xlg){
+      @include custem-screen(sm, xlg){
         padding: 20px 0;
+      }
+      @include screen(xs){
+        padding: 40px 18px;
       }
       @media (min-width: 991.98px) {
         display: contents;
@@ -96,6 +99,9 @@
         letter-spacing: -0.72px;
         text-align: left;
         color: $black !important;
+        @include screen(xs){
+          padding-left: 0rem;
+        }
         @include BreakPoint(md){
           font-size: 1.8rem;
           font-weight: bold;
@@ -117,6 +123,9 @@
           padding: 16px 23px;
           margin-top: 1rem;
           font-weight: bold;
+        }
+        @include screen(xs){
+          padding-left: 0rem;
         }
       }
     }
