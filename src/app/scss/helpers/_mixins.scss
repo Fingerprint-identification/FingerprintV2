@@ -12,7 +12,8 @@
   }
   @font-face {
     font-family: "SFUIText-Medium";
-    src: url("/assets/fonts/San/SFUIText/SFUIText-Medium.otf") format("opentype");
+    src: url("/assets/fonts/San/SFUIText/SFUIText-Medium.otf")
+      format("opentype");
   }
   @font-face {
     font-family: "SFUIRegular";
@@ -25,32 +26,31 @@
   }
 }
 
-$screens:(
+$screens: (
   "xxs": 0,
   "xs": 380px,
   "sm": 575.98px,
   "md": 767.98px,
   "lg": 991.98px,
   "xlg": 1199.98px,
-  "xxlg": 1399px
+  "xxlg": 1399px,
 );
-$fonts:(
+$fonts: (
   headingFont: "SFUIRegular",
   paragraphFont: "BalooBhaijaan2Regular",
   labelFont: "SFUI",
-  Medium: "SFUIText-Medium"
+  Medium: "SFUIText-Medium",
 );
 
 /* =======================================
        Media query
 ==========================================*/
 
-@mixin custem-screen($firstScreen, $secondScreen){
+@mixin custem-screen($firstScreen, $secondScreen) {
   @media (min-width: map-get($screens, $firstScreen)) and (max-width: map-get($screens, $secondScreen)) {
     @content;
   }
 }
-
 
 @mixin screen($point) {
   @if $point == xxs {
@@ -122,6 +122,3 @@ $fonts:(
     }
   }
 }
-
-
-

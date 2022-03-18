@@ -13,6 +13,7 @@ import { SignupUserComponent } from './pages/signup-user/signup-user.component';
 import { CheckFingerprintComponent } from './pages/check-fingerprint/check-fingerprint.component';
 import { SearchForUserComponent } from './pages/search-for-user/search-for-user.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ComponentIconsComponent } from './components/component-icons/component-icons.component';
 /**
  * Dashboard Module
  */
@@ -28,6 +29,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     CheckFingerprintComponent,
     SearchForUserComponent,
     ProfileComponent,
+    ComponentIconsComponent,
   ],
   imports: [
     CommonModule,

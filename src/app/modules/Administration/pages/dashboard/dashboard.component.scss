@@ -143,41 +143,6 @@
       }
     }
   }
-  &__component-icons {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    padding: 50px 0;
-    position: relative;
-    overflow: hidden;
-    &__div-icon {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      width: 81px;
-      height: 81px;
-      border-radius: 50%;
-      background-color: $white;
-      position: relative;
-      z-index: 11;
-      &__i {
-        font-size: 43px;
-        color: $gray-color;
-      }
-      &:not(:last-child)::before {
-        content: "";
-        height: 3px;
-        width: 200px;
-        background: $gray-color-brightness;
-        position: absolute;
-        left: 81px;
-        z-index: -11;
-      }
-    }
-  }
   &__buttons {
     display: flex;
     flex-direction: row;

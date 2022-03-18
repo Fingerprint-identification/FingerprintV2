@@ -55,6 +55,11 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent
       },
+      {
+        path: '',
+        redirectTo: 'signup',
+        pathMatch: 'full'
+      }
     ]
   },
   {
