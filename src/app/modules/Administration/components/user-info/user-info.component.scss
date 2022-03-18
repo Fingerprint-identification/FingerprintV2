@@ -69,15 +69,13 @@
         }
         &__nationality {
           display: flex;
-          flex-direction: column;
-          &__inputs {
+          flex-direction: row;
+          justify-content: space-between;
+          &__field{
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            &__input {
-              margin-right: 3rem;
-            }
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 40%;
           }
         }
       }

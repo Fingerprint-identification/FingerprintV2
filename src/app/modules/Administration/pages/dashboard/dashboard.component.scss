@@ -10,8 +10,10 @@
 .custem-col-sidebar {
   padding-right: 4rem;
 }
-.background-dashboard {
+.custem-dashboard-style {
   background: transparent linear-gradient(150deg, #2a3b60 0%, #000 100%) 0% 0%;
+  overflow-y: scroll;
+  max-height: 770px;
 }
 
 .dashboard {
