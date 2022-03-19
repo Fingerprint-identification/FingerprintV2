@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
-import { FamilyComponent } from '../Users/components/family/family.component';
 import { DoneComponent } from './components/done/done.component';
 import { ScanFingerprintComponent } from './components/scan-fingerprint/scan-fingerprint.component';
+import { UserFamilyInfoComponent } from './components/user-family-info/user-family-info.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { CheckFingerprintComponent } from './pages/check-fingerprint/check-fingerprint.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { SearchForUserComponent } from './pages/search-for-user/search-for-user.component';
 import { SignupUserComponent } from './pages/signup-user/signup-user.component';
 
 const routes: Routes = [
@@ -31,7 +30,7 @@ const routes: Routes = [
           },
           {
             path: 'familyInfo',
-            component: FamilyComponent
+            component: UserFamilyInfoComponent
           },
           {
             path: 'scan',
@@ -46,10 +45,6 @@ const routes: Routes = [
       {
         path: 'checkFingerprint',
         component: CheckFingerprintComponent
-      },
-      {
-        path: 'searchUser',
-        component: SearchForUserComponent
       },
       {
         path: 'profile',

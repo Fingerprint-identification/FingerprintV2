@@ -11,7 +11,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SignupUserComponent } from './pages/signup-user/signup-user.component';
 import { CheckFingerprintComponent } from './pages/check-fingerprint/check-fingerprint.component';
-import { SearchForUserComponent } from './pages/search-for-user/search-for-user.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ComponentIconsComponent } from './components/component-icons/component-icons.component';
 /**
@@ -27,7 +26,6 @@ import { ComponentIconsComponent } from './components/component-icons/component-
     DashboardComponent,
     SignupUserComponent,
     CheckFingerprintComponent,
-    SearchForUserComponent,
     ProfileComponent,
     ComponentIconsComponent,
   ],

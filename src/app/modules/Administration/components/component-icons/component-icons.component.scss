@@ -2,14 +2,19 @@
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
 
-
+.row{
+  position: sticky; top: 0;
+  // background: transparent linear-gradient(150deg, #263658 0%, #000 100%) 0% 0%;
+  background: #1D2433 0% 0%;
+  z-index: 1;
+}
 .dashboard {
   &__component-icons {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    padding: 80px 0 60px 0;
+    padding: 50px 0 60px 0;
     position: relative;
     overflow: hidden;
     &__div-icon {
