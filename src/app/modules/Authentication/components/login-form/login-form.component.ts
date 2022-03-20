@@ -17,6 +17,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class LoginFormComponent implements OnInit {
   Loading: boolean = false;
   MassegeError: string = '';
+  Submited: boolean = false;
 
   LoginForm: FormGroup = new FormGroup({
     ID: new FormControl('', [
@@ -41,6 +42,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   OnSubmitLoggin() {
+    this.Submited = true;
     this.spinner.show();
     this.Auth.Login(
       this.LoginForm.get('ID')?.value,
