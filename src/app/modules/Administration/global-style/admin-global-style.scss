@@ -51,14 +51,17 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 40%;
+  @include BreakPoint(lg) {
+    width: 100%;
+  }
 }
 [class$="-content-fields"] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-[class$="__a"]{
-  text-decoration: none ;
+[class$="__a"] {
+  text-decoration: none;
   color: $white;
   font-family: map-get($map: $fonts, $key: paragraphFont);
 }
@@ -103,7 +106,7 @@
           &__field {
             &__i {
               position: absolute;
-              bottom:1.2rem;
+              bottom: 1.2rem;
               right: 0;
               font-size: 1.4rem;
               pointer-events: none;
@@ -113,26 +116,25 @@
         }
       }
     }
-    &__Health-information{
-      &__form-diseases-result{
-        &__diseas{
+    &__Health-information {
+      &__form-diseases-result {
+        &__diseas {
           display: flex;
-          justify-content: center;
+          margin-right: 10px;
           align-items: center;
           flex-direction: row;
 
-          &__p{
+          &__p {
             background-color: $white;
             color: $dashboard-admin-titles;
             margin: 0 !important;
-            padding: 6px 22px !important;
-            font-size: 1rem !important;
+            padding: 0.4rem 2rem !important;
+            font-size: 0.8rem !important;
+            margin-right: 20px !important;
             border-radius: 8px !important;
           }
         }
       }
-
     }
   }
 }
-

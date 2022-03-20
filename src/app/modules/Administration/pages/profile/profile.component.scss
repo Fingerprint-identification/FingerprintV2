@@ -27,13 +27,14 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  padding: 20px 82px 20px 161px;
+  padding: 20px 82px 20px 9rem;
   &__button {
     background: $main-color-brightness;
     border-radius: 5px;
     border: 2px solid $dashboard-admin-titles;
     background: $dashboard-admin-titles;
-    padding: 12px 33px;
+      padding: 0.6rem 1rem;
+    margin-right: 10px;
     font-size: 1.4vw;
     font-family: map-get($map: $fonts, $key: paragraphFont);
     cursor: pointer;
