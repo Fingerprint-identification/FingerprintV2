@@ -1,22 +1,30 @@
 <section class="dashboard">
   <div class="container-fluid g-0">
+     <!-- Sidebar -->
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-4 col-4 custem-col-sidebar">
         <div class="dashboard__sidebar">
+           <!-- Sidebar content-->
           <div class="dashboard__sidebar__content">
+             <!-- Sidebar title logo and h3-->
             <div class="dashboard__sidebar__content__logo">
+               <!-- Sidebar title logo-->
               <div class="dashboard__sidebar__content__logo__imgDiv my-3">
                 <img class="dashboard__sidebar__content__logo__imgDiv__img"
                   src="../../../../../assets/logo/Fingerprint_.png" alt="" />
               </div>
+              <!-- Sidebar title h3-->
               <h3 class="dashboard__sidebar__content__logo__h3">
                 Fingerprint Authentication
               </h3>
             </div>
+            <!-- Sidebar list of pages -->
             <div class="dashboard__sidebar__content__list">
+               <!-- Sidebar list of pages title -->
               <p class="dashboard__sidebar__content__list__title">
                 Admin tools
               </p>
+              <!-- Sidebar ul list of pages -->
               <ul class="dashboard__sidebar__content__list__ul">
                 <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['signup']"
                   routerLinkActive="active">
@@ -32,11 +40,14 @@
               </ul>
             </div>
           </div>
+          <!-- Sidebar logout div  -->
           <div class="dashboard__sidebar__content__logout">
+            <!-- Sidebar logout div img -->
             <div class="dashboard__sidebar__content__logout__profileImg">
               <img class="dashboard__sidebar__content__logout__profileImg__img"
                 src="../../../../../assets/profile/profile.jpeg" alt="" />
             </div>
+            <!-- Sidebar logout div paragraphs -->
             <div class="dashboard__sidebar__content__logout__Ps">
               <p class="dashboard__sidebar__content__logout__Ps__p">
                 Ammmr Mahmoud
@@ -45,17 +56,22 @@
                 3014 353 235 1234
               </p>
             </div>
+            <!-- Sidebar logout div icon -->
             <i class="bi bi-caret-down-fill dashboard__sidebar__content__logout__i"></i>
           </div>
         </div>
       </div>
       <div class="col-lg-9 col-md-8 col-sm-8 col-8">
+        <!-- Navbar -->
         <div class="row">
           <div class="col-12">
+            <!-- dashboard navbar-->
             <div class="dashboard__navbar">
+              <!-- dashboard navbar title -->
               <h1 class="dashboard__navbar__title">
                 User Register
               </h1>
+              <!-- dashboard navbar icons -->
               <div class="dashboard__navbar__icons">
                 <i class="bi bi-bell dashboard__navbar__icons__i"></i>
                 <i class="bi bi-gear dashboard__navbar__icons__i"></i>
@@ -67,9 +83,11 @@
             </div>
           </div>
         </div>
+        <!-- Content of dashboard -->
         <div class="row">
           <div class="col-11 custem-dashboard-style disable-scrollbars" style="border-radius: 12px;">
             <router-outlet></router-outlet>
+            <!-- Next and back buttons -->
             <div class="row">
               <div class="offset-1 col-10">
                 <div class="dashboard__buttons">

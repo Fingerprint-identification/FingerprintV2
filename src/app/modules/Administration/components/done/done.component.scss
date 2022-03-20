@@ -1,7 +1,6 @@
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
 
-
 .done-word{
   display: flex;
   justify-content: center;
@@ -10,6 +9,6 @@
   &__h1{
     color: $white;
     font-family: map-get($map: $fonts, $key: headingFont);
-    margin: 8rem 0;
+    margin: 7rem 0;
   }
 }

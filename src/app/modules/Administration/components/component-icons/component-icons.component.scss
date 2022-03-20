@@ -17,7 +17,14 @@
     padding: 50px 0 60px 0;
     position: relative;
     overflow: hidden;
-    &__div-icon {
+    &__icon-div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 25%;
+      word-break: break-all;
+      align-self:stretch;
+    &__icon {
       display: flex;
       justify-content: space-between;
       flex-direction: row;
@@ -29,11 +36,12 @@
       background-color: $white;
       position: relative;
       z-index: 11;
+      margin-bottom: 3px;
       &__i {
         font-size: 43px;
         color: $gray-color;
       }
-      &:not(:last-child)::before {
+      &::before {
         content: "";
         height: 3px;
         width: 200px;
@@ -42,6 +50,21 @@
         left: 81px;
         z-index: -11;
       }
+      &-last{
+        &::before {
+          content: "";
+          height: 0 !important;
+          width: 0 !important;
+        }
+      }
+    }
+
+    &__icon-title{
+      color: $white;
+      font-family: map-get($map: $fonts, $key: paragraphFont);
+      font-size: 1rem;
+      padding: 0 10px;
     }
   }
+}
 }
