@@ -13,6 +13,8 @@ import { CheckFingerprintComponent } from './pages/check-fingerprint/check-finge
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ComponentIconsComponent } from './components/component-icons/component-icons.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
+import { UserSearchedInfoComponent } from './components/user-searched-info/user-searched-info.component';
+import { FamilySearchedInfoComponent } from './components/family-searched-info/family-searched-info.component';
 /**
  * Dashboard Module
  */
@@ -28,6 +30,8 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
     ProfileComponent,
     ComponentIconsComponent,
     ButtonsComponent,
+    UserSearchedInfoComponent,
+    FamilySearchedInfoComponent,
   ],
   imports: [
     CommonModule,

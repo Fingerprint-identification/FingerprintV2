@@ -27,12 +27,12 @@
               <!-- Sidebar ul list of pages -->
               <ul class="dashboard__sidebar__content__list__ul">
                 <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['signup']"
-                  routerLinkActive="active">
+                  routerLinkActive="active" [ngClass]="{'active' : router.url.includes('signup')}">
                   <i class="bi bi-person-check dashboard__sidebar__content__list__ul__li__i"></i>
                   <a class="dashboard__sidebar__content__list__ul__li__a">Sign Up for user</a>
                 </li>
                 <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['checkFingerprint']"
-                  routerLinkActive="active">
+                  routerLinkActive="active" [ngClass]="{'active' : router.url.includes('profile')}">
                   <i class="bi bi-ui-checks dashboard__sidebar__content__list__ul__li__i"></i>
                   <a class="dashboard__sidebar__content__list__ul__li__a">Check
                     Fingerprint</a>

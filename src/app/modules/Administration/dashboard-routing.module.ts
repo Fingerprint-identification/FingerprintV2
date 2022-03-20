@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
 import { DoneComponent } from './components/done/done.component';
+import { FamilySearchedInfoComponent } from './components/family-searched-info/family-searched-info.component';
 import { ScanFingerprintComponent } from './components/scan-fingerprint/scan-fingerprint.component';
 import { UserFamilyInfoComponent } from './components/user-family-info/user-family-info.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { UserSearchedInfoComponent } from './components/user-searched-info/user-searched-info.component';
 import { CheckFingerprintComponent } from './pages/check-fingerprint/check-fingerprint.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -48,7 +50,21 @@ const routes: Routes = [
       },
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        children: [
+          {
+            path:'userSearchedInfo',
+            component: UserSearchedInfoComponent
+          },
+          {
+            path:'familySearchedInfo',
+            component: FamilySearchedInfoComponent
+          },{
+            path:'',
+            redirectTo:'userSearchedInfo',
+            pathMatch:'full'
+          }
+        ]
       },
       {
         path: '',
