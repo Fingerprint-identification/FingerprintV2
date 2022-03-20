@@ -30,24 +30,25 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      width: 81px;
-      height: 81px;
+      width: 4rem;
+      height: 4rem;
       border-radius: 50%;
       background-color: $white;
       position: relative;
       z-index: 11;
       margin-bottom: 3px;
+      margin: 0 3rem 0.8rem 3rem;
       &__i {
-        font-size: 43px;
+        font-size: 2rem;
         color: $gray-color;
       }
       &::before {
         content: "";
         height: 3px;
-        width: 200px;
+        width: 10rem;
         background: $gray-color-brightness;
         position: absolute;
-        left: 81px;
+        left: 1rem;
         z-index: -11;
       }
       &-last{
@@ -62,8 +63,7 @@
     &__icon-title{
       color: $white;
       font-family: map-get($map: $fonts, $key: paragraphFont);
-      font-size: 1rem;
-      padding: 0 10px;
+      font-size: 0.8rem;
     }
   }
 }
