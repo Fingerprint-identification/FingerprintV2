@@ -1,0 +1,62 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+[class$="__button"] {
+  border: 2px solid $dashboard-admin-titles;
+  background: $dashboard-admin-titles;
+  border-radius: 11px;
+  padding: 12px 46px;
+  font-size: 1.4vw;
+  font-family: map-get($map: $fonts, $key: paragraphFont);
+  cursor: pointer;
+  color: $white;
+}
+
+.check {
+  &__title-scan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 90px 0;
+    color: $gray-color;
+    font-size: 1.3rem;
+    font-family: map-get($map: $fonts, $key: paragraphFont);
+    font-weight: 200;
+  }
+  &__finger {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &__finger-img {
+      width: 250px;
+      height: 250px;
+      border: 2px solid #bdbbff;
+      border-radius: 16px;
+      padding: 30px;
+      &__img {
+        max-width: 100%;
+      }
+    }
+
+  }
+  &__ByID {
+    padding-right: 24% ;
+    &__ID {
+      &__label{
+        color: $gray-color !important;
+        font-family: map-get($map: $fonts, $key: paragraphFont);
+        font-size: 1.5rem;
+      }
+      &__input {
+        border: 2px solid $dashboard-admin-titles !important;
+        border-radius: 14px !important;
+        padding: 21px 19px;
+      }
+    }
+    &__button{
+      width: 100%;
+    }
+  }
+}

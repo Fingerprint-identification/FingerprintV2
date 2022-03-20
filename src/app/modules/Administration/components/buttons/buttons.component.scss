@@ -1,0 +1,27 @@
+/* import colors and mixins*/
+@use "~../../../../../../scss/helpers/colors" as *;
+@use "~../../../../../../scss/helpers/mixins" as *;
+
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px 0;
+  &__a {
+    border: 2px solid $dashboard-admin-titles;
+    border-radius: 11px;
+    text-decoration: none !important;
+    padding: 16px 82px;
+    font-size: 1.4vw;
+    font-family: map-get($map: $fonts, $key: paragraphFont);
+    cursor: pointer;
+    &-next {
+      background: $dashboard-admin-titles;
+      color: white;
+    }
+    &-back {
+      color: $gray-color-brightness;
+    }
+  }
+}
