@@ -17,6 +17,9 @@
     margin-bottom: 50px;
     border-radius: 5px;
     cursor: pointer;
+    @include BreakPoint(lg){
+      padding: 57px 10px;
+    }
     &__a{
       font-size: 1rem;
     }
