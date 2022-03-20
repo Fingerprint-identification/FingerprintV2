@@ -33,7 +33,7 @@
 }
 [class$="__input"] {
   background: transparent;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: $white;
   border: none;
   border-bottom: 1px solid $gray-color-brightness;
@@ -41,6 +41,9 @@
   &::placeholder {
     color: $gray-color-brightness;
     font-size: 1.1rem;
+    @include BreakPoint(xlg){
+      font-size: 0.8rem;
+    }
   }
   &:focus {
     box-shadow: 0 0 0 !important;
@@ -107,11 +110,12 @@
           &__field {
             &__i {
               position: absolute;
-              bottom: 1.2rem;
+              bottom: 1.5rem;
               right: 0;
-              font-size: 1.4rem;
+              font-size: 1.1rem;
               pointer-events: none;
               color: $dashboard-admin-titles;
+
             }
           }
         }
