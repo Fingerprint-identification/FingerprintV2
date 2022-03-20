@@ -9,20 +9,23 @@
 }
 .custem-col-sidebar {
   padding-right: 4rem;
-  @include custem-screen(lg, xxlg){
+  @include custem-screen(lg, xxlg) {
     padding-right: 2rem;
   }
 }
 .custem-dashboard-style {
-  background: #1D2433 0% 0%;
+  background: #1d2433 0% 0%;
   overflow-y: scroll;
-  height: 750px;
+  height: 81vh;
+  @include BreakPoint(lg){
+    height: 79vh;
+  }
 }
 
 .dashboard {
   &__sidebar {
     display: flex;
-    min-height: 937px;
+    min-height: 100vh;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
@@ -31,6 +34,9 @@
     background-color: $dashboard-admin;
     flex-wrap: wrap;
     padding: 40px 20px;
+    @include BreakPoint(lg) {
+      min-height: 79vh;
+    }
     &__content {
       &__logo {
         display: flex;
