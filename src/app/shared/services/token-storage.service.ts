@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
@@ -12,43 +12,43 @@ const USER_KEY = 'auth-user'
 })
 export class TokenStorageService {
 
-    constructor(private router: Router) { }
+    constructor(private router: Router,  private cookieService: CookieService) { }
 
     public SaveToken(Token: string): void {
-        window.sessionStorage.removeItem(TOKEN_KEY);
-        window.sessionStorage.setItem(TOKEN_KEY, Token);
+        this.cookieService.delete(TOKEN_KEY);
+        this.cookieService.set(TOKEN_KEY, Token);
     }
 
     public SaveActivePin(): void {
-        window.sessionStorage.removeItem("Pin");
-        window.sessionStorage.setItem("Pin", "true");
+        this.cookieService.delete("Pin");
+        this.cookieService.set("Pin", "true");
     }
 
     public returnActivePin(): string|null {
-        return window.sessionStorage.getItem("Pin");
+        return this.cookieService.get("Pin");
     }
 
     public SaveActiveConfirm(): void {
-        window.sessionStorage.removeItem("Confirm");
-        window.sessionStorage.setItem("Confirm", "true");
-        window.sessionStorage.removeItem("Pin");
+        this.cookieService.delete("Confirm");
+        this.cookieService.set("Confirm", "true");
+        this.cookieService.delete("Pin");
     }
 
     public returnActiveConfirm(): string|null {
-        return window.sessionStorage.getItem("Confirm");
+        return this.cookieService.get("Confirm");
     }
 
     public GetToken(): string | null {
-        return window.sessionStorage.getItem(TOKEN_KEY);
+        return this.cookieService.get(TOKEN_KEY);
     };
 
     public SaveUser(user: any): void {
-        window.sessionStorage.removeItem(USER_KEY);
-        window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+        this.cookieService.delete(USER_KEY);
+        this.cookieService.set(USER_KEY, JSON.stringify(user));
     }
 
     public GetUser(): any {
-        const user = window.sessionStorage.getItem(USER_KEY);
+        const user = this.cookieService.get(USER_KEY);
         if (user) {
             return JSON.parse(user);
         }

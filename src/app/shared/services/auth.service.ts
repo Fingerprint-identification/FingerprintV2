@@ -8,6 +8,9 @@ import { ApiServicesService } from "./api-services.service";
 
 import { TokenStorageService } from "./token-storage.service";
 
+import { CookieService } from 'ngx-cookie-service';
+
+
 @Injectable({
     providedIn: "root",
 })
@@ -16,7 +19,8 @@ export class AuthService {
     constructor(
         private TokenStorage: TokenStorageService,
         private api: ApiServicesService,
-        private router: Router
+        private router: Router,
+        private cookieService: CookieService
     ) {
     }
 
@@ -52,7 +56,7 @@ export class AuthService {
         return (this.TokenStorage.GetToken()) ? true : false;
     }
     SignOut(): void {
-        window.sessionStorage.clear();
+        this.cookieService.deleteAll();
         this.router.navigate(['/Home']);
     }
 }

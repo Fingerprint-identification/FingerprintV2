@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedComponentsModule } from './modules/shared-components/shared-components.module';
 
+import { CookieService } from 'ngx-cookie-service';
 
 /**
  * App module
@@ -45,6 +46,7 @@ import { SharedComponentsModule } from './modules/shared-components/shared-compo
   ],
   providers: [
     Title,
+    CookieService,
     AuthGuard, FormGuardGuard, Meta
     , {
       provide: HTTP_INTERCEPTORS,
