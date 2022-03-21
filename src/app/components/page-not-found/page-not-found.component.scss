@@ -14,7 +14,11 @@
     }
   }
   .content {
-    h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__h1 {
       text-align: center;
       white-space: pre-wrap;
       font-weight: 900;
@@ -27,7 +31,7 @@
         font-size: 7vw;
       }
     }
-    p {
+    &__p {
       font-size: 1vw;
       letter-spacing: 0em;
       line-height: 1.7em;
@@ -37,6 +41,16 @@
       @include BreakPoint(sm) {
         font-size: 2.5vw;
       }
+    }
+    &__a {
+      border: 2px solid $dashboard-admin-titles;
+      border-radius: 11px;
+      text-decoration: none !important;
+      padding: 1rem 7rem;
+      font-size: 1.2rem;
+      font-family: map-get($map: $fonts, $key: paragraphFont);
+      background: $dashboard-admin-titles;
+      color: white;
     }
   }
 }

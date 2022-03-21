@@ -28,7 +28,12 @@ export class AuthService {
             })
         );
     }
-
+    GeneratePinCode(phone: string){
+        return this.api.GeneratePinCode(phone);
+    }
+    Pin(pin: number) {
+        return this.api.Pin(pin);
+    }
     isLoggedin(): boolean {
         return (this.TokenStorage.GetToken()) ? true : false;
     }

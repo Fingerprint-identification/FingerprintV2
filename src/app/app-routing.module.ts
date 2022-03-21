@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'Login',
     loadChildren: ()=> import('./modules/Authentication/authentication.module').then((m) => m.AuthenticationModule),
     canActivate: [AuthGuard],
-    // canLoad: [AuthGuard],
+    canLoad: [AuthGuard],
     data: {
       title: 'Login'
     }

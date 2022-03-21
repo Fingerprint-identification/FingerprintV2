@@ -19,6 +19,25 @@ export class TokenStorageService {
         window.sessionStorage.setItem(TOKEN_KEY, Token);
     }
 
+    public SaveActivePin(): void {
+        window.sessionStorage.removeItem("Pin");
+        window.sessionStorage.setItem("Pin", "true");
+    }
+
+    public returnActivePin(): string|null {
+        return window.sessionStorage.getItem("Pin");
+    }
+
+    public SaveActiveConfirm(): void {
+        window.sessionStorage.removeItem("Confirm");
+        window.sessionStorage.setItem("Confirm", "true");
+        window.sessionStorage.removeItem("Confirm");
+    }
+
+    public returnActiveConfirm(): string|null {
+        return window.sessionStorage.getItem("Confirm");
+    }
+
     public GetToken(): string | null {
         return window.sessionStorage.getItem(TOKEN_KEY);
     };

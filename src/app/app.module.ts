@@ -3,18 +3,12 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 
-/* For hashing in routes */
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
-/* Http imports */
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-/* App routing */
 import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-/* App component */
 import { AppComponent } from './app.component';
 
 import { AuthGuard } from './core/guard/auth.guard';

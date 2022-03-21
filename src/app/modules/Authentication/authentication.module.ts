@@ -20,14 +20,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 
 import { Title } from '@angular/platform-browser';
 
-
 import { NgxSpinnerModule } from "ngx-spinner";
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenIntercepterService } from 'src/app/core/intercepters/token.service';
 
-/**
- * Auth module
- */
 
 @NgModule({
   declarations: [

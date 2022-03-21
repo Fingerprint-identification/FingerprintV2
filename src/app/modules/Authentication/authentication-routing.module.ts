@@ -17,6 +17,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { ApiServicesService } from 'src/app/shared/services/api-services.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { PinGuard } from 'src/app/core/guard/pin.guard';
+import { ConfirmGuard } from 'src/app/core/guard/confirm.guard';
 
 /** Auth router  */
 const routes: Routes = [
@@ -43,6 +45,8 @@ const routes: Routes = [
       {
         path: 'pin-password',
         component: ResetPinComponent,
+        canActivate: [PinGuard],
+        canLoad: [PinGuard],
         data: {
           title: 'Pin password'
         }
@@ -50,6 +54,8 @@ const routes: Routes = [
       {
         path: 'confirm-password',
         component: ConfirmPasswordComponent,
+        canActivate: [ConfirmGuard],
+        canLoad: [ConfirmGuard],
         data: {
           title: 'Confirm password'
         }

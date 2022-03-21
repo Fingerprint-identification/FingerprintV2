@@ -3,8 +3,11 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  CanLoad,
+  Route,
   Router,
   RouterStateSnapshot,
+  UrlSegment,
   UrlTree,
 } from '@angular/router';
 
@@ -16,7 +19,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanLoad {
   constructor(private Auth: AuthService, private router: Router) {
   }
   canActivate(
@@ -27,6 +30,16 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    if (this.Auth.isLoggedin()) {
+      this.router.navigate(['/Home']);
+      return false;
+    } else {
+      return true;
+    }
+  }
+  canLoad(
+    route: Route,
+    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.Auth.isLoggedin()) {
       this.router.navigate(['/Home']);
       return false;

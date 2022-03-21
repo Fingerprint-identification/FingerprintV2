@@ -4,5 +4,5 @@
  */
 export const environment = {
   production: true,
-  apiUrl: 'https://reqres.in/api/'
+  apiUrl: 'https://still-escarpment-38033.herokuapp.com/'
 };

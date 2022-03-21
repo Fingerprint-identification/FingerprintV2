@@ -44,6 +44,8 @@ export class LoginFormComponent implements OnInit {
   OnSubmitLoggin() {
     this.Submited = true;
     this.spinner.show();
+    if(this.LoginForm.invalid)
+      return;
     this.Auth.Login(
       this.LoginForm.get('ID')?.value,
       this.LoginForm.get('Password')?.value
@@ -58,7 +60,7 @@ export class LoginFormComponent implements OnInit {
       },
       error: (err) => {
         this.spinner.hide();
-        this.MassegeError = err.message;
+        this.MassegeError = "User not founded please, try again!";
         this.router.navigate(['/Login']);
       },
     });

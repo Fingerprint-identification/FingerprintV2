@@ -37,7 +37,7 @@
             id="exampleInputPassword1" placeholder="Password" #PasswordField formControlName="Password">
 
           <div class="alert alert-danger login-password__content__form__input-div__alert" role="alert"
-            *ngIf="LoginForm.get('Password')?.errors || MassegeError && Submited">
+            *ngIf="(LoginForm.get('Password')?.errors || MassegeError) && Submited">
             <div *ngIf="LoginError('Password', 'required')">Password Required</div>
             <div *ngIf="LoginError('Password', 'minlength')">Min length must be 5 Number</div>
             <div *ngIf="MassegeError">{{ MassegeError }}</div>
