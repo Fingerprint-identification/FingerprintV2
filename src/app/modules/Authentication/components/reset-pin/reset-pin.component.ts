@@ -42,7 +42,8 @@ export class ResetPinComponent implements OnInit {
     if (this.PinForm.invalid)
       return;
     this.auth.Pin(this.PinForm.get('Pin')?.value).subscribe({
-      next: (_) => {
+      next: (data: any) => {
+        console.log(data);
         this.router.navigate(['Login/confirm-password']);
         this.spinner.hide();
       },

@@ -29,11 +29,25 @@ export class AuthService {
         );
     }
     GeneratePinCode(phone: string){
-        return this.api.GeneratePinCode(phone);
+        return this.api.GeneratePinCode(phone).pipe(
+            tap((_) => {
+                this.TokenStorage.SaveActivePin();
+            })
+        );
     }
     Pin(pin: number) {
-        return this.api.Pin(pin);
+        return this.api.Pin(pin).pipe(
+            tap((data: any) => {
+                this.TokenStorage.SaveActiveConfirm()
+                this.TokenStorage.SaveToken(data.token);
+            })
+        );
     }
+
+    Confirm(password: string, passwordConfirm: string) {
+        return this.api.Confirm(password, passwordConfirm);
+    }
+    
     isLoggedin(): boolean {
         return (this.TokenStorage.GetToken()) ? true : false;
     }

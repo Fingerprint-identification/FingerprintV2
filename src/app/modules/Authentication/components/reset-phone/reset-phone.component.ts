@@ -47,7 +47,6 @@ export class ResetPhoneComponent implements OnInit {
       return;
     this.auth.GeneratePinCode(this.ForgetForm.get('Phone')?.value).subscribe({
       next: (_) => {
-        this.storageToken.SaveActivePin();
         this.router.navigate(['Login/pin-password']);
         this.spinner.hide();
       },

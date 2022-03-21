@@ -31,7 +31,7 @@ export class TokenStorageService {
     public SaveActiveConfirm(): void {
         window.sessionStorage.removeItem("Confirm");
         window.sessionStorage.setItem("Confirm", "true");
-        window.sessionStorage.removeItem("Confirm");
+        window.sessionStorage.removeItem("Pin");
     }
 
     public returnActiveConfirm(): string|null {

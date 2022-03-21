@@ -33,6 +33,12 @@ export class ApiServicesService {
             code
         });
     }
+    Confirm(password: string, passwordConfirm: string) {
+        return this.Http.post(AUTH_API + 'updateForgotPassword', {
+            password,
+            passwordConfirm
+        });
+    }
     GetUserById(id: number): Observable<any> {
         return this.Http.get(AUTH_API + 'login/' + id);
     }
