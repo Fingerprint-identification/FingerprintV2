@@ -1,8 +1,8 @@
 <div class="alert alert-danger login-password__content__form__input-div__alert" role="alert"
-  *ngIf="Form.get(control)?.errors">
+  *ngIf="Form.get(control)?.errors || MassegeError">
   <div *ngIf="FormError(control, 'required')">{{ control }} Required</div>
-  <div *ngIf="FormError(control, 'minlength')">Min length must be {{ minLength }} Number</div>
-  <div *ngIf="FormError(control, 'maxlength')">Max length must be {{ maxLength }} Number</div>
-  <div *ngIf="FormError(control, 'pattern')">{{ control }} must be {{ pattern }}</div>
+  <div *ngIf="minLength && FormError(control, 'minlength')">Min length must be {{ minLength }} Number</div>
+  <div *ngIf="maxLength && FormError(control, 'maxlength')">Max length must be {{ maxLength }} Number</div>
+  <div *ngIf="pattern && FormError(control, 'pattern')">{{ control }} must be {{ pattern }}</div>
   <div *ngIf="MassegeError">{{ MassegeError }}</div>
 </div>
