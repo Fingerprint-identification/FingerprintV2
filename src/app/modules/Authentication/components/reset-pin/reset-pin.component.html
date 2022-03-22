@@ -9,36 +9,68 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="pin-password__content__image-div">
-        <img class="pin-password__content__image-div__img" src="../../../../../assets//Login/Forgot password-pana.svg"
-          alt="">
+        <img
+          class="pin-password__content__image-div__img"
+          src="../../../../../assets//Login/Forgot password-pana.svg"
+          alt=""
+        />
       </div>
     </div>
     <div class="col-lg-6">
-      <form class="pin-password__content__form" [formGroup]="PinForm" (ngSubmit)="ConfirmPage()" novalidate>
+      <form
+        class="pin-password__content__form"
+        [formGroup]="PinForm"
+        (ngSubmit)="ConfirmPage()"
+        novalidate
+      >
         <div class="ID mb-4 pin-password__content__form__input-div">
           <p class="pin-password__content__form__input-div__p">
-            Enter the verification code we just sent you on <span
-              class="me-1 pin-password__content__form__input-div__p__span">01122334455</span> <a href="#"
-              class="pin-password__content__form__input-div__p__a">change</a>
+            Enter the verification code we just sent you on
+            <span class="me-1 pin-password__content__form__input-div__p__span"
+              >{{ phone }}</span
+            >
+            <a routerLink="/Login/reset-password" class="pin-password__content__form__input-div__p__a"
+              >change</a
+            >
           </p>
-          <input class="form-control pin-password__content__form__input-div__input" id="yourNumber" type="text" placeholder="Default input"
-            aria-label="default input example" placeholder="000000" maxlength="6" formControlName="Pin">
-            <div class="alert alert-danger login-password__content__form__input-div__alert mt-2" role="alert"
-            *ngIf="(PinForm.get('Pin')?.errors || MassegeError) && Submited">
-            <div *ngIf="PinError('Pin', 'required')">Pin Required</div>
-            <div *ngIf="PinError('Pin', 'minlength')">Min length must be 10 Number</div>
-            <div *ngIf="PinError('Pin', 'maxlength')">Max length must be 10 Number</div>
-            <div *ngIf="PinError('Pin', 'pattern')">Please Pin must be numbers only</div>
-            <div *ngIf="MassegeError">{{ MassegeError }}</div>
+          <input
+            class="form-control pin-password__content__form__input-div__input"
+            id="yourNumber"
+            type="text"
+            placeholder="Default input"
+            aria-label="default input example"
+            placeholder="000000"
+            maxlength="6"
+            formControlName="Pin"
+          />
+
+          <div class="pin-password__content__form__input-div__ERROR">
+            <app-validation-errors-component
+              [Form]="PinForm"
+              [control]="'Pin'"
+              [pattern]="'Numbers'"
+              [MassegeError]="MassegeError"
+              *ngIf="Submited"
+            ></app-validation-errors-component>
+
           </div>
           <p class="pin-password__content__form__input-div__p-recieve">
             if you didn't receive a code!
-            <a href="#" class="ms-2 pin-password__content__form__input-div__p-recieve__a">
+            <a
+              routerLink="/Login/reset-password"
+              class="ms-2 pin-password__content__form__input-div__p-recieve__a"
+            >
               Resend
             </a>
           </p>
         </div>
-        <button type="submit" class="btn btn-primary pin-password__content__form__button"
-          >Confirm</button>
+        <button
+          type="submit"
+          class="btn btn-primary pin-password__content__form__button"
+        >
+          Confirm
+        </button>
       </form>
     </div>
+  </div>
+</div>

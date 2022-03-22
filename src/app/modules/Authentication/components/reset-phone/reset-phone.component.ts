@@ -22,6 +22,7 @@ export class ResetPhoneComponent implements OnInit {
   MassegeError: string = '';
 
   ForgetForm: FormGroup = new FormGroup({
+    // validation of the range of characters that user should enter
     Phone: new FormControl('', [
       Validators.required,
       Validators.minLength(10),
@@ -34,7 +35,6 @@ export class ResetPhoneComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private spinner: NgxSpinnerService,
-    private storageToken: TokenStorageService
   ) { }
 
   ngOnInit(): void {
@@ -43,10 +43,16 @@ export class ResetPhoneComponent implements OnInit {
   ToGeneratePinCode() {
     this.Submited = true;
     this.spinner.show();
-    if (this.ForgetForm.invalid)
+
+    // if the fields is blank and if any of fields is invalid
+    if (this.ForgetForm.invalid){
+      this.spinner.hide();
       return;
+    }
+
+    // if all things is true
     this.auth.GeneratePinCode(this.ForgetForm.get('Phone')?.value).subscribe({
-      next: (_) => {
+      next: (data) => {
         this.router.navigate(['Login/pin-password']);
         this.spinner.hide();
       },
@@ -61,9 +67,5 @@ export class ResetPhoneComponent implements OnInit {
         }, 2000)
       },
     })
-    // this.router.navigate(['Login/pin-password']);
-  }
-  ForgetError(control: string, error: string): any {
-    return this.ForgetForm.controls[control].hasError(error);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { ApiServicesService } from 'src/app/shared/services/api-services.service';
@@ -20,6 +20,7 @@ export class LoginFormComponent implements OnInit {
   Submited: boolean = false;
 
   LoginForm: FormGroup = new FormGroup({
+    // validation of the range of characters that user should enter
     ID: new FormControl('', [
       Validators.required,
       Validators.minLength(14),
@@ -28,7 +29,7 @@ export class LoginFormComponent implements OnInit {
     ]),
     Password: new FormControl('', [
       Validators.required,
-      Validators.minLength(5),
+      Validators.minLength(8),
     ]),
   });
 
@@ -43,9 +44,15 @@ export class LoginFormComponent implements OnInit {
 
   OnSubmitLoggin() {
     this.Submited = true;
+
     this.spinner.show();
-    if(this.LoginForm.invalid)
+
+    // if the fields is blank and if any of fields is invalid
+    if (this.LoginForm.invalid){
+      this.spinner.hide();
       return;
+    }
+    // if all things is true
     this.Auth.Login(
       this.LoginForm.get('ID')?.value,
       this.LoginForm.get('Password')?.value
@@ -66,7 +73,4 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  LoginError(control: string, error: string): any {
-    return this.LoginForm.controls[control].hasError(error);
-  }
 }

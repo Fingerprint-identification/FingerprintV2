@@ -54,4 +54,10 @@ export class TokenStorageService {
         }
         return {};
     }
+    public SavePhoneNumber(phone: string): void{
+        this.cookieService.set("Phone", phone);
+    }
+    public GetPhoneNumber(): any{
+        return '0' + this.cookieService.get("Phone");
+    }
 }

@@ -32,9 +32,10 @@ export class AuthService {
             })
         );
     }
-    GeneratePinCode(phone: string){
+    GeneratePinCode(phone: string) {
         return this.api.GeneratePinCode(phone).pipe(
             tap((_) => {
+                this.TokenStorage.SavePhoneNumber(phone);
                 this.TokenStorage.SaveActivePin();
             })
         );
@@ -47,13 +48,18 @@ export class AuthService {
             })
         );
     }
-
     Confirm(password: string, passwordConfirm: string) {
         return this.api.Confirm(password, passwordConfirm);
     }
-    
+
     isLoggedin(): boolean {
-        return (this.TokenStorage.GetToken()) ? true : false;
+        console.log("F", this.TokenStorage.GetToken() )
+        if(this.TokenStorage.GetToken()){
+            if(this.TokenStorage.GetUser())
+                return true;
+            return false;
+        }
+        return false;
     }
     SignOut(): void {
         this.cookieService.deleteAll();

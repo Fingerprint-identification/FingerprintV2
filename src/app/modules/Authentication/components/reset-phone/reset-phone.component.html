@@ -9,26 +9,53 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="reset-password__content__image-div">
-        <img class="reset-password__content__image-div__img"
-          src="../../../../../assets//Login/Forgot password-pana.svg" alt="">
+        <img
+          class="reset-password__content__image-div__img"
+          src="../../../../../assets//Login/Forgot password-pana.svg"
+          alt=""
+        />
       </div>
     </div>
     <div class="col-lg-6">
-      <form class="reset-password__content__form" [formGroup]="ForgetForm" (ngSubmit)="ToGeneratePinCode()" novalidate>
+      <form
+        class="reset-password__content__form"
+        [formGroup]="ForgetForm"
+        (ngSubmit)="ToGeneratePinCode()"
+        novalidate
+      >
         <div class="ID mb-5 reset-password__content__form__input-div">
-          <label class="reset-password__content__form__input-div__label" for="yourNumber">Enter Your Phone Number</label>
-          <input class="form-control" id="yourNumber" type="text" placeholder="Default input"
-            aria-label="default input example" placeholder="x xxx xxx xxx" formControlName="Phone">
-            <div class="alert alert-danger login-password__content__form__input-div__alert mt-2" role="alert"
-            *ngIf="(ForgetForm.get('Phone')?.errors || MassegeError) && Submited">
-            <div *ngIf="ForgetError('Phone', 'required')">Phone Required</div>
-            <div *ngIf="ForgetError('Phone', 'minlength')">Min length must be 10 Number</div>
-            <div *ngIf="ForgetError('Phone', 'maxlength')">Max length must be 10 Number</div>
-            <div *ngIf="ForgetError('Phone', 'pattern')">Please type phone without the first 0</div>
-            <div *ngIf="MassegeError">{{ MassegeError }}</div>
-          </div>
+          <label
+            class="reset-password__content__form__input-div__label"
+            for="yourNumber"
+            >Enter Your Phone Number</label
+          >
+          <input
+            class="form-control"
+            id="yourNumber"
+            type="text"
+            placeholder="Default input"
+            aria-label="default input example"
+            placeholder="x xxx xxx xxx"
+            formControlName="Phone"
+          />
+
+          <app-validation-errors-component
+            [Form]="ForgetForm"
+            [control]="'Phone'"
+            [minLength]="10"
+            [maxLength]="10"
+            [pattern]="'loaded without the first 0'"
+            [MassegeError]="MassegeError"
+            *ngIf="Submited"
+          ></app-validation-errors-component>
         </div>
-        <button type="submit" class="btn btn-primary reset-password__content__form__button"
-          >Generate Code</button>
+        <button
+          type="submit"
+          class="btn btn-primary reset-password__content__form__button"
+        >
+          Generate Code
+        </button>
       </form>
     </div>
+  </div>
+</div>

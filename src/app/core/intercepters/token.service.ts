@@ -8,9 +8,7 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
 
 import { AuthService } from 'src/app/shared/services/auth.service';
 
-/**
- * Token Injectable
- */
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,7 +28,7 @@ export class TokenIntercepterService implements HttpInterceptor {
   private AddToken(request: HttpRequest<any>, token: string) {
     return request.clone({
       setHeaders: {
-        'Authorization': `Bearer ${token}`
+        'Authorization':`${token}`
       }
     });
   }
