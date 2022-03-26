@@ -3,7 +3,7 @@
 @use "~../../../../../scss/helpers/mixins" as *;
 
 [class$="-info"] {
-  font-family: map-get($map: $fonts, $key: paragraphFont);
+  font-family: map-get($map: $fonts, $key: paragraphFont) !important;
   color: $white;
   flex: content;
 }
@@ -12,8 +12,8 @@
 }
 
 [class$="__title"] {
-  border: 1px solid $dashboard-admin-titles;
-  background: $dashboard-admin-titles;
+  border: 1px solid $dashboard-admin-titles !important;
+  background: $dashboard-admin-titles !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,24 +25,25 @@
   font-size: 1.3rem;
   margin: 0;
   padding: 7px 0;
+  color: $white;
 }
 [class$="__label"] {
   font-size: 1.2rem !important;
   margin-bottom: 0;
-  color: $white;
+  color: $white !important;
 }
-[class$="__input"] {
-  background: transparent;
-  font-size: 1.1rem;
-  color: $white;
-  border: none;
-  border-bottom: 1px solid $gray-color-brightness;
-  border-radius: 0;
+.form-control {
+  background: transparent !important;
+  font-size: 1.1rem !important;
+  color: $white !important;
+  border: none !important;
+  border-bottom: 1px solid $gray-color-brightness !important;
+  border-radius: 0 !important;
   &::placeholder {
-    color: $gray-color-brightness;
-    font-size: 1.1rem;
-    @include BreakPoint(xlg){
-      font-size: 0.8rem;
+    color: $gray-color-brightness !important;
+    font-size: 1.1rem !important;
+    @include BreakPoint(xlg) {
+      font-size: 0.8rem !important;
     }
   }
   &:focus {
@@ -50,12 +51,12 @@
   }
 }
 [class$="__field"] {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 40%;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  width: 40% !important;
   @include BreakPoint(lg) {
-    width: 100%;
+    width: 100% !important;
   }
 }
 [class$="-content-fields"] {
@@ -115,7 +116,6 @@
               font-size: 1.1rem;
               pointer-events: none;
               color: $dashboard-admin-titles;
-
             }
           }
         }

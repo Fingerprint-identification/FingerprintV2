@@ -15,6 +15,11 @@ import { ComponentIconsComponent } from './components/component-icons/component-
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { UserSearchedInfoComponent } from './components/user-searched-info/user-searched-info.component';
 import { FamilySearchedInfoComponent } from './components/family-searched-info/family-searched-info.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
+
+
 /**
  * Dashboard Module
  */
@@ -36,6 +41,9 @@ import { FamilySearchedInfoComponent } from './components/family-searched-info/f
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedComponentsModule
   ]
 })
 export class DashboardModule { }

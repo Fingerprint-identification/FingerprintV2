@@ -14,6 +14,29 @@ export class TokenStorageService {
 
     constructor(private router: Router,  private cookieService: CookieService) { }
 
+    public SaveUserSignUpData(data: any, name: string){
+        this.cookieService.set(name, JSON.stringify(data));
+    }
+    public GetUserSignUpData(name: string){
+        const data = this.cookieService.get(name);
+        if (data) {
+            return JSON.parse(data);
+        }
+        return {};
+    }
+    public DeleteUserSignUpData(name: string){
+        this.cookieService.delete(name);
+    }
+    public SaveDiseases(data: string[], name: string){
+        this.cookieService.set(name, JSON.stringify(data));
+    }
+    public GetDiseases(name: string){
+        const Diseases = this.cookieService.get(name);
+        if (Diseases) {
+            return JSON.parse(Diseases);
+        }
+        return {};
+    }
     public SaveToken(Token: string): void {
         this.cookieService.delete(TOKEN_KEY);
         this.cookieService.set(TOKEN_KEY, Token);

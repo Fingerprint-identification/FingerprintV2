@@ -1,12 +1,21 @@
 <div class="row">
   <div class="col-12">
     <div class="scan-fingerprint">
-    <div class="scan-fingerprint__finger-img">
-      <img src="../../../../../assets/icons/blue Fingerprint.svg" alt="" class="scan-fingerprint__finger-img__img">
-    </div>
-    <p class="scan-fingerprint__p">
-      Put your Finger on the scanner
-    </p>
+      <div class="scan-fingerprint__finger-img">
+        <input name="selectFile" id="selectFile" #imageInput (change)="uploadImage(imageInput)" type="file"
+          [hidden]="true" class="form-control btn btn-success" />
+        <label for="selectFile" role="button">
+          <ng-container *ngIf="!ImgUploaded; else greenImg">
+            <img src="../../../../../assets/icons/blue Fingerprint.svg" class="scan-fingerprint__finger-img__img">
+          </ng-container>
+          <ng-template #greenImg>
+            <img src="../../../../../assets/icons/green fingerprint.svg" class="scan-fingerprint__finger-img__img">
+          </ng-template>
+        </label>
+      </div>
+      <p class="scan-fingerprint__p">
+        Put your Finger on the scanner
+      </p>
     </div>
   </div>
 </div>

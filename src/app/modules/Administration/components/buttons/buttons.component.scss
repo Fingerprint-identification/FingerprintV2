@@ -2,7 +2,9 @@
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
 
-
+.disabled{
+  pointer-events:none;
+}
 .buttons {
   display: flex;
   flex-direction: row;

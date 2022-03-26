@@ -27,7 +27,7 @@ const routes: Routes = [
           },
           {
             path: '',
-            redirectTo: 'userInfo',
+            redirectTo: 'scan',
             pathMatch: 'full'
           },
           {

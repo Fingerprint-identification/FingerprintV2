@@ -26,8 +26,8 @@ const routes: Routes = [
   {
     path: 'Admin',
     loadChildren: ()=> import('./modules/Administration/dashboard.module').then((m) => m.DashboardModule),
-    // canActivate:[PermissionGuard],
-    // canLoad: [PermissionGuard],
+     canActivate:[PermissionGuard],
+     canLoad: [PermissionGuard],
     data: {
       title: 'Admin',
       role: 'admin'

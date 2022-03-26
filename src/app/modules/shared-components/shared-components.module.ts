@@ -11,7 +11,7 @@ import { ValidationErrorsComponentComponent } from 'src/app/components/validatio
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
-    ValidationErrorsComponentComponent
+    ValidationErrorsComponentComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +21,7 @@ import { ValidationErrorsComponentComponent } from 'src/app/components/validatio
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
-    ValidationErrorsComponentComponent
+    ValidationErrorsComponentComponent,
   ]
 })
 export class SharedComponentsModule { }

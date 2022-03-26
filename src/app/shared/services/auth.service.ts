@@ -9,6 +9,8 @@ import { ApiServicesService } from "./api-services.service";
 import { TokenStorageService } from "./token-storage.service";
 
 import { CookieService } from 'ngx-cookie-service';
+import { PersonalData } from "src/app/core/models/userData";
+import { FormGroup } from "@angular/forms";
 
 
 @Injectable({
@@ -45,17 +47,19 @@ export class AuthService {
             tap((data: any) => {
                 this.TokenStorage.SaveActiveConfirm()
                 this.TokenStorage.SaveToken(data.token);
+                console.log(data.token);
             })
         );
     }
     Confirm(password: string, passwordConfirm: string) {
         return this.api.Confirm(password, passwordConfirm);
     }
+    sendUserData() {
 
+    }
     isLoggedin(): boolean {
-        console.log("F", this.TokenStorage.GetToken() )
-        if(this.TokenStorage.GetToken()){
-            if(this.TokenStorage.GetUser())
+        if (this.TokenStorage.GetToken()) {
+            if (this.TokenStorage.GetUser())
                 return true;
             return false;
         }
@@ -65,4 +69,5 @@ export class AuthService {
         this.cookieService.deleteAll();
         this.router.navigate(['/Home']);
     }
+
 }

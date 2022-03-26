@@ -10,6 +10,7 @@ import { ValidationData } from 'src/app/core/models/validationData';
 export class ValidationErrorsComponentComponent implements OnInit {
   @Input() Form !: FormGroup;
   @Input() control !: string;
+  @Input() required !: string;
   @Input() MassegeError !: string;
   @Input() maxLength !: number;
   @Input() minLength !: number;

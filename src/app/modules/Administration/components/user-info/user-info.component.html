@@ -1,10 +1,9 @@
-<form class="personal-info">
+<form class="personal-info" [formGroup]="UserForm" (change)="FormEdited()" novalidate>
   <div class="row">
     <div class="col-6">
       <div class="personal-info__content">
         <div class="row">
           <div class="col-12">
-
             <!-- general information -->
             <div class="personal-info__content__generate-information">
               <div class="row">
@@ -19,17 +18,18 @@
               <div class="row">
                 <div class="col-12">
                   <div class="personal-info__content__generate-information__form">
-
                     <!-- full name -->
                     <div class="my-3 personal-info__content__generate-information__form__full-name">
                       <label for="fullName"
                         class="form-label personal-info__content__generate-information__form__full-name__label">Full
                         Name</label>
-                      <input type="text"
+                      <input name="FullName" type="text"
                         class="form-control personal-info__content__generate-information__form__full-name__input"
-                        id="fullName" placeholder="Ammmr mahmoud">
-                    </div>
+                        id="fullName" placeholder="Ammmr mahmoud" formControlName="FullName" />
 
+                      <app-validation-errors-component [Form]="UserForm" [control]="'FullName'" [minLength]="3"
+                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                    </div>
                     <!-- Check gender -->
                     <div class="personal-info__content__generate-information__form__form-check-parent">
                       <label for="ratio-check"
@@ -43,22 +43,31 @@
                           id="ratio-check">
                           <input
                             class="form-check-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
-                            type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            type="radio" id="male" name="Gender" value="male" formControlName="Gender" />
+
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
-                            for="flexRadioDefault1">
+                            for="male">
                             Male
                           </label>
+
+                          <app-validation-errors-component [Form]="UserForm" [control]="'Gender'"
+                            [MassegeError]="MassegeError"></app-validation-errors-component>
+
                         </div>
                         <div class="personal-info__content__generate-information__form__form-check-parent__check">
                           <input
                             class="form-check-input form-check-parent-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
-                            type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            type="radio" id="female" value="female" checked name="Gender" formControlName="Gender" />
+
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
-                            for="flexRadioDefault2">
+                            for="female">
                             Female
                           </label>
+                          <app-validation-errors-component [Form]="UserForm" [control]="'Gender'"
+                            [MassegeError]="MassegeError"></app-validation-errors-component>
+
                         </div>
                       </div>
                     </div>
@@ -68,22 +77,31 @@
                       class="input-group mb-3 personal-info__content__generate-information__form__nationality-content-fields">
                       <div
                         class="my-3 personal-info__content__generate-information__form__nationality-content-fields__field">
-                        <label for="fullName"
-                          class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">Egyption</label>
-                        <input type="text"
+                        <label for="nationality"
+                          class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">Nationality</label>
+                        <input type="text" id="nationality" formControlName="Nationality"
                           class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
-                          placeholder="Egyption" aria-label="Egyption">
+                          placeholder="Egyption" aria-label="Egyption" />
+
+                        <app-validation-errors-component [Form]="UserForm" [control]="'Nationality'" [minLength]="5"
+                          [pattern]="'Egyption'" [MassegeError]="MassegeError"></app-validation-errors-component>
                       </div>
+
                       <div
                         class="my-3 personal-info__content__generate-information__form__nationality-content-fields__field">
-                        <label for="fullName"
+                        <label for="ID"
                           class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">ID</label>
-                        <input type="text"
+                        <input type="text" id="ID" formControlName="ID"
                           class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
-                          placeholder=" 3014 353 235 1234 " aria-label="ID">
+                          placeholder=" 3014 353 235 1234 " aria-label="ID" />
+
+
+                        <app-validation-errors-component [Form]="UserForm" [control]="'ID'" [minLength]="14"
+                          [maxLength]="14" [pattern]="'Numbers'" [MassegeError]="MassegeError">
+                        </app-validation-errors-component>
+
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -107,21 +125,28 @@
                       class="input-group mb-3 personal-info__content__Birthday-information__form__Birthday-content-fields">
                       <div
                         class="my-3 personal-info__content__Birthday-information__form__Birthday-content-fields__field">
-                        <label for="fullName"
+                        <label for="BirthPlace"
                           class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">Birth
                           Place</label>
-                        <input type="text"
+                        <input type="text" id="BirthPlace" formControlName="BirthPlace"
                           class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
-                          placeholder="Cairo" aria-label="Birth Place">
+                          placeholder="Cairo" aria-label="Birth Place" />
+
+                        <app-validation-errors-component [Form]="UserForm" [control]="'BirthPlace'"
+                          [MassegeError]="MassegeError"></app-validation-errors-component>
                       </div>
                       <div
                         class="my-3 personal-info__content__Birthday-information__form__Birthday-content-fields__field">
-                        <label for="Birth Date"
+                        <label for="BirthDate"
                           class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">Birth
                           Date</label>
-                        <input type="date"
+                        <input type="date" id="BirthDate" formControlName="BirthDate"
                           class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
-                          aria-label="Birth Date">
+                          aria-label="Birth Date" />
+
+                        <app-validation-errors-component [Form]="UserForm" [control]="'BirthDate'"
+                          [MassegeError]="MassegeError"></app-validation-errors-component>
+
                         <i
                           class="bi bi-calendar2-week personal-info__content__Birthday-information__form__Birthday-content-fields__field__i"></i>
                       </div>
@@ -151,25 +176,30 @@
                     <div class="my-3 personal-info__content__Connection-information__form__phone">
                       <label for="phone"
                         class="form-label personal-info__content__Connection-information__form__phone__label">Phone</label>
-                      <input type="text"
+                      <input type="text" formControlName="Phone"
                         class="form-control personal-info__content__Connection-information__form__phone__input"
-                        id="phone" placeholder="01003623286">
+                        id="phone" placeholder="01003623286" />
+
+                      <app-validation-errors-component [Form]="UserForm" [control]="'Phone'" [minLength]="10"
+                        [maxLength]="10" [pattern]="'loaded without the first 0'" [MassegeError]="MassegeError">
+                      </app-validation-errors-component>
                     </div>
 
-                    <!-- Phone -->
+                    <!-- Email -->
                     <div class="my-3 personal-info__content__Connection-information__form__email">
                       <label for="email"
                         class="form-label personal-info__content__Connection-information__form__email__label">Email</label>
-                      <input type="email"
+                      <input type="email" formControlName="Email"
                         class="form-control personal-info__content__Connection-information__form__email__input" email
-                        id="email" placeholder="name@example.com">
-                    </div>
+                        id="email" placeholder="name@example.com" email />
 
+                      <app-validation-errors-component [Form]="UserForm" [pattern]="'valid email'" [control]="'Email'"
+                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -199,10 +229,13 @@
                     <div class="my-3 personal-info__content__Address-information__form__current-address">
                       <label for="current-address"
                         class="form-label personal-info__content__Address-information__form__current-address__label">Current
-                        Address</label>
-                      <input type="text"
+                        Street</label>
+                      <input type="text" formControlName="Street"
                         class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="current-address" placeholder="Ismailia, Hospital street, next to post office">
+                        id="current-address" placeholder="Ismailia, Hospital street, next to post office" />
+
+                      <app-validation-errors-component [Form]="UserForm" [control]="'Street'"
+                        [MassegeError]="MassegeError"></app-validation-errors-component>
                     </div>
 
                     <!-- Current City -->
@@ -210,13 +243,14 @@
                       <label for="current-address"
                         class="form-label personal-info__content__Address-information__form__current-address__label">Current
                         Address</label>
-                      <input type="current-address"
+                      <input type="text"
                         class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="email" placeholder="Ismailia">
+                        id="current-address" placeholder="Ismailia" formControlName="Address" name="Address" />
+
+                      <app-validation-errors-component [Form]="UserForm" [control]="'Address'"
+                        [MassegeError]="MassegeError"></app-validation-errors-component>
                     </div>
-
                   </div>
-
                 </div>
               </div>
             </div>
@@ -243,9 +277,12 @@
                         class="form-label personal-info__content__Health-information__form__Diseases__label">Diseases</label>
                       <input type="text"
                         class="form-control personal-info__content__Health-information__form__Diseases__input"
-                        id="Diseases" placeholder="add diseases">
-                    </div>
+                        name="Diseases" #Diseases id="Diseases" placeholder="add diseases" formControlName="Diseases"
+                        (keydown.enter)="AddDiseases(Diseases)" />
 
+                      <app-validation-errors-component [Form]="UserForm" [control]="'Diseases'"
+                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -256,7 +293,9 @@
                     <div class="row" *ngIf="diseasesSubject$ | async as diseases">
                       <div class="col-lg-3 mt-2 me-5" *ngFor="let diseas of diseases">
                         <div class="personal-info__content__Health-information__form-diseases-result__diseas">
-                          <p class="personal-info__content__Health-information__form-diseases-result__diseas__p"> {{diseas}} </p>
+                          <p class="personal-info__content__Health-information__form-diseases-result__diseas__p">
+                            {{ diseas }}
+                          </p>
                         </div>
                       </div>
                     </div>

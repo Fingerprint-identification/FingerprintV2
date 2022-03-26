@@ -34,7 +34,7 @@ export class ApiServicesService {
         });
     }
     Confirm(password: string, passwordConfirm: string) {
-        return this.Http.post(AUTH_API + 'updateForgotPassword', {
+        return this.Http.patch(AUTH_API + 'updateForgotPassword', {
             password,
             passwordConfirm
         });

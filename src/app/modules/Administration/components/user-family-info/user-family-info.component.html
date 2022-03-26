@@ -1,10 +1,9 @@
-<form class="family-info">
+<form class="family-info" [formGroup]="FamilyForm" (change)="FormEdited()" novalidate>
   <div class="row">
     <div class="col-6">
       <div class="family-info__content">
         <div class="row">
           <div class="col-12">
-
             <!-- mather Information -->
             <div class="family-info__content__mother-information">
               <div class="row">
@@ -28,9 +27,18 @@
                       <label for="mother-name"
                         class="form-label family-info__content__mother-information__form__mother-name__label">Mother
                         Name</label>
-                      <input type="text"
+                      <input type="text" formControlName="mother_FullName"
                         class="form-control family-info__content__mother-information__form__mother-name__input"
-                        id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset">
+                        id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset" />
+
+                        <app-validation-errors-component
+                        [Form]="FamilyForm"
+                        [control]="'mother_FullName'"
+                        [minLength]="3"
+                        [MassegeError]="MassegeError"
+
+                      ></app-validation-errors-component>
+
                     </div>
 
                     <!-- Mother ID -->
@@ -38,24 +46,45 @@
                       <label for="mother-id"
                         class="form-label family-info__content__mother-information__form__mother-id__label">Mother
                         ID</label>
-                      <input type="mother-id"
+                      <input type="mother-id" formControlName="mother_ID"
                         class="form-control family-info__content__mother-information__form__mother-id__input"
-                        id="mother-id" placeholder="3014 353 235 1234">
-                    </div>
+                        id="mother-id" placeholder="3014 353 235 1234" />
 
+
+                        <app-validation-errors-component
+                        [Form]="FamilyForm"
+                        [control]="'mother_ID'"
+                        [minLength]="14"
+                        [maxLength]="14"
+                        [MassegeError]="MassegeError"
+
+                      ></app-validation-errors-component>
+
+
+                    </div>
 
                     <!-- Mother nathonality -->
                     <div class="my-3 family-info__content__mother-information__form__mother-nationality">
                       <label for="mother-nationality"
                         class="form-label family-info__content__mother-nationalityformation__form__mother-nationality__label">Mother
                         Nathonality</label>
-                      <input type="mother-nationality"
+                      <input type="mother-nationality" formControlName="mother_Nationality"
                         class="form-control family-info__content__mother-nationalityformation__form__mother-nationality__input"
-                        id="mother-nationality" placeholder="Egyptian">
+                        id="mother-nationality" placeholder="Egyptian" />
+
+                        <app-validation-errors-component
+                        [Form]="FamilyForm"
+                        [control]="'mother_Nationality'"
+                        [minLength]="5"
+                        [maxLength]="5"
+                        [pattern]="'Egyption'"
+                        [MassegeError]="MassegeError"
+
+                      ></app-validation-errors-component>
+
+
                     </div>
-
                   </div>
-
                 </div>
               </div>
             </div>
@@ -67,7 +96,6 @@
       <div class="family-info__content">
         <div class="row">
           <div class="col-12">
-
             <!-- mather Information -->
             <div class="family-info__content__father-information">
               <div class="row">
@@ -90,35 +118,63 @@
                 <label for="father-name"
                   class="form-label family-info__content__father-information__form__father-name__label">Father
                   Name</label>
-                <input type="text"
+                <input type="text" formControlName="father_FullName"
                   class="form-control family-info__content__father-information__form__father-name__input"
-                  id="father-name" placeholder="Lara Samy Ashraf Abdul Basset">
+                  id="father-name" placeholder="Lara Samy Ashraf Abdul Basset" />
+
+                  <app-validation-errors-component
+                  [Form]="FamilyForm"
+                  [control]="'father_FullName'"
+                  [minLength]="3"
+                  [MassegeError]="MassegeError"
+
+                ></app-validation-errors-component>
+
+
               </div>
 
               <!-- father ID -->
               <div class="my-3 family-info__content__father-information__form__father-id">
                 <label for="father-id"
                   class="form-label family-info__content__father-information__form__father-id__label">Father ID</label>
-                <input type="father-id"
+                <input type="father-id" formControlName="father_ID"
                   class="form-control family-info__content__father-information__form__father-id__input" id="father-id"
-                  placeholder="3014 353 235 1234">
-              </div>
+                  placeholder="3014 353 235 1234" />
 
+
+                  <app-validation-errors-component
+                  [Form]="FamilyForm"
+                  [control]="'father_ID'"
+                  [minLength]="14"
+                  [maxLength]="14"
+                  [MassegeError]="MassegeError"
+
+                ></app-validation-errors-component>
+
+
+
+              </div>
 
               <!-- father nathonality -->
               <div class="my-3 family-info__content__father-information__form__father-nationality">
                 <label for="father-nationality"
                   class="form-label family-info__content__father-nationalityformation__form__father-nationality__label">Father
                   Nathonality</label>
-                <input type="father-nationality"
+                <input type="father-nationality" formControlName="father_Nationality"
                   class="form-control family-info__content__father-nationalityformation__form__father-nationality__input"
-                  id="father-nationality" placeholder="Egyptian">
+                  id="father-nationality" placeholder="Egyptian" />
+
+                  <app-validation-errors-component
+                  [Form]="FamilyForm"
+                  [control]="'father_Nationality'"
+                  [minLength]="5"
+                  [maxLength]="5"
+                  [pattern]="'Egyption'"
+                  [MassegeError]="MassegeError"
+                ></app-validation-errors-component>
+
               </div>
-
-
             </div>
-
-
           </div>
         </div>
       </div>
