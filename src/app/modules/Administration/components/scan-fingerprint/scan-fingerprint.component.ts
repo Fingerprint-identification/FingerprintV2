@@ -12,18 +12,25 @@ export class ScanFingerprintComponent implements OnInit {
   constructor(private TokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
-    // check if admin uploaded fingerprint image
-    this.ImgUploaded = (this.TokenStorage.GetUserSignUpData("fingerprint")) ? true : false;
+    if(this.TokenStorage.GetUserSignUpData("fingerprint") === "false"){
+      this.ImgUploaded = false;
+    }else
+      this.ImgUploaded = true;
   }
   // image uploaded
   uploadImage(imageInput: any) {
     const file: File = imageInput.files[0];
-    if (!file)
-      return;
-    // send file to python to return matrix
-
+    if(file){
+      this.TokenStorage.SaveUserSignUpData("ss", "fingerprint");
+      this.ImgUploaded = true;
+    }
+    else{
+      this.ImgUploaded = false;
+      this.TokenStorage.DeleteUserSignUpData("fingerprint");
+    }
     // save matrix to upload it with data
-    // this.TokenStorage.SaveUserSignUpData(fingerprint, "fingerprint");
+    // this.TokenStorage.SaveUserSignUpData(file, "fingerprint");
+    // send file to python to return matrix
 
   }
 }

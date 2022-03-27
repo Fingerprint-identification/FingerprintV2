@@ -16,12 +16,14 @@ export class UserFamilyInfoComponent implements OnInit {
   FamilyForm!: FormGroup;
   FamilyData !: any;
   MassegeError !: string;
+  disable : boolean = true;
 
   constructor(private TokenStorage: TokenStorageService, private router: Router, private auth: AuthService) {
 
   }
 
   ngOnInit(): void {
+  this.disable = (window.localStorage.getItem("submited")) ? true: false;
 
     // get family data from cookies to put it to admin
     this.FamilyData = this.TokenStorage.GetUserSignUpData("familyData");
@@ -58,9 +60,15 @@ export class UserFamilyInfoComponent implements OnInit {
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
     });
+
+
   }
   // store data about user family
   FormEdited() {
+    if(this.FamilyForm.valid)
+      this.auth.ValidationChecker("familyForm", "valid")
+    else
+      this.auth.ValidationChecker("familyForm", "invalid")
     this.TokenStorage.SaveUserSignUpData(this.FamilyForm.value, "familyData");
   }
 }

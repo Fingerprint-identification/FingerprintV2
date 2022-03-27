@@ -36,7 +36,7 @@
                         [control]="'mother_FullName'"
                         [minLength]="3"
                         [MassegeError]="MassegeError"
-
+                        *ngIf="FamilyForm.controls['mother_FullName'].touched || disable"
                       ></app-validation-errors-component>
 
                     </div>
@@ -57,6 +57,7 @@
                         [minLength]="14"
                         [maxLength]="14"
                         [MassegeError]="MassegeError"
+                        *ngIf="FamilyForm.controls['mother_ID'].touched || disable"
 
                       ></app-validation-errors-component>
 
@@ -79,7 +80,7 @@
                         [maxLength]="5"
                         [pattern]="'Egyption'"
                         [MassegeError]="MassegeError"
-
+                        *ngIf="FamilyForm.controls['mother_Nationality'].touched || disable"
                       ></app-validation-errors-component>
 
 
@@ -127,6 +128,7 @@
                   [control]="'father_FullName'"
                   [minLength]="3"
                   [MassegeError]="MassegeError"
+                   *ngIf="FamilyForm.controls['father_FullName'].touched || disable"
 
                 ></app-validation-errors-component>
 
@@ -148,6 +150,7 @@
                   [minLength]="14"
                   [maxLength]="14"
                   [MassegeError]="MassegeError"
+                   *ngIf="FamilyForm.controls['father_ID'].touched || disable"
 
                 ></app-validation-errors-component>
 
@@ -171,6 +174,7 @@
                   [maxLength]="5"
                   [pattern]="'Egyption'"
                   [MassegeError]="MassegeError"
+                   *ngIf="FamilyForm.controls['father_Nationality'].touched || disable"
                 ></app-validation-errors-component>
 
               </div>

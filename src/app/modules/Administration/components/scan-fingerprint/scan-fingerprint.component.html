@@ -5,7 +5,7 @@
         <input name="selectFile" id="selectFile" #imageInput (change)="uploadImage(imageInput)" type="file"
           [hidden]="true" class="form-control btn btn-success" />
         <label for="selectFile" role="button">
-          <ng-container *ngIf="!ImgUploaded; else greenImg">
+          <ng-container *ngIf="ImgUploaded == false; else greenImg">
             <img src="../../../../../assets/icons/blue Fingerprint.svg" class="scan-fingerprint__finger-img__img">
           </ng-container>
           <ng-template #greenImg>

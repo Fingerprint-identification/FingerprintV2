@@ -20,11 +20,14 @@ export class UserInfoComponent implements OnInit {
   UserForm !: FormGroup;
   UserData !: any;
   MassegeError !: string;
+  error: boolean = false;
+  disable: boolean = true;
 
   constructor(private TokenStorage: TokenStorageService, private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.UserData = this.TokenStorage.GetUserSignUpData("userData");
+    this.disable = (window.localStorage.getItem("submited")) ? true : false;
 
     this.UserForm = new FormGroup({
       FullName: new FormControl(this.UserData.FullName, [
@@ -70,6 +73,14 @@ export class UserInfoComponent implements OnInit {
 
   // store user data
   FormEdited() {
+    if (this.UserForm.valid)
+      this.auth.ValidationChecker("userForm", "valid")
+    else {
+      this.auth.ValidationChecker("userForm", "invalid");
+      this.error = true;
+    }
     this.TokenStorage.SaveUserSignUpData(this.UserForm.value, "userData");
   }
+
+
 }

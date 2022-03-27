@@ -22,7 +22,7 @@ export class TokenStorageService {
         if (data) {
             return JSON.parse(data);
         }
-        return {};
+        return "false";
     }
     public DeleteUserSignUpData(name: string){
         this.cookieService.delete(name);
@@ -36,6 +36,11 @@ export class TokenStorageService {
             return JSON.parse(Diseases);
         }
         return {};
+    }
+    public ClearUserDataAfterSubmit(){
+       this.cookieService.delete("familyData");
+       this.cookieService.delete("userData");
+       this.cookieService.delete("Diseases");
     }
     public SaveToken(Token: string): void {
         this.cookieService.delete(TOKEN_KEY);

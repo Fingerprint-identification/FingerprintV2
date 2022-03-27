@@ -28,7 +28,7 @@
                         id="fullName" placeholder="Ammmr mahmoud" formControlName="FullName" />
 
                       <app-validation-errors-component [Form]="UserForm" [control]="'FullName'" [minLength]="3"
-                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                        [MassegeError]="MassegeError" *ngIf="UserForm.controls['FullName'].touched || disable"></app-validation-errors-component>
                     </div>
                     <!-- Check gender -->
                     <div class="personal-info__content__generate-information__form__form-check-parent">
@@ -43,7 +43,7 @@
                           id="ratio-check">
                           <input
                             class="form-check-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
-                            type="radio" id="male" name="Gender" value="male" formControlName="Gender" />
+                            type="radio" id="male" name="Gender" checked value="male" formControlName="Gender"/>
 
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
@@ -52,13 +52,13 @@
                           </label>
 
                           <app-validation-errors-component [Form]="UserForm" [control]="'Gender'"
-                            [MassegeError]="MassegeError"></app-validation-errors-component>
+                            [MassegeError]="MassegeError" *ngIf="UserForm.controls['Gender'].touched || disable"></app-validation-errors-component>
 
                         </div>
                         <div class="personal-info__content__generate-information__form__form-check-parent__check">
                           <input
                             class="form-check-input form-check-parent-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
-                            type="radio" id="female" value="female" checked name="Gender" formControlName="Gender" />
+                            type="radio" id="female" value="female"  name="Gender" formControlName="Gender" />
 
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
@@ -66,7 +66,7 @@
                             Female
                           </label>
                           <app-validation-errors-component [Form]="UserForm" [control]="'Gender'"
-                            [MassegeError]="MassegeError"></app-validation-errors-component>
+                            [MassegeError]="MassegeError" *ngIf="UserForm.controls['Gender'].touched || disable"></app-validation-errors-component>
 
                         </div>
                       </div>
@@ -81,10 +81,10 @@
                           class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">Nationality</label>
                         <input type="text" id="nationality" formControlName="Nationality"
                           class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
-                          placeholder="Egyption" aria-label="Egyption" />
+                          placeholder="Egyption" aria-label="Egyption"/>
 
                         <app-validation-errors-component [Form]="UserForm" [control]="'Nationality'" [minLength]="5"
-                          [pattern]="'Egyption'" [MassegeError]="MassegeError"></app-validation-errors-component>
+                          [pattern]="'Egyption'" [MassegeError]="MassegeError" *ngIf="UserForm.controls['Nationality'].touched || disable"></app-validation-errors-component>
                       </div>
 
                       <div
@@ -97,7 +97,7 @@
 
 
                         <app-validation-errors-component [Form]="UserForm" [control]="'ID'" [minLength]="14"
-                          [maxLength]="14" [pattern]="'Numbers'" [MassegeError]="MassegeError">
+                          [maxLength]="14" [pattern]="'Numbers'" [MassegeError]="MassegeError" *ngIf="UserForm.controls['ID'].touched || disable">
                         </app-validation-errors-component>
 
                       </div>
@@ -133,7 +133,7 @@
                           placeholder="Cairo" aria-label="Birth Place" />
 
                         <app-validation-errors-component [Form]="UserForm" [control]="'BirthPlace'"
-                          [MassegeError]="MassegeError"></app-validation-errors-component>
+                          [MassegeError]="MassegeError" *ngIf="UserForm.controls['BirthPlace'].touched || disable"></app-validation-errors-component>
                       </div>
                       <div
                         class="my-3 personal-info__content__Birthday-information__form__Birthday-content-fields__field">
@@ -143,12 +143,11 @@
                         <input type="date" id="BirthDate" formControlName="BirthDate"
                           class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
                           aria-label="Birth Date" />
+                          <i class="bi bi-calendar2-week personal-info__content__Birthday-information__form__Birthday-content-fields__field__i pb-3"></i>
 
                         <app-validation-errors-component [Form]="UserForm" [control]="'BirthDate'"
-                          [MassegeError]="MassegeError"></app-validation-errors-component>
+                          [MassegeError]="MassegeError" *ngIf="UserForm.controls['BirthDate'].touched || disable"></app-validation-errors-component>
 
-                        <i
-                          class="bi bi-calendar2-week personal-info__content__Birthday-information__form__Birthday-content-fields__field__i"></i>
                       </div>
                     </div>
                   </div>
@@ -181,7 +180,7 @@
                         id="phone" placeholder="01003623286" />
 
                       <app-validation-errors-component [Form]="UserForm" [control]="'Phone'" [minLength]="10"
-                        [maxLength]="10" [pattern]="'loaded without the first 0'" [MassegeError]="MassegeError">
+                        [maxLength]="10" [pattern]="'loaded without the first 0'" [MassegeError]="MassegeError" *ngIf="UserForm.controls['Phone'].touched || disable">
                       </app-validation-errors-component>
                     </div>
 
@@ -194,7 +193,7 @@
                         id="email" placeholder="name@example.com" email />
 
                       <app-validation-errors-component [Form]="UserForm" [pattern]="'valid email'" [control]="'Email'"
-                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                        [MassegeError]="MassegeError"  *ngIf="UserForm.controls['Email'].touched || disable"></app-validation-errors-component>
                     </div>
                   </div>
                 </div>
@@ -235,7 +234,7 @@
                         id="current-address" placeholder="Ismailia, Hospital street, next to post office" />
 
                       <app-validation-errors-component [Form]="UserForm" [control]="'Street'"
-                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                        [MassegeError]="MassegeError" *ngIf="UserForm.controls['Street'].touched || disable"></app-validation-errors-component>
                     </div>
 
                     <!-- Current City -->
@@ -248,7 +247,7 @@
                         id="current-address" placeholder="Ismailia" formControlName="Address" name="Address" />
 
                       <app-validation-errors-component [Form]="UserForm" [control]="'Address'"
-                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                        [MassegeError]="MassegeError" *ngIf="UserForm.controls['Address'].touched || disable"></app-validation-errors-component>
                     </div>
                   </div>
                 </div>
@@ -281,7 +280,7 @@
                         (keydown.enter)="AddDiseases(Diseases)" />
 
                       <app-validation-errors-component [Form]="UserForm" [control]="'Diseases'"
-                        [MassegeError]="MassegeError"></app-validation-errors-component>
+                        [MassegeError]="MassegeError" *ngIf="UserForm.controls['Diseases'].touched || disable"></app-validation-errors-component>
                     </div>
                   </div>
                 </div>

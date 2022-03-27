@@ -9,6 +9,7 @@
 }
 [class$="__content"] {
   padding: 0 40px;
+  position: relative;
 }
 
 [class$="__title"] {
@@ -55,6 +56,7 @@
   flex-direction: column !important;
   justify-content: flex-start !important;
   width: 40% !important;
+  position: relative;
   @include BreakPoint(lg) {
     width: 100% !important;
   }

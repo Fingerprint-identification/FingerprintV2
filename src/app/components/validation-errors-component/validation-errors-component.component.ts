@@ -15,11 +15,11 @@ export class ValidationErrorsComponentComponent implements OnInit {
   @Input() maxLength !: number;
   @Input() minLength !: number;
   @Input() pattern !: string;
-
+  disable : boolean = true;
   constructor() { }
 
   ngOnInit(): void {
-
+    this.disable = (window.localStorage.getItem("submited")) ? true: false;
   }
 
   FormError(control: string, error: string): any {

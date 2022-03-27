@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 import { Router } from "@angular/router";
 
-import { Observable, tap } from "rxjs";
+import { BehaviorSubject, Observable, tap } from "rxjs";
 
 import { ApiServicesService } from "./api-services.service";
 
@@ -17,7 +17,6 @@ import { FormGroup } from "@angular/forms";
     providedIn: "root",
 })
 export class AuthService {
-
     constructor(
         private TokenStorage: TokenStorageService,
         private api: ApiServicesService,
@@ -25,7 +24,6 @@ export class AuthService {
         private cookieService: CookieService
     ) {
     }
-
     Login(notional_id: number, password: number): Observable<any> {
         return this.api.Login(notional_id, password).pipe(
             tap((data: any) => {
@@ -53,6 +51,12 @@ export class AuthService {
     }
     Confirm(password: string, passwordConfirm: string) {
         return this.api.Confirm(password, passwordConfirm);
+    }
+    ValidationChecker(name: string, validation: string){
+        window.localStorage.setItem(name, validation);
+    }
+    GetValidationChecker(name: string){
+        return window.localStorage.getItem(name);
     }
     sendUserData() {
 
