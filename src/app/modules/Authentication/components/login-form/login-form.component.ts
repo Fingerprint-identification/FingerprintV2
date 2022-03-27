@@ -16,7 +16,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class LoginFormComponent implements OnInit {
   Loading: boolean = false;
-  MassegeError: string = '';
+  massegeError: string = '';
   Submited: boolean = false;
 
   LoginForm: FormGroup = new FormGroup({
@@ -67,7 +67,7 @@ export class LoginFormComponent implements OnInit {
       },
       error: (err) => {
         this.spinner.hide();
-        this.MassegeError = "User not founded please, try again!";
+        this.massegeError = "User not founded please, try again!";
         this.router.navigate(['/Login']);
       },
     });

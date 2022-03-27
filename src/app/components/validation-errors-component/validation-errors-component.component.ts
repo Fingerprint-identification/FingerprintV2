@@ -11,7 +11,7 @@ export class ValidationErrorsComponentComponent implements OnInit {
   @Input() Form !: FormGroup;
   @Input() control !: string;
   @Input() required !: string;
-  @Input() MassegeError !: string;
+  @Input() massegeError !: string;
   @Input() maxLength !: number;
   @Input() minLength !: number;
   @Input() pattern !: string;

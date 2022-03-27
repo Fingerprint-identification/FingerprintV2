@@ -17,7 +17,7 @@ export class PersonalData {
     address ?: string;
     street ?: string;
     disease ?: string[];
-    fingerprint  ?: any[];
+    fingerprint ?: any[];
 
     constructor(values: PersonalData) {
       Object.assign(this, values);

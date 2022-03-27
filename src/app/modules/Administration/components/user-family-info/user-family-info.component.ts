@@ -13,62 +13,69 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
   ],
 })
 export class UserFamilyInfoComponent implements OnInit {
-  FamilyForm!: FormGroup;
-  FamilyData !: any;
-  MassegeError !: string;
-  disable : boolean = true;
-
+  // Local reference to carry Family Entered data
+  familyForm!: FormGroup;
+  // Local reference to carry Family data from cookies
+  familyData !: any;
+  // Local reference to carry massegeError happened
+  massegeError !: string;
+  // Local reference to check if the form submited successfuly
+  formSubmited: boolean = false;
+  /**
+   * @param TokenStorage to access token services from token storage
+   * @param router to access some properities from router
+   * @param auth to access some auth services services from auth services
+   */
   constructor(private TokenStorage: TokenStorageService, private router: Router, private auth: AuthService) {
 
   }
 
   ngOnInit(): void {
-  this.disable = (window.localStorage.getItem("submited")) ? true: false;
-
-    // get family data from cookies to put it to admin
-    this.FamilyData = this.TokenStorage.GetUserSignUpData("familyData");
-    this.FamilyForm = new FormGroup({
-      // validation of the range of characters that user should enter
-      mother_FullName: new FormControl(this.FamilyData.mother_FullName, [
+    // to check if the form submitted to display required fields that admin wasn't filled
+    this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
+    // Get familyData stored in cookies to put it into formControl value to display to admin for access it
+    this.familyData = this.TokenStorage.GetUserSignUpData("familyData");
+     // Form validation
+    this.familyForm = new FormGroup({
+      mother_FullName: new FormControl(this.familyData.mother_FullName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      mother_Nationality: new FormControl(this.FamilyData.mother_Nationality, [
+      motherNationality: new FormControl(this.familyData.motherNationality, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      mother_ID: new FormControl(this.FamilyData.mother_ID, [
+      motherId: new FormControl(this.familyData.motherId, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      father_FullName: new FormControl(this.FamilyData.father_FullName, [
+      fatherFullName: new FormControl(this.familyData.fatherFullName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      father_Nationality: new FormControl(this.FamilyData.father_Nationality, [
+      fatherNationality: new FormControl(this.familyData.fatherNationality, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      father_ID: new FormControl(this.FamilyData.father_ID, [
+      fatherId: new FormControl(this.familyData.fatherId, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
     });
-
-
   }
   // store data about user family
   FormEdited() {
-    if(this.FamilyForm.valid)
+    if(this.familyForm.valid)
       this.auth.ValidationChecker("familyForm", "valid")
     else
       this.auth.ValidationChecker("familyForm", "invalid")
-    this.TokenStorage.SaveUserSignUpData(this.FamilyForm.value, "familyData");
+
+    this.TokenStorage.SaveUserSignUpData(this.familyForm.value, "familyData");
   }
 }

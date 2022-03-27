@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subject, switchMap, takeUntil } from 'rxjs';
-import { PersonalData } from 'src/app/core/models/userData';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
@@ -15,72 +14,77 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
   ],
 })
 export class UserInfoComponent implements OnInit {
-  diseases: string[] = ['animia', 'Diabetes'];
+  // Local reference to carry diseases
+  diseases : string[] = [];
+  // Local BehaviorSubject to carry diseases
   diseasesSubject$ = new BehaviorSubject<string[]>(null!);
-  UserForm !: FormGroup;
-  UserData !: any;
-  MassegeError !: string;
-  error: boolean = false;
-  disable: boolean = true;
-
+  // Local reference to carry User Entered data
+  userForm !: FormGroup;
+  // Local reference to carry User data from cookies
+  userData !: any;
+  // Local reference to carry massegeError happened
+  massegeError !: string;
+  // Local reference to check if the form submited successfuly
+  formSubmited: boolean = false;
+  /**
+   * @param TokenStorage to access token services from token storage
+   * @param router to access some properities from router
+   * @param auth to access some auth services services from auth services
+   */
   constructor(private TokenStorage: TokenStorageService, private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.UserData = this.TokenStorage.GetUserSignUpData("userData");
-    this.disable = (window.localStorage.getItem("submited")) ? true : false;
-
-    this.UserForm = new FormGroup({
-      FullName: new FormControl(this.UserData.FullName, [
+    // Get userData stored in cookies to put it into formControl value to display to admin for access it
+    this.userData = this.TokenStorage.GetUserSignUpData("userData");
+    // to check if the form submitted to display required fields that admin wasn't filled
+    this.formSubmited = (window.localStorage.getItem("submited")) ? true : false;
+    // Form validation
+    this.userForm = new FormGroup({
+      fullName: new FormControl(this.userData.FullName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      Gender: new FormControl(this.UserData.Gender, [Validators.required]),
-      Nationality: new FormControl(this.UserData.Nationality, [
+      gender: new FormControl(this.userData.Gender, [Validators.required]),
+      nationality: new FormControl(this.userData.Nationality, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      ID: new FormControl(this.UserData.ID, [
+      id: new FormControl(this.userData.ID, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      BirthDate: new FormControl(this.UserData.BirthDate, [Validators.required]),
-      BirthPlace: new FormControl(this.UserData.BirthPlace, [Validators.required]),
-      Phone: new FormControl(this.UserData.Phone, [
+      birthDate: new FormControl(this.userData.BirthDate, [Validators.required]),
+      birthPlace: new FormControl(this.userData.BirthPlace, [Validators.required]),
+      phone: new FormControl(this.userData.Phone, [
         Validators.required,
         Validators.minLength(10),
         Validators.maxLength(10),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      Email: new FormControl(this.UserData.Email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
-      Street: new FormControl(this.UserData.Street, [Validators.required]),
-      Address: new FormControl(this.UserData.Address, [Validators.required]),
-      Diseases: new FormControl(''),
+      email: new FormControl(this.userData.Email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+      street: new FormControl(this.userData.Street, [Validators.required]),
+      address: new FormControl(this.userData.Address, [Validators.required]),
+      diseases: new FormControl(''),
     });
-
-    this.diseasesSubject$.next([...this.diseases]);
-
   }
   // store user Diseases
-  AddDiseases(Diseases: HTMLInputElement) {
-    this.diseases.push(Diseases.value);
+  AddDiseases(diseases: HTMLInputElement) {
+    this.diseases.push(diseases.value);
     this.diseasesSubject$.next([...this.diseases]);
-
-    this.TokenStorage.SaveDiseases([...this.diseases], "Diseases");
+    // save diseases in cookies
+    this.TokenStorage.SaveDiseases([...this.diseases], "diseases");
   }
 
-  // store user data
+  // store user data when changed
   FormEdited() {
-    if (this.UserForm.valid)
+    if (this.userForm.valid)
       this.auth.ValidationChecker("userForm", "valid")
-    else {
+    else
       this.auth.ValidationChecker("userForm", "invalid");
-      this.error = true;
-    }
-    this.TokenStorage.SaveUserSignUpData(this.UserForm.value, "userData");
+
+    this.TokenStorage.SaveUserSignUpData(this.userForm.value, "userData");
   }
-
-
 }

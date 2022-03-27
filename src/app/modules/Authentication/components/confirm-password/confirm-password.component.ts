@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./confirm-password.component.scss', '../../Global-style/global-style.component.scss']
 })
 export class ConfirmPasswordComponent implements OnInit {
-  MassegeError: string = '';
+  massegeError: string = '';
   Submited: boolean = false;
   match: boolean = true;
 
@@ -64,7 +64,7 @@ export class ConfirmPasswordComponent implements OnInit {
       },
       error: (_) => {
         this.spinner.hide();
-        this.MassegeError = "Error occurred, try again!";
+        this.massegeError = "Error occurred, try again!";
         this.router.navigate(['/Login']);
       },
     });

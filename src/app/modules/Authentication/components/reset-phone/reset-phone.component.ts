@@ -19,7 +19,7 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
 })
 export class ResetPhoneComponent implements OnInit {
   Submited: boolean = false;
-  MassegeError: string = '';
+  massegeError: string = '';
 
   ForgetForm: FormGroup = new FormGroup({
     // validation of the range of characters that user should enter
@@ -59,9 +59,9 @@ export class ResetPhoneComponent implements OnInit {
       error: (err) => {
         this.spinner.hide();
         if (err.toString().includes('404')) {
-          this.MassegeError = "Phone Not founded please, try again!"
+          this.massegeError = "Phone Not founded please, try again!"
         } else
-          this.MassegeError = err.message;
+          this.massegeError = err.message;
         setTimeout(() => {
           this.router.navigate(['/Login/reset-password']);
         }, 2000)

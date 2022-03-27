@@ -16,7 +16,7 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
 })
 export class ResetPinComponent implements OnInit {
   Submited: boolean = false;
-  MassegeError: string = '';
+  massegeError: string = '';
   phone !: string;
 
   // validation of the range of characters that user should enter
@@ -56,7 +56,7 @@ export class ResetPinComponent implements OnInit {
       },
       error: (err) => {
         this.spinner.hide();
-        this.MassegeError = "opps, Pin isn't correct, try again!"
+        this.massegeError = "opps, Pin isn't correct, try again!"
       },
     })
   }
