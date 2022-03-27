@@ -71,6 +71,7 @@ export class AuthService {
     }
     SignOut(): void {
         this.cookieService.deleteAll();
+        window.localStorage.clear();
         this.router.navigate(['/Home']);
     }
 

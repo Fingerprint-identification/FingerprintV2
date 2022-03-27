@@ -10,61 +10,81 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
   styleUrls: ['./buttons.component.scss']
 })
 export class ButtonsComponent implements OnInit {
+  // Local referance that carry all pages to make back, next btns in it
   pages: string[] = ['scan', 'userInfo', 'familyInfo', 'done'];
+  // Local referance to carry the main URL
   mainUrl: string = 'Admin/signup' + '/';
-
+  // Local referance carry the last substring from the routing
   lastUrlSegment !: string;
+  // Local referance to carry the index of the page when loop in array of pages
   indexOfPage !: number;
+  // Local referance to check the submition
   submit: boolean = false;
-  newPageUrl: string = this.mainUrl + 'scan';
-  DataOfUser !: PersonalData;
-
+  // Local referance carry the new page url assigned ot it and
+  // by defult it's location is the first page
+  newPageUrl: string = this.mainUrl + this.pages[0];
+  // Local referance carry the data of the user that will send to backend
+  dataOfUser !: PersonalData;
+  /**
+   *
+   * @param router to get the last url word from navigation
+   * @param TokenStorage to access token services from token storage
+   * @param auth to access some auth services services from auth services
+   */
   constructor(
     private router: Router, private TokenStorage: TokenStorageService, private auth: AuthService) {
   }
-
-  GetCurrentPath(condition: number) {
+  // Function that get the current page from url and check the postion of the page in array
+  // if this postion of page is the last page if
+  // true => make the next btn is submit btn
+  // false => make it back btn
+  // condition have three cases
+  // case 0 => if we wand two apply this operation in the back btn
+  // case 1 => if we check if the admin in the last page and make refresh the subbmition
+  // won't change and still submit
+  // case 2 if the admin click btn next in the page before the last page
+  // so we change the btn after this click to submit btn
+  getCurrentPath(condition: number) {
     this.lastUrlSegment = this.router.url.split('?')[0].split('/').pop()!;
     this.indexOfPage = this.pages.indexOf(this.lastUrlSegment!);
-
     if (this.indexOfPage == this.pages.length - condition) {
       this.submit = true;
     } else {
       this.submit = false;
     }
   }
-
+  // by default make it specifiy the condition
   ngOnInit(): void {
-    this.submit = true;
-    this.GetCurrentPath(1);
+    this.getCurrentPath(1);
   }
-
-
-
-  Back() {
-    this.GetCurrentPath(0);
+  // back btn
+  back() {
+    this.getCurrentPath(0);
     this.submit = false;
     if (this.indexOfPage == 0 || this.indexOfPage == -1)
       return;
     this.newPageUrl = this.mainUrl + this.pages[this.indexOfPage - 1];
     this.router.navigate([this.newPageUrl]);
   }
-  Next() {
-    this.GetCurrentPath(2);
+  // next btn
+  next() {
+    this.getCurrentPath(2);
     if (this.indexOfPage == this.pages.length - 1 || this.indexOfPage == -1)
       return;
     this.newPageUrl = this.mainUrl + this.pages[this.indexOfPage + 1];
     this.router.navigate([this.newPageUrl]);
   }
 
-  Submit() {
+  submitForm() {
+    // Admin add submition true in localStorage to make all forms check
+    // if it's have some required fields doesn't filled
     window.localStorage.setItem("submited", "true");
-
+    // check if the family form is valid and user form is valid and it was applied in userForm and familyForm
     if (this.auth.GetValidationChecker("familyForm") === 'valid' && this.auth.GetValidationChecker("userForm") === 'valid') {
       const UserData = this.TokenStorage.GetUserSignUpData('userData');
       const FamilyData = this.TokenStorage.GetUserSignUpData('familyData');
       const Diseases = this.TokenStorage.GetUserSignUpData('Diseases');
-      this.DataOfUser = new PersonalData({
+      this.dataOfUser = new PersonalData({
         notional_id: UserData.ID,
         fristName: UserData.FullName,
         phone: UserData.Phone,
@@ -79,7 +99,7 @@ export class ButtonsComponent implements OnInit {
         fingerprint: [[1.2, 2.2, 33], [1.2, 2.2, 33], [1.2, 2.2, 33]]
       });
       // this.TokenStorage.ClearUserDataAfterSubmit();
-      console.log(this.DataOfUser);
+      console.log(this.dataOfUser);
     } else {
       alert("Please some fields you skipped is required!");
       return;
