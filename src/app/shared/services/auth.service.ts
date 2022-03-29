@@ -52,14 +52,17 @@ export class AuthService {
     Confirm(password: string, passwordConfirm: string) {
         return this.api.Confirm(password, passwordConfirm);
     }
-    ValidationChecker(name: string, validation: string){
+    ValidationChecker(name: string, validation: string) {
         window.localStorage.setItem(name, validation);
     }
-    GetValidationChecker(name: string){
+    GetValidationChecker(name: string) {
         return window.localStorage.getItem(name);
     }
     sendUserData() {
 
+    }
+    sendImgToConvert(requestOptions: any) {
+        return this.api.sendImgToConvert(requestOptions);
     }
     isLoggedin(): boolean {
         if (this.TokenStorage.GetToken()) {

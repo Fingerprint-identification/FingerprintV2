@@ -16,6 +16,9 @@ MIT
 @angular/router
 MIT
 
+ngx-cookie-service
+MIT
+
 ngx-spinner
 MIT
 

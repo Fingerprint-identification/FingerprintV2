@@ -28,6 +28,8 @@ export class TokenIntercepterService implements HttpInterceptor {
   private AddToken(request: HttpRequest<any>, token: string) {
     return request.clone({
       setHeaders: {
+        'Content-Type':'multipart/form-data;',
+        'Accept':'*/*',
         'Authorization':`Bearer ${token}`
       }
     });
