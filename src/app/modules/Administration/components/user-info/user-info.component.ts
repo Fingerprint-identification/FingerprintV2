@@ -40,33 +40,33 @@ export class UserInfoComponent implements OnInit {
     this.formSubmited = (window.localStorage.getItem("submited")) ? true : false;
     // Form validation
     this.userForm = new FormGroup({
-      fullName: new FormControl(this.userData.FullName, [
+      fullName: new FormControl(this.userData.fullName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      gender: new FormControl(this.userData.Gender, [Validators.required]),
-      nationality: new FormControl(this.userData.Nationality, [
+      gender: new FormControl(this.userData.gender, [Validators.required]),
+      nationality: new FormControl(this.userData.nationality, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      id: new FormControl(this.userData.ID, [
+      id: new FormControl(this.userData.id, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      birthDate: new FormControl(this.userData.BirthDate, [Validators.required]),
-      birthPlace: new FormControl(this.userData.BirthPlace, [Validators.required]),
-      phone: new FormControl(this.userData.Phone, [
+      birthDate: new FormControl(this.userData.birthDate, [Validators.required]),
+      birthPlace: new FormControl(this.userData.birthPlace, [Validators.required]),
+      phone: new FormControl(this.userData.phone, [
         Validators.required,
         Validators.minLength(10),
         Validators.maxLength(10),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      email: new FormControl(this.userData.Email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
-      street: new FormControl(this.userData.Street, [Validators.required]),
-      address: new FormControl(this.userData.Address, [Validators.required]),
+      email: new FormControl(this.userData.email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+      street: new FormControl(this.userData.street, [Validators.required]),
+      address: new FormControl(this.userData.address, [Validators.required]),
       diseases: new FormControl(''),
     });
   }

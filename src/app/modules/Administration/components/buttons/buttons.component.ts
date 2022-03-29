@@ -26,7 +26,6 @@ export class ButtonsComponent implements OnInit {
   // Local referance carry the data of the user that will send to backend
   dataOfUser !: PersonalData;
   /**
-   *
    * @param router to get the last url word from navigation
    * @param TokenStorage to access token services from token storage
    * @param auth to access some auth services services from auth services
@@ -77,29 +76,42 @@ export class ButtonsComponent implements OnInit {
 
   submitForm() {
     // Admin add submition true in localStorage to make all forms check
-    // if it's have some required fields doesn't filled
     window.localStorage.setItem("submited", "true");
     // check if the family form is valid and user form is valid and it was applied in userForm and familyForm
     if (this.auth.GetValidationChecker("familyForm") === 'valid' && this.auth.GetValidationChecker("userForm") === 'valid') {
-      const UserData = this.TokenStorage.GetUserSignUpData('userData');
-      const FamilyData = this.TokenStorage.GetUserSignUpData('familyData');
-      const Diseases = this.TokenStorage.GetUserSignUpData('Diseases');
-      this.dataOfUser = new PersonalData({
-        notional_id: UserData.ID,
-        fristName: UserData.FullName,
-        phone: UserData.Phone,
-        email: UserData.Email,
-        notionalty: UserData.Nationality,
-        birthday: UserData.BirthDate,
-        gender: UserData.Gender,
-        place_of_birth: UserData.BirthPlace,
-        address: UserData.Address,
-        street: UserData.Street,
-        disease: Diseases,
-        fingerprint: [[1.2, 2.2, 33], [1.2, 2.2, 33], [1.2, 2.2, 33]]
-      });
+      // Get user data from  cookies
+      const userData = this.TokenStorage.GetUserSignUpData('userData');
+      // Get family data from  cookies
+      const familyData = this.TokenStorage.GetUserSignUpData('familyData');
+      // Get diseases from  cookies
+      const diseases = this.TokenStorage.GetUserSignUpData('diseases');
+      // Get fingerprint Matrix from  cookies
+      const fingerprintMatrix = this.TokenStorage.GetUserSignUpData("fingerprint");
+      // Check if data exist
+      if (userData && fingerprintMatrix && familyData) {
+          // Create Class Personal Data
+          this.dataOfUser = new PersonalData({
+            notional_id: userData.id,
+            password: "123456789",
+            passwordConfirm: "123456789",
+            fristName: userData.fullName,
+            lastName: "null",
+            role: "user",
+            phone: userData.phone,
+            email: userData.email,
+            notionalty: userData.nationality,
+            birthday: userData.birthDate,
+            gender: userData.gender,
+            place_of_birth: userData.birthPlace,
+            address: userData.address,
+            street: userData.street,
+            disease: diseases,
+            fingerprint:fingerprintMatrix
+          });
+          // sending data to api
+          this.auth.sendUserData(this.dataOfUser).then((res: any) => console.log("res", res.message));
+      }
       // this.TokenStorage.ClearUserDataAfterSubmit();
-      console.log(this.dataOfUser);
     } else {
       alert("Please some fields you skipped is required!");
       return;

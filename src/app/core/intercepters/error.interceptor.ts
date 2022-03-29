@@ -17,7 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       retry(1),
       catchError((error: HttpErrorResponse) => {
-        let message = '';
+        let message: any = error;
         if (error.error instanceof ErrorEvent) {
           // handle client-side error
           message = `${error.error.message}`;

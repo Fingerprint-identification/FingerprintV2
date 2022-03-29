@@ -2,16 +2,16 @@
  * Data class for personData data
  */
 export class PersonalData {
-    notional_id ?: number;
+    notional_id ?: string;
     password ?: string = '123456789';
     passwordConfirm  ?: string = '123456789';
     fristName  ?: string;
-    lastName ?: string = 'null';
+    lastName ?: string = 'any';
     role ?: string = 'user';
-    phone  ?: number;
+    phone  ?: string;
     email ?: string;
     notionalty  ?: string;
-    birthday  ?: Date;
+    birthday  ?: string;
     gender  ?: string;
     place_of_birth  ?: string;
     address ?: string;

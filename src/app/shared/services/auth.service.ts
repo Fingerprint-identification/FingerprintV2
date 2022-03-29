@@ -58,11 +58,23 @@ export class AuthService {
     GetValidationChecker(name: string) {
         return window.localStorage.getItem(name);
     }
-    sendUserData() {
-
+    handler(response: any) {
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return response.text();
     }
-    sendImgToConvert(requestOptions: any) {
-        return this.api.sendImgToConvert(requestOptions);
+    async sendUserData(userData: any) {
+        try {
+            const response = await this.api.sendUserData(userData);
+            return this.handler(response);
+        } catch (error: any) {
+            throw new Error(error.message || error);
+        }
+    }
+    async sendImgToConvert(requestOptions: any) {
+        const response = await this.api.sendImgToConvert(requestOptions);
+        return response.json();
     }
     isLoggedin(): boolean {
         if (this.TokenStorage.GetToken()) {
