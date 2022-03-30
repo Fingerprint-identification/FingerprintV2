@@ -80,8 +80,9 @@ export class UserInfoComponent implements OnInit {
 
   // store user data when changed
   FormEdited() {
-    if (this.userForm.valid)
+    if (this.userForm.valid){
       this.auth.ValidationChecker("userForm", "valid")
+    }
     else
       this.auth.ValidationChecker("userForm", "invalid");
 

@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
-const TOKEN_KEY = 'auth-token'
+const TOKEN_KEY = 'jwt'
 const USER_KEY = 'auth-user'
 
 

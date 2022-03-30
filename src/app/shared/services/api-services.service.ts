@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { async, delay, Observable, tap } from 'rxjs';
 import { PersonalData } from 'src/app/core/models/userData';
 import { environment } from 'src/environments/environment';
+import { TokenStorageService } from './token-storage.service';
 
 // const AUTH_API = "https://6221f299666291106a1836f7.mockapi.io/api/auth/";
 const convertImg_API = "https://5818-197-54-114-107.ngrok.io/";
@@ -14,8 +15,10 @@ const REFRESH_TOKEN = 'REFRESH_TOKEN';
 })
 export class ApiServicesService {
 
-    constructor(private Http: HttpClient) {
+    constructor(private Http: HttpClient, private Token: TokenStorageService) {
     }
+    
+    token = this.Token.GetToken();
 
     Login(notional_id: number, password: number): Observable<any> {
         return this.Http.post(AUTH_API + 'login', {
@@ -55,7 +58,19 @@ export class ApiServicesService {
           headers: myHeaders,
           body: JSON.stringify(userData),
         };
-        return fetch("https://still-escarpment-38033.herokuapp.com/api/users/signup", requestOptions);
+        return fetch(AUTH_API + "signup", requestOptions);
+    }
+
+    sendFamilyData(familyData: any): Promise<any>{
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append('authorization',`Bearer ${this.token}`);
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: JSON.stringify(familyData),
+        };
+        return fetch(AUTH_API + "setFamily", requestOptions);
     }
 
 }
