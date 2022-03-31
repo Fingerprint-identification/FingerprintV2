@@ -182,10 +182,10 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
         });
         // sending User data to api
         this.signUpAuth.sendUserData(this.dataOfUser).then(
-          (res: any) => {
+          (_) => {
             this.spinner.hide();
             alert("User added successfuly!");
-            // delete all localStorage after submitting
+            // delete all data in localStorage after submitting
             this.signUpAuth.clearUserDataAfterSubmit();
             // make form not submitted for new user
             this.signUpAuth.makeformSubmitted("false");
