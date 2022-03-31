@@ -67,13 +67,16 @@ export class UserFamilyInfoComponent implements OnInit {
       ]),
     });
   }
-  // store data about user family
+  /**
+   * this method detect data entered by user about family edited or not
+   */
   FormEdited() {
+    // check the validation
     if(this.familyForm.valid)
       this.signUpAuth.validationChecker("familyForm", "valid")
     else
       this.signUpAuth.validationChecker("familyForm", "invalid")
-
+    // store data entered by admin about family
     this.signUpAuth.saveUserSignUpData(this.familyForm.value, "familyData");
   }
 }
