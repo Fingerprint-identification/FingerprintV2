@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-user-searched-info',
   templateUrl: './user-searched-info.component.html',
-  styleUrls: ['./user-searched-info.component.scss', '../../global-style/admin-global-style.scss']
+  styleUrls: ['./user-searched-info.component.scss', '../../shared/admin-global-style.scss']
 })
 export class UserSearchedInfoComponent implements OnInit {
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
 
 const TOKEN_KEY = 'jwt'
 const USER_KEY = 'auth-user'
@@ -12,36 +11,8 @@ const USER_KEY = 'auth-user'
 })
 export class TokenStorageService {
 
-    constructor(private router: Router,  private cookieService: CookieService) { }
+    constructor(private cookieService: CookieService) { }
 
-    public SaveUserSignUpData(data: any, name: string){
-        this.cookieService.set(name, JSON.stringify(data));
-    }
-    public GetUserSignUpData(name: string){
-        const data = this.cookieService.get(name);
-        if (data) {
-            return JSON.parse(data);
-        }
-        return "false";
-    }
-    public DeleteUserSignUpData(name: string){
-        this.cookieService.delete(name);
-    }
-    public SaveDiseases(data: string[], name: string){
-        this.cookieService.set(name, JSON.stringify(data));
-    }
-    public GetDiseases(name: string){
-        const Diseases = this.cookieService.get(name);
-        if (Diseases) {
-            return JSON.parse(Diseases);
-        }
-        return {};
-    }
-    public ClearUserDataAfterSubmit(){
-       this.cookieService.delete("familyData");
-       this.cookieService.delete("userData");
-       this.cookieService.delete("Diseases");
-    }
     public SaveToken(Token: string): void {
         this.cookieService.delete(TOKEN_KEY);
         this.cookieService.set(TOKEN_KEY, Token);

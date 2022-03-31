@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { SignupService } from '../../shared/services/signup.service';
 
 @Component({
   selector: 'app-user-family-info',
   templateUrl: './user-family-info.component.html',
   styleUrls: [
     './user-family-info.component.scss',
-    '../../global-style/admin-global-style.scss',
+    '../../shared/admin-global-style.scss',
   ],
 })
 export class UserFamilyInfoComponent implements OnInit {
@@ -22,11 +21,10 @@ export class UserFamilyInfoComponent implements OnInit {
   // Local reference to check if the form submited successfuly
   formSubmited: boolean = false;
   /**
-   * @param TokenStorage to access token services from token storage
    * @param router to access some properities from router
-   * @param auth to access some auth services services from auth services
+   * @param signUpAuth to access some signUpAuth services services from signUpAuth services
    */
-  constructor(private TokenStorage: TokenStorageService, private router: Router, private auth: AuthService) {
+  constructor(private router: Router, private signUpAuth: SignupService) {
 
   }
 
@@ -34,7 +32,7 @@ export class UserFamilyInfoComponent implements OnInit {
     // to check if the form submitted to display required fields that admin wasn't filled
     this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
     // Get familyData stored in cookies to put it into formControl value to display to admin for access it
-    this.familyData = this.TokenStorage.GetUserSignUpData("familyData");
+    this.familyData = this.signUpAuth.getUserSignUpData("familyData");
      // Form validation
     this.familyForm = new FormGroup({
       mother_FullName: new FormControl(this.familyData.mother_FullName, [
@@ -72,10 +70,10 @@ export class UserFamilyInfoComponent implements OnInit {
   // store data about user family
   FormEdited() {
     if(this.familyForm.valid)
-      this.auth.ValidationChecker("familyForm", "valid")
+      this.signUpAuth.validationChecker("familyForm", "valid")
     else
-      this.auth.ValidationChecker("familyForm", "invalid")
+      this.signUpAuth.validationChecker("familyForm", "invalid")
 
-    this.TokenStorage.SaveUserSignUpData(this.familyForm.value, "familyData");
+    this.signUpAuth.saveUserSignUpData(this.familyForm.value, "familyData");
   }
 }

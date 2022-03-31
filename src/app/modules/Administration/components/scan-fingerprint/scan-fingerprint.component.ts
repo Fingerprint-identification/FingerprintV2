@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { ImgAnalysisService } from '../../shared/services/img-analysis.service';
+import { SignupService } from '../../shared/services/signup.service';
 
 @Component({
   selector: 'app-scan-fingerprint',
@@ -10,10 +10,10 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
 export class ScanFingerprintComponent implements OnInit {
   ImgUploaded: boolean = false;
 
-  constructor(private TokenStorage: TokenStorageService, private auth: AuthService) { }
+  constructor(private signUpAuth: SignupService, private imgAnalysisAuth: ImgAnalysisService) { }
 
   ngOnInit(): void {
-    if (this.TokenStorage.GetUserSignUpData("fingerprint") === "false") {
+    if (this.signUpAuth.getUserSignUpData("fingerprint") === "false") {
       this.ImgUploaded = false;
     } else
       this.ImgUploaded = true;
@@ -23,20 +23,16 @@ export class ScanFingerprintComponent implements OnInit {
     const file = event.target.files[0];
     if (event.target.files.length > 0) {
       this.ImgUploaded = true;
-      var formdata = new FormData();
-      formdata.append("originalImg", file);
-      const requestOptions = {
-        method: 'POST',
-        body: formdata,
-      };
-      this.auth.sendImgToConvert(requestOptions)
+      var formData = new FormData();
+      formData.append("originalImg", file);
+      this.imgAnalysisAuth.sendImgToConvert(formData)
       .then((result: any) =>{
-        this.TokenStorage.SaveUserSignUpData(result.message, "fingerprint")
+        this.signUpAuth.saveUserSignUpData(result.message, "fingerprint")
       })
     }
     else {
       this.ImgUploaded = false;
-      this.TokenStorage.DeleteUserSignUpData("fingerprint");
+      this.signUpAuth.deleteUserSignUpData("fingerprint");
     }
   }
 }

@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
 import { DoneComponent } from './components/done/done.component';
-import { FamilySearchedInfoComponent } from './components/family-searched-info/family-searched-info.component';
+import { FamilySearchedInfoComponent } from './components/profile-family-info/family-searched-info.component';
 import { ScanFingerprintComponent } from './components/scan-fingerprint/scan-fingerprint.component';
-import { UserFamilyInfoComponent } from './components/user-family-info/user-family-info.component';
-import { UserInfoComponent } from './components/user-info/user-info.component';
-import { UserSearchedInfoComponent } from './components/user-searched-info/user-searched-info.component';
+import { UserFamilyInfoComponent } from './components/signup-family-info/user-family-info.component';
+import { UserInfoComponent } from './components/signup-user-info/user-info.component';
+import { UserSearchedInfoComponent } from './components/profile-user-info/user-searched-info.component';
 import { CheckFingerprintComponent } from './pages/check-fingerprint/check-fingerprint.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { DashboardComponent } from './pages/admin-dashboard/dashboard.component';
+import { ProfileComponent } from './pages/user-profile/profile.component';
 import { SignupUserComponent } from './pages/signup-user/signup-user.component';
 
 const routes: Routes = [

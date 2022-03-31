@@ -52,30 +52,6 @@ export class AuthService {
     Confirm(password: string, passwordConfirm: string) {
         return this.api.Confirm(password, passwordConfirm);
     }
-    ValidationChecker(name: string, validation: string) {
-        window.localStorage.setItem(name, validation);
-    }
-    GetValidationChecker(name: string) {
-        return window.localStorage.getItem(name);
-    }
-    handler(response: any) {
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        }
-        return response.text();
-    }
-    async sendUserData(userData: any) {
-        try {
-            const response = await this.api.sendUserData(userData);
-            return this.handler(response);
-        } catch (error: any) {
-            throw new Error(error.message || error);
-        }
-    }
-    async sendImgToConvert(requestOptions: any) {
-        const response = await this.api.sendImgToConvert(requestOptions);
-        return response.json();
-    }
     isLoggedin(): boolean {
         if (this.TokenStorage.GetToken()) {
             if (this.TokenStorage.GetUser())

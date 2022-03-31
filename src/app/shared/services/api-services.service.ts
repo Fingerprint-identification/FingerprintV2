@@ -17,8 +17,6 @@ export class ApiServicesService {
 
     constructor(private Http: HttpClient, private Token: TokenStorageService) {
     }
-    
-    token = this.Token.GetToken();
 
     Login(notional_id: number, password: number): Observable<any> {
         return this.Http.post(AUTH_API + 'login', {
@@ -46,31 +44,4 @@ export class ApiServicesService {
     GetUserById(id: number): Observable<any> {
         return this.Http.get(AUTH_API + 'login/' + id);
     }
-
-    sendImgToConvert(requestOptions: any): Promise<any>{
-        return fetch(convertImg_API + "convertImageToMatrix", requestOptions);
-    }
-    sendUserData(userData: any): Promise<any>{
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: JSON.stringify(userData),
-        };
-        return fetch(AUTH_API + "signup", requestOptions);
-    }
-
-    sendFamilyData(familyData: any): Promise<any>{
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        myHeaders.append('authorization',`Bearer ${this.token}`);
-        var requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: JSON.stringify(familyData),
-        };
-        return fetch(AUTH_API + "setFamily", requestOptions);
-    }
-
 }

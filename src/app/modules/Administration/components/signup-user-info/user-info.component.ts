@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { SignupService } from '../../shared/services/signup.service';
 
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
   styleUrls: [
     './user-info.component.scss',
-    '../../global-style/admin-global-style.scss',
+    '../../shared/admin-global-style.scss',
   ],
 })
 export class UserInfoComponent implements OnInit {
@@ -27,17 +26,16 @@ export class UserInfoComponent implements OnInit {
   // Local reference to check if the form submited successfuly
   formSubmited: boolean = false;
   /**
-   * @param TokenStorage to access token services from token storage
    * @param router to access some properities from router
-   * @param auth to access some auth services services from auth services
+   * @param signUpAuth to access some signUpAuth services services from signUpAuth services
    */
-  constructor(private TokenStorage: TokenStorageService, private router: Router, private auth: AuthService) { }
+  constructor(private router: Router, private signUpAuth: SignupService) { }
 
   ngOnInit(): void {
     // Get userData stored in cookies to put it into formControl value to display to admin for access it
-    this.userData = this.TokenStorage.GetUserSignUpData("userData");
+    this.userData = this.signUpAuth.getUserSignUpData("userData");
     // to check if the form submitted to display required fields that admin wasn't filled
-    this.formSubmited = (window.localStorage.getItem("submited")) ? true : false;
+    this.formSubmited = (this.signUpAuth.formSubmitted() === 'true') ? true : false;
     // Form validation
     this.userForm = new FormGroup({
       fullName: new FormControl(this.userData.fullName, [
@@ -75,17 +73,17 @@ export class UserInfoComponent implements OnInit {
     this.diseases.push(diseases.value);
     this.diseasesSubject$.next([...this.diseases]);
     // save diseases in cookies
-    this.TokenStorage.SaveDiseases([...this.diseases], "diseases");
+    this.signUpAuth.saveDiseases([...this.diseases], "diseases");
   }
 
   // store user data when changed
   FormEdited() {
     if (this.userForm.valid){
-      this.auth.ValidationChecker("userForm", "valid")
+      this.signUpAuth.validationChecker("userForm", "valid")
     }
     else
-      this.auth.ValidationChecker("userForm", "invalid");
+      this.signUpAuth.validationChecker("userForm", "invalid");
 
-    this.TokenStorage.SaveUserSignUpData(this.userForm.value, "userData");
+    this.signUpAuth.saveUserSignUpData(this.userForm.value, "userData");
   }
 }
