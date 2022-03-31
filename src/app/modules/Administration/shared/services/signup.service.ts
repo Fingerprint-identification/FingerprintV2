@@ -109,7 +109,7 @@ export class SignupService {
     if (Diseases) {
       return JSON.parse(Diseases);
     }
-    return {};
+    return [];
   }
   /**
    * this function to clear all data in cookies to add

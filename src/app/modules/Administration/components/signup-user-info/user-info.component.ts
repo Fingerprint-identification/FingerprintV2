@@ -14,7 +14,7 @@ import { SignupService } from '../../shared/services/signup.service';
 })
 export class UserInfoComponent implements OnInit {
   // Local reference to carry diseases
-  diseases : string[] = [];
+  diseases: string[] = [];
   // Local BehaviorSubject to carry diseases
   diseasesSubject$ = new BehaviorSubject<string[]>(null!);
   // Local reference to carry User Entered data
@@ -67,23 +67,35 @@ export class UserInfoComponent implements OnInit {
       address: new FormControl(this.userData.address, [Validators.required]),
       diseases: new FormControl(''),
     });
-  }
-  // store user Diseases
-  AddDiseases(diseases: HTMLInputElement) {
-    this.diseases.push(diseases.value);
-    this.diseasesSubject$.next([...this.diseases]);
-    // save diseases in cookies
-    this.signUpAuth.saveDiseases([...this.diseases], "diseases");
-  }
 
-  // store user data when changed
+    // get deseases from cookies to display to user
+    this.diseases = (this.signUpAuth.getDiseases("diseases"));
+    // Added deseases to this subject
+    this.diseasesSubject$.next([...this.diseases]);
+  }
+  /**
+   * This function detect the diseases user entred
+   * @param diseases
+   */
+  AddDiseases(diseases: HTMLInputElement) {
+    if (diseases.value !== '') {
+      this.diseases.push(diseases.value);
+      this.diseasesSubject$.next([...this.diseases]);
+      // save diseases in cookies
+      this.signUpAuth.saveDiseases([...this.diseases], "diseases");
+    }
+  }
+  /**
+  * this method detect data entered by user about user edited or not
+  */
   FormEdited() {
-    if (this.userForm.valid){
+    // check the validation
+    if (this.userForm.valid) {
       this.signUpAuth.validationChecker("userForm", "valid")
     }
     else
       this.signUpAuth.validationChecker("userForm", "invalid");
-
+    // store data entered by admin about user info
     this.signUpAuth.saveUserSignUpData(this.userForm.value, "userData");
   }
 }
