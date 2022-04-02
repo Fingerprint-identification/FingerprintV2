@@ -8,7 +8,7 @@ import { filter, map, mergeMap } from 'rxjs';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss', '../../Global-style/global-style.component.scss']
+  styleUrls: ['./login-page.component.scss', '../../shared/global-style.component.scss']
 })
 export class LoginPageComponent implements OnInit {
 
