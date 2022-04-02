@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { ApiServicesService } from 'src/app/shared/services/api-services.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -11,7 +11,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   templateUrl: './login-form.component.html',
   styleUrls: [
     './login-form.component.scss',
-    '../../Global-style/global-style.component.scss',
+    '../../shared/global-style.component.scss',
   ],
 })
 export class LoginFormComponent implements OnInit {

@@ -27,7 +27,7 @@ export class UserInfoComponent implements OnInit {
   formSubmited: boolean = false;
   /**
    * @param router to access some properities from router
-   * @param signUpAuth to access some signUpAuth services services from signUpAuth services
+   * @param signUpAuth to access some signUpAuth services services
    */
   constructor(private router: Router, private signUpAuth: SignupService) { }
 

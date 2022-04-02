@@ -1,64 +1,84 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
+
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AuthService } from 'src/app/shared/services/auth.service';
+
+import { AuthService } from '../../shared/services/auth.service';
+
 /**
- * Confirm password component
+ * Confirm password component that we change the password
+ * and check if password === confirm password
  */
 @Component({
   selector: 'app-confirm-password',
   templateUrl: './confirm-password.component.html',
-  styleUrls: ['./confirm-password.component.scss', '../../Global-style/global-style.component.scss']
+  styleUrls: ['./confirm-password.component.scss', '../../shared/global-style.component.scss']
 })
 export class ConfirmPasswordComponent implements OnInit {
+  // Local reference to store the error message
   massegeError: string = '';
-  Submited: boolean = false;
+  // Local reference to check if it's submitted or not
+  submited: boolean = false;
+  // Local reference to check the match of password and confirmation
   match: boolean = true;
+  // Local reference to carry User Entered data
+  confirmForm !: FormGroup;
 
-  ConfirmForm: FormGroup = new FormGroup({
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(8),
-    ]),
-    newPassword: new FormControl('', [
-      Validators.required,
-      Validators.minLength(8),
-    ]),
-  });
-
+  /**
+   * @param auth too access some login method from auth Service
+   * @param router to access some properities from router
+   * @param spinner to access spinner
+   */
   constructor(
-    private Auth: AuthService,
+    private auth: AuthService,
     private router: Router,
     private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit(): void {
-
+    // Form validation
+    this.confirmForm = new FormGroup({
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      newPassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+    });
   }
-  confirm() {
-    this.Submited = true;
-
+  /**
+   * confirmation method we check if user logged in successfully or not
+   * @returns void
+   */
+  confirm(): void {
+    // active the submmition
+    this.submited = true;
+    // active spinner
     this.spinner.show();
-
-    if (this.ConfirmForm.invalid) {
+    // check the form validation
+    if (this.confirmForm.invalid) {
       this.spinner.hide();
       return;
     }
-
-    if (this.ConfirmForm.get('password')?.value !== this.ConfirmForm.get('newPassword')?.value) {
+    // check the match between password and confirmation password
+    if (this.confirmForm.get('password')?.value !== this.confirmForm.get('newPassword')?.value) {
       this.match = false;
       this.spinner.hide();
       return;
     }
-
+    // active the match successfully
     this.match = true;
-
-    this.Auth.Confirm(
-      this.ConfirmForm.get('password')?.value,
-      this.ConfirmForm.get('newPassword')?.value
+    // request
+    this.auth.Confirm(
+      this.confirmForm.get('password')?.value,
+      this.confirmForm.get('newPassword')?.value
     ).subscribe({
-      next: (data) => {
+      next: (_) => {
         this.router.navigate(['/Login']);
         this.spinner.hide();
       },
@@ -68,9 +88,5 @@ export class ConfirmPasswordComponent implements OnInit {
         this.router.navigate(['/Login']);
       },
     });
-  }
-
-  ConfirmError(control: string, error: string): any {
-    return this.ConfirmForm.controls[control].hasError(error);
   }
 }

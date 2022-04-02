@@ -3,8 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 /**
  * Reset Phone password component
@@ -14,7 +13,7 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
   templateUrl: './reset-phone.component.html',
   styleUrls: [
     './reset-phone.component.scss',
-    '../../Global-style/global-style.component.scss',
+    '../../shared/global-style.component.scss',
   ],
 })
 export class ResetPhoneComponent implements OnInit {
