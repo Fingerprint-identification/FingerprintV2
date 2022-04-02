@@ -9,7 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from '../../shared/services/auth.service';
 
 /**
- * Confirm password component that we change the password
+ * @ConfirmPasswordComponent Confirm password component that we change the password
  * and check if password === confirm password
  */
 @Component({
@@ -74,7 +74,7 @@ export class ConfirmPasswordComponent implements OnInit {
     // active the match successfully
     this.match = true;
     // request
-    this.auth.Confirm(
+    this.auth.confirm(
       this.confirmForm.get('password')?.value,
       this.confirmForm.get('newPassword')?.value
     ).subscribe({

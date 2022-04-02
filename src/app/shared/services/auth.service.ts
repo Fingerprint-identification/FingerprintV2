@@ -20,8 +20,13 @@ export class AuthService {
         private cookieService: CookieService
     ) {
     }
-   
 
+
+    signOut(): void {
+        this.cookieService.deleteAll();
+        window.localStorage.clear();
+        this.router.navigate(['/Home']);
+    }
     isLoggedin(): boolean {
         if (this.TokenStorage.GetToken()) {
             if (this.TokenStorage.GetUser())
