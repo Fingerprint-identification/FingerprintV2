@@ -28,7 +28,7 @@ export class ResetPinComponent implements OnInit {
   submited: boolean = false;
   // Local reference to store user phone
   phone !: string;
-  // Local reference to carry User Entered data
+  // Local reference to carry User Entered pin
   pinForm !: FormGroup;
   /**
    * @param auth too access some login method from auth Service
