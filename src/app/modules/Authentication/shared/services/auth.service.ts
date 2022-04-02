@@ -39,7 +39,7 @@ export class AuthService {
     );
   }
   /**
-   * this methed we user to generate pin code
+   * this methed apply user to generate pin code
    * here we active that pin sent in cookies
    * to active the page of the pin code to
    * display to user (guard)

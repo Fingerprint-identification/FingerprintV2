@@ -6,7 +6,6 @@ import { ResetPhoneComponent } from './components/reset-phone/reset-phone.compon
 
 import { ResetPinComponent } from './components/reset-pin/reset-pin.component';
 
-
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
 
 import { ConfirmPasswordComponent } from './components/confirm-password/confirm-password.component';
@@ -22,6 +21,7 @@ import { PinGuard } from 'src/app/core/guard/pin.guard';
 import { ConfirmGuard } from 'src/app/core/guard/confirm.guard';
 
 import { AuthApiService } from './shared/services/auth-api.service';
+
 import { AuthService } from './shared/services/auth.service';
 
 /** Auth router  */

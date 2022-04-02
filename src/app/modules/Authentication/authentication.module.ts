@@ -22,13 +22,7 @@ import { Title } from '@angular/platform-browser';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 
-
-
-
-
-
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
-
 
 
 @NgModule({
