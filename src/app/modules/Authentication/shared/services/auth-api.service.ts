@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
-import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+
 import { environment } from 'src/environments/environment';
 
 const AUTH_API = `${environment.apiUrl}` + "api/users/";
@@ -10,34 +12,62 @@ const AUTH_API = `${environment.apiUrl}` + "api/users/";
   providedIn: 'root'
 })
 export class AuthApiService {
-
-  constructor(private Http: HttpClient, private Token: TokenStorageService) {
+  /**
+   * @param Http to access properities from http
+   */
+  constructor(private Http: HttpClient) {
   }
-
-  Login(notional_id: number, password: number): Observable<any> {
+  /**
+   * Login method that take national id and password ands end to api
+   * @param notional_id
+   * @param password
+   * @returns Observable
+   */
+  login(notional_id: number, password: number): Observable<any> {
     return this.Http.post(AUTH_API + 'login', {
       password,
       notional_id
     });
   }
-
-  GeneratePinCode(phone: string): Observable<any> {
+  /**
+   * this methed send phone to api to generate pin
+   * @param phone the user phone
+   * @returns  Observable<any>
+   */
+  generatePinCode(phone: string): Observable<any> {
     return this.Http.post(AUTH_API + 'forgotpassword', {
       phone
     });
   }
-  Pin(code: number) {
+  /**
+   * this methed send code to api to allow change password
+   * @param code the user pin code
+   * @returns  Observable<any>
+   */
+  pin(code: number) {
     return this.Http.post(AUTH_API + 'resetPassword', {
       code
     });
   }
-  Confirm(password: string, passwordConfirm: string) {
+  /**
+   * method that send the confirm password and password to api
+   * @param password
+   * @param passwordConfirm
+   * @returns Observable<any>
+   */
+  confirm(password: string, passwordConfirm: string) {
     return this.Http.patch(AUTH_API + 'updateForgotPassword', {
       password,
       passwordConfirm
     });
   }
-  GetUserById(id: number): Observable<any> {
+
+  /**
+   * get user by id
+   * @param id
+   * @returns Observable
+   */
+  getUserById(id: number): Observable<any> {
     return this.Http.get(AUTH_API + 'login/' + id);
   }
 }

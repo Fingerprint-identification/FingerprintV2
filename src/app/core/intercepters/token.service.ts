@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/shared/services/shared.service';
 
 
 @Injectable({

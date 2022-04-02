@@ -14,11 +14,15 @@ import { ConfirmPasswordComponent } from './components/confirm-password/confirm-
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { ApiServicesService } from 'src/app/shared/services/api-services.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
+
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+
 import { PinGuard } from 'src/app/core/guard/pin.guard';
+
 import { ConfirmGuard } from 'src/app/core/guard/confirm.guard';
+
+import { AuthApiService } from './shared/services/auth-api.service';
+import { AuthService } from './shared/services/auth.service';
 
 /** Auth router  */
 const routes: Routes = [
@@ -77,7 +81,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
   providers: [
-    ApiServicesService,
+    AuthApiService,
     AuthService,
     TokenStorageService
   ]

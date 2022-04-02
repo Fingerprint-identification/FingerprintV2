@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/shared/services/shared.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 /**
  * Navbar component
@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   Logout() {
-    this.Auth.SignOut();
+    this.Auth.signOut();
     this.isLoggedIn = false;
   }
 

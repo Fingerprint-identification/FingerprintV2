@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
-import { ApiServicesService } from 'src/app/shared/services/api-services.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -53,7 +52,7 @@ export class LoginFormComponent implements OnInit {
       return;
     }
     // if all things is true
-    this.Auth.Login(
+    this.Auth.login(
       this.LoginForm.get('ID')?.value,
       this.LoginForm.get('Password')?.value
     ).subscribe({

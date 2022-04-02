@@ -12,7 +12,7 @@ import {
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/shared/services/shared.service';
 /**
  * Auth injectable
  */

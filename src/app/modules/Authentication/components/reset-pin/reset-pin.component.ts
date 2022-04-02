@@ -49,7 +49,7 @@ export class ResetPinComponent implements OnInit {
     }
 
     // if all things is true
-    this.auth.Pin(this.PinForm.get('Pin')?.value).subscribe({
+    this.auth.pin(this.PinForm.get('Pin')?.value).subscribe({
       next: (data: any) => {
         this.router.navigate(['Login/confirm-password']);
         this.spinner.hide();

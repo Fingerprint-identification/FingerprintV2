@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { Router } from '@angular/router';
-
-import { CookieService } from 'ngx-cookie-service';
-
 import { Observable, tap } from 'rxjs';
 
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
@@ -21,14 +17,10 @@ export class AuthService {
   /**
    * @param TokenStorage to access token
    * @param api to access AuthApiService to send request
-   * @param router to access proprities from router
-   * @param cookieService to access cookies to add in it
    */
   constructor(
     private TokenStorage: TokenStorageService,
     private api:AuthApiService,
-    private router: Router,
-    private cookieService: CookieService
   ) {
   }
 
@@ -40,7 +32,7 @@ export class AuthService {
    * @returns Observable
    */
   login(notional_id: number, password: number): Observable<any> {
-    return this.api.Login(notional_id, password).pipe(
+    return this.api.login(notional_id, password).pipe(
       tap((data: any) => {
         this.TokenStorage.SaveToken(data.token);
       })
@@ -55,7 +47,7 @@ export class AuthService {
    * @returns  Observable<any>
    */
   generatePinCode(phone: string): Observable<any> {
-    return this.api.GeneratePinCode(phone).pipe(
+    return this.api.generatePinCode(phone).pipe(
       tap((_) => {
         this.TokenStorage.SavePhoneNumber(phone);
         this.TokenStorage.SaveActivePin();
@@ -70,11 +62,10 @@ export class AuthService {
    * @returns  Observable<any>
    */
   pin(pin: number): Observable<any>{
-    return this.api.Pin(pin).pipe(
+    return this.api.pin(pin).pipe(
       tap((data: any) => {
         this.TokenStorage.SaveActiveConfirm()
         this.TokenStorage.SaveToken(data.token);
-        console.log(data.token);
       })
     );
   }
@@ -85,7 +76,7 @@ export class AuthService {
    * @returns Observable<any>
    */
   confirm(password: string, passwordConfirm: string): Observable<any>{
-    return this.api.Confirm(password, passwordConfirm);
+    return this.api.confirm(password, passwordConfirm);
   }
 
 }
