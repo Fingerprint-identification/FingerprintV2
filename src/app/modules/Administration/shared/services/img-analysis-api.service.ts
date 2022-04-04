@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const convertImg_API = "https://5818-197-54-114-107.ngrok.io/";
+const Img_API = "https://e11d-197-54-59-156.ngrok.io/";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,14 @@ export class ImgAnalysisApiService {
       method: 'POST',
       body: ImgFormData,
     };
-    return fetch(convertImg_API + "convertImageToMatrix", requestOptions);
+    return fetch(Img_API + "convertImageToMatrix", requestOptions);
   }
 
+  sendImgToCompare(ImgFormData: any): Promise<any> {
+    const requestOptions = {
+      method: 'POST',
+      body: ImgFormData,
+    };
+    return fetch(Img_API + "compareBetweenTwoMatrices", requestOptions);
+  }
 }

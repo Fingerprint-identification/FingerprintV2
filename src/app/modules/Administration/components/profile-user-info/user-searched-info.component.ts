@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { SignupService } from '../../shared/services/signup.service';
 
 @Component({
   selector: 'app-user-searched-info',
@@ -7,18 +8,12 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./user-searched-info.component.scss', '../../shared/admin-global-style.scss']
 })
 export class UserSearchedInfoComponent implements OnInit {
-
-  diseases : string[] = ["animia", "Diabetes"];
-  diseasesSubject$ = new BehaviorSubject<string[]>(null!);
-
-  constructor() { }
+  userData !: any;
+  constructor(private signUpServices: SignupService){}
 
   ngOnInit(): void {
-    this.diseasesSubject$.next([...this.diseases]);
-
+    this.userData = this.signUpServices.getUserSignUpData("userInformation");
   }
   AddDiseases(){
-    this.diseases.push("hatem");
-    this.diseasesSubject$.next([...this.diseases]);
   }
 }

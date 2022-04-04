@@ -34,7 +34,7 @@
                 <li class="dashboard__sidebar__content__list__ul__li" [routerLink]="['checkFingerprint']"
                   routerLinkActive="active" [ngClass]="{'active' : router.url.includes('profile')}">
                   <i class="bi bi-ui-checks dashboard__sidebar__content__list__ul__li__i"></i>
-                  <a class="dashboard__sidebar__content__list__ul__li__a">Check
+                  <a class="dashboard__sidebar__content__list__ul__li__a" (click)="formatUserInformation()">Check
                     Fingerprint</a>
                 </li>
               </ul>

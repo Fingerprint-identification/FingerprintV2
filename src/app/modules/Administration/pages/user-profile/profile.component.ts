@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss','../../global-style/admin-global-style.scss']
+  styleUrls: ['./profile.component.scss','../../shared/admin-global-style.scss']
 })
-export class ProfileComponent {
-
-
+export class ProfileComponent implements OnInit {
+  constructor(){}
+  ngOnInit(): void {
+  }
 
 }

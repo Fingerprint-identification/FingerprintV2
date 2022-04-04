@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
-const TOKEN_KEY = 'jwt'
+const TOKEN_KEY = 'Authorization'
 const USER_KEY = 'auth-user'
 
 

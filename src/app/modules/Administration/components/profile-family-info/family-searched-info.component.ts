@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignupService } from '../../shared/services/signup.service';
 
 @Component({
   selector: 'app-family-searched-info',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./family-searched-info.component.scss', '../../shared/admin-global-style.scss']
 })
 export class FamilySearchedInfoComponent implements OnInit {
-
-  constructor() { }
-
+  familyData !: any;
+  constructor(private signUpServices: SignupService){}
   ngOnInit(): void {
+    this.familyData = this.signUpServices.getUserSignUpData("userInformation");
   }
 
 }

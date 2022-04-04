@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
+import { RouterLinkWithHref } from '@angular/router';
 
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +17,7 @@ export class AuthApiService {
   /**
    * @param Http to access properities from http
    */
-  constructor(private Http: HttpClient) {
+  constructor(private Http: HttpClient, private token: TokenStorageService) {
   }
   /**
    * Login method that take national id and password ands end to api
@@ -55,13 +57,14 @@ export class AuthApiService {
    * @param passwordConfirm
    * @returns Observable<any>
    */
-  confirm(password: string, passwordConfirm: string) {
-    return this.Http.patch(AUTH_API + 'updateForgotPassword', {
-      password,
-      passwordConfirm
-    });
+  confirm(password: string, passwordConfirm: string): Observable<any> {
+    let body = {
+      password: password,
+      passwordConfirm: passwordConfirm
+    };
+    const data = JSON.stringify(body)
+    return this.Http.patch('https://still-escarpment-38033.herokuapp.com/api/users/updateForgotPassword', data)
   }
-
   /**
    * get user by id
    * @param id

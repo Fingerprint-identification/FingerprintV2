@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 import { environment } from 'src/environments/environment';
 
@@ -9,7 +11,7 @@ const AUTH_API = `${environment.apiUrl}` + "api/users/";
 })
 export class SignupApiService implements OnInit {
   token !: string;
-  constructor(private Token: TokenStorageService) {
+  constructor(private Token: TokenStorageService, private http: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -24,5 +26,8 @@ export class SignupApiService implements OnInit {
       body: JSON.stringify(userData),
     };
     return fetch(AUTH_API + "signup", requestOptions);
+  }
+  getUserById(id: string): Observable<any>{
+    return this.http.get(AUTH_API + 'national/' + id);
   }
 }

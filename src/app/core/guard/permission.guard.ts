@@ -24,6 +24,7 @@ export class PermissionGuard implements CanActivate, CanLoad {
   }
 
   CheckInStorage(next: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    console.log(this.Token.GetUser() )
     if (this.Token.GetUser() && this.Token.GetUser() === next.data['role']) {
       return true;
     }

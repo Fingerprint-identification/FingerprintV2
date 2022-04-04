@@ -11,6 +11,7 @@ import { CheckFingerprintComponent } from './pages/check-fingerprint/check-finge
 import { DashboardComponent } from './pages/admin-dashboard/dashboard.component';
 import { ProfileComponent } from './pages/user-profile/profile.component';
 import { SignupUserComponent } from './pages/signup-user/signup-user.component';
+import { ProfileGuard } from 'src/app/core/guard/profile.guard';
 
 const routes: Routes = [
   {
@@ -51,6 +52,8 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate:[ProfileGuard],
+        canLoad: [ProfileGuard],
         children: [
           {
             path:'userSearchedInfo',

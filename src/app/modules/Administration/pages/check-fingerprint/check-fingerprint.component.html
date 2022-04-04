@@ -21,7 +21,7 @@
                   alt="">
               </ng-template>
             </div>
-            <button class="check__finger__button" (click)="uploader.click();"> <input  #imageInput hidden type="file" (change)="ImgAdded(imageInput)"
+            <button class="check__finger__button" (click)="uploader.click();"> <input  hidden type="file" (change)="ImgAdded($event)"
                 #uploader /> Upload image </button>
           </div>
         </div>

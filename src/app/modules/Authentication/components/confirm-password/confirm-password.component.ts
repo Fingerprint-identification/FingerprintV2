@@ -26,7 +26,6 @@ export class ConfirmPasswordComponent implements OnInit {
   match: boolean = true;
   // Local reference to carry User Entered data
   confirmForm !: FormGroup;
-
   /**
    * @param auth too access some login method from auth Service
    * @param router to access some properities from router
@@ -79,13 +78,14 @@ export class ConfirmPasswordComponent implements OnInit {
       this.confirmForm.get('newPassword')?.value
     ).subscribe({
       next: (_) => {
-        this.router.navigate(['/Login']);
+        // this.router.navigate(['/Login']);
+        console.log("in confirm")
         this.spinner.hide();
       },
       error: (_) => {
         this.spinner.hide();
         this.massegeError = "Error occurred, try again!";
-        this.router.navigate(['/Login']);
+        // this.router.navigate(['/Login']);
       },
     });
   }

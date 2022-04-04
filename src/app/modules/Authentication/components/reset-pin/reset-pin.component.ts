@@ -72,7 +72,7 @@ export class ResetPinComponent implements OnInit {
     }
     // Request
     this.auth.pin(this.pinForm.get('Pin')?.value).subscribe({
-      next: (_) => {
+      next: (response: any) => {
         this.router.navigate(['Login/confirm-password']);
         this.spinner.hide();
       },

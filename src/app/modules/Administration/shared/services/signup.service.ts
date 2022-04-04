@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CookieService } from 'ngx-cookie-service';
+import { Observable, tap } from 'rxjs';
 
 import { SignupApiService } from './signup-api.service';
 
@@ -17,7 +19,7 @@ export class SignupService {
    * @param api access functions in SignupApiService
    * @param cookieService access cookies to add data form in it and from it
    */
-  constructor(private api: SignupApiService, private cookieService: CookieService) { }
+  constructor(private api: SignupApiService, private cookieService: CookieService, private router: Router) { }
 
   /**
    * This method add family and user forms as valid or invalid
@@ -147,5 +149,15 @@ export class SignupService {
       throw new Error(error.message || error);
     }
   }
-
+  getUserById(id: string) {
+    this.api.getUserById(id).subscribe({
+      next: (data) => {
+        this.saveUserSignUpData(data, "userInformation");
+      },
+      error: (_) => {
+        alert("User not founded please, try again!");
+        this.router.navigate(['/Admin/checkFingerprint']);
+      }
+    })
+  }
 }

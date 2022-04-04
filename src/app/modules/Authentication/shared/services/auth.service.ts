@@ -23,7 +23,6 @@ export class AuthService {
     private api:AuthApiService,
   ) {
   }
-
   /**
    * Login method that take national id and password ands end to api
    * and store token in storage
@@ -34,6 +33,7 @@ export class AuthService {
   login(notional_id: number, password: number): Observable<any> {
     return this.api.login(notional_id, password).pipe(
       tap((data: any) => {
+        this.TokenStorage.SaveUser(data.role)
         this.TokenStorage.SaveToken(data.token);
       })
     );
@@ -76,7 +76,12 @@ export class AuthService {
    * @returns Observable<any>
    */
   confirm(password: string, passwordConfirm: string): Observable<any>{
+    console.log("first", password, passwordConfirm)
     return this.api.confirm(password, passwordConfirm);
   }
+  // async confirm(password: string, passwordConfirm: string): Promise<any>{
+  //   let res = await this.api.confirm(password, passwordConfirm);
+  //   console.log(res);
+  // }
 
 }
