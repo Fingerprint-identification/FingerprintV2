@@ -30,16 +30,25 @@ export class CheckFingerprintComponent implements OnInit {
       formData.append("originalImg", file);
       this.imgAnalysisAuth.sendImgToCompare(formData)
         .then((result: any) => {
-          alert(result);
-          this.router.navigate(['Admin/profile'])
+          if (result.status === 200) {
+            this.signUpAuth.getUserById(result.message);
+          } else if (result.status === 404) {
+            alert("User not founded");
+            this.faild();
+          }
+          this.ImgUploaded = false;
         }).catch((error: any) => {
-          alert(error);
+          this.faild();
+          alert(error.message);
         })
+        alert("Request has been sent, wait...");
     }
     else {
-      this.ImgUploaded = false;
-      this.signUpAuth.deleteUserSignUpData("fingerprintStatus");
+      this.faild();
     }
   }
-
+  faild(){
+    this.ImgUploaded = false;
+    this.router.navigate(['/Admin/checkFingerprint']);
+  }
 }

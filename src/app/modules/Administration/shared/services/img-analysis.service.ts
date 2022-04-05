@@ -24,8 +24,13 @@ export class ImgAnalysisService {
    * @returns json()
    */
   async sendImgToConvert(ImgFormData: any) {
-    const response = await this.api.sendImgToConvert(ImgFormData);
-    return response.json();
+    let response = await this.api.sendImgToConvert(ImgFormData);
+    if (response.status === 500)
+      return { message: "Opps, Fingerprint has error" };
+    if (response.status === 200) {
+      response = response.json();
+      return response;
+    }
   }
   /**
    * This function send request to api and wait for the id returned
@@ -39,9 +44,7 @@ export class ImgAnalysisService {
       return { message: "Opps, Fingerprint has error" };
     if (response.status === 200) {
       response = response.json();
-      // we send request to api
-      this.signUpAuth.getUserById(response.id);
-      return { message: "User founded successfully" };
+      return response;
     }
   }
 }

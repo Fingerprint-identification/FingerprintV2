@@ -21,8 +21,8 @@
                   alt="">
               </ng-template>
             </div>
-            <button class="check__finger__button" (click)="uploader.click();"> <input  hidden type="file" (change)="ImgAdded($event)"
-                #uploader /> Upload image </button>
+            <button class="check__finger__button" (click)="uploader.click()" >
+              <input  hidden type="file" (change)="ImgAdded($event)" #uploader [disabled]="ImgUploaded" /> Upload image </button>
           </div>
         </div>
         <div class="col-8">
@@ -34,7 +34,7 @@
               <label for="ID" class="form-label check__ByID__ID__label my-2">Enter ID</label>
               <input type="text" class="form-control check__ByID__ID__input" id="ID" placeholder="3014 353 235 1234">
             </div>
-            <button class="mt-3 check__ByID__button" [routerLink]="['/Admin/profile']"> Search </button>
+            <button class="mt-3 check__ByID__button" [disabled]="ImgUploaded" [routerLink]="['/Admin/profile']" > Search </button>
           </div>
         </div>
       </div>

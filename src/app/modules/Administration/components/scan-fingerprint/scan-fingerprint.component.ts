@@ -31,7 +31,7 @@ export class ScanFingerprintComponent implements OnInit {
    * @param event it's the file detected by function
    * @returns void
    */
-  uploadImage(event: any): void{
+  uploadImage(event: any): void {
     // select the file
     const file = event.target.files[0];
     // check if it's empty or not
@@ -40,13 +40,20 @@ export class ScanFingerprintComponent implements OnInit {
       var formData = new FormData();
       formData.append("originalImg", file);
       this.imgAnalysisAuth.sendImgToConvert(formData)
-      .then((result: any) =>{
-        this.signUpAuth.saveUserSignUpData(result.message, "fingerprint")
-      })
+        .then((result: any) => {
+          this.signUpAuth.deleteUserSignUpData("fingerprint");
+          this.signUpAuth.saveUserSignUpData(result.message, "fingerprint")
+        }).catch((error) => {
+          this.faild();
+          alert(error.message);
+        })
     }
     else {
-      this.ImgUploaded = false;
-      this.signUpAuth.deleteUserSignUpData("fingerprint");
+      this.faild();
     }
+  }
+  faild() {
+    this.ImgUploaded = false;
+    this.signUpAuth.deleteUserSignUpData("fingerprint");
   }
 }

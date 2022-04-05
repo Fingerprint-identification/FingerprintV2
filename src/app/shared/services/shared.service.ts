@@ -29,8 +29,9 @@ export class AuthService {
     }
     isLoggedin(): boolean {
         if (this.TokenStorage.GetToken()) {
-            if (this.TokenStorage.GetUser())
+            if (JSON.stringify(this.TokenStorage.GetUser()) !== '{}'){
                 return true;
+            }
             return false;
         }
         return false;

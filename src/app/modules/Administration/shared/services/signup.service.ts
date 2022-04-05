@@ -152,10 +152,14 @@ export class SignupService {
   getUserById(id: string) {
     this.api.getUserById(id).subscribe({
       next: (data) => {
+        this.deleteUserSignUpData("userInformation");
         this.saveUserSignUpData(data, "userInformation");
+        alert("User founded successfully");
+        this.router.navigate(['/Admin/profile']);
       },
-      error: (_) => {
-        alert("User not founded please, try again!");
+      error: (error: any) => {
+        alert(error);
+        this.deleteUserSignUpData("userInformation");
         this.router.navigate(['/Admin/checkFingerprint']);
       }
     })
