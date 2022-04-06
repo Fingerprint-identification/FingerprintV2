@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+
 import { Router } from '@angular/router';
 
 import { CookieService } from 'ngx-cookie-service';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { SignupApiService } from './signup-api.service';
 
@@ -15,6 +16,8 @@ import { SignupApiService } from './signup-api.service';
 })
 
 export class SignupService {
+  private uploadedImg$ = new BehaviorSubject<boolean>(false);
+  __uploadedImg$ = this.uploadedImg$.asObservable();
   /**
    * @param api access functions in SignupApiService
    * @param cookieService access cookies to add data form in it and from it
@@ -155,13 +158,22 @@ export class SignupService {
         this.deleteUserSignUpData("userInformation");
         this.saveUserSignUpData(data, "userInformation");
         alert("User founded successfully");
+        this.imgUploaded(false);
         this.router.navigate(['/Admin/profile']);
       },
       error: (error: any) => {
         alert(error);
+        this.imgUploaded(false);
         this.deleteUserSignUpData("userInformation");
         this.router.navigate(['/Admin/checkFingerprint']);
       }
     })
+  }
+  imgUploaded(uploaded: boolean){
+    this.uploadedImg$.next(uploaded);
+    this.saveUserSignUpData(uploaded, "loadingDiv");
+  }
+  checkImgUploaded(){
+    return this.getUserSignUpData("loadingDiv");
   }
 }

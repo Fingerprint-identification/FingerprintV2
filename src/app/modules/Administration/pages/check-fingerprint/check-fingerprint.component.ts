@@ -9,7 +9,7 @@ import { SignupService } from '../../shared/services/signup.service';
   styleUrls: ['./check-fingerprint.component.scss', '../../shared/admin-global-style.scss']
 })
 export class CheckFingerprintComponent implements OnInit {
-  ImgUploaded: boolean = false;
+  ImgUploaded!: boolean;
 
   /**
   * @param signUpAuth to access methods inside signUp services
@@ -25,6 +25,7 @@ export class CheckFingerprintComponent implements OnInit {
     const file = event.target.files[0];
     // check if it's empty or not
     if (event.target.files.length > 0) {
+      this.signUpAuth.imgUploaded(true);
       this.ImgUploaded = true;
       var formData = new FormData();
       formData.append("originalImg", file);
@@ -48,6 +49,7 @@ export class CheckFingerprintComponent implements OnInit {
     }
   }
   faild(){
+    this.signUpAuth.imgUploaded(false);
     this.ImgUploaded = false;
     this.router.navigate(['/Admin/checkFingerprint']);
   }

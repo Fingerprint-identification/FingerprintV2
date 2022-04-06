@@ -83,6 +83,22 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-5 offset-3">
+            <div class="dashboard__uploadedImgDiv" *ngIf="imgUploaded === true">
+              <div class="dashboard__uploadedImgDiv__title">
+                <h3>
+                  Image uploaded successfully
+                </h3>
+              </div>
+              <div class="dashboard__uploadedImgDiv__desc">
+                <p>
+                  please wait until proccess ended...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Content of dashboard -->
         <div class="row">
           <div class="col-11 custem-dashboard-style disable-scrollbars" style="border-radius: 12px;">
