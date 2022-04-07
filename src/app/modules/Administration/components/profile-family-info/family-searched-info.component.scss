@@ -7,10 +7,29 @@
   border: 2px solid $dashboard-admin-titles !important;
 }
 
-.family-info{
+.family-info {
+  font-family: map-get($map: $fonts, $key: paragraphFont) !important;
   border: 2px solid $dashboard-admin-titles;
   border-radius: 17px;
   padding: 20px 10px;
   margin-bottom: 20px;
   height: 100%;
+  position: relative;
+  &-buttons {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    &__button {
+      background: $main-color-brightness;
+      border-radius: 5px;
+      border: 2px solid $dashboard-admin-titles;
+      background: $dashboard-admin-titles;
+        padding: 0.6rem 1rem;
+      margin-right: 10px;
+      font-size: 1rem;
+      font-family: map-get($map: $fonts, $key: paragraphFont);
+      cursor: pointer;
+      color: white;
+    }
+  }
 }
