@@ -11,11 +11,11 @@ export class ProfileGuard implements CanActivate, CanLoad {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return (this.signUpServices.getUserSignUpData("userInformation") !== 'false') ? true : false;
+    return (this.signUpServices.getThisDataWithThisNameFromCookies("userInformation") !== 'false') ? true : false;
   }
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return (this.signUpServices.getUserSignUpData("userInformation") !== 'false') ? true : false;
+    return (this.signUpServices.getThisDataWithThisNameFromCookies("userInformation") !== 'false') ? true : false;
   }
 }

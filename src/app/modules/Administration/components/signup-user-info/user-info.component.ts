@@ -33,7 +33,7 @@ export class UserInfoComponent implements OnInit {
 
   ngOnInit(): void {
     // Get userData stored in cookies to put it into formControl value to display to admin for access it
-    this.userData = this.signUpAuth.getUserSignUpData("userData");
+    this.userData = this.signUpAuth.getThisDataWithThisNameFromCookies("userData");
     // to check if the form submitted to display required fields that admin wasn't filled
     this.formSubmited = (this.signUpAuth.formSubmitted() === 'true') ? true : false;
     // Form validation
@@ -96,6 +96,6 @@ export class UserInfoComponent implements OnInit {
     else
       this.signUpAuth.validationChecker("userForm", "invalid");
     // store data entered by admin about user info
-    this.signUpAuth.saveUserSignUpData(this.userForm.value, "userData");
+    this.signUpAuth.saveThisDataWithThisNameInCookies(this.userForm.value, "userData");
   }
 }

@@ -24,7 +24,7 @@ export class ScanFingerprintComponent implements OnInit {
 
   ngOnInit(): void {
     // checking if image uploaded to active html image with green if true else active gray image
-    this.ImgUploaded = (this.signUpAuth.getUserSignUpData("fingerprint") === "false") ? false : true;;
+    this.ImgUploaded = (this.signUpAuth.getThisDataWithThisNameFromCookies("fingerprint") === "false") ? false : true;;
   }
   /**
    * method that detect the image uploaded and make operation in it
@@ -41,8 +41,8 @@ export class ScanFingerprintComponent implements OnInit {
       formData.append("originalImg", file);
       this.imgAnalysisAuth.sendImgToConvert(formData)
         .then((result: any) => {
-          this.signUpAuth.deleteUserSignUpData("fingerprint");
-          this.signUpAuth.saveUserSignUpData(result.message, "fingerprint")
+          this.signUpAuth.deleteThisDataWithThisNameFromCookies("fingerprint");
+          this.signUpAuth.saveThisDataWithThisNameInCookies(result.message, "fingerprint")
         }).catch((error) => {
           this.faild();
           alert(error.message);
@@ -54,6 +54,6 @@ export class ScanFingerprintComponent implements OnInit {
   }
   faild() {
     this.ImgUploaded = false;
-    this.signUpAuth.deleteUserSignUpData("fingerprint");
+    this.signUpAuth.deleteThisDataWithThisNameFromCookies("fingerprint");
   }
 }

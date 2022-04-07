@@ -118,10 +118,10 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
    *  method to assign the data selected from cookies to variables to access it to send to api
    */
   executeGettingData(): void {
-    this.userData = this.signUpAuth.getUserSignUpData(this.userDataCookiesName);
-    this.familyData = this.signUpAuth.getUserSignUpData(this.familyDataCookiesName);
-    this.diseases = this.signUpAuth.getUserSignUpData(this.diseasesCookiesName);
-    this.fingerprintMatrix = this.signUpAuth.getUserSignUpData(this.fingerprintMatrixCookiesName);
+    this.userData = this.signUpAuth.getThisDataWithThisNameFromCookies(this.userDataCookiesName);
+    this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies(this.familyDataCookiesName);
+    this.diseases = this.signUpAuth.getThisDataWithThisNameFromCookies(this.diseasesCookiesName);
+    this.fingerprintMatrix = this.signUpAuth.getThisDataWithThisNameFromCookies(this.fingerprintMatrixCookiesName);
   }
 
   /**

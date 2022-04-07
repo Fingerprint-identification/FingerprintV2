@@ -32,7 +32,7 @@ export class UserSearchedInfoComponent implements OnInit {
     // to check if the form submitted to display required fields that admin wasn't filled
     // this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
     // Get userData stored in cookies to put it into formControl value to display to admin for access it
-    this.userData = this.signUpAuth.getUserSignUpData("userInformation");
+    this.userData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
 
     // Form validation
     this.userForm = new FormGroup({

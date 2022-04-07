@@ -18,6 +18,7 @@ import { SignupApiService } from './signup-api.service';
 export class SignupService {
   private uploadedImg$ = new BehaviorSubject<boolean>(false);
   __uploadedImg$ = this.uploadedImg$.asObservable();
+
   /**
    * @param api access functions in SignupApiService
    * @param cookieService access cookies to add data form in it and from it
@@ -50,7 +51,7 @@ export class SignupService {
    * @param name the name of the form
    * @returns void
    */
-  public saveUserSignUpData(data: any, name: string): void {
+  public saveThisDataWithThisNameInCookies(data: any, name: string): void {
     this.cookieService.set(name, JSON.stringify(data));
   }
   /**
@@ -59,7 +60,7 @@ export class SignupService {
    * @param name the name of the form
    * @returns any => data or false
    */
-  public getUserSignUpData(name: string): any {
+  public getThisDataWithThisNameFromCookies(name: string): any {
     const data = this.cookieService.get(name);
     if (data) {
       return JSON.parse(data);
@@ -90,7 +91,7 @@ export class SignupService {
    * @param name the name of what you need to delete
    * @returns void
    */
-  public deleteUserSignUpData(name: string): void {
+  public deleteThisDataWithThisNameFromCookies(name: string): void {
     this.cookieService.delete(name);
   }
   /**
@@ -155,8 +156,8 @@ export class SignupService {
   getUserById(id: string) {
     this.api.getUserById(id).subscribe({
       next: (data) => {
-        this.deleteUserSignUpData("userInformation");
-        this.saveUserSignUpData(data, "userInformation");
+        this.deleteThisDataWithThisNameFromCookies("userInformation");
+        this.saveThisDataWithThisNameInCookies(data.data, "userInformation");
         alert("User founded successfully");
         this.imgUploaded(false);
         this.router.navigate(['/Admin/profile']);
@@ -164,16 +165,16 @@ export class SignupService {
       error: (error: any) => {
         alert(error);
         this.imgUploaded(false);
-        this.deleteUserSignUpData("userInformation");
+        this.deleteThisDataWithThisNameFromCookies("userInformation");
         this.router.navigate(['/Admin/checkFingerprint']);
       }
     })
   }
   imgUploaded(uploaded: boolean){
     this.uploadedImg$.next(uploaded);
-    this.saveUserSignUpData(uploaded, "loadingDiv");
+    this.saveThisDataWithThisNameInCookies(uploaded, "loadingDiv");
   }
   checkImgUploaded(){
-    return this.getUserSignUpData("loadingDiv");
+    return this.getThisDataWithThisNameFromCookies("loadingDiv");
   }
 }

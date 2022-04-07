@@ -32,7 +32,7 @@ export class UserFamilyInfoComponent implements OnInit {
     // to check if the form submitted to display required fields that admin wasn't filled
     this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
     // Get familyData stored in cookies to put it into formControl value to display to admin for access it
-    this.familyData = this.signUpAuth.getUserSignUpData("familyData");
+    this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies("familyData");
      // Form validation
     this.familyForm = new FormGroup({
       mother_FullName: new FormControl(this.familyData.mother_FullName, [
@@ -77,6 +77,6 @@ export class UserFamilyInfoComponent implements OnInit {
     else
       this.signUpAuth.validationChecker("familyForm", "invalid")
     // store data entered by admin about family
-    this.signUpAuth.saveUserSignUpData(this.familyForm.value, "familyData");
+    this.signUpAuth.saveThisDataWithThisNameInCookies(this.familyForm.value, "familyData");
   }
 }

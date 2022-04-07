@@ -29,7 +29,7 @@ export class FamilySearchedInfoComponent implements OnInit {
     // to check if the form submitted to display required fields that admin wasn't filled
     // this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
     // Get familyData stored in cookies to put it into formControl value to display to admin for access it
-    this.familyData = this.signUpAuth.getUserSignUpData("userInformation");
+    this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
      // Form validation
     this.familyForm = new FormGroup({
       mother_FullName: new FormControl(this.familyData.mother_FullName, [

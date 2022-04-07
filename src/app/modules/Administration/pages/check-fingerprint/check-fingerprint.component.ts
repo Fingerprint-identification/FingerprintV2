@@ -17,9 +17,9 @@ export class CheckFingerprintComponent implements OnInit {
   */
   constructor(private signUpAuth: SignupService, private imgAnalysisAuth: ImgAnalysisService, private router: Router) { }
 
-
   ngOnInit(): void {
   }
+
   ImgAdded(event: any) {
     // select the file
     const file = event.target.files[0];
