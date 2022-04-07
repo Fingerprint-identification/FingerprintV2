@@ -29,29 +29,31 @@ export class UserSearchedInfoComponent implements OnInit {
   constructor(private router: Router, private signUpAuth: SignupService) { }
 
   ngOnInit(): void {
+    // to check if the form submitted to display required fields that admin wasn't filled
+    // this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
     // Get userData stored in cookies to put it into formControl value to display to admin for access it
     this.userData = this.signUpAuth.getUserSignUpData("userInformation");
 
     // Form validation
     this.userForm = new FormGroup({
-      fullName: new FormControl(this.userData.fullName, [
+      fullName: new FormControl(this.userData.fristName, [
         Validators.required,
         Validators.minLength(3),
       ]),
       gender: new FormControl(this.userData.gender, [Validators.required]),
-      nationality: new FormControl(this.userData.nationality, [
+      nationality: new FormControl(this.userData.notionalty, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      id: new FormControl(this.userData.id, [
+      id: new FormControl(this.userData.notional_id, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      birthDate: new FormControl(this.userData.birthDate, [Validators.required]),
-      birthPlace: new FormControl(this.userData.birthPlace, [Validators.required]),
+      birthDate: new FormControl(this.userData.birthday, [Validators.required]),
+      birthPlace: new FormControl(this.userData.place_of_birth, [Validators.required]),
       phone: new FormControl(this.userData.phone, [
         Validators.required,
         Validators.minLength(10),
@@ -65,7 +67,7 @@ export class UserSearchedInfoComponent implements OnInit {
     });
 
     // get deseases from cookies to display to user
-    this.diseases = (this.signUpAuth.getDiseases("diseases"));
+    this.diseases = [...this.userData.disease];
     // Added deseases to this subject
     this.diseasesSubject$.next([...this.diseases]);
   }
@@ -80,18 +82,5 @@ export class UserSearchedInfoComponent implements OnInit {
       // save diseases in cookies
       this.signUpAuth.saveDiseases([...this.diseases], "diseases");
     }
-  }
-  /**
-  * this method detect data entered by user about user edited or not
-  */
-  FormEdited() {
-    // check the validation
-    if (this.userForm.valid) {
-      this.signUpAuth.validationChecker("userForm", "valid")
-    }
-    else
-      this.signUpAuth.validationChecker("userForm", "invalid");
-    // store data entered by admin about user info
-    this.signUpAuth.saveUserSignUpData(this.userForm.value, "userData");
   }
 }

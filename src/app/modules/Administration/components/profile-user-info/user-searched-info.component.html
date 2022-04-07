@@ -1,4 +1,4 @@
-<form class="personal-info" [formGroup]="userForm" (change)="FormEdited()" novalidate>
+<form class="personal-info" [formGroup]="userForm" novalidate>
   <div class="row">
     <div class="col-6">
       <div class="personal-info__content">
@@ -21,12 +21,15 @@
                     <!-- full name -->
                     <div class="my-3 personal-info__content__generate-information__form__full-name">
                       <label for="fullName"
-                        class="form-label personal-info__content__generate-information__form__full-name__label">Full
-                        Name
+                        class="form-label personal-info__content__generate-information__form__full-name__label">
+                        Full Name
                       </label>
                       <input type="text"
                         class="form-control personal-info__content__generate-information__form__full-name__input"
-                        id="fullName" formControlName="fullName" placeholder="Ammmr mahmoud">
+                        id="fullName" formControlName="fullName" name="fullName" placeholder="Ammmr mahmoud">
+                      <app-validation-errors-component [Form]="userForm" [control]="'fullName'" [minLength]="3"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['fullName'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
                     <!-- Check gender -->
                     <div class="personal-info__content__generate-information__form__form-check-parent">
@@ -41,24 +44,30 @@
                           id="ratio-check">
                           <input
                             class="form-check-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
-                            type="radio" name="flexRadioDefault" formControlName="gender" value="Male"
-                            id="flexRadioDefault1">
+                            type="radio" name="gender" formControlName="gender" value="Male"
+                            id="male">
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
-                            for="flexRadioDefault1">
+                            for="male">
                             Male
                           </label>
+                          <app-validation-errors-component [Form]="userForm" [control]="'gender'"
+                            [massegeError]="massegeError" *ngIf="userForm.controls['gender'].touched || formSubmited">
+                          </app-validation-errors-component>
                         </div>
                         <div class="personal-info__content__generate-information__form__form-check-parent__check">
                           <input
                             class="form-check-input form-check-parent-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
-                            type="radio" name="flexRadioDefault" formControlName="gender" value="Female"
-                            id="flexRadioDefault2" checked>
+                            type="radio" name="gender" formControlName="gender" value="Female"
+                            id="female" checked>
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
-                            for="flexRadioDefault2">
+                            for="female">
                             Female
                           </label>
+                          <app-validation-errors-component [Form]="userForm" [control]="'gender'"
+                            [massegeError]="massegeError" *ngIf="userForm.controls['gender'].touched || formSubmited">
+                          </app-validation-errors-component>
                         </div>
                       </div>
                     </div>
@@ -72,17 +81,26 @@
                         <input type="text" id="Egyption"
                           class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
                           placeholder="Egyption" formControlName="nationality" aria-label="Egyption">
+                        <app-validation-errors-component [Form]="userForm" [control]="'nationality'" [minLength]="5"
+                          [pattern]="'Egyption'" [massegeError]="massegeError"
+                          *ngIf="userForm.controls['nationality'].touched || formSubmited">
+                        </app-validation-errors-component>
                       </div>
                       <div
                         class="my-3 personal-info__content__generate-information__form__nationality-content-fields__field">
-                        <label for="fullName"
-                          class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">ID</label>
+                        <label for="id"
+                          class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">
+                          ID
+                        </label>
                         <input type="text"
                           class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
-                          placeholder=" 3014 353 235 1234 " formControlName="id" aria-label="ID">
+                          placeholder=" 3014 353 235 1234 " name="id" formControlName="id" aria-label="ID">
+                        <app-validation-errors-component [Form]="userForm" [control]="'id'" [minLength]="14"
+                          [maxLength]="14" [pattern]="'Numbers'" [massegeError]="massegeError"
+                          *ngIf="userForm.controls['id'].touched || formSubmited">
+                        </app-validation-errors-component>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -106,32 +124,36 @@
                       class="input-group mb-3 personal-info__content__Birthday-information__form__Birthday-content-fields">
                       <div
                         class="my-3 personal-info__content__Birthday-information__form__Birthday-content-fields__field">
-                        <label for="fullName"
-                          class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">Birth
-                          Place
+                        <label for="birthPlace"
+                          class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">
+                          Birth Place
                         </label>
                         <input type="text"
                           class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
-                          placeholder="Cairo" formControlName="birthPlace" aria-label="Birth Place">
+                          placeholder="Cairo" name="birthPlace" formControlName="birthPlace" aria-label="Birth Place">
+                        <app-validation-errors-component [Form]="userForm" [control]="'birthPlace'"
+                          [massegeError]="massegeError" *ngIf="userForm.controls['birthPlace'].touched || formSubmited">
+                        </app-validation-errors-component>
                       </div>
                       <div
                         class="my-3 personal-info__content__Birthday-information__form__Birthday-content-fields__field">
-                        <label for="Birth Date"
-                          class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">Birth
-                          Date
+                        <label for="birthDate"
+                          class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">
+                          Birth Date
                         </label>
                         <input type="date"
                           class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
-                          aria-label="Birth Date" formControlName="birthDate">
-                        <i
-                          class="bi bi-calendar2-week personal-info__content__Birthday-information__form__Birthday-content-fields__field__i"></i>
+                          aria-label="Birth Date" name="birthDate" formControlName="birthDate">
+                        <i class="bi bi-calendar2-week personal-info__content__Birthday-information__form__Birthday-content-fields__field__i"></i>
+                        <app-validation-errors-component [Form]="userForm" [control]="'birthDate'"
+                          [massegeError]="massegeError" *ngIf="userForm.controls['birthDate'].touched || formSubmited">
+                        </app-validation-errors-component>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             <!-- Connection Information -->
             <div class="personal-info__content__Connection-information">
               <div class="row">
@@ -150,25 +172,35 @@
                     <!-- Phone -->
                     <div class="my-3 personal-info__content__Connection-information__form__phone">
                       <label for="phone"
-                        class="form-label personal-info__content__Connection-information__form__phone__label">Phone</label>
+                        class="form-label personal-info__content__Connection-information__form__phone__label">
+                        Phone
+                      </label>
                       <input type="text"
                         class="form-control personal-info__content__Connection-information__form__phone__input"
-                        id="phone" formControlName="phone" placeholder="01003623286">
+                        id="phone" name="phone" formControlName="phone" placeholder="01003623286">
+                      <app-validation-errors-component [Form]="userForm" [control]="'phone'" [minLength]="10"
+                        [maxLength]="10" [pattern]="'loaded without the first 0'" [massegeError]="massegeError"
+                        *ngIf="userForm.controls['phone'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
 
                     <!-- Phone -->
                     <div class="my-3 personal-info__content__Connection-information__form__email">
                       <label for="email"
-                        class="form-label personal-info__content__Connection-information__form__email__label">Email</label>
+                        class="form-label personal-info__content__Connection-information__form__email__label">
+                        Email
+                      </label>
                       <input type="email"
                         class="form-control personal-info__content__Connection-information__form__email__input" email
-                        id="email" formControlName="email" placeholder="name@example.com" email>
+                        id="email" name="email" formControlName="email" placeholder="name@example.com" email>
+                      <app-validation-errors-component [Form]="userForm" [pattern]="'valid email'" [control]="'email'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['email'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -196,23 +228,30 @@
 
                     <!-- Current Address -->
                     <div class="my-3 personal-info__content__Address-information__form__current-address">
-                      <label for="current-address"
-                        class="form-label personal-info__content__Address-information__form__current-address__label">Current
-                        Address</label>
+                      <label for="street"
+                        class="form-label personal-info__content__Address-information__form__current-address__label">
+                        Current Address
+                      </label>
                       <input type="text"
                         class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="current-address" formControlName="street"
+                        id="current-address" name="street" formControlName="street"
                         placeholder="Ismailia, Hospital street, next to post office">
+                      <app-validation-errors-component [Form]="userForm" [control]="'street'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['street'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
-
                     <!-- Current City -->
                     <div class="my-3 personal-info__content__Address-information__form__current-address">
-                      <label for="current-address"
-                        class="form-label personal-info__content__Address-information__form__current-address__label">Current
-                        Address</label>
+                      <label for="address"
+                        class="form-label personal-info__content__Address-information__form__current-address__label">
+                        Current Address
+                      </label>
                       <input type="current-address"
                         class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="email" formControlName="address" placeholder="Ismailia">
+                        id="email" name="address" formControlName="address" placeholder="Ismailia">
+                      <app-validation-errors-component [Form]="userForm" [control]="'address'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['address'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
 
                   </div>
@@ -220,7 +259,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Health Information -->
             <div class="personal-info__content__Health-information mt-3">
               <div class="row">
@@ -239,12 +277,17 @@
                     <!-- check Diseases -->
                     <!-- Diseases -->
                     <div class="my-3 personal-info__content__Health-information__form__Diseases">
-                      <label for="Diseases"
-                        class="form-label personal-info__content__Health-information__form__Diseases__label">Diseases</label>
+                      <label for="diseases"
+                        class="form-label personal-info__content__Health-information__form__Diseases__label">
+                        Diseases
+                      </label>
                       <input type="text"
                         class="form-control personal-info__content__Health-information__form__Diseases__input"
                         name="diseases" #diseases id="diseases" placeholder="add diseases"
                         (keydown.enter)="AddDiseases(diseases)">
+                      <app-validation-errors-component [Form]="userForm" [control]="'diseases'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['diseases'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
                   </div>
                 </div>
