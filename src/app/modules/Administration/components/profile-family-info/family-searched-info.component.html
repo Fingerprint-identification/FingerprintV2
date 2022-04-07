@@ -1,4 +1,4 @@
-<form class="family-info">
+<form class="family-info" [formGroup]="familyForm">
   <div class="row">
     <div class="col-6">
       <div class="family-info__content">
@@ -25,9 +25,13 @@
                         class="form-label family-info__content__mother-information__form__mother-name__label">
                         Mother Name
                       </label>
-                      <input type="text"
+                      <input type="text" formControlName="mother_FullName"
                         class="form-control family-info__content__mother-information__form__mother-name__input"
                         id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset">
+                      <app-validation-errors-component [Form]="familyForm" [control]="'mother_FullName'" [minLength]="3"
+                        [massegeError]="massegeError"
+                        *ngIf="familyForm.controls['mother_FullName'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
                     <!-- Mother ID -->
                     <div class="my-3 family-info__content__mother-information__form__mother-id">
@@ -35,9 +39,13 @@
                         class="form-label family-info__content__mother-information__form__mother-id__label">
                         Mother ID
                       </label>
-                      <input type="mother-id"
+                      <input type="mother-id" formControlName="motherId"
                         class="form-control family-info__content__mother-information__form__mother-id__input"
                         id="mother-id" placeholder="3014 353 235 1234">
+                      <app-validation-errors-component [Form]="familyForm" [control]="'motherId'" [minLength]="14"
+                        [maxLength]="14" [massegeError]="massegeError"
+                        *ngIf="familyForm.controls['motherId'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
                     <!-- Mother nathonality -->
                     <div class="my-3 family-info__content__mother-information__form__mother-nationality">
@@ -45,9 +53,13 @@
                         class="form-label family-info__content__mother-nationalityformation__form__mother-nationality__label">
                         Mother Nathonality
                       </label>
-                      <input type="mother-nationality"
+                      <input type="mother-nationality" formControlName="motherNationality"
                         class="form-control family-info__content__mother-nationalityformation__form__mother-nationality__input"
                         id="mother-nationality" placeholder="Egyptian">
+                      <app-validation-errors-component [Form]="familyForm" [control]="'motherNationality'"
+                        [minLength]="5" [maxLength]="5" [pattern]="'Egyption'" [massegeError]="massegeError"
+                        *ngIf="familyForm.controls['motherNationality'].touched || formSubmited">
+                      </app-validation-errors-component>
                     </div>
                   </div>
                 </div>
@@ -81,9 +93,12 @@
                   class="form-label family-info__content__father-information__form__father-name__label">
                   Father Name
                 </label>
-                <input type="text"
+                <input type="text" formControlName="fatherFullName"
                   class="form-control family-info__content__father-information__form__father-name__input"
                   id="father-name" placeholder="Samy Ashraf Abdul Basset">
+                <app-validation-errors-component [Form]="familyForm" [control]="'fatherFullName'" [minLength]="3"
+                  [massegeError]="massegeError" *ngIf="familyForm.controls['fatherFullName'].touched || formSubmited">
+                </app-validation-errors-component>
               </div>
               <!-- father ID -->
               <div class="my-3 family-info__content__father-information__form__father-id">
@@ -91,9 +106,13 @@
                   class="form-label family-info__content__father-information__form__father-id__label">
                   Father ID
                 </label>
-                <input type="father-id"
+                <input type="father-id" formControlName="fatherId"
                   class="form-control family-info__content__father-information__form__father-id__input" id="father-id"
                   placeholder="3014 353 235 1234">
+                <app-validation-errors-component [Form]="familyForm" [control]="'fatherId'" [minLength]="14"
+                  [maxLength]="14" [massegeError]="massegeError"
+                  *ngIf="familyForm.controls['fatherId'].touched || formSubmited">
+                </app-validation-errors-component>
               </div>
               <!-- father nathonality -->
               <div class="my-3 family-info__content__father-information__form__father-nationality">
@@ -101,9 +120,13 @@
                   class="form-label family-info__content__father-nationalityformation__form__father-nationality__label">
                   Father Nathonality
                 </label>
-                <input type="father-nationality"
+                <input type="father-nationality" formControlName="fatherNationality"
                   class="form-control family-info__content__father-nationalityformation__form__father-nationality__input"
                   id="father-nationality" placeholder="Egyptian">
+                <app-validation-errors-component [Form]="familyForm" [control]="'fatherNationality'" [minLength]="5"
+                  [maxLength]="5" [pattern]="'Egyption'" [massegeError]="massegeError"
+                  *ngIf="familyForm.controls['fatherNationality'].touched || formSubmited">
+                </app-validation-errors-component>
               </div>
             </div>
           </div>
@@ -115,7 +138,8 @@
     <div class="col-12">
       <div class="family-info-buttons">
         <button class="family-info-buttons__button me-5">Save Changes</button>
-        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;">Delete User</button>
+        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;">Delete
+          User</button>
       </div>
     </div>
   </div>
