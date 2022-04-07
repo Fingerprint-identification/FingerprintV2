@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
       }
     })
     this.imgUploaded = this.signUpServices.checkImgUploaded();
-    console.log(this.imgUploaded)
   }
   formatUserInformation(){
     this.signUpServices.deleteThisDataWithThisNameFromCookies("userInformation");

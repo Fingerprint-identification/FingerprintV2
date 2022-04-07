@@ -134,7 +134,7 @@ export class SignupService {
    * @param response
    * @returns any => error or data as text()
    */
-  handler(response: any): any {
+   public handler(response: any): any {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -153,7 +153,7 @@ export class SignupService {
       throw new Error(error.message || error);
     }
   }
-  getUserById(id: string) {
+  public getUserById(id: string) {
     this.api.getUserById(id).subscribe({
       next: (data) => {
         this.deleteThisDataWithThisNameFromCookies("userInformation");
@@ -170,11 +170,11 @@ export class SignupService {
       }
     })
   }
-  imgUploaded(uploaded: boolean){
+  public imgUploaded(uploaded: boolean){
     this.uploadedImg$.next(uploaded);
     this.saveThisDataWithThisNameInCookies(uploaded, "loadingDiv");
   }
-  checkImgUploaded(){
+  public checkImgUploaded(){
     return this.getThisDataWithThisNameFromCookies("loadingDiv");
   }
 }

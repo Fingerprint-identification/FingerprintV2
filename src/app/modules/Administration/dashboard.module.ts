@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { UserInfoComponent } from './components/signup-user-info/user-info.component';
 import { UserFamilyInfoComponent } from './components/signup-family-info/user-family-info.component';

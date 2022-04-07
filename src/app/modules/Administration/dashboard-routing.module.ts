@@ -23,16 +23,11 @@ const routes: Routes = [
         component: SignupUserComponent,
         children: [
           {
-            path: 'userInfo',
+            path: 'signupUser',
             component: UserInfoComponent
           },
           {
-            path: '',
-            redirectTo: 'scan',
-            pathMatch: 'full'
-          },
-          {
-            path: 'familyInfo',
+            path: 'signupFamily',
             component: UserFamilyInfoComponent
           },
           {
@@ -42,6 +37,11 @@ const routes: Routes = [
           {
             path: 'done',
             component: DoneComponent
+          },
+          {
+            path: '',
+            redirectTo: 'scan',
+            pathMatch: 'full'
           }
         ]
       },
@@ -56,15 +56,15 @@ const routes: Routes = [
         canLoad: [ProfileGuard],
         children: [
           {
-            path:'userSearchedInfo',
+            path:'userProfile',
             component: UserSearchedInfoComponent
           },
           {
-            path:'familySearchedInfo',
+            path:'familyProfile',
             component: FamilySearchedInfoComponent
           },{
             path:'',
-            redirectTo:'userSearchedInfo',
+            redirectTo:'userProfile',
             pathMatch:'full'
           }
         ]
