@@ -18,7 +18,6 @@ export class CheckFingerprintComponent implements OnInit {
   constructor(private signUpAuth: SignupService, private imgAnalysisAuth: ImgAnalysisService, private router: Router) { }
 
   ngOnInit(): void {
-    this.signUpAuth.getUserById("623c6a0d7eb6abe6c80290f8");
   }
 
   ImgAdded(event: any) {
