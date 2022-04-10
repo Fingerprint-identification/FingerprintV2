@@ -10,7 +10,7 @@ import { SignupService } from '../../shared/services/signup.service';
 })
 export class CheckFingerprintComponent implements OnInit {
   ImgUploaded!: boolean;
-
+  national_id !: string;
   /**
   * @param signUpAuth to access methods inside signUp services
   * @param imgAnalysisAuth to access img services to send it for analysis
@@ -18,6 +18,7 @@ export class CheckFingerprintComponent implements OnInit {
   constructor(private signUpAuth: SignupService, private imgAnalysisAuth: ImgAnalysisService, private router: Router) { }
 
   ngOnInit(): void {
+    this.signUpAuth.getUserById("623c6a0d7eb6abe6c80290f8");
   }
 
   ImgAdded(event: any) {
@@ -47,6 +48,9 @@ export class CheckFingerprintComponent implements OnInit {
     else {
       this.faild();
     }
+  }
+  serchByNationalId(){
+    this.signUpAuth.getUserByNationalId(this.national_id);
   }
   faild(){
     this.signUpAuth.imgUploaded(false);

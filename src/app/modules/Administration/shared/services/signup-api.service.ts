@@ -28,6 +28,9 @@ export class SignupApiService implements OnInit {
     return fetch(AUTH_API + "signup", requestOptions);
   }
   getUserById(id: string): Observable<any>{
-    return this.http.get(AUTH_API + 'national/' + id);
+    return this.http.get(AUTH_API + 'id/' + id);
+  }
+  getUserByNationalId(nationalId: string): Observable<any>{
+    return this.http.get(AUTH_API + 'national/' + nationalId);
   }
 }

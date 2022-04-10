@@ -194,6 +194,10 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
             this.spinner.hide();
             alert("Opps, Some data have problem: User " + error.message)
           });
+      } else {
+        this.spinner.hide();
+        alert("Please some fields you skipped is required!");
+        return;
       }
     } else {
       this.spinner.hide();

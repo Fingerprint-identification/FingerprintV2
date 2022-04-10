@@ -36,38 +36,38 @@ export class UserSearchedInfoComponent implements OnInit {
 
     // Form validation
     this.userForm = new FormGroup({
-      fullName: new FormControl(this.userData.fristName, [
+      fullName: new FormControl(this.userData.child.fristName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      gender: new FormControl(this.userData.gender, [Validators.required]),
-      nationality: new FormControl(this.userData.notionalty, [
+      gender: new FormControl(this.userData.child.gender, [Validators.required]),
+      nationality: new FormControl(this.userData.child.notionalty, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      id: new FormControl(this.userData.notional_id, [
+      id: new FormControl(this.userData.child.notional_id, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      birthDate: new FormControl(this.userData.birthday, [Validators.required]),
-      birthPlace: new FormControl(this.userData.place_of_birth, [Validators.required]),
-      phone: new FormControl(this.userData.phone, [
+      birthDate: new FormControl(this.userData.child.birthday, [Validators.required]),
+      birthPlace: new FormControl(this.userData.child.place_of_birth, [Validators.required]),
+      phone: new FormControl(this.userData.child.phone, [
         Validators.required,
         Validators.minLength(10),
         Validators.maxLength(10),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      email: new FormControl(this.userData.email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
-      street: new FormControl(this.userData.street, [Validators.required]),
-      address: new FormControl(this.userData.address, [Validators.required]),
+      email: new FormControl(this.userData.child.email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+      street: new FormControl(this.userData.child.street, [Validators.required]),
+      address: new FormControl(this.userData.child.address, [Validators.required]),
       diseases: new FormControl(''),
     });
 
     // get deseases from cookies to display to user
-    this.diseases = [...this.userData.disease];
+    // this.diseases = [...this.userData.disease];
     // Added deseases to this subject
     this.diseasesSubject$.next([...this.diseases]);
   }

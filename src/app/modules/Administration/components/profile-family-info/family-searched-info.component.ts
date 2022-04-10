@@ -32,31 +32,31 @@ export class FamilySearchedInfoComponent implements OnInit {
     this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
      // Form validation
     this.familyForm = new FormGroup({
-      mother_FullName: new FormControl(this.familyData.mother_FullName, [
+      mother_FullName: new FormControl(this.familyData.mother_id.fristName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      motherNationality: new FormControl(this.familyData.motherNationality, [
+      motherNationality: new FormControl(this.familyData.mother_id.notionalty, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      motherId: new FormControl(this.familyData.motherId, [
+      motherId: new FormControl(this.familyData.mother_id.notional_id, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      fatherFullName: new FormControl(this.familyData.fatherFullName, [
+      fatherFullName: new FormControl(this.familyData.father_id.fristName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      fatherNationality: new FormControl(this.familyData.fatherNationality, [
+      fatherNationality: new FormControl(this.familyData.father_id.notionalty, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      fatherId: new FormControl(this.familyData.fatherId, [
+      fatherId: new FormControl(this.familyData.father_id.notional_id, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),

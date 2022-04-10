@@ -123,9 +123,10 @@ export class SignupService {
    * @returns void
    */
   public clearUserDataAfterSubmit(): void {
-    this.cookieService.delete("familyData");
-    this.cookieService.delete("userData");
-    this.cookieService.delete("diseases");
+    this.deleteThisDataWithThisNameFromCookies("familyData");
+    this.deleteThisDataWithThisNameFromCookies("userData");
+    this.deleteThisDataWithThisNameFromCookies("diseases");
+    this.deleteThisDataWithThisNameFromCookies("fingerprint");
   }
 
   /**
@@ -165,6 +166,21 @@ export class SignupService {
       error: (error: any) => {
         alert(error);
         this.imgUploaded(false);
+        this.deleteThisDataWithThisNameFromCookies("userInformation");
+        this.router.navigate(['/Admin/checkFingerprint']);
+      }
+    })
+  }
+  public getUserByNationalId(nationalId: string){
+    this.api.getUserByNationalId(nationalId).subscribe({
+      next: (data) => {
+        this.deleteThisDataWithThisNameFromCookies("userInformation");
+        this.saveThisDataWithThisNameInCookies(data.data, "userInformation");
+        alert("User founded successfully");
+        this.router.navigate(['/Admin/profile']);
+      },
+      error: (error: any) => {
+        alert(error);
         this.deleteThisDataWithThisNameFromCookies("userInformation");
         this.router.navigate(['/Admin/checkFingerprint']);
       }
