@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, pairwise, pipe, startWith } from 'rxjs';
 import { SignupService } from '../../shared/services/signup.service';
 
 @Component({

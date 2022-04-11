@@ -64,4 +64,23 @@ export class FamilySearchedInfoComponent implements OnInit {
       ]),
     });
   }
+  /**
+   * this method detect data entered by user about family edited or not
+   */
+   FormEdited() {
+    // check the validation
+    if(this.familyForm.valid)
+      this.signUpAuth.validationChecker("familyProfileForm", "valid")
+    else
+      this.signUpAuth.validationChecker("familyProfileForm", "invalid")
+    // store data entered by admin about family
+    this.signUpAuth.saveThisDataWithThisNameInCookies(this.familyForm.value, "familyProfile");
+  }
+  updateData(){
+    const userValidation = this.signUpAuth.getValidationChecker("userProfileForm");
+    const familyValidation = this.signUpAuth.getValidationChecker("familyProfileForm");
+    if(userValidation === 'valid' && familyValidation === 'valid'){
+      // do some thing
+    }
+  }
 }

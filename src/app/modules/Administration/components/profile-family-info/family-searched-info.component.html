@@ -1,4 +1,4 @@
-<form class="family-info" [formGroup]="familyForm">
+<form class="family-info" [formGroup]="familyForm" (change)="FormEdited()" novalidate>
   <div class="row">
     <div class="col-6">
       <div class="family-info__content">
@@ -137,9 +137,9 @@
   <div class="row">
     <div class="col-12">
       <div class="family-info-buttons">
-        <button class="family-info-buttons__button me-5">Save Changes</button>
-        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;">Delete
-          User</button>
+        <button class="family-info-buttons__button me-5" (click)="updateData()">Save Changes</button>
+        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;">
+          Delete User</button>
       </div>
     </div>
   </div>
