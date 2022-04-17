@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 
-import { PersonalData } from 'src/app/core/models/userData';
+import { PersonalData } from 'src/app/modules/Administration/models/userData';
 
 import { SignupService } from '../../shared/services/signup.service';
 
@@ -153,11 +153,12 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
   submitForm(): void {
     // run spinner
     this.spinner.show();
-    // Admin add submition true in localStorage to make all forms check
+    // Admin add submition true in localStorage to make all forms checked to use it in validation-error-component
     this.signUpAuth.makeformSubmitted("true");
     // check if the family form is valid and user form is valid and it was applied in userForm and familyForm
-    if (this.signUpAuth.getValidationChecker("familyForm") === 'valid' && this.signUpAuth.getValidationChecker("userForm") === 'valid') {
+    if (this.signUpAuth.validationOf("familyForm") === 'valid' && this.signUpAuth.validationOf("userForm") === 'valid') {
       this.executeGettingData();
+      // all submited true
       if (this.userData !== 'false' && this.fingerprintMatrix !== 'false' && this.familyData !== 'false') {
         // Create Class Personal Data
         this.dataOfUser = new PersonalData({
@@ -181,13 +182,13 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
           mother_id: this.familyData.motherId
         });
         // sending User data to api
-        this.signUpAuth.sendUserData(this.dataOfUser).then(
+        this.signUpAuth.addUser(this.dataOfUser).then(
           (_) => {
             this.spinner.hide();
             alert("User added successfuly!");
             // delete all data in localStorage after submitting
             this.signUpAuth.clearUserDataAfterSubmit();
-            // make form not submitted for new user
+            // make form not submitted for new user to use it in validation-error-component
             this.signUpAuth.makeformSubmitted("false");
             this.router.navigate(['/Admin/signup/scan']);
           }).catch(error => {
@@ -195,14 +196,16 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
             alert("Opps, Some data have problem: User " + error.message)
           });
       } else {
-        this.spinner.hide();
-        alert("Please some fields you skipped is required!");
+        this.skippedFields();
         return;
       }
     } else {
-      this.spinner.hide();
-      alert("Please some fields you skipped is required!");
+      this.skippedFields();
       return;
     }
+  }
+  skippedFields(){
+    this.spinner.hide();
+    alert("Please some fields you skipped is required!");
   }
 }
