@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CookieService } from 'ngx-cookie-service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { SignupApiService } from './signup-api.service';
 
@@ -31,7 +31,7 @@ export class SignupService {
    * @param validation this is what we need valid or invalid
    * @returns void => nothing
    */
-  public validationChecker(name: string, validation: string): void {
+  public makeValidationOf(name: string, validation: string): void {
     window.localStorage.setItem(name, validation);
   }
   /**
@@ -41,7 +41,7 @@ export class SignupService {
    * @param name it's the name of the form like familyForm or userForm
    * @returns string => valid or invalid
    */
-  public getValidationChecker(name: string): string | null {
+  public validationOf(name: string): string | null {
     return window.localStorage.getItem(name);
   }
   /**
@@ -127,6 +127,8 @@ export class SignupService {
     this.deleteThisDataWithThisNameFromCookies("userData");
     this.deleteThisDataWithThisNameFromCookies("diseases");
     this.deleteThisDataWithThisNameFromCookies("fingerprint");
+    this.deleteThisDataWithThisNameFromCookies("familyProfile");
+    this.deleteThisDataWithThisNameFromCookies("userUpdatedData");
   }
 
   /**
@@ -146,9 +148,9 @@ export class SignupService {
    * @param userData
    * @returns Promise<any>
    */
-  async sendUserData(userData: any): Promise<any> {
+  async addUser(userData: any): Promise<any> {
     try {
-      const response = await this.api.sendUserData(userData);
+      const response = await this.api.addUser(userData);
       return this.handler(response);
     } catch (error: any) {
       throw new Error(error.message || error);
@@ -185,6 +187,9 @@ export class SignupService {
         this.router.navigate(['/Admin/checkFingerprint']);
       }
     })
+  }
+  public updateUserById(id: string, updatedData: any): Observable<any>{
+    return this.api.updateUserById(id, updatedData);
   }
   public imgUploaded(uploaded: boolean){
     this.uploadedImg$.next(uploaded);

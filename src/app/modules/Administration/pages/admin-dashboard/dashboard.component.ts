@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { PersonalData } from 'src/app/modules/Administration/models/userData';
 import { SignupService } from '../../shared/services/signup.service';
 
 @Component({
@@ -9,9 +10,7 @@ import { SignupService } from '../../shared/services/signup.service';
 })
 export class DashboardComponent implements OnInit {
   imgUploaded: boolean = false;
-
   constructor(public router: Router, private signUpServices: SignupService){}
-
   ngOnInit(): void {
     this.signUpServices.__uploadedImg$.subscribe({
       next: (res) => {
@@ -25,5 +24,6 @@ export class DashboardComponent implements OnInit {
   }
   formatUserInformation(){
     this.signUpServices.deleteThisDataWithThisNameFromCookies("userInformation");
+    this.signUpServices.deleteThisDataWithThisNameFromCookies("familyProfile")
   }
 }

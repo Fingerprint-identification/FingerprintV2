@@ -3,28 +3,28 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .pin-password__content {
-  &__image-div {
-    width: 400.09px;
-    margin: auto;
-    @include custem-screen(lg, xxlg) {
-      width: 300.09px;
-    }
-    @include screen(md) {
-      width: 265.09px;
-    }
-    @include screen(sm) {
-      width: 187.95px;
-    }
-    @include screen(xs) {
-      width: 232.66px;
-    }
-    @include screen(xxs) {
-      width: 230.66px;
-    }
-    &__img {
-      width: 100%;
-    }
-  }
+  // &__image-div {
+  //   width: 400.09px;
+  //   margin: auto;
+  //   @include custem-screen(lg, xxlg) {
+  //     width: 300.09px;
+  //   }
+  //   @include screen(md) {
+  //     width: 265.09px;
+  //   }
+  //   @include screen(sm) {
+  //     width: 187.95px;
+  //   }
+  //   @include screen(xs) {
+  //     width: 232.66px;
+  //   }
+  //   @include screen(xxs) {
+  //     width: 230.66px;
+  //   }
+  //   &__img {
+  //     width: 100%;
+  //   }
+  // }
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;

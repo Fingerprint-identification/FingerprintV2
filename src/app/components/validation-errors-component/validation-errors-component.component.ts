@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { ValidationData } from 'src/app/core/models/validationData';
 
 @Component({
   selector: 'app-validation-errors-component',

@@ -49,8 +49,8 @@ const routes: Routes = [
       {
         path: 'pin-password',
         component: ResetPinComponent,
-        canActivate: [PinGuard],
-        canLoad: [PinGuard],
+        // canActivate: [PinGuard],
+        // canLoad: [PinGuard],
         data: {
           title: 'Pin password'
         }
@@ -58,8 +58,8 @@ const routes: Routes = [
       {
         path: 'confirm-password',
         component: ConfirmPasswordComponent,
-        canActivate: [ConfirmGuard],
-        canLoad: [ConfirmGuard],
+        // canActivate: [ConfirmGuard],
+        // canLoad: [ConfirmGuard],
         data: {
           title: 'Confirm password'
         }

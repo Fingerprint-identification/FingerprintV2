@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { PersonalData } from 'src/app/modules/Administration/models/userData';
 import { SignupService } from '../../shared/services/signup.service';
 
 @Component({
@@ -22,6 +23,8 @@ export class UserSearchedInfoComponent implements OnInit {
   massegeError !: string;
   // Local reference to check if the form submited successfuly
   formSubmited: boolean = false;
+  // Local reference to carry updated value
+  updatedData : PersonalData = {};
   /**
    * @param router to access some properities from router
    * @param signUpAuth to access some signUpAuth services services
@@ -33,7 +36,6 @@ export class UserSearchedInfoComponent implements OnInit {
     // this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
     // Get userData stored in cookies to put it into formControl value to display to admin for access it
     this.userData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
-
     // Form validation
     this.userForm = new FormGroup({
       fullName: new FormControl(this.userData.child.fristName, [
@@ -52,7 +54,7 @@ export class UserSearchedInfoComponent implements OnInit {
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      birthDate: new FormControl(this.userData.child.birthday, [Validators.required]),
+      birthDate: new FormControl(this.userData.child.birthday),
       birthPlace: new FormControl(this.userData.child.place_of_birth, [Validators.required]),
       phone: new FormControl(this.userData.child.phone, [
         Validators.required,
@@ -86,11 +88,15 @@ export class UserSearchedInfoComponent implements OnInit {
   FormEdited(){
       // check the validation
       if (this.userForm.valid) {
-        this.signUpAuth.validationChecker("userProfileForm", "valid")
+        this.signUpAuth.makeValidationOf("userProfileForm", "valid")
       }
       else
-        this.signUpAuth.validationChecker("userProfileForm", "invalid");
-      // store data entered by admin about user info
-      this.signUpAuth.saveThisDataWithThisNameInCookies(this.userForm.value, "userProfile");
+        this.signUpAuth.makeValidationOf("userProfileForm", "invalid");
+
+  }
+  userEditInfo(key: keyof PersonalData, value: any){
+    this.updatedData[key] = value;
+    this.userData.child[key] = value;
+    this.signUpAuth.saveThisDataWithThisNameInCookies(this.updatedData, "userUpdatedData");
   }
 }

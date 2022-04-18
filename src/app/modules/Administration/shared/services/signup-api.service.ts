@@ -17,7 +17,7 @@ export class SignupApiService implements OnInit {
   ngOnInit(): void {
   }
 
-  sendUserData(userData: any): Promise<any> {
+  addUser(userData: any): Promise<any> {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
@@ -26,6 +26,9 @@ export class SignupApiService implements OnInit {
       body: JSON.stringify(userData),
     };
     return fetch(AUTH_API + "signup", requestOptions);
+  }
+  updateUserById(id: string, updatedData: any): Observable<any>{
+    return this.http.patch(AUTH_API + 'updateUserData/' + id, {updatedData})
   }
   getUserById(id: string): Observable<any>{
     return this.http.get(AUTH_API + 'id/' + id);

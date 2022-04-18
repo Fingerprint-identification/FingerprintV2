@@ -2,25 +2,25 @@
 @use "~../../../../../../scss/helpers/mixins" as *;
 
 .login-password__content {
-  &__image-div {
-    width: 545.28px;
-    margin: auto;
-    @include custem-screen(lg, xxlg) {
-      width: 445.28px;
-    }
-    @include screen(md) {
-      width: 345.28px;
-    }
-    @include screen(sm) {
-      width: 270.1px;
-    }
-    @include custem-screen(xxs, sm) {
-      width: 299.1px;
-    }
-    &__img {
-      width: 100%;
-    }
-  }
+  // &__image-div {
+  //   width: 545.28px;
+  //   margin: auto;
+  //   @include custem-screen(lg, xxlg) {
+  //     width: 445.28px;
+  //   }
+  //   @include screen(md) {
+  //     width: 345.28px;
+  //   }
+  //   @include screen(sm) {
+  //     width: 270.1px;
+  //   }
+  //   @include custem-screen(xxs, sm) {
+  //     width: 299.1px;
+  //   }
+  //   &__img {
+  //     width: 100%;
+  //   }
+  // }
   &__form {
     width: 70%;
     margin: 0px auto 0 auto;
@@ -81,30 +81,30 @@
         }
         &__reset {
           float: right;
-          font-size: 25px;
+          font-size: 1.2rem;
           color: $black;
           margin-bottom: 43px;
           @include screen(xlg) {
             margin-bottom: 30px;
-            font-size: 23px;
+            // font-size: 23px;
           }
           @include screen(lg) {
-            font-size: 23px;
+            // font-size: 23px;
             margin-bottom: 35px;
           }
           @include screen(md) {
             margin-bottom: 61px;
-            font-size: 16px;
+            // font-size: 16px;
           }
           @include screen(sm) {
             margin-bottom: 20px;
-            font-size: 14px;
+            // font-size: 14px;
           }
           @include screen(xs){
-            font-size: 18.0167px;
+            // font-size: 18.0167px;
           }
           @include screen(xxs) {
-            font-size: 16.0167px;
+            // font-size: 16.0167px;
           }
         }
         &__password-icon {

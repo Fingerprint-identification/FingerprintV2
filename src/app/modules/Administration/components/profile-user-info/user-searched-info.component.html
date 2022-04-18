@@ -1,4 +1,4 @@
-<form class="personal-info" [formGroup]="userForm"  novalidate>
+<form class="personal-info" [formGroup]="userForm" (change)="FormEdited()"  novalidate>
   <div class="row">
     <div class="col-6">
       <div class="personal-info__content">
@@ -24,9 +24,11 @@
                         class="form-label personal-info__content__generate-information__form__full-name__label">
                         Full Name
                       </label>
-                      <input type="text"
-                        class="form-control personal-info__content__generate-information__form__full-name__input"
-                        id="fullName" formControlName="fullName" name="fullName" placeholder="Ammmr mahmoud">
+                      <input
+                        (change)="userEditInfo('fristName', fName.value)"
+                        type="text" class="form-control personal-info__content__generate-information__form__full-name__input"
+                        id="fullName" formControlName="fullName" name="fullName" placeholder="Ammmr mahmoud"
+                        #fName />
                       <app-validation-errors-component [Form]="userForm" [control]="'fullName'" [minLength]="3"
                         [massegeError]="massegeError" *ngIf="userForm.controls['fullName'].touched || formSubmited">
                       </app-validation-errors-component>
@@ -43,9 +45,10 @@
                           class="personal-info__content__generate-information__form__form-check-parent__checks__check my-2"
                           id="ratio-check">
                           <input
+                            (change)="userEditInfo('gender', gender.value)"
                             class="form-check-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
-                            type="radio" name="gender" formControlName="gender" value="Male"
-                            id="male">
+                            type="radio" name="gender" formControlName="gender" value="Male" id="male"
+                            #gender >
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
                             for="male">
@@ -57,9 +60,10 @@
                         </div>
                         <div class="personal-info__content__generate-information__form__form-check-parent__check">
                           <input
+                            (change)="userEditInfo('gender', gender.value)"
                             class="form-check-input form-check-parent-input personal-info__content__generate-information__form__form-check-parent__checks__check__input-ratio"
                             type="radio" name="gender" formControlName="gender" value="Female"
-                            id="female" checked>
+                            id="female" checked #gender>
                           <label
                             class="form-check-label personal-info__content__generate-information__form__form-check-parent__checks__check__label-ratio"
                             for="female">
@@ -78,9 +82,11 @@
                         class="my-3 personal-info__content__generate-information__form__nationality-content-fields__field">
                         <label for="Egyption"
                           class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">Egyption</label>
-                        <input type="text" id="Egyption"
-                          class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
-                          placeholder="Egyption" formControlName="nationality" aria-label="Egyption">
+                        <input
+                          (change)="userEditInfo('notionalty', nationality.value)"
+                          type="text" id="Egyption" class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
+                          placeholder="Egyption" formControlName="nationality" aria-label="Egyption"
+                          #nationality>
                         <app-validation-errors-component [Form]="userForm" [control]="'nationality'" [minLength]="5"
                           [pattern]="'Egyption'" [massegeError]="massegeError"
                           *ngIf="userForm.controls['nationality'].touched || formSubmited">
@@ -92,9 +98,10 @@
                           class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">
                           ID
                         </label>
-                        <input type="text"
-                          class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
-                          placeholder=" 3014 353 235 1234 " name="id" formControlName="id" aria-label="ID">
+                        <input
+                          (change)="userEditInfo('notional_id', id.value)"
+                          type="text" class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
+                          placeholder=" 3014 353 235 1234 " name="id" formControlName="id" aria-label="ID" #id>
                         <app-validation-errors-component [Form]="userForm" [control]="'id'" [minLength]="14"
                           [maxLength]="14" [pattern]="'Numbers'" [massegeError]="massegeError"
                           *ngIf="userForm.controls['id'].touched || formSubmited">
@@ -128,9 +135,10 @@
                           class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">
                           Birth Place
                         </label>
-                        <input type="text"
-                          class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
-                          placeholder="Cairo" name="birthPlace" formControlName="birthPlace" aria-label="Birth Place">
+                        <input
+                          (change)="userEditInfo('place_of_birth', birthplace.value)"
+                          type="text" class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
+                          placeholder="Cairo" name="birthPlace" formControlName="birthPlace" aria-label="Birth Place" #birthplace>
                         <app-validation-errors-component [Form]="userForm" [control]="'birthPlace'"
                           [massegeError]="massegeError" *ngIf="userForm.controls['birthPlace'].touched || formSubmited">
                         </app-validation-errors-component>
@@ -141,9 +149,10 @@
                           class="form-label personal-info__content__Birthday-information__form__Birthday-content-fields__field__label">
                           Birth Date
                         </label>
-                        <input type="date"
-                          class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
-                          aria-label="Birth Date" name="birthDate" formControlName="birthDate">
+                        <input
+                          (change)="userEditInfo('birthday', birthday.value)"
+                          type="date" class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
+                          aria-label="Birth Date" name="birthDate" formControlName="birthDate" #birthday>
                         <i class="bi bi-calendar2-week personal-info__content__Birthday-information__form__Birthday-content-fields__field__i"></i>
                         <app-validation-errors-component [Form]="userForm" [control]="'birthDate'"
                           [massegeError]="massegeError" *ngIf="userForm.controls['birthDate'].touched || formSubmited">
@@ -175,9 +184,10 @@
                         class="form-label personal-info__content__Connection-information__form__phone__label">
                         Phone
                       </label>
-                      <input type="text"
-                        class="form-control personal-info__content__Connection-information__form__phone__input"
-                        id="phone" name="phone" formControlName="phone" placeholder="01003623286">
+                      <input
+                        (change)="userEditInfo('phone', phone.value)"
+                        type="text" class="form-control personal-info__content__Connection-information__form__phone__input"
+                        id="phone" name="phone" formControlName="phone" placeholder="01003623286" #phone>
                       <app-validation-errors-component [Form]="userForm" [control]="'phone'" [minLength]="10"
                         [maxLength]="10" [pattern]="'loaded without the first 0'" [massegeError]="massegeError"
                         *ngIf="userForm.controls['phone'].touched || formSubmited">
@@ -190,9 +200,10 @@
                         class="form-label personal-info__content__Connection-information__form__email__label">
                         Email
                       </label>
-                      <input type="email"
-                        class="form-control personal-info__content__Connection-information__form__email__input" email
-                        id="email" name="email" formControlName="email" placeholder="name@example.com" email>
+                      <input
+                        (change)="userEditInfo('email', email.value)"
+                        type="email" class="form-control personal-info__content__Connection-information__form__email__input" email
+                        id="email" name="email" formControlName="email" placeholder="name@example.com" email #email>
                       <app-validation-errors-component [Form]="userForm" [pattern]="'valid email'" [control]="'email'"
                         [massegeError]="massegeError" *ngIf="userForm.controls['email'].touched || formSubmited">
                       </app-validation-errors-component>
@@ -232,10 +243,11 @@
                         class="form-label personal-info__content__Address-information__form__current-address__label">
                         Current Address
                       </label>
-                      <input type="text"
-                        class="form-control personal-info__content__Address-information__form__current-address__input"
+                      <input
+                        (change)="userEditInfo('street', street.value)"
+                        type="text" class="form-control personal-info__content__Address-information__form__current-address__input"
                         id="current-address" name="street" formControlName="street"
-                        placeholder="Ismailia, Hospital street, next to post office">
+                        placeholder="Ismailia, Hospital street, next to post office" #street>
                       <app-validation-errors-component [Form]="userForm" [control]="'street'"
                         [massegeError]="massegeError" *ngIf="userForm.controls['street'].touched || formSubmited">
                       </app-validation-errors-component>
@@ -246,9 +258,10 @@
                         class="form-label personal-info__content__Address-information__form__current-address__label">
                         Current Address
                       </label>
-                      <input type="current-address"
-                        class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="email" name="address" formControlName="address" placeholder="Ismailia">
+                      <input
+                        (change)="userEditInfo('address', address.value)"
+                        type="current-address" class="form-control personal-info__content__Address-information__form__current-address__input"
+                        id="email" name="address" formControlName="address" placeholder="Ismailia" #address>
                       <app-validation-errors-component [Form]="userForm" [control]="'address'"
                         [massegeError]="massegeError" *ngIf="userForm.controls['address'].touched || formSubmited">
                       </app-validation-errors-component>
@@ -281,8 +294,8 @@
                         class="form-label personal-info__content__Health-information__form__Diseases__label">
                         Diseases
                       </label>
-                      <input type="text"
-                        class="form-control personal-info__content__Health-information__form__Diseases__input"
+                      <input
+                        type="text" class="form-control personal-info__content__Health-information__form__Diseases__input"
                         name="diseases" #diseases id="diseases" placeholder="add diseases"
                         (keydown.enter)="AddDiseases(diseases)">
                       <app-validation-errors-component [Form]="userForm" [control]="'diseases'"
