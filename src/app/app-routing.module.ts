@@ -57,7 +57,10 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: PageNotFoundComponent
+    component: PageNotFoundComponent,
+    data: {
+      title: 'Not founded',
+    }
   },
 ];
 
@@ -65,8 +68,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
-    }),
+    preloadingStrategy: PreloadAllModules,
+    initialNavigation: 'enabledBlocking'
+}),
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   exports: [RouterModule],

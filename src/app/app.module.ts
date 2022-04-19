@@ -36,7 +36,7 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
