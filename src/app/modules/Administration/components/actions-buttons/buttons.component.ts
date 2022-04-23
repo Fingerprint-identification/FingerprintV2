@@ -14,7 +14,7 @@ import { SignupService } from '../../shared/services/signup.service';
  */
 export class pagesRequirements {
   // Local referance that carry all pages to make back, next btns in it
-  pages: string[] = ['scan', 'signupUser', 'signupFamily', 'done'];
+  pages: string[] = ['scan', 'signup-user', 'signup-family', 'done'];
   // Local referance carry the last substring from the routing
   lastUrlSegment !: string;
   // Local referance to carry the index of the page when loop in array of pages

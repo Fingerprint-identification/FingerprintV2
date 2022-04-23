@@ -16,10 +16,6 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
-import { PinGuard } from 'src/app/core/guard/pin.guard';
-
-import { ConfirmGuard } from 'src/app/core/guard/confirm.guard';
-
 import { AuthApiService } from './shared/services/auth-api.service';
 
 import { AuthService } from './shared/services/auth.service';

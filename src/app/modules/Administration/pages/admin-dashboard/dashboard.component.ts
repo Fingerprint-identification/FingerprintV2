@@ -1,6 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { PersonalData } from 'src/app/modules/Administration/models/userData';
 import { SignupService } from '../../shared/services/signup.service';
 
 @Component({

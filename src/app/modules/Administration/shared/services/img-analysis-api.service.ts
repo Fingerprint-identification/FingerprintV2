@@ -8,7 +8,12 @@ const Img_API = "https://2906-197-54-18-167.ngrok.io/";
 export class ImgAnalysisApiService {
 
   constructor() { }
-
+  /**
+     * This function send request to server and wait for the matrix returned
+     * from server
+     * @param ImgFormData this image of the user data
+     * @returns jPromise
+     */
   sendImgToConvert(ImgFormData: any): Promise<any> {
     const requestOptions = {
       method: 'POST',
@@ -16,7 +21,12 @@ export class ImgAnalysisApiService {
     };
     return fetch(Img_API + "convertImageToMatrix", requestOptions);
   }
-
+  /**
+     * This function send request to server and wait for the id returned
+     * from server
+     * @param ImgFormData this image of the user data
+     * @returns Promise
+     */
   sendImgToCompare(ImgFormData: any): Promise<any> {
     const requestOptions = {
       method: 'POST',

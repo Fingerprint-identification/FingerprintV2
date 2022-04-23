@@ -9,20 +9,24 @@
   @font-face {
     font-family: "SFUI";
     src: url("/assets/fonts/San/SFUIText/SFUIText-Light.otf") format("opentype");
+    font-display: swap;
   }
   @font-face {
     font-family: "SFUIText-Medium";
     src: url("/assets/fonts/San/SFUIText/SFUIText-Medium.otf")
       format("opentype");
+    font-display: swap;
   }
   @font-face {
     font-family: "SFUIRegular";
     src: url("/assets/fonts/San/SFUIDisplay/SFUIDisplay-Regular.otf")
       format("opentype");
+    font-display: swap;
   }
   @font-face {
     font-family: "BalooBhaijaan2Regular";
     src: url("/assets/fonts/San/Baloo/BalooBhaijaan2-VariableFont_wght.ttf");
+    font-display: swap;
   }
 }
 

@@ -23,11 +23,11 @@ const routes: Routes = [
         component: SignupUserComponent,
         children: [
           {
-            path: 'signupUser',
+            path: 'signup-user',
             component: UserInfoComponent
           },
           {
-            path: 'signupFamily',
+            path: 'signup-family',
             component: UserFamilyInfoComponent
           },
           {

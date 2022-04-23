@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Meta, Title } from '@angular/platform-browser';
 
-import { BehaviorSubject, debounceTime, distinctUntilChanged, filter, finalize, map, Observable, startWith, Subject, Subscription, switchMap, take, tap } from 'rxjs';
+import { BehaviorSubject, debounceTime, delay, distinctUntilChanged, filter, finalize, map, Observable, startWith, Subject, Subscription, switchMap, take, tap } from 'rxjs';
 
 import { SearchService } from 'src/app/shared/services/search.service';
 
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.cities$ = this.searchTerms.pipe(
       tap((_) => (this.loading = true)),
-      debounceTime(300),
+      delay(300),
       distinctUntilChanged(),
       switchMap((term: string) => this.SearchServices.searchCity(term)),
       tap((_) => (this.loading = false))

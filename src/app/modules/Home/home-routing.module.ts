@@ -17,16 +17,12 @@ const routes: Routes = [
     component: HomePageComponent,
     children:[
       {
-        path: 'Public',
+        path: '',
         component: HomeComponent,
       },
       {
-        path: 'Device',
-        component: DeviceComponent
-      },
-      {
         path: '',
-        redirectTo: 'Public',
+        redirectTo: '',
         pathMatch: 'full'
       }
     ]
