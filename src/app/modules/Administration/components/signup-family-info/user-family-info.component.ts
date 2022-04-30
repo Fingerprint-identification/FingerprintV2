@@ -31,7 +31,6 @@ export class UserFamilyInfoComponent implements OnInit {
   ngOnInit(): void {
     // to check if the form submitted to display required fields that admin wasn't filled
     this.formSubmited = this.signUpAuth.formSubmitted() === 'true' ? true: false;
-    console.log(this.formSubmited)
     // Get familyData stored in cookies to put it into formControl value to display to admin for access it
     this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies("familyData");
      // Form validation

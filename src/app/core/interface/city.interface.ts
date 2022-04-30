@@ -3,11 +3,11 @@
  */
 export interface City{
   /**
-   * Local referance for address
+   * Local referance for details
    */
-   address : string;
+   details : string;
   /**
-   * Local referance for street
+   * Local referance for alias
    */
-   street : string;
+   alias : string;
 }

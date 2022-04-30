@@ -160,26 +160,27 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
       this.executeGettingData();
       // all submited true
       if (this.userData !== 'false' && this.fingerprintMatrix !== 'false' && this.familyData !== 'false') {
+        // if (this.userData !== 'false' && this.familyData !== 'false') {
         // Create Class Personal Data
         this.dataOfUser = new PersonalData({
-          notional_id: this.userData.id,
+          national_id: this.userData.id,
           password: "123456789",
           passwordConfirm: "123456789",
-          fristName: this.userData.fullName,
-          lastName: "null",
-          role: "user",
+          name: this.userData.fullName,
           phone: this.userData.phone,
           email: this.userData.email,
-          notionalty: this.userData.nationality,
+          nationality: this.userData.nationality,
           birthday: this.userData.birthDate,
           gender: this.userData.gender,
-          place_of_birth: this.userData.birthPlace,
-          address: this.userData.address,
-          street: this.userData.street,
+          birthplace: this.userData.birthPlace,
+          alias: this.userData.details,
+          details: this.userData.alias,
+          city: this.userData.birthPlace,
           disease: this.diseases,
           fingerprint: this.fingerprintMatrix,
-          father_id: this.familyData.fatherId,
-          mother_id: this.familyData.motherId
+          // fingerprint: [[1.2],[1.3]],
+          father: this.familyData.fatherId,
+          mother: this.familyData.motherId
         });
         // sending User data to api
         this.signUpAuth.addUser(this.dataOfUser).then(
@@ -204,7 +205,7 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
       return;
     }
   }
-  skippedFields(){
+  skippedFields() {
     this.spinner.hide();
     alert("Please some fields you skipped is required!");
   }

@@ -38,33 +38,33 @@ export class UserSearchedInfoComponent implements OnInit {
     this.userData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
     // Form validation
     this.userForm = new FormGroup({
-      fullName: new FormControl(this.userData.child.fristName, [
+      fullName: new FormControl(this.userData.name, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      gender: new FormControl(this.userData.child.gender, [Validators.required]),
-      nationality: new FormControl(this.userData.child.notionalty, [
+      gender: new FormControl(this.userData.gender, [Validators.required]),
+      nationality: new FormControl(this.userData.nationality, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
       ]),
-      id: new FormControl(this.userData.child.notional_id, [
+      id: new FormControl(this.userData.national_id, [
         Validators.required,
         Validators.minLength(14),
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      birthDate: new FormControl(this.userData.child.birthday),
-      birthPlace: new FormControl(this.userData.child.place_of_birth, [Validators.required]),
-      phone: new FormControl(this.userData.child.phone, [
+      birthDate: new FormControl(this.userData.birthday),
+      birthPlace: new FormControl(this.userData.birthplace, [Validators.required]),
+      phone: new FormControl(this.userData.phone, [
         Validators.required,
         Validators.minLength(10),
         Validators.maxLength(10),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      email: new FormControl(this.userData.child.email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
-      street: new FormControl(this.userData.child.street, [Validators.required]),
-      address: new FormControl(this.userData.child.address, [Validators.required]),
+      email: new FormControl(this.userData.email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+      alias: new FormControl(this.userData.alias, [Validators.required]),
+      details: new FormControl(this.userData.details, [Validators.required]),
       diseases: new FormControl(''),
     });
 
@@ -85,16 +85,16 @@ export class UserSearchedInfoComponent implements OnInit {
       this.signUpAuth.saveDiseases([...this.diseases], "diseases");
     }
   }
-  FormEdited(){
-      // check the validation
-      if (this.userForm.valid) {
-        this.signUpAuth.makeValidationOf("userProfileForm", "valid")
-      }
-      else
-        this.signUpAuth.makeValidationOf("userProfileForm", "invalid");
+  FormEdited() {
+    // check the validation
+    if (this.userForm.valid) {
+      this.signUpAuth.makeValidationOf("userProfileForm", "valid")
+    }
+    else
+      this.signUpAuth.makeValidationOf("userProfileForm", "invalid");
 
   }
-  userEditInfo(key: keyof PersonalData, value: any){
+  userEditInfo(key: keyof PersonalData, value: any) {
     this.updatedData[key] = value;
     this.userData.child[key] = value;
     this.signUpAuth.saveThisDataWithThisNameInCookies(this.updatedData, "userUpdatedData");

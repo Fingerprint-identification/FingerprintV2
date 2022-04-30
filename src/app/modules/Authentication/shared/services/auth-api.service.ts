@@ -8,7 +8,7 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
 
 import { environment } from 'src/environments/environment';
 
-const AUTH_API = `${environment.apiUrl}` + "api/users/";
+const AUTH_API = `${environment.apiUrl}` + "api/v1/auth/";
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +21,14 @@ export class AuthApiService {
   }
   /**
    * Login method that take national id and password ands end to api
-   * @param notional_id
+   * @param national_id
    * @param password
    * @returns Observable
    */
-  login(notional_id: number, password: number): Observable<any> {
+  login(national_id: number, password: number): Observable<any> {
     return this.Http.post(AUTH_API + 'login', {
       password,
-      notional_id
+      national_id
     });
   }
   /**
@@ -37,7 +37,7 @@ export class AuthApiService {
    * @returns  Observable<any>
    */
   generatePinCode(phone: string): Observable<any> {
-    return this.Http.post(AUTH_API + 'forgotpassword', {
+    return this.Http.post(AUTH_API + 'forgotPassword', {
       phone
     });
   }
@@ -46,24 +46,23 @@ export class AuthApiService {
    * @param code the user pin code
    * @returns  Observable<any>
    */
-  pin(code: number) {
-    return this.Http.post(AUTH_API + 'resetPassword', {
-      code
+  pin(resetCode: number) {
+    return this.Http.post(AUTH_API + 'verifyResetCode', {
+      resetCode
     });
   }
   /**
    * method that send the confirm password and password to api
-   * @param password
+   * @param newPassword
    * @param passwordConfirm
    * @returns Observable<any>
    */
-  confirm(password: string, passwordConfirm: string): Observable<any> {
+  confirm(newPassword: string, passwordConfirm: string): Observable<any> {
     let body = {
-      password: password,
-      passwordConfirm: passwordConfirm
+      newPassword,
+      passwordConfirm
     };
-    const data = JSON.stringify(body)
-    return this.Http.patch('https://still-escarpment-38033.herokuapp.com/api/users/updateForgotPassword', data)
+    return this.Http.put(AUTH_API + 'resetPassword', body)
   }
   /**
    * get user by id

@@ -178,41 +178,41 @@
       <div class="personal-info__content">
         <div class="row">
           <div class="col-12">
-            <!-- Address Information -->
-            <div class="personal-info__content__Address-information">
+            <!-- details Information -->
+            <div class="personal-info__content__details-information">
               <div class="row">
                 <div class="col-12">
-                  <div class="personal-info__content__Address-information__title">
-                    <p class="personal-info__content__Address-information__title__p">
-                      Address Information
+                  <div class="personal-info__content__details-information__title">
+                    <p class="personal-info__content__details-information__title__p">
+                      details Information
                     </p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
-                  <!-- Address Information -->
-                  <div class="personal-info__content__Address-information__form">
-                    <!-- Current Address -->
-                    <div class="my-3 personal-info__content__Address-information__form__current-address">
-                      <label for="current-address" class="form-label personal-info__content__Address-information__form__current-address__label">
-                        Current Street
+                  <!-- details Information -->
+                  <div class="personal-info__content__details-information__form">
+                    <!-- Current details -->
+                    <div class="my-3 personal-info__content__details-information__form__current-details">
+                      <label for="current-details" class="form-label personal-info__content__details-information__form__current-details__label">
+                        Current alias
                       </label>
-                      <input type="text" formControlName="street" class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="current-address" placeholder="Ismailia, Hospital street, next to post office" />
-                      <app-validation-errors-component [Form]="userForm" [control]="'street'"
-                        [massegeError]="massegeError" *ngIf="userForm.controls['street'].touched || formSubmited">
+                      <input type="text" formControlName="alias" class="form-control personal-info__content__details-information__form__current-details__input"
+                        id="current-details" placeholder="Ismailia, Hospital alias, next to post office" />
+                      <app-validation-errors-component [Form]="userForm" [control]="'alias'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['alias'].touched || formSubmited">
                       </app-validation-errors-component>
                     </div>
                     <!-- Current City -->
-                    <div class="my-3 personal-info__content__Address-information__form__current-address">
-                      <label for="current-address" class="form-label personal-info__content__Address-information__form__current-address__label">
-                        Current Address
+                    <div class="my-3 personal-info__content__details-information__form__current-details">
+                      <label for="current-details" class="form-label personal-info__content__details-information__form__current-details__label">
+                        Current details
                       </label>
-                      <input type="text" class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="current-address" placeholder="Ismailia" formControlName="address" name="address" />
-                      <app-validation-errors-component [Form]="userForm" [control]="'address'"
-                        [massegeError]="massegeError" *ngIf="userForm.controls['address'].touched || formSubmited">
+                      <input type="text" class="form-control personal-info__content__details-information__form__current-details__input"
+                        id="current-details" placeholder="Ismailia" formControlName="details" name="details" />
+                      <app-validation-errors-component [Form]="userForm" [control]="'details'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['details'].touched || formSubmited">
                       </app-validation-errors-component>
                     </div>
                   </div>

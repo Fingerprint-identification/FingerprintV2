@@ -2,24 +2,23 @@
  * Data class for personData data
  */
 export class PersonalData {
-    notional_id ?: string;
+    national_id ?: string;
     password ?: string = '123456789';
     passwordConfirm  ?: string = '123456789';
-    fristName  ?: string;
-    lastName ?: string = 'any';
-    role ?: string = 'user';
+    name ?: string;
     phone  ?: string;
     email ?: string;
-    notionalty  ?: string;
-    birthday  ?: string;
+    nationality  ?: string;
+    birthday  ?: Date;
     gender  ?: string;
-    place_of_birth  ?: string;
-    address ?: string;
-    street ?: string;
+    birthplace  ?: string;
+    alias ?: string;
+    details ?: string;
+    city ?: string;
     disease ?: string[];
     fingerprint ?: any[];
-    mother_id ?: string;
-    father_id ?: string;
+    mother ?: string;
+    father ?: string;
     constructor(values: PersonalData) {
       Object.assign(this, values);
     }

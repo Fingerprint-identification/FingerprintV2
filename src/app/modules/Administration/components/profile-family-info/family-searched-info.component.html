@@ -39,7 +39,7 @@
                         class="form-label family-info__content__mother-information__form__mother-id__label">
                         Mother ID
                       </label>
-                      <input (change)="userEditInfo('mother_id', id.value)" ype="mother-id" formControlName="motherId"
+                      <input (change)="userEditInfo('mother', id.value)" ype="mother-id" formControlName="motherId"
                         class="form-control family-info__content__mother-information__form__mother-id__input"
                         id="mother-id" placeholder="3014 353 235 1234" #id>
                       <app-validation-errors-component [Form]="familyForm" [control]="'motherId'" [minLength]="14"
@@ -106,7 +106,7 @@
                   class="form-label family-info__content__father-information__form__father-id__label">
                   Father ID
                 </label>
-                <input (change)="userEditInfo('father_id', id.value)" type="father-id" formControlName="fatherId"
+                <input (change)="userEditInfo('father', id.value)" type="father-id" formControlName="fatherId"
                   class="form-control family-info__content__father-information__form__father-id__input" id="father-id"
                   placeholder="3014 353 235 1234" #id>
                 <app-validation-errors-component [Form]="familyForm" [control]="'fatherId'" [minLength]="14"
@@ -138,7 +138,7 @@
     <div class="col-12">
       <div class="family-info-buttons">
         <button class="family-info-buttons__button me-5" (click)="updateData()">Save Changes</button>
-        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;">
+        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;"  (click)="deleteUser()">
           Delete User</button>
       </div>
     </div>

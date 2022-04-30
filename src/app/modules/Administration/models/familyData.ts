@@ -3,10 +3,10 @@
  */
  export class FamilyData {
   motherFristName ?: string;
-  motherNotionalty ?: string;
+  mothernationality ?: string;
   motherNotionalId ?: string;
   fatherFristName ?: string
-  fatherNotionalty ?: string
+  fathernationality ?: string
   fatherNotionalId ?: string
   constructor(values: FamilyData) {
     Object.assign(this, values);

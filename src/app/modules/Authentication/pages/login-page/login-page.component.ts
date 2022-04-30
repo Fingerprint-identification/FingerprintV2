@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 /**
  * Login page component
  */
@@ -16,8 +18,7 @@ export class LoginPageComponent implements OnInit {
   /**
    * Constructor
    */
-  constructor(private router: Router,
-    private activatedRoute: ActivatedRoute) {
+  constructor(private Http: HttpClient, private token: TokenStorageService) {
   }
 
   /**

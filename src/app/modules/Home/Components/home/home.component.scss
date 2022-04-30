@@ -164,7 +164,7 @@ input::placeholder {
           &:last-child {
             padding-bottom: 20px;
           }
-          &__address-p {
+          &__details-p {
             margin: 10px 0 0 0;
             font-weight: bold;
             font-family: map-get($fonts, headingFont);

@@ -35,10 +35,10 @@
             </div>
             <div class="banner__left-part__search-result">
               <ul class="banner__left-part__form__ul" [hidden]="loading">
-                <li class="banner__left-part__form__ul__li" *ngFor="let term of Cities | slice:0:3; let i = index"  [routerLink]="['/Home/Device']"  [queryParams] = "{CityAdderss: term.name , CityStreet: term.latest}">
-                  <p class="banner__left-part__form__ul__li__address-p text-s-black"> {{ term.name }}
+                <li class="banner__left-part__form__ul__li" *ngFor="let term of Cities | slice:0:3; let i = index"  [routerLink]="['/Home/Device']"  [queryParams] = "{CityAdderss: term.name , Cityalias: term.latest}">
+                  <p class="banner__left-part__form__ul__li__details-p text-s-black"> {{ term.name }}
                   </p>
-                  <p class="banner__left-part__form__ul__li__street-p text-s-gray"> {{ term.latest }}
+                  <p class="banner__left-part__form__ul__li__alias-p text-s-gray"> {{ term.latest }}
                   </p>
                 </li>
               </ul>
@@ -132,7 +132,7 @@
 
               <p class="services__step-in-left-direction__data-container-div__p-div__p">
                 <span>Download</span> the App to edit your data (Actually, you can edit on
-                your phone and address only), search about someone or search for official offices.
+                your phone and details only), search about someone or search for official offices.
               </p>
 
             </div>

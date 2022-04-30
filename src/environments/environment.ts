@@ -7,7 +7,7 @@
  */
 export const environment = {
   production: false,
-  apiUrl: 'https://still-escarpment-38033.herokuapp.com/'
+  apiUrl: 'https://fingerprint-identify.herokuapp.com/'
 };
 
 

@@ -128,7 +128,9 @@ export class SignupService {
     this.deleteThisDataWithThisNameFromCookies("diseases");
     this.deleteThisDataWithThisNameFromCookies("fingerprint");
     this.deleteThisDataWithThisNameFromCookies("familyProfile");
+    this.deleteThisDataWithThisNameFromCookies("userInformation");
     this.deleteThisDataWithThisNameFromCookies("userUpdatedData");
+    window.localStorage.clear();
   }
 
   /**
@@ -176,8 +178,9 @@ export class SignupService {
   public getUserByNationalId(nationalId: string){
     this.api.getUserByNationalId(nationalId).subscribe({
       next: (data) => {
+        console.log(data);
         this.deleteThisDataWithThisNameFromCookies("userInformation");
-        this.saveThisDataWithThisNameInCookies(data.data, "userInformation");
+        this.saveThisDataWithThisNameInCookies(data.data[0], "userInformation");
         alert("User founded successfully");
         this.router.navigate(['/Admin/profile']);
       },
@@ -188,6 +191,22 @@ export class SignupService {
       }
     })
   }
+
+  public deleteUserByNationalId(nationalId: string){
+    this.api.deleteUserByNationalId(nationalId).subscribe({
+      next: (data) => {
+        alert("User founded successfully");
+        this.clearUserDataAfterSubmit();
+        this.router.navigate(['/Admin/profile']);
+      },
+      error: (error: any) => {
+        alert(error);
+        this.clearUserDataAfterSubmit();
+        this.router.navigate(['/Admin/checkFingerprint']);
+      }
+    })
+  }
+
   public updateUserById(id: string, updatedData: any): Observable<any>{
     return this.api.updateUserById(id, updatedData);
   }

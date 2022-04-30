@@ -25,7 +25,7 @@
                         Full Name
                       </label>
                       <input
-                        (change)="userEditInfo('fristName', fName.value)"
+                        (change)="userEditInfo('name', fName.value)"
                         type="text" class="form-control personal-info__content__generate-information__form__full-name__input"
                         id="fullName" formControlName="fullName" name="fullName" placeholder="Ammmr mahmoud"
                         #fName />
@@ -83,7 +83,7 @@
                         <label for="Egyption"
                           class="form-label personal-info__content__generate-information__form__nationality-content-fields__field__label">Egyption</label>
                         <input
-                          (change)="userEditInfo('notionalty', nationality.value)"
+                          (change)="userEditInfo('nationality', nationality.value)"
                           type="text" id="Egyption" class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
                           placeholder="Egyption" formControlName="nationality" aria-label="Egyption"
                           #nationality>
@@ -99,7 +99,7 @@
                           ID
                         </label>
                         <input
-                          (change)="userEditInfo('notional_id', id.value)"
+                          (change)="userEditInfo('national_id', id.value)"
                           type="text" class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
                           placeholder=" 3014 353 235 1234 " name="id" formControlName="id" aria-label="ID" #id>
                         <app-validation-errors-component [Form]="userForm" [control]="'id'" [minLength]="14"
@@ -136,7 +136,7 @@
                           Birth Place
                         </label>
                         <input
-                          (change)="userEditInfo('place_of_birth', birthplace.value)"
+                          (change)="userEditInfo('birthplace', birthplace.value)"
                           type="text" class="form-control personal-info__content__Birthday-information__form__Birthday-content-fields__field__input"
                           placeholder="Cairo" name="birthPlace" formControlName="birthPlace" aria-label="Birth Place" #birthplace>
                         <app-validation-errors-component [Form]="userForm" [control]="'birthPlace'"
@@ -220,50 +220,50 @@
       <div class="personal-info__content">
         <div class="row">
           <div class="col-12">
-            <!-- Address Information -->
-            <div class="personal-info__content__Address-information">
+            <!-- details Information -->
+            <div class="personal-info__content__details-information">
               <div class="row">
                 <div class="col-12">
-                  <div class="personal-info__content__Address-information__title">
-                    <p class="personal-info__content__Address-information__title__p">
-                      Address Information
+                  <div class="personal-info__content__details-information__title">
+                    <p class="personal-info__content__details-information__title__p">
+                      details Information
                     </p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
-                  <!-- Address Information -->
-                  <div class="personal-info__content__Address-information__form">
-                    <!-- check Address -->
+                  <!-- details Information -->
+                  <div class="personal-info__content__details-information__form">
+                    <!-- check details -->
 
-                    <!-- Current Address -->
-                    <div class="my-3 personal-info__content__Address-information__form__current-address">
-                      <label for="street"
-                        class="form-label personal-info__content__Address-information__form__current-address__label">
-                        Current Address
+                    <!-- Current details -->
+                    <div class="my-3 personal-info__content__details-information__form__current-details">
+                      <label for="alias"
+                        class="form-label personal-info__content__details-information__form__current-details__label">
+                        Current details
                       </label>
                       <input
-                        (change)="userEditInfo('street', street.value)"
-                        type="text" class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="current-address" name="street" formControlName="street"
-                        placeholder="Ismailia, Hospital street, next to post office" #street>
-                      <app-validation-errors-component [Form]="userForm" [control]="'street'"
-                        [massegeError]="massegeError" *ngIf="userForm.controls['street'].touched || formSubmited">
+                        (change)="userEditInfo('alias', alias.value)"
+                        type="text" class="form-control personal-info__content__details-information__form__current-details__input"
+                        id="current-details" name="alias" formControlName="alias"
+                        placeholder="Ismailia, Hospital alias, next to post office" #alias>
+                      <app-validation-errors-component [Form]="userForm" [control]="'alias'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['alias'].touched || formSubmited">
                       </app-validation-errors-component>
                     </div>
                     <!-- Current City -->
-                    <div class="my-3 personal-info__content__Address-information__form__current-address">
-                      <label for="address"
-                        class="form-label personal-info__content__Address-information__form__current-address__label">
-                        Current Address
+                    <div class="my-3 personal-info__content__details-information__form__current-details">
+                      <label for="details"
+                        class="form-label personal-info__content__details-information__form__current-details__label">
+                        Current details
                       </label>
                       <input
-                        (change)="userEditInfo('address', address.value)"
-                        type="current-address" class="form-control personal-info__content__Address-information__form__current-address__input"
-                        id="email" name="address" formControlName="address" placeholder="Ismailia" #address>
-                      <app-validation-errors-component [Form]="userForm" [control]="'address'"
-                        [massegeError]="massegeError" *ngIf="userForm.controls['address'].touched || formSubmited">
+                        (change)="userEditInfo('details', details.value)"
+                        type="current-details" class="form-control personal-info__content__details-information__form__current-details__input"
+                        id="email" name="details" formControlName="details" placeholder="Ismailia" #details>
+                      <app-validation-errors-component [Form]="userForm" [control]="'details'"
+                        [massegeError]="massegeError" *ngIf="userForm.controls['details'].touched || formSubmited">
                       </app-validation-errors-component>
                     </div>
 

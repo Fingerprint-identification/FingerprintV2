@@ -23,6 +23,8 @@ export class FamilySearchedInfoComponent implements OnInit {
   updatedData: PersonalData = {};
   // Local array to store familayDisplayed data
   displayedFamilyData !: FamilyData;
+  // user id
+  userNationalId !: string;
   /**
    * @param router to access some properities from router
    * @param signUpAuth to access some signUpAuth services services from signUpAuth services
@@ -37,6 +39,8 @@ export class FamilySearchedInfoComponent implements OnInit {
     if (this.signUpAuth.getThisDataWithThisNameFromCookies("familyProfile") === "false") {
       // Get familyData stored in cookies to put it into formControl value to display to admin for access it
       this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
+      // store user national id
+      this.userNationalId = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation").national_id;
       // store data that admin sent for family
       this.assignDataToDisplayedFamilyData([this.familyData.mother_id, this.familyData.father_id]);
     }
@@ -49,7 +53,7 @@ export class FamilySearchedInfoComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
       ]),
-      motherNationality: new FormControl(this.displayedFamilyData.motherNotionalty, [
+      motherNationality: new FormControl(this.displayedFamilyData.mothernationality, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
@@ -64,7 +68,7 @@ export class FamilySearchedInfoComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
       ]),
-      fatherNationality: new FormControl(this.displayedFamilyData.fatherNotionalty, [
+      fatherNationality: new FormControl(this.displayedFamilyData.fathernationality, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
@@ -99,8 +103,8 @@ export class FamilySearchedInfoComponent implements OnInit {
     // Form validation
     if (userValidation === 'valid') {
       let userUpdatedData: PersonalData = this.signUpAuth.getThisDataWithThisNameFromCookies("userUpdatedData");
-      userUpdatedData['father_id'] = this.updatedData.father_id;
-      userUpdatedData['mother_id'] = this.updatedData.mother_id;
+      userUpdatedData['father'] = this.updatedData.father;
+      userUpdatedData['mother'] = this.updatedData.mother;
       this.signUpAuth.saveThisDataWithThisNameInCookies(this.updatedData, "userUpdatedData");
       console.log(userUpdatedData)
       if (userUpdatedData !== 'false') {
@@ -131,11 +135,11 @@ export class FamilySearchedInfoComponent implements OnInit {
   assignDataToDisplayedFamilyData(data: any) {
     this.displayedFamilyData = {
       motherFristName: data[0].fristName,
-      motherNotionalId: data[0].notional_id,
-      motherNotionalty: data[0].notionalty,
+      motherNotionalId: data[0].national_id,
+      mothernationality: data[0].nationality,
       fatherFristName: data[1].fristName,
-      fatherNotionalId: data[1].notional_id,
-      fatherNotionalty: data[1].notionalty
+      fatherNotionalId: data[1].national_id,
+      fathernationality: data[1].nationality
     }
     console.log("D", this.displayedFamilyData)
     this.signUpAuth.saveThisDataWithThisNameInCookies(this.displayedFamilyData, "familyProfile");
@@ -144,10 +148,10 @@ export class FamilySearchedInfoComponent implements OnInit {
     this.displayedFamilyData = {
       motherFristName: this.getControlValue('mother_FullName'),
       motherNotionalId: this.getControlValue('motherId'),
-      motherNotionalty: this.getControlValue('motherNationality'),
+      mothernationality: this.getControlValue('motherNationality'),
       fatherFristName: this.getControlValue('father_FullName'),
       fatherNotionalId: this.getControlValue('fatherId'),
-      fatherNotionalty: this.getControlValue('fatherNationality'),
+      fathernationality: this.getControlValue('fatherNationality'),
     }
     // update stored data entered by admin about family
     this.signUpAuth.saveThisDataWithThisNameInCookies(this.displayedFamilyData, "familyProfile");
@@ -161,4 +165,14 @@ export class FamilySearchedInfoComponent implements OnInit {
     alert("Please some fields you skipped is required!");
     return;
   }
+
+  /**
+   * Delete user data
+   * @params user national id
+   */
+   deleteUser(){
+    this.signUpAuth.deleteUserByNationalId(this.userNationalId);
+   }
 }
+
+

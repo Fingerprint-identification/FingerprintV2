@@ -63,8 +63,8 @@ export class UserInfoComponent implements OnInit {
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
       email: new FormControl(this.userData.email, [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
-      street: new FormControl(this.userData.street, [Validators.required]),
-      address: new FormControl(this.userData.address, [Validators.required]),
+      alias: new FormControl(this.userData.alias, [Validators.required]),
+      details: new FormControl(this.userData.details, [Validators.required]),
       diseases: new FormControl(''),
     });
 

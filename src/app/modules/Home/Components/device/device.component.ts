@@ -12,14 +12,14 @@ import { SearchService } from 'src/app/shared/services/search.service';
 })
 export class DeviceComponent implements OnInit {
   /**
-   * Local referance to extract address of city from navbar
+   * Local referance to extract details of city from navbar
    */
   CityAdderss!: string;
 
   /**
-   * Local referance to extract street of city from navbar
+   * Local referance to extract alias of city from navbar
    */
-  CityStreet!: string;
+  Cityalias!: string;
   /**
    * LOcal reference to store city to display it in this page
    */
@@ -41,7 +41,7 @@ export class DeviceComponent implements OnInit {
   ngOnInit(): void {
     this.actRoute.queryParams.subscribe((params) => {
       (this.CityAdderss = params['CityAdderss']),
-        (this.CityStreet = params['CityStreet']);
+        (this.Cityalias = params['Cityalias']);
     });
   }
 }
