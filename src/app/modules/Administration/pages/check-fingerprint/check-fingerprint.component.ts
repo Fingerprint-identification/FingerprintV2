@@ -38,9 +38,9 @@ export class CheckFingerprintComponent implements OnInit {
             this.faild();
           }
           this.ImgUploaded = false;
-        }).catch((error: any) => {
+        }).catch((_) => {
           this.faild();
-          alert(error.message);
+          alert("Please try later!");
         })
         alert("Request has been sent, wait...");
     }

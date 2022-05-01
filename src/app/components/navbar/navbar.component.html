@@ -24,9 +24,18 @@
       <li class="nav-item" [hidden]="true">
         <a rel="nofollow"class="nav-link" href="#">Documentation</a>
       </li>
-      <li class="nav-item">
-        <a rel="nofollow"[routerLink]="['/Login']" class="btn btn-primary navbar__collapse__nav__login-button ml-2 " *ngIf="!isLoggedIn">Log in</a>
-        <a rel="nofollow"class="btn btn-primary navbar__collapse__nav__login-button ml-2 " *ngIf="isLoggedIn" (click)="Logout()">Sign Out</a>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a rel="nofollow" [routerLink]="['/Login']" class="btn btn-primary navbar__collapse__nav__login-button ml-2">Log in</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="isLoggedIn">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Profile
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" [routerLink]="['/Admin/signup/scan']">Admin Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a rel="nofollow" class="dropdown-item" (click)="Logout()">Sign Out</a></li>
+        </ul>
       </li>
     </ul>
 

@@ -36,6 +36,7 @@ export class UserSearchedInfoComponent implements OnInit {
     // this.formSubmited = (window.localStorage.getItem("submited")) ? true: false;
     // Get userData stored in cookies to put it into formControl value to display to admin for access it
     this.userData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
+
     // Form validation
     this.userForm = new FormGroup({
       fullName: new FormControl(this.userData.name, [
@@ -43,7 +44,7 @@ export class UserSearchedInfoComponent implements OnInit {
         Validators.minLength(3),
       ]),
       gender: new FormControl(this.userData.gender, [Validators.required]),
-      nationality: new FormControl(this.userData.nationality, [
+      nationality: new FormControl(this.userData.nationality.charAt(0).toUpperCase() + this.userData.nationality.slice(1),[
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
@@ -54,7 +55,7 @@ export class UserSearchedInfoComponent implements OnInit {
         Validators.maxLength(14),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
       ]),
-      birthDate: new FormControl(this.userData.birthday),
+      birthDate: new FormControl(this.userData.birthday.split('T')[0]),
       birthPlace: new FormControl(this.userData.birthplace, [Validators.required]),
       phone: new FormControl(this.userData.phone, [
         Validators.required,
@@ -68,10 +69,13 @@ export class UserSearchedInfoComponent implements OnInit {
       diseases: new FormControl(''),
     });
 
+    this.userData.disease.forEach((element: any) => {
+      this.diseases.push(element);
+    });
     // get deseases from cookies to display to user
-    // this.diseases = [...this.userData.disease];
     // Added deseases to this subject
     this.diseasesSubject$.next([...this.diseases]);
+
   }
   /**
    * This function detect the diseases user entred

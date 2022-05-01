@@ -24,7 +24,7 @@ export class FamilySearchedInfoComponent implements OnInit {
   // Local array to store familayDisplayed data
   displayedFamilyData !: FamilyData;
   // user id
-  userNationalId !: string;
+  userId !: string;
   /**
    * @param router to access some properities from router
    * @param signUpAuth to access some signUpAuth services services from signUpAuth services
@@ -40,20 +40,21 @@ export class FamilySearchedInfoComponent implements OnInit {
       // Get familyData stored in cookies to put it into formControl value to display to admin for access it
       this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
       // store user national id
-      this.userNationalId = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation").national_id;
+      this.userId = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation")._id;
       // store data that admin sent for family
       this.assignDataToDisplayedFamilyData([this.familyData.mother_id, this.familyData.father_id]);
     }
     else {// Get familyData stored in cookies to put it into formControl value to display to admin for access it
       this.displayedFamilyData = this.signUpAuth.getThisDataWithThisNameFromCookies("familyProfile");
     }
+
     // Form validation
     this.familyForm = new FormGroup({
       mother_FullName: new FormControl(this.displayedFamilyData.motherFristName, [
         Validators.required,
         Validators.minLength(3),
       ]),
-      motherNationality: new FormControl(this.displayedFamilyData.mothernationality, [
+      motherNationality: new FormControl(this.displayedFamilyData.mothernationality!.charAt(0).toUpperCase() + this.displayedFamilyData.mothernationality!.slice(1),[
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
@@ -68,7 +69,7 @@ export class FamilySearchedInfoComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
       ]),
-      fatherNationality: new FormControl(this.displayedFamilyData.fathernationality, [
+      fatherNationality: new FormControl(this.displayedFamilyData.fathernationality!.charAt(0).toUpperCase() + this.displayedFamilyData.fathernationality!.slice(1), [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern('Egyption'),
@@ -171,7 +172,7 @@ export class FamilySearchedInfoComponent implements OnInit {
    * @params user national id
    */
    deleteUser(){
-    this.signUpAuth.deleteUserByNationalId(this.userNationalId);
+    this.signUpAuth.deleteUserByNationalId(this.userId);
    }
 }
 

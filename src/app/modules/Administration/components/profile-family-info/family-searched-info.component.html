@@ -26,8 +26,8 @@
                         Mother Name
                       </label>
                       <input type="text" formControlName="mother_FullName"
-                        class="form-control family-info__content__mother-information__form__mother-name__input"
-                        id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset" [disabled]="true">
+                        class="form-control family-info__content__mother-information__form__mother-name__input disabled"
+                        id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset" >
                       <app-validation-errors-component [Form]="familyForm" [control]="'mother_FullName'" [minLength]="3"
                         [massegeError]="massegeError"
                         *ngIf="familyForm.controls['mother_FullName'].touched || formSubmited">
@@ -39,7 +39,7 @@
                         class="form-label family-info__content__mother-information__form__mother-id__label">
                         Mother ID
                       </label>
-                      <input (change)="userEditInfo('mother', id.value)" ype="mother-id" formControlName="motherId"
+                      <input (change)="userEditInfo('mother', id.value)" type="text" formControlName="motherId"
                         class="form-control family-info__content__mother-information__form__mother-id__input"
                         id="mother-id" placeholder="3014 353 235 1234" #id>
                       <app-validation-errors-component [Form]="familyForm" [control]="'motherId'" [minLength]="14"
@@ -53,9 +53,9 @@
                         class="form-label family-info__content__mother-nationalityformation__form__mother-nationality__label">
                         Mother Nathonality
                       </label>
-                      <input type="mother-nationality" formControlName="motherNationality"
-                        class="form-control family-info__content__mother-nationalityformation__form__mother-nationality__input"
-                        id="mother-nationality" placeholder="Egyptian" [disabled]="true">
+                      <input type="text" formControlName="motherNationality"
+                        class="form-control family-info__content__mother-nationalityformation__form__mother-nationality__input disabled"
+                        id="mother-nationality" placeholder="Egyptian">
                       <app-validation-errors-component [Form]="familyForm" [control]="'motherNationality'"
                         [minLength]="5" [maxLength]="5" [pattern]="'Egyption'" [massegeError]="massegeError"
                         *ngIf="familyForm.controls['motherNationality'].touched || formSubmited">
@@ -94,8 +94,8 @@
                   Father Name
                 </label>
                 <input type="text" formControlName="fatherFullName"
-                  class="form-control family-info__content__father-information__form__father-name__input"
-                  id="father-name" placeholder="Samy Ashraf Abdul Basset" [disabled]="true">
+                  class="form-control family-info__content__father-information__form__father-name__input disabled"
+                  id="father-name" placeholder="Samy Ashraf Abdul Basset">
                 <app-validation-errors-component [Form]="familyForm" [control]="'fatherFullName'" [minLength]="3"
                   [massegeError]="massegeError" *ngIf="familyForm.controls['fatherFullName'].touched || formSubmited">
                 </app-validation-errors-component>
@@ -120,9 +120,9 @@
                   class="form-label family-info__content__father-nationalityformation__form__father-nationality__label">
                   Father Nathonality
                 </label>
-                <input type="father-nationality" formControlName="fatherNationality"
-                  class="form-control family-info__content__father-nationalityformation__form__father-nationality__input"
-                  id="father-nationality" placeholder="Egyptian" [disabled]="true">
+                <input type="text" formControlName="fatherNationality"
+                  class="form-control family-info__content__father-nationalityformation__form__father-nationality__input disabled"
+                  id="father-nationality" placeholder="Egyptian">
                 <app-validation-errors-component [Form]="familyForm" [control]="'fatherNationality'" [minLength]="5"
                   [maxLength]="5" [pattern]="'Egyption'" [massegeError]="massegeError"
                   *ngIf="familyForm.controls['fatherNationality'].touched || formSubmited">

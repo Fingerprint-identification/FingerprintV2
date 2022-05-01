@@ -54,8 +54,10 @@
         }
         &__h3 {
           font-size: 1.3vw;
-          color: $dashboard-admin-titles;
-          font-family: map-get($fonts, labelFont);
+          a {
+            color: $dashboard-admin-titles;
+            font-family: map-get($fonts, labelFont);
+          }
         }
       }
       &__list {
@@ -127,7 +129,7 @@
   }
   &__uploadedImgDiv {
     transition: all 3s ease-in-out;
-    background-color: #6C5DD3;
+    background-color: #6c5dd3;
     color: white;
     width: 38%;
     position: absolute;
@@ -140,8 +142,8 @@
     padding: 27px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    &__title{
-      h3{
+    &__title {
+      h3 {
         font-family: map-get($map: $fonts, $key: headingFont);
       }
     }

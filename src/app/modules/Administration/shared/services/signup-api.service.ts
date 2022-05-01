@@ -38,7 +38,7 @@ export class SignupApiService implements OnInit {
   getUserByNationalId(nationalId: string): Observable<any>{
     return this.http.get(AUTH_API + '?search=' + nationalId);
   }
-  deleteUserByNationalId(nationalId: string): Observable<any>{
-    return this.http.get(AUTH_API + '/national/' + nationalId);
+  deleteUserByNationalId(userId: string): Observable<any>{
+    return this.http.delete(AUTH_API + '/' + userId);
   }
 }

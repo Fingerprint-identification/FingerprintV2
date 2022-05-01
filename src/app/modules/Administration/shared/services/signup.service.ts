@@ -139,7 +139,7 @@ export class SignupService {
    * @param response
    * @returns any => error or data as text()
    */
-   public handler(response: any): any {
+  public handler(response: any): any {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -161,11 +161,15 @@ export class SignupService {
   public getUserById(id: string) {
     this.api.getUserById(id).subscribe({
       next: (data) => {
+        if (data.data.length !== 0) {
         this.deleteThisDataWithThisNameFromCookies("userInformation");
         this.saveThisDataWithThisNameInCookies(data.data, "userInformation");
         alert("User founded successfully");
         this.imgUploaded(false);
         this.router.navigate(['/Admin/profile']);
+        }else{
+          this.userNotFounded();
+        }
       },
       error: (error: any) => {
         alert(error);
@@ -175,14 +179,18 @@ export class SignupService {
       }
     })
   }
-  public getUserByNationalId(nationalId: string){
+  public getUserByNationalId(nationalId: string) {
     this.api.getUserByNationalId(nationalId).subscribe({
       next: (data) => {
-        console.log(data);
-        this.deleteThisDataWithThisNameFromCookies("userInformation");
-        this.saveThisDataWithThisNameInCookies(data.data[0], "userInformation");
-        alert("User founded successfully");
-        this.router.navigate(['/Admin/profile']);
+        if (data.data.length !== 0) {
+          this.deleteThisDataWithThisNameFromCookies("userInformation");
+          this.saveThisDataWithThisNameInCookies(data.data[0], "userInformation");
+          alert("User founded successfully");
+          this.router.navigate(['/Admin/profile']);
+        }
+        else{
+          this.userNotFounded();
+        }
       },
       error: (error: any) => {
         alert(error);
@@ -192,12 +200,12 @@ export class SignupService {
     })
   }
 
-  public deleteUserByNationalId(nationalId: string){
-    this.api.deleteUserByNationalId(nationalId).subscribe({
-      next: (data) => {
-        alert("User founded successfully");
+  public deleteUserByNationalId(userId: string) {
+    this.api.deleteUserByNationalId(userId).subscribe({
+      next: (_) => {
+        alert("User Deleted successfully");
         this.clearUserDataAfterSubmit();
-        this.router.navigate(['/Admin/profile']);
+        this.router.navigate(['/Admin/checkFingerprint']);
       },
       error: (error: any) => {
         alert(error);
@@ -207,14 +215,19 @@ export class SignupService {
     })
   }
 
-  public updateUserById(id: string, updatedData: any): Observable<any>{
+  public updateUserById(id: string, updatedData: any): Observable<any> {
     return this.api.updateUserById(id, updatedData);
   }
-  public imgUploaded(uploaded: boolean){
+  public imgUploaded(uploaded: boolean) {
     this.uploadedImg$.next(uploaded);
     this.saveThisDataWithThisNameInCookies(uploaded, "loadingDiv");
   }
-  public checkImgUploaded(){
+  public checkImgUploaded() {
     return this.getThisDataWithThisNameFromCookies("loadingDiv");
+  }
+  public userNotFounded(){
+    this.deleteThisDataWithThisNameFromCookies("userInformation");
+    alert("Opps, User Not Founded!!");
+    this.router.navigate(['/Admin/checkFingerprint']);
   }
 }

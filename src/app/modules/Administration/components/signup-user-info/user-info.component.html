@@ -76,7 +76,7 @@
                           ID
                         </label>
                         <input type="text" id="id" formControlName="id" class="form-control personal-info__content__generate-information__form__nationality-content-fields__field__input"
-                          placeholder=" 3014 353 235 1234 " aria-label="id" />
+                          placeholder=" 3014 353 235 1234 " aria-label="id" [maxlength]="14" />
                         <app-validation-errors-component [Form]="userForm" [control]="'id'" [minLength]="14"
                           [maxLength]="14" [pattern]="'Numbers'" [massegeError]="massegeError" *ngIf="userForm.controls['id'].touched || formSubmited">
                         </app-validation-errors-component>
