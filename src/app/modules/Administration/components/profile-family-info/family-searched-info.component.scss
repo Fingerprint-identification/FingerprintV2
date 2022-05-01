@@ -6,6 +6,33 @@
   background-color: transparent !important;
   border: 2px solid $dashboard-admin-titles !important;
 }
+.modal{
+  &-content{
+    color:white;
+    background: #313C54;
+  }
+  &-header{
+    border: none;
+  }
+  &-footer{
+    border: none;
+    .btn{
+      border-radius: 2px !important;
+      &-danger{
+        color: white;
+        background-color: red !important;
+        &:hover{
+          color: white
+        }
+      }
+      &-secondary{
+        background-color: white !important;
+        color:black !important
+      }
+    }
+  }
+}
+
 
 .family-info {
   font-family: map-get($map: $fonts, $key: paragraphFont) !important;

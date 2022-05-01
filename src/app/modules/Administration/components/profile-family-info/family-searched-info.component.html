@@ -27,7 +27,7 @@
                       </label>
                       <input type="text" formControlName="mother_FullName"
                         class="form-control family-info__content__mother-information__form__mother-name__input disabled"
-                        id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset" >
+                        id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset">
                       <app-validation-errors-component [Form]="familyForm" [control]="'mother_FullName'" [minLength]="3"
                         [massegeError]="massegeError"
                         *ngIf="familyForm.controls['mother_FullName'].touched || formSubmited">
@@ -138,8 +138,28 @@
     <div class="col-12">
       <div class="family-info-buttons">
         <button class="family-info-buttons__button me-5" (click)="updateData()">Save Changes</button>
-        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;"  (click)="deleteUser()">
-          Delete User</button>
+        <button class="family-info-buttons__button" style="border-color: red;background-color: transparent;"
+          data-bs-toggle="modal" data-bs-target="#deleteModel">
+          Delete User
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModel" tabindex="-1" aria-labelledby="deleteDiv" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteDiv">Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                This action can't be undo, and account data can't retrieve
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" (click)="deleteUser()" data-bs-dismiss="modal" >Delete User</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

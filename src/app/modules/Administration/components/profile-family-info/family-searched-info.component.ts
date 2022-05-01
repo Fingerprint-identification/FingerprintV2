@@ -142,7 +142,6 @@ export class FamilySearchedInfoComponent implements OnInit {
       fatherNotionalId: data[1].national_id,
       fathernationality: data[1].nationality
     }
-    console.log("D", this.displayedFamilyData)
     this.signUpAuth.saveThisDataWithThisNameInCookies(this.displayedFamilyData, "familyProfile");
   }
   updateFamilyProfileLocal() {

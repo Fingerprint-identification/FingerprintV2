@@ -203,7 +203,6 @@ export class SignupService {
   public deleteUserByNationalId(userId: string) {
     this.api.deleteUserByNationalId(userId).subscribe({
       next: (_) => {
-        alert("User Deleted successfully");
         this.clearUserDataAfterSubmit();
         this.router.navigate(['/Admin/checkFingerprint']);
       },
