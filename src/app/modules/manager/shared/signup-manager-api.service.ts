@@ -24,6 +24,6 @@ export class SignupManagerApiService {
       headers: myHeaders,
       body: JSON.stringify(adminData),
     };
-    return fetch(AUTH_API, requestOptions);
+    return fetch(AUTH_API+'/owner', requestOptions);
   }
 }

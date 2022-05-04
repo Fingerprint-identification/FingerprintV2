@@ -6,8 +6,8 @@ export class AdminData {
     password ?: string;
     passwordConfirm  ?: string;
     name ?: string = "string";
-    phone  ?: string = "01111111111"
-    email ?: string = "example@gmail.com";
+    phone  ?: string = "01111111113"
+    email ?: string = "example@gmail.net2";
     nationality  ?: string = "Egyption";
     birthday  ?: Date = new Date('22-03-2022T00:00:00');
     gender  ?: string = "Male";

@@ -66,10 +66,13 @@ export class LoginFormComponent implements OnInit {
       this.loginForm.get('Password')?.value
     ).subscribe({
       next: (data) => {
+        console.log(data.data)
         if (data.data.role == 'admin')
           this.router.navigate(['/Admin']);
-        else {
+        else if(data.data.role == 'user') {
           this.router.navigate(['/User']);
+        }else if(data.data.role == 'owner') {
+          this.router.navigate(['/Manager'])
         }
         this.spinner.hide();
       },

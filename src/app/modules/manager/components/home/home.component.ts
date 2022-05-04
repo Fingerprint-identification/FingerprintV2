@@ -74,7 +74,8 @@ export class HomeComponent implements OnInit {
           alert("Admin added successfuly!");
           // delete all data in localStorage after submitting
           this.signUpAuth.clearCookies();
-          this.router.navigate(['/Manager/home']);
+          window.location.reload();
+          // this.router.navigate(['/Manager/home']);
         }).catch(error => {
           alert("Opps, Some data have problem: User " + error.message)
         });
