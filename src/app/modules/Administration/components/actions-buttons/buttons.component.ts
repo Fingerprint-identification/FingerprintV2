@@ -159,8 +159,8 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
     if (this.signUpAuth.validationOf("familyForm") === 'valid' && this.signUpAuth.validationOf("userForm") === 'valid') {
       this.executeGettingData();
       // all submited true
-      // if (this.userData !== 'false' && this.fingerprintMatrix !== 'false' && this.familyData !== 'false') {
-        if (this.userData !== 'false' && this.familyData !== 'false') {
+      if (this.userData !== 'false' && this.fingerprintMatrix !== 'false' && this.familyData !== 'false') {
+        // if (this.userData !== 'false' && this.familyData !== 'false') {
         // Create Class Personal Data
         this.dataOfUser = new PersonalData({
           national_id: this.userData.id,
@@ -177,8 +177,8 @@ export class ButtonsComponent extends swapBetweenPages implements OnInit {
           details: this.userData.alias,
           city: this.userData.birthPlace,
           disease: this.diseases,
-          // fingerprint: this.fingerprintMatrix,
-          fingerprint: [[1.2],[1.3]],
+          fingerprint: this.fingerprintMatrix,
+          // fingerprint: [[1.2],[1.3]],
           father: this.familyData.fatherId,
           mother: this.familyData.motherId
         });

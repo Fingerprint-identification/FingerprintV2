@@ -1,34 +1,85 @@
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
 
-.center{
+.center {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
-hr{
+hr {
   display: block;
   height: 1px;
   width: 100%;
-
 }
-.manager{
-  &__inner{
-    &__header{
-      &__logo{
-        width: 80px;
-        height: 80px;
-        img{
+.manager {
+  &__inner {
+    &__header {
+      &__logo {
+        width: 5rem;
+        height: 5rem;
+        img {
           max-width: 100%;
         }
       }
-      &__logo-title{
-
-        color: #34318A;
+      &__logo-title {
+        color: #34318a;
         font-weight: 200;
         font-family: map-get($fonts, labelFont);
       }
     }
+    &__content{
+      width: 100%;
+      &__manager-info{
+        &__content{
+          &__button{
+            width: 100% !important;
+            border-radius: 17px !important;
+            padding: 20px 0 ;
+            background: transparent linear-gradient(97deg, #7380F2  0%, #5C5B99 100%) 0% 0% no-repeat padding-box;
+          }
+        }
+      }
+
+    }
+  }
+}
+input {
+  height: 65px;
+  line-height: 59px;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0 22px 0 26px;
+  border: none;
+  outline: none;
+  background-color: $nav-dropdown;
+  @include screen(md) {
+    font-size: 1.3rem;
+  }
+  @include BreakPoint(xs) {
+    font-size: 1.5rem;
+    height: 45px;
+  }
+  &::placeholder {
+    color: $gray-color;
+    font-size: 1rem;
+    @include screen(md) {
+      font-size: 1.3rem;
+    }
+    @include BreakPoint(xs) {
+      font-size: 1.5rem;
+    }
+  }
+}
+label {
+  font-size: 1.1rem;
+  color: $gray-color;
+  font-weight: bold;
+  font-family: map-get($fonts, labelFont);
+  @include screen(md) {
+    font-size: 1.3rem;
+  }
+  @include BreakPoint(xs) {
+    font-size: 1.5rem;
   }
 }

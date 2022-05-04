@@ -15,33 +15,9 @@
   &__brand-link {
     &__img {
       position: relative;
-      width: 75.43px;
-      width: 75.43px;
+      width: 4.2rem;
+        height: 4.2rem;
       display: inline-block;
-      @include BreakPoint(xxs) {
-        width: 29.6px;
-        height: 29.6px;
-      }
-      @include custem-screen(xs, sm) {
-        width: 42.6px;
-        height: 42.6px;
-      }
-      @include custem-screen(sm, md) {
-        width: 46.6px;
-        height: 46.6px;
-      }
-      @include custem-screen(md, lg) {
-        width: 50.6px;
-        height: 50.6px;
-      }
-      @include custem-screen(lg, xlg) {
-        width: 54.6px;
-        height: 54.6px;
-      }
-      @include custem-screen(xlg, xxlg) {
-        width: 58.6px;
-        height: 58.6px;
-      }
     }
     &__a {
       font-size: 2.2rem;
@@ -66,6 +42,7 @@
       right: 63px;
       background-color: $nav-dropdown;
       border-radius: 14.6667px;
+      z-index: 1;
     }
     &__nav {
       @media (max-width: 380px) {
