@@ -44,6 +44,16 @@ const routes: Routes = [
     }
   },
   {
+    path: 'Manager',
+    loadChildren: ()=> import('./modules/manager/manager.module').then((m) => m.ManagerModule),
+    // canActivate:[PermissionGuard],
+    // canLoad: [PermissionGuard],
+    data: {
+      title: 'Manager',
+      role: 'manager'
+    }
+  },
+  {
     path: 'Home',
     loadChildren: ()=> import('./modules/Home/home.module').then((m) => m.HomeModule),
     data: {

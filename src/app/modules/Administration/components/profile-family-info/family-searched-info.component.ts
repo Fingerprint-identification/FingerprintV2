@@ -111,7 +111,7 @@ export class FamilySearchedInfoComponent implements OnInit {
       if (userUpdatedData !== 'false') {
         // send request to update
         console.log(userInfo.child)
-        this.signUpAuth.updateUserById(userInfo.child.id, userUpdatedData).subscribe({
+        this.signUpAuth.updateUserById(userInfo.child.id, JSON.stringify(userUpdatedData)).subscribe({
           next: (res) => {
             this.signUpAuth.deleteThisDataWithThisNameFromCookies("userInformation");
             this.signUpAuth.saveThisDataWithThisNameInCookies(res, "userInformation");
@@ -146,10 +146,10 @@ export class FamilySearchedInfoComponent implements OnInit {
   }
   updateFamilyProfileLocal() {
     this.displayedFamilyData = {
-      motherFristName: this.getControlValue('mother_FullName'),
+      motherFristName: "hhhhh",
       motherNotionalId: this.getControlValue('motherId'),
       mothernationality: this.getControlValue('motherNationality'),
-      fatherFristName: this.getControlValue('father_FullName'),
+      fatherFristName: "dddd",
       fatherNotionalId: this.getControlValue('fatherId'),
       fathernationality: this.getControlValue('fatherNationality'),
     }

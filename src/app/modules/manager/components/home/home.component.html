@@ -1,0 +1,101 @@
+<section class="manager center">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <div class="manager__inner center">
+          <div class="manager__inner__header center">
+            <div class="manager__inner__header__logo mb-3">
+              <img src="../../../../../assets/logo/Fingerprint_.webp" alt="...">
+            </div>
+            <h4 class="manager__inner__header__logo-title">
+              Fingerprint Authentication
+            </h4>
+          </div>
+          <hr>
+          <div class="manager__inner__content">
+
+            <form class="manager-info" [formGroup]="managerForm" (change)="FormEdited()" novalidate>
+              <div class="row">
+                <div class="col-6">
+                  <div class="manager-info__content">
+                    <div class="row">
+                      <div class="col-12">
+                        <!-- mather Information -->
+                        <div class="manager-info__content__mother-information">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="manager-info__content__mother-information__title">
+                                <p class="manager-info__content__mother-information__title__p">
+                                  Mother Information
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <!-- mother Information -->
+                              <div class="manager-info__content__mother-information__form">
+                                <!-- mother name-->
+                                <div class="my-3 manager-info__content__mother-information__form__mother-name">
+                                  <label for="mother-name"
+                                    class="form-label manager-info__content__mother-information__form__mother-name__label">
+                                    Mother Name
+                                  </label>
+                                  <input type="text" formControlName="mother_FullName"
+                                    class="form-control manager-info__content__mother-information__form__mother-name__input"
+                                    id="mother-name" placeholder="Lara Samy Ashraf Abdul Basset" />
+                                  <app-validation-errors-component [Form]="managerForm" [control]="'mother_FullName'"
+                                    [minLength]="3" [massegeError]="massegeError"
+                                    *ngIf="managerForm.controls['mother_FullName'].touched || formSubmited">
+                                  </app-validation-errors-component>
+                                </div>
+                                <!-- Mother ID -->
+                                <div class="my-3 manager-info__content__mother-information__form__mother-id">
+                                  <label for="mother-id"
+                                    class="form-label manager-info__content__mother-information__form__mother-id__label">Mother
+                                    ID
+                                  </label>
+                                  <input type="mother-id" formControlName="motherId"
+                                    class="form-control manager-info__content__mother-information__form__mother-id__input"
+                                    id="mother-id" placeholder="3014 353 235 1234" [maxlength]="14" />
+                                  <app-validation-errors-component [Form]="managerForm" [control]="'motherId'"
+                                    [minLength]="14" [maxLength]="14" [massegeError]="massegeError"
+                                    *ngIf="managerForm.controls['motherId'].touched || formSubmited">
+                                  </app-validation-errors-component>
+                                </div>
+                                <!-- Mother nathonality -->
+                                <div class="my-3 manager-info__content__mother-information__form__mother-nationality">
+                                  <label for="mother-nationality"
+                                    class="form-label manager-info__content__mother-nationalityformation__form__mother-nationality__label">Mother
+                                    Nathonality
+                                  </label>
+                                  <input type="mother-nationality" formControlName="motherNationality"
+                                    class="form-control manager-info__content__mother-nationalityformation__form__mother-nationality__input"
+                                    id="mother-nationality" placeholder="Egyptian" />
+                                  <app-validation-errors-component [Form]="managerForm" [control]="'motherNationality'"
+                                    [minLength]="5" [maxLength]="5" [pattern]="'Egyption'" [massegeError]="massegeError"
+                                    *ngIf="managerForm.controls['motherNationality'].touched || formSubmited">
+                                  </app-validation-errors-component>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+
+
+          </div>
+          <div class="manager__inner__footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
