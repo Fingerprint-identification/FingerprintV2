@@ -135,10 +135,10 @@ export class FamilySearchedInfoComponent implements OnInit {
   }
   assignDataToDisplayedFamilyData(data: any) {
     this.displayedFamilyData = {
-      motherFristName: data[0].fristName,
+      motherFristName: data[0].name,
       motherNotionalId: data[0].national_id,
       mothernationality: data[0].nationality,
-      fatherFristName: data[1].fristName,
+      fatherFristName: data[1].name,
       fatherNotionalId: data[1].national_id,
       fathernationality: data[1].nationality
     }

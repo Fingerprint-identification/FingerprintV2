@@ -18,13 +18,14 @@ export class PermissionGuard implements CanActivate, CanLoad {
   canLoad(
     next: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.Token.GetUser() && this.Token.GetUser() === next.path?.toLocaleLowerCase())
+    if (this.Token.GetToken() && this.Token.GetUser() === next.path?.toLocaleLowerCase()){
       return true;
+    }
     return false;
   }
 
   CheckInStorage(next: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.Token.GetUser() && this.Token.GetUser() === next.data['role']) {
+    if (this.Token.GetToken() && this.Token.GetUser() === next.data['role']) {
       return true;
     }
     else {

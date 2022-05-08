@@ -33,7 +33,7 @@ export class SignupApiService implements OnInit {
     return this.http.put(AUTH_API + '/updateUserData/' + id, {updatedData})
   }
   getUserById(id: string): Observable<any>{
-    return this.http.get(AUTH_API + '/id/' + id);
+    return this.http.get(AUTH_API + '/' + id);
   }
   getUserByNationalId(nationalId: string): Observable<any>{
     return this.http.get(AUTH_API + '?search=' + nationalId);

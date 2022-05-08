@@ -14,7 +14,8 @@
           <hr>
           <div class="manager__inner__content">
 
-            <form class="manager__inner__content__manager-info" [formGroup]="adminForm" (ngSubmit)="FormSubmited()" novalidate>
+            <form class="manager__inner__content__manager-info" [formGroup]="adminForm" (ngSubmit)="FormSubmited()"
+              novalidate>
               <div class="row">
                 <div class="col-12">
                   <div class="manager__inner__content__manager-info__content">
@@ -27,7 +28,8 @@
                               <!-- admin Information -->
                               <div class="manager__inner__content__manager-info__content__admin-information__form">
                                 <!-- admin ID -->
-                                <div class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-id">
+                                <div
+                                  class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-id">
                                   <label for="admin-id"
                                     class="form-label manager__inner__content__manager-info__content__admin-information__form__admin-id__label">
                                     ID
@@ -41,7 +43,8 @@
                                   </app-validation-errors-component>
                                 </div>
                                 <!-- admin address-->
-                                <div class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-address">
+                                <div
+                                  class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-address">
                                   <label for="admin-address"
                                     class="form-label manager__inner__content__manager-info__content__admin-information__form__admin-address__label">
                                     Address
@@ -56,7 +59,8 @@
                                 </div>
 
                                 <!-- admin street-->
-                                <div class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-street">
+                                <div
+                                  class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-street">
                                   <label for="admin-street"
                                     class="form-label manager__inner__content__manager-info__content__admin-information__form__admin-street__label">
                                     Street
@@ -71,28 +75,52 @@
                                 </div>
 
                                 <!-- admin password-->
-                                <div class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-password">
+                                <div
+                                  class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-password">
                                   <label for="admin-password"
                                     class="form-label manager__inner__content__manager-info__content__admin-information__form__admin-password__label">
                                     Enter your new password
                                   </label>
                                   <input type="text" formControlName="admin_password"
                                     class="form-control manager__inner__content__manager-info__content__admin-information__form__admin-name__input"
-                                    id="admin-password" placeholder="1111111111"/>
+                                    id="admin-password" placeholder="1111111111" />
                                   <app-validation-errors-component [Form]="adminForm" [control]="'admin_password'"
-                                    [minLength]="8" [massegeError]="massegeError" *ngIf="adminForm.controls['admin_password'].touched || formSubmited">
+                                    [minLength]="8" [massegeError]="massegeError"
+                                    *ngIf="adminForm.controls['admin_password'].touched || formSubmited">
                                   </app-validation-errors-component>
 
                                 </div>
+
+                                <!-- admin phone-->
+                                <div
+                                  class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-phone">
+                                  <label for="admin-phone"
+                                    class="form-label manager__inner__content__manager-info__content__admin-information__form__admin-phone__label">
+                                    phone
+                                  </label>
+                                  <input type="text" formControlName="admin_phone"
+                                    class="form-control manager__inner__content__manager-info__content__admin-information__form__admin-phone__input"
+                                    id="admin-phone" placeholder="01234567891" />
+                                  <app-validation-errors-component [Form]="adminForm" [control]="'admin_phone'"
+                                    [minLength]="10" [maxLength]="10" [pattern]="'loaded without the first 0'"
+                                    [massegeError]="massegeError"
+                                    *ngIf="adminForm.controls['admin_phone'].touched || formSubmited">
+                                  </app-validation-errors-component>
+                                </div>
+
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-4 manager__inner__content__manager-info__content__button">
+                    <button type="submit"
+                      class="btn btn-primary mt-4 manager__inner__content__manager-info__content__button">
                       Add Admin
                     </button>
+                    <a routerLink="/Owner/home/delete" style="background:red !important" class="btn btn-primary mt-4 manager__inner__content__manager-info__content__button" >
+                      Delete Admin
+                    </a>
                   </div>
                 </div>
               </div>

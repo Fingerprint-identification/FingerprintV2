@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
 import { SignupManagerApiService } from './signup-manager-api.service';
 
 @Injectable({
@@ -7,10 +9,10 @@ import { SignupManagerApiService } from './signup-manager-api.service';
 })
 export class SignupManagerService {
 
-  constructor(private cookieService: CookieService, private api: SignupManagerApiService) { }
+  constructor(private cookieService: CookieService, private api: SignupManagerApiService, private router: Router) { }
 
   public clearCookies(): void {
-    this.cookieService.deleteAll();
+    this.cookieService.delete('adminData');
   }
 
   /**
@@ -62,4 +64,19 @@ export class SignupManagerService {
       throw new Error(error.message || error);
     }
   }
+  public deleteAdmin(userId: string){
+    this.api.deleteUserByNationalId(userId).subscribe({
+      next: (_) => {
+        alert("Admin deleted succefully")
+        this.clearCookies();
+        this.router.navigate(['/Owner/home']);
+      },
+      error: (error: any) => {
+        alert(error);
+        this.clearCookies();
+        this.router.navigate(['/Owner/home/delete']);
+      }
+    })
+  }
+
 }

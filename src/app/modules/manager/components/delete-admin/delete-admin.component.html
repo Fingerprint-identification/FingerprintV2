@@ -1,0 +1,84 @@
+<section class="manager center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-8 offset-2">
+        <div class="manager__inner center">
+          <div class="manager__inner__header center">
+            <div class="manager__inner__header__logo mb-3">
+              <img src="../../../../../assets/logo/Fingerprint_.webp" alt="...">
+            </div>
+            <h4 class="manager__inner__header__logo-title">
+              Fingerprint Authentication
+            </h4>
+          </div>
+          <hr>
+          <div class="manager__inner__content">
+
+            <form class="manager__inner__content__manager-info" [formGroup]="adminForm"
+              novalidate>
+              <div class="row">
+                <div class="col-12">
+                  <div class="manager__inner__content__manager-info__content">
+                    <div class="row">
+                      <div class="col-12">
+                        <!-- mather Information -->
+                        <div class="manager__inner__content__manager-info__content__admin-information">
+                          <div class="row">
+                            <div class="col-12">
+                              <!-- admin Information -->
+                              <div class="manager__inner__content__manager-info__content__admin-information__form">
+                                <!-- admin ID -->
+                                <div
+                                  class="my-3 manager__inner__content__manager-info__content__admin-information__form__admin-id">
+                                  <label for="admin-id"
+                                    class="form-label manager__inner__content__manager-info__content__admin-information__form__admin-id__label">
+                                    ID
+                                  </label>
+                                  <input type="admin-id" formControlName="adminId"
+                                    class="form-control manager__inner__content__manager-info__content__admin-information__form__admin-id__input"
+                                    id="admin-id" placeholder="3014 353 235 1234" [maxlength]="14" />
+                                  <app-validation-errors-component [Form]="adminForm" [control]="'adminId'"
+                                    [minLength]="14" [maxLength]="14" [massegeError]="massegeError"
+                                    *ngIf="adminForm.controls['adminId'].touched || formSubmited">
+                                  </app-validation-errors-component>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                     <button
+                    class="btn btn-primary mt-4 manager__inner__content__manager-info__content__button" style="background-color: red;"
+                    data-bs-toggle="modal" data-bs-target="#deleteModel">
+                    Delete User
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="deleteModel" tabindex="-1" aria-labelledby="deleteDiv" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteDiv">Delete User</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          This action can't be undo, and account data can't retrieve
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-danger" (click)="delete()" data-bs-dismiss="modal" >Delete User</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

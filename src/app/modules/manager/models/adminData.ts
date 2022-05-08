@@ -6,7 +6,7 @@ export class AdminData {
     password ?: string;
     passwordConfirm  ?: string;
     name ?: string = "string";
-    phone  ?: string = "01111111113"
+    phone  ?: string;
     email ?: string = "example@gmail.net2";
     nationality  ?: string = "Egyption";
     birthday  ?: Date = new Date('22-03-2022T00:00:00');
@@ -17,7 +17,6 @@ export class AdminData {
     city ?: string = "Cairo";
     disease ?: string[] = ["e","e"];
     fingerprint ?: any[] = [[0],[0]];
-    role ?: string = "admin";
     mother ?: string = "99999999999999";
     father ?: string = "88888888888888";
     constructor(values: AdminData) {

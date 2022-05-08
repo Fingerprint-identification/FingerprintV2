@@ -49,6 +49,12 @@ export class HomeComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
       ]),
+      admin_phone: new FormControl(this.adminData.admin_phone, [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(10),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+      ]),
     });
   }
 
@@ -59,14 +65,15 @@ export class HomeComponent implements OnInit {
     if (this.adminForm.invalid)
       return;
     // check the validation
-    if (this.adminForm.valid){
+    if (this.adminForm.valid) {
       this.adminInfo = new AdminData(
         {
           national_id: this.getControlValue('adminId'),
           alias: this.getControlValue('admin_address'),
           details: this.getControlValue('admin_street'),
           password: this.getControlValue('admin_password'),
-          passwordConfirm: this.getControlValue('admin_password')
+          passwordConfirm: this.getControlValue('admin_password'),
+          phone: this.getControlValue('admin_phone')
         }
       )
       this.signUpAuth.addAdmin(this.adminInfo).then(
@@ -75,14 +82,15 @@ export class HomeComponent implements OnInit {
           // delete all data in localStorage after submitting
           this.signUpAuth.clearCookies();
           window.location.reload();
-          // this.router.navigate(['/Manager/home']);
+          this.router.navigate(['/Owner/home']);
         }).catch(error => {
           alert("Opps, Some data have problem: User " + error.message)
         });
     }
+    console.log(this.adminForm.value)
     this.signUpAuth.saveThisDataWithThisNameInCookies(this.adminForm.value, "adminData");
   }
-  getControlValue(control: string): any{
+  getControlValue(control: string): any {
     return this.adminForm.get(control)?.value;
   }
 }

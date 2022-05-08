@@ -44,11 +44,14 @@ const routes: Routes = [
     }
   },
   {
-    path: 'Manager',
-      loadChildren:() => import('./modules/manager/manager.module').then((m) => m.ManagerModule)
-    // canActivate:[PermissionGuard],
-    // canLoad: [PermissionGuard],
-
+    path: 'Owner',
+    loadChildren:() => import('./modules/manager/manager.module').then((m) => m.ManagerModule),
+    canActivate:[PermissionGuard],
+    canLoad: [PermissionGuard],
+    data: {
+      title: 'Owner',
+      role: 'owner'
+    }
   },
   {
     path: 'Home',

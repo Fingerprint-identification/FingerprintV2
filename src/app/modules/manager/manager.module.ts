@@ -5,12 +5,14 @@ import { SharedComponentsModule } from '../shared-components/shared-components.m
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { DeleteAdminComponent } from './components/delete-admin/delete-admin.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ManagerDashboardComponent
+    ManagerDashboardComponent,
+    DeleteAdminComponent
   ],
   imports: [
     CommonModule,

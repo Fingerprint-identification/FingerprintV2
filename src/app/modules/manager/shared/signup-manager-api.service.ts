@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 import { environment } from 'src/environments/environment';
 
@@ -25,5 +26,9 @@ export class SignupManagerApiService {
       body: JSON.stringify(adminData),
     };
     return fetch(AUTH_API+'/owner', requestOptions);
+  }
+
+  deleteUserByNationalId(userId: string): Observable<any>{
+    return this.http.delete(AUTH_API + '/' + userId);
   }
 }

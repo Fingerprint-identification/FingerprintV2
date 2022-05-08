@@ -130,6 +130,7 @@ export class SignupService {
     this.deleteThisDataWithThisNameFromCookies("familyProfile");
     this.deleteThisDataWithThisNameFromCookies("userInformation");
     this.deleteThisDataWithThisNameFromCookies("userUpdatedData");
+    this.deleteThisDataWithThisNameFromCookies("loadingDiv");
     window.localStorage.clear();
   }
 

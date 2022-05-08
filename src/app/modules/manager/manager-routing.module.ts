@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router';
+import { DeleteAdminComponent } from './components/delete-admin/delete-admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { ManagerDashboardComponent } from './pages/manager-dashboard/manager-dashboard.component';
 
@@ -11,6 +12,10 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'delete',
+        component: DeleteAdminComponent
       }
     ]
   },
