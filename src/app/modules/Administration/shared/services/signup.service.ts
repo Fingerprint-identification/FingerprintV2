@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CookieService } from 'ngx-cookie-service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { SignupApiService } from './signup-api.service';
 
@@ -18,6 +18,7 @@ import { SignupApiService } from './signup-api.service';
 export class SignupService {
   private uploadedImg$ = new BehaviorSubject<boolean>(false);
   __uploadedImg$ = this.uploadedImg$.asObservable();
+  checkTheLightCom : Subject<any> = new Subject();
 
   /**
    * @param api access functions in SignupApiService
@@ -230,4 +231,5 @@ export class SignupService {
     alert("Opps, User Not Founded!!");
     this.router.navigate(['/Admin/checkFingerprint']);
   }
+
 }

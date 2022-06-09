@@ -92,11 +92,10 @@ export class UserSearchedInfoComponent implements OnInit {
   FormEdited() {
     // check the validation
     if (this.userForm.valid) {
-      this.signUpAuth.makeValidationOf("userProfileForm", "valid")
+      this.signUpAuth.makeValidationOf("userProfileForm", "valid");
     }
     else
       this.signUpAuth.makeValidationOf("userProfileForm", "invalid");
-
   }
   userEditInfo(key: keyof PersonalData, value: any) {
     this.updatedData[key] = value;

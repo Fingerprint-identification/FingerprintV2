@@ -91,10 +91,12 @@ export class UserInfoComponent implements OnInit {
   FormEdited() {
     // check the validation
     if (this.userForm.valid) {
-      this.signUpAuth.makeValidationOf("userForm", "valid")
+      this.signUpAuth.makeValidationOf("userForm", "valid");
     }
     else
       this.signUpAuth.makeValidationOf("userForm", "invalid");
+
+      this.signUpAuth.checkTheLightCom.next(null);
     // store data entered by admin about user info
     this.signUpAuth.saveThisDataWithThisNameInCookies(this.userForm.value, "userData");
   }

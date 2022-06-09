@@ -70,12 +70,17 @@ export class UserFamilyInfoComponent implements OnInit {
   /**
    * this method detect data entered by user about family edited or not
    */
+
   FormEdited() {
     // check the validation
-    if(this.familyForm.valid)
-      this.signUpAuth.makeValidationOf("familyForm", "valid")
+    if(this.familyForm.valid){
+      this.signUpAuth.makeValidationOf("familyForm", "valid");
+    }
     else
       this.signUpAuth.makeValidationOf("familyForm", "invalid")
+
+      this.signUpAuth.checkTheLightCom.next(null);
+
     // store data entered by admin about family
     this.signUpAuth.saveThisDataWithThisNameInCookies(this.familyForm.value, "familyData");
   }

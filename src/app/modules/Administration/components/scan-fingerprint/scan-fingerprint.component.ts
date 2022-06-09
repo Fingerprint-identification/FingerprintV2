@@ -51,6 +51,7 @@ export class ScanFingerprintComponent implements OnInit {
     else {
       this.faild();
     }
+    this.signUpAuth.checkTheLightCom.next(null);
   }
   faild() {
     this.ImgUploaded = false;

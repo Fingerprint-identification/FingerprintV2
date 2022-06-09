@@ -3,7 +3,7 @@
     <div class="dashboard__component-icons">
       <div class="dashboard__component-icons__icon-div" >
         <div class="dashboard__component-icons__icon-div__icon">
-          <i class="bi bi-fingerprint dashboard__component-icons__icon-div__icon__i"></i>
+          <i class="bi bi-fingerprint dashboard__component-icons__icon-div__icon__i" [ngClass]="{'green': light['scan'] == true}"></i>
         </div>
         <p class="dashboard__component-icons__icon-div__icon-title">
           Scan Fingerprint
@@ -11,7 +11,7 @@
       </div>
       <div class="dashboard__component-icons__icon-div">
         <div class="dashboard__component-icons__icon-div__icon">
-          <i class="bi bi-journal-check dashboard__component-icons__icon-div__icon__i"></i>
+          <i class="bi bi-journal-check dashboard__component-icons__icon-div__icon__i"  [ngClass]="{'green': light['userForm'] == true}"></i>
         </div>
         <p class="dashboard__component-icons__icon-div__icon-title">
           Fill User Information
@@ -19,7 +19,7 @@
       </div>
       <div class="dashboard__component-icons__icon-div">
         <div class="dashboard__component-icons__icon-div__icon">
-          <i class="bi bi-journal-check dashboard__component-icons__icon-div__icon__i"></i>
+          <i class="bi bi-journal-check dashboard__component-icons__icon-div__icon__i"  [ngClass]="{'green': light['familyForm'] == true}"></i>
         </div>
         <p class="dashboard__component-icons__icon-div__icon-title">
           Fill User's Family Info
@@ -27,7 +27,7 @@
       </div>
       <div class="dashboard__component-icons__icon-div">
         <div class="dashboard__component-icons__icon-div__icon dashboard__component-icons__icon-div__icon-last">
-          <i class="bi bi-check-lg dashboard__component-icons__icon-div__icon__i"></i>
+          <i class="bi bi-check-lg dashboard__component-icons__icon-div__icon__i"  [ngClass]="{'green': light['done'] == true}"></i>
         </div>
         <p class="dashboard__component-icons__icon-div__icon-title" style="padding-right: 1.1rem;">
           Done!

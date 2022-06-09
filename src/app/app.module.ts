@@ -27,7 +27,6 @@ import { SharedComponentsModule } from './modules/shared-components/shared-compo
 
 import { CookieService } from 'ngx-cookie-service';
 
-
 /**
  * App module
  */

@@ -2,6 +2,14 @@
 @use "~../../../../../../scss/helpers/colors" as *;
 @use "~../../../../../../scss/helpers/mixins" as *;
 
+
+.green{
+  color: $accept !important;
+}
+.gray{
+  color: $gray-color !important;
+}
+
 .row {
   position: sticky;
   top: 0;
