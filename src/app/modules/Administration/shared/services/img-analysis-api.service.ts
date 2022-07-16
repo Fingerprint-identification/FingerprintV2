@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
-const Img_API = "https://4b2e-197-54-12-73.ngrok.io/";
+const Img_API = environment.imageUrl;
 
 @Injectable({
   providedIn: 'root'

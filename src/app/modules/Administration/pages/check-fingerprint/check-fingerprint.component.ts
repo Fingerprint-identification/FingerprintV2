@@ -31,6 +31,7 @@ export class CheckFingerprintComponent implements OnInit {
       formData.append("originalImg", file);
       this.imgAnalysisAuth.sendImgToCompare(formData)
         .then((result: any) => {
+          console.log("result: ", result)
           if (result.status === 200) {
             this.signUpAuth.getUserById(result.message);
           } else if (result.status === 404) {
@@ -52,6 +53,7 @@ export class CheckFingerprintComponent implements OnInit {
     this.signUpAuth.getUserByNationalId(this.national_id);
   }
   faild(){
+    console.log("D")
     this.signUpAuth.imgUploaded(false);
     this.ImgUploaded = false;
     this.router.navigate(['/Admin/checkFingerprint']);

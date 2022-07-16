@@ -41,8 +41,9 @@ export class FamilySearchedInfoComponent implements OnInit {
       this.familyData = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation");
       // store user national id
       this.userId = this.signUpAuth.getThisDataWithThisNameFromCookies("userInformation")._id;
+      console.log("family", this.familyData)
       // store data that admin sent for family
-      this.assignDataToDisplayedFamilyData([this.familyData.mother_id, this.familyData.father_id]);
+      this.assignDataToDisplayedFamilyData([this.familyData?.mother_id, this.familyData?.father_id]);
     }
     else {// Get familyData stored in cookies to put it into formControl value to display to admin for access it
       this.displayedFamilyData = this.signUpAuth.getThisDataWithThisNameFromCookies("familyProfile");
@@ -134,6 +135,7 @@ export class FamilySearchedInfoComponent implements OnInit {
     }
   }
   assignDataToDisplayedFamilyData(data: any) {
+    console.log(data[0], data[0].name);
     this.displayedFamilyData = {
       motherFristName: data[0].name,
       motherNotionalId: data[0].national_id,

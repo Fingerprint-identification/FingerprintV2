@@ -7,7 +7,8 @@
  */
 export const environment = {
   production: false,
-  apiUrl: 'https://fingerprint-identify.herokuapp.com/'
+  apiUrl: 'https://fingerprint-identify.herokuapp.com/',
+  imageUrl: 'https://dff9-197-54-18-223.ngrok.io/'
 };
 
 
